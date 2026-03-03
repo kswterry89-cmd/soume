@@ -1088,7 +1088,7 @@ app.get('/', (c) => {
       <div class="model-panel-badge">Beauty Model</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Premium Skincare</span>
-        <h3 class="model-panel-name">SORA<br/>뷰티 모델</h3>
+        <h3 class="model-panel-name">Soumé<br/>뷰티 모델</h3>
         <p class="model-panel-desc">프리미엄 스킨케어 라인을 대표하는 뷰티 모델. 포슬린 스킨과 세련된 무드.</p>
       </div>
     </div>
@@ -1112,7 +1112,7 @@ app.get('/', (c) => {
       <div class="model-panel-badge">Product</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Product Campaign</span>
-        <h3 class="model-panel-name">SORA<br/>제품 캠페인</h3>
+        <h3 class="model-panel-name">Soumé<br/>제품 캠페인</h3>
         <p class="model-panel-desc">Soumé 세럼을 손에 든 시그니처 뷰티 캠페인 비주얼.</p>
       </div>
     </div>
