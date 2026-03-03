@@ -1109,16 +1109,16 @@ app.get('/', (c) => {
   <!-- 풀스크린 슬라이드 -->
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" data-slide="0">
-      <img src="/static/model-hero-duo.jpg" alt="Soumé Campaign — Duo" />
+      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Soumé Campaign — Ocean Breeze 1" />
     </div>
     <div class="hero-slide" data-slide="1">
-      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé Campaign — Ocean Breeze" />
+      <img src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Soumé Campaign — Ocean Breeze Campaign" />
     </div>
     <div class="hero-slide" data-slide="2">
-      <img src="/static/model-fashion.jpg" alt="Soumé Campaign — Fashion" />
+      <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Soumé Campaign — Ocean Breeze 2" />
     </div>
     <div class="hero-slide" data-slide="3">
-      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé Campaign — Ocean Breeze Product" />
+      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Soumé Campaign — Ocean Breeze Product" />
     </div>
   </div>
 
@@ -1154,11 +1154,11 @@ app.get('/', (c) => {
     <div class="hero-text">
       <p class="hero-eyebrow">Clean Beauty · Korea</p>
       <h1 class="hero-headline" id="heroHeadline">
-        피부가 원하는<br/>
-        <em>단 하나의 선택</em>
+        Ocean Breeze<br/>
+        <em>캠페인 시작</em>
       </h1>
       <p class="hero-sub" id="heroSub">
-        유해 성분 없이 만든 클린 포뮬러.<br/>과학적으로 검증된 유효 성분으로 피부 본연의 건강을 되찾아드립니다.
+        상큼한 오션 향이 나는 프리미엄 바디 로션 스프레이.<br/>유효 성분으로 피부에 생기를 더해드립니다.
       </p>
       <div class="hero-actions">
         <a href="#products" class="btn-hero-primary">
@@ -1167,7 +1167,7 @@ app.get('/', (c) => {
             <path d="M3 8h10M9 4l4 4-4 4"/>
           </svg>
         </a>
-        <a href="#about" class="btn-hero-ghost">브랜드 스토리</a>
+        <a href="#about" class="btn-hero-ghost">제품 정보</a>
       </div>
     </div>
   </div>
@@ -1176,31 +1176,31 @@ app.get('/', (c) => {
   <div class="hero-nav" id="heroNavPanel">
     <button class="hero-nav-item active" onclick="goSlide(0)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">Campaign</span>
-        <span class="hero-nav-role">Duo Visual</span>
+        <span class="hero-nav-name">Product 1</span>
+        <span class="hero-nav-role">Body Lotion</span>
       </div>
-      <img class="hero-nav-thumb" src="/static/model-hero-duo.jpg" alt="Duo" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze 1" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(1)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">Ocean Breeze</span>
-        <span class="hero-nav-role">Product Campaign</span>
+        <span class="hero-nav-name">Campaign</span>
+        <span class="hero-nav-role">Duo Campaign</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Ocean Breeze Campaign" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(2)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">Collection</span>
-        <span class="hero-nav-role">Fashion Editorial</span>
+        <span class="hero-nav-name">Product 2</span>
+        <span class="hero-nav-role">Body Spray</span>
       </div>
-      <img class="hero-nav-thumb" src="/static/model-fashion.jpg" alt="Fashion" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze 2" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(3)">
       <div class="hero-nav-info">
         <span class="hero-nav-name">Ocean Breeze</span>
-        <span class="hero-nav-role">Product Campaign</span>
+        <span class="hero-nav-role">Full Collection</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Collection" />
     </button>
   </div>
 
@@ -1218,17 +1218,17 @@ app.get('/', (c) => {
 <div class="strip">
   <div class="strip-track">
     <div class="strip-item"><span class="strip-text">Clean Beauty</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Science-Backed</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Ocean Breeze</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Body Lotion Spray</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Perfumed Care</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Effective Ingredients</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Dermatologist Tested</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Harmful Substances Excluded</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Sustainable Packaging</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Made in Korea</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Clean Beauty</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Science-Backed</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Ocean Breeze</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Body Lotion Spray</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Perfumed Care</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Effective Ingredients</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Dermatologist Tested</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Harmful Substances Excluded</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Sustainable Packaging</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Made in Korea</span><span class="strip-dot"></span></div>
   </div>
@@ -1239,56 +1239,56 @@ app.get('/', (c) => {
   <div class="models-head">
     <p class="tag r">Campaign Visuals</p>
     <h2 class="models-title r d1">
-      클린뷰티의<br/>
-      <em>다양한 표정</em>
+      Ocean Breeze<br/>
+      <em>캠페인 갤러리</em>
     </h2>
     <p class="models-sub r d2">
-      유효 성분으로 표현되는 클린뷰티의 세계.<br/>여러 캠페인 비주얼로 만나보세요.
+      프리미엄 바디 로션 스프레이의 모든 매력.<br/>다양한 캠페인 이미지로 만나보세요.
     </p>
   </div>
 
   <div class="models-panorama r">
     <div class="model-panel">
-      <img src="/static/model-hero-duo.jpg" alt="Soumé Duo Campaign" />
+      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Product 1" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Campaign 2024</div>
+      <div class="model-panel-badge">NEW</div>
+      <div class="model-panel-info">
+        <span class="model-panel-tag">Product Visual</span>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Body Lotion</h3>
+        <p class="model-panel-desc">상큼한 오션 향의 프리미엄 바디 로션</p>
+      </div>
+    </div>
+
+    <div class="model-panel">
+      <img src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Ocean Breeze Campaign" />
+      <div class="model-panel-overlay"></div>
+      <div class="model-panel-badge">Campaign</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Campaign Visual</span>
-        <h3 class="model-panel-name">Pure Glow<br/>Campaign</h3>
-        <p class="model-panel-desc">클린뷰티의 아름다움을 표현한 플래그십 캠페인</p>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Duo Campaign</h3>
+        <p class="model-panel-desc">우아한 듀오 캠페인 이미지</p>
       </div>
     </div>
 
     <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze Campaign" />
+      <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze Product 2" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Product</div>
+      <div class="model-panel-badge">BEST</div>
       <div class="model-panel-info">
-        <span class="model-panel-tag">Product Campaign</span>
-        <h3 class="model-panel-name">Ocean Breeze<br/>Essence</h3>
-        <p class="model-panel-desc">상큼한 오션 향이 나는 프리미엄 에센스</p>
+        <span class="model-panel-tag">Product Visual</span>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Body Spray</h3>
+        <p class="model-panel-desc">편리한 스프레이 타입의 바디 케어</p>
       </div>
     </div>
 
     <div class="model-panel">
-      <img src="/static/model-fashion.jpg" alt="Fashion Editorial" />
+      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Collection" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Editorial</div>
+      <div class="model-panel-badge">Collection</div>
       <div class="model-panel-info">
-        <span class="model-panel-tag">Fashion Editorial</span>
-        <h3 class="model-panel-name">패션<br/>에디토리얼</h3>
-        <p class="model-panel-desc">럭셔리 스타일로 표현하는 클린뷰티</p>
-      </div>
-    </div>
-
-    <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze Product" />
-      <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Best Seller</div>
-      <div class="model-panel-info">
-        <span class="model-panel-tag">Product Campaign</span>
-        <h3 class="model-panel-name">Ocean Breeze<br/>Campaign</h3>
-        <p class="model-panel-desc">유효 성분을 강조하는 시그니처 캠페인</p>
+        <span class="model-panel-tag">Full Collection</span>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Collection</h3>
+        <p class="model-panel-desc">프리미엄 바디 케어 풀 라인업</p>
       </div>
     </div>
   </div>
@@ -1299,25 +1299,25 @@ app.get('/', (c) => {
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <p class="tag r">Our Story</p>
-        <h2 class="h2 r d1">불필요한 것을 덜고,<br/><em>본질만 남긴</em> 뷰티</h2>
+        <p class="tag r">Product Story</p>
+        <h2 class="h2 r d1">Ocean Breeze<br/><em>프리미엄 바디 케어</em></h2>
         <p class="about-p r d2">
-          Soumé는 순수함에서 시작했습니다. 피부에 해로운 성분을 제거하고,
-          자연에서 온 최상의 원료와 첨단 과학을 결합해 진짜 피부 변화를 만들어냅니다.
+          상큼한 오션 향이 담긴 Ocean Breeze는 피부에 활력을 더하는 프리미엄 바디 로션 스프레이입니다.
+          유효 성분으로 배합된 순수한 포뮬러가 피부에 생기와 윤기를 더해줍니다.
         </p>
         <p class="about-p r d3">
-          10대부터 40대까지, 모든 피부가 건강하게 빛날 수 있도록.
-          클린뷰티를 시작으로 확장된 솔루션까지 함께 성장하는 브랜드를 만들어갑니다.
+          바쁜 일상 속에서도 간편하게 사용할 수 있는 스프레이 타입으로, 어디서든 빠르게 피부를 가꿀 수 있습니다.
+          Soumé의 정성이 담긴 Ocean Breeze로 매일의 피부 케어를 더욱 특별하게 만들어보세요.
         </p>
-        <a href="#philosophy" class="about-link r d4">브랜드 철학 →</a>
+        <a href="#products" class="about-link r d4">제품 보기 →</a>
       </div>
       <div class="about-visual r d2">
         <div class="about-img-wrap">
-          <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé — Ocean Breeze" />
+          <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze Product" />
         </div>
         <div class="about-float">
           <div class="about-float-num">100%</div>
-          <div class="about-float-lbl">Clean<br/>Formula</div>
+          <div class="about-float-lbl">Pure<br/>Formula</div>
         </div>
       </div>
     </div>
@@ -1330,24 +1330,24 @@ app.get('/', (c) => {
     <div class="values-head">
       <div>
         <p class="tag r">Brand Values</p>
-        <h2 class="h2 r d1">Soumé가 지키는 원칙</h2>
+        <h2 class="h2 r d1">Ocean Breeze가 지키는 원칙</h2>
       </div>
     </div>
     <div class="values-grid">
       <div class="val-card r d1">
         <div class="val-num">01</div>
-        <h3 class="val-title">Clean Formula</h3>
-        <p class="val-desc">해로운 성분을 제외하고 순수한 유효 성분만 담았습니다. 엄격한 기준에 따라 포뮬러를 검증합니다.</p>
+        <h3 class="val-title">Pure Formula</h3>
+        <p class="val-desc">해로운 성분 없이 만든 순수한 포뮬러. 유효 성분만으로 피부에 활력을 더합니다.</p>
       </div>
       <div class="val-card r d2">
         <div class="val-num">02</div>
-        <h3 class="val-title">Science-Backed</h3>
-        <p class="val-desc">과학적 연구와 테스트를 통해 개발된 포뮬러. 전문가가 검증한 배합으로 눈에 보이는 피부 변화를 만들어냅니다.</p>
+        <h3 class="val-title">Effective Care</h3>
+        <p class="val-desc">과학적으로 검증된 유효 성분의 배합. 빠르고 눈에 보이는 피부 개선을 경험하세요.</p>
       </div>
       <div class="val-card r d3">
         <div class="val-num">03</div>
         <h3 class="val-title">Sustainable</h3>
-        <p class="val-desc">친환경 패키징으로 효과적인 제품을 지속 가능하게 제공합니다. 환경을 생각하는 뷰티를 실천합니다.</p>
+        <p class="val-desc">친환경 패키징으로 제공되는 프리미엄 제품. 환경을 생각하는 뷰티를 실천합니다.</p>
       </div>
     </div>
   </div>
@@ -1358,81 +1358,81 @@ app.get('/', (c) => {
   <div class="container">
     <div class="prod-head">
       <div>
-        <p class="tag r">Skincare Collection</p>
-        <h2 class="h2 r d1">피부를 위한<br/><em>첫 번째 선택</em></h2>
+        <p class="tag r">Collection</p>
+        <h2 class="h2 r d1">Ocean Breeze<br/><em>제품 라인</em></h2>
       </div>
       <div class="prod-filters r d2">
         <button class="f-btn on" onclick="filter('all',this)">All</button>
-        <button class="f-btn" onclick="filter('serum',this)">Serum</button>
-        <button class="f-btn" onclick="filter('moist',this)">Moisturizer</button>
-        <button class="f-btn" onclick="filter('clean',this)">Cleanser</button>
+        <button class="f-btn" onclick="filter('lotion',this)">Lotion</button>
+        <button class="f-btn" onclick="filter('spray',this)">Spray</button>
+        <button class="f-btn" onclick="filter('care',this)">Care</button>
       </div>
     </div>
     <div class="prod-grid" id="prodGrid">
-      <div class="prod-card r d1" data-cat="serum">
+      <div class="prod-card r d1" data-cat="lotion">
         <div class="prod-img" style="background:linear-gradient(145deg,#EDE0D4,#D4C5B0)">
           <span class="prod-img-ico">💧</span>
           <span class="prod-badge b-best">BEST</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Brightening Serum</p>
-        <h3 class="prod-name">Pure Glow Serum</h3>
-        <p class="prod-sub">고효능 유효 성분으로 맑고 투명한 피부톤</p>
-        <p class="prod-price">₩ 48,000</p>
+        <p class="prod-cat">Body Lotion</p>
+        <h3 class="prod-name">Ocean Breeze Lotion</h3>
+        <p class="prod-sub">상큼한 오션 향의 프리미엄 바디 로션</p>
+        <p class="prod-price">₩ 45,000</p>
       </div>
-      <div class="prod-card r d2" data-cat="moist">
+      <div class="prod-card r d2" data-cat="spray">
         <div class="prod-img" style="background:linear-gradient(145deg,#D8E8D4,#B8D4B0)">
-          <span class="prod-img-ico">🌿</span>
+          <span class="prod-img-ico">🌊</span>
           <span class="prod-badge b-new">NEW</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Deep Moisturizer</p>
-        <h3 class="prod-name">Barrier Calm Cream</h3>
-        <p class="prod-sub">유효 성분으로 보습, 손상된 피부 장벽 강화</p>
-        <p class="prod-price">₩ 52,000</p>
+        <p class="prod-cat">Body Spray</p>
+        <h3 class="prod-name">Ocean Breeze Spray</h3>
+        <p class="prod-sub">편리한 스프레이 타입의 향기로운 바디 케어</p>
+        <p class="prod-price">₩ 32,000</p>
       </div>
-      <div class="prod-card r d3" data-cat="clean">
+      <div class="prod-card r d3" data-cat="care">
         <div class="prod-img" style="background:linear-gradient(145deg,#F0E8E0,#DDD0C0)">
-          <span class="prod-img-ico">🫧</span>
-          <span class="prod-badge b-eco">CLEAN</span>
+          <span class="prod-img-ico">✨</span>
+          <span class="prod-badge b-eco">Pure</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Gentle Cleanser</p>
-        <h3 class="prod-name">Soft Reset Foam</h3>
-        <p class="prod-sub">순한 클렌징, pH 밸런스 유지로 피부 장벽 보호</p>
-        <p class="prod-price">₩ 28,000</p>
+        <p class="prod-cat">Body Care</p>
+        <h3 class="prod-name">Ocean Breeze Serum</h3>
+        <p class="prod-sub">고농축 유효 성분의 집중 바디 세럼</p>
+        <p class="prod-price">₩ 38,000</p>
       </div>
-      <div class="prod-card r d1" data-cat="serum">
+      <div class="prod-card r d1" data-cat="lotion">
         <div class="prod-img" style="background:linear-gradient(145deg,#E0D8F0,#C8B8E0)">
           <span class="prod-img-ico">🌙</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Night Repair Serum</p>
-        <h3 class="prod-name">Midnight Restore</h3>
-        <p class="prod-sub">수면 중 피부 재생, 유효 성분 안티에이징</p>
-        <p class="prod-price"><span class="prod-price-orig">₩ 68,000</span>₩ 58,000</p>
+        <p class="prod-cat">Night Care</p>
+        <h3 class="prod-name">Ocean Breeze Night</h3>
+        <p class="prod-sub">밤중 피부 재생을 위한 나이트 바디 케어</p>
+        <p class="prod-price"><span class="prod-price-orig">₩ 52,000</span>₩ 45,000</p>
       </div>
-      <div class="prod-card r d2" data-cat="moist">
+      <div class="prod-card r d2" data-cat="spray">
         <div class="prod-img" style="background:linear-gradient(145deg,#F8F0E0,#E8D8C0)">
           <span class="prod-img-ico">☀️</span>
           <span class="prod-badge b-best">BEST</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Daily Sunscreen</p>
-        <h3 class="prod-name">Veil Sun Fluid</h3>
-        <p class="prod-sub">SPF 50+ PA++++, 백탁 없는 물광 마무리</p>
-        <p class="prod-price">₩ 38,000</p>
+        <p class="prod-cat">Day Spray</p>
+        <h3 class="prod-name">Ocean Breeze Day</h3>
+        <p class="prod-sub">낮 시간용 상큼한 향의 바디 스프레이</p>
+        <p class="prod-price">₩ 35,000</p>
       </div>
-      <div class="prod-card r d3" data-cat="clean">
+      <div class="prod-card r d3" data-cat="care">
         <div class="prod-img" style="background:linear-gradient(145deg,#E8F0E8,#C8D8C8)">
           <span class="prod-img-ico">🍃</span>
           <span class="prod-badge b-new">NEW</span>
           <div class="prod-hover"><button class="prod-hover-btn">자세히 보기</button></div>
         </div>
-        <p class="prod-cat">Cleansing Oil</p>
-        <h3 class="prod-name">Green Melt Oil</h3>
-        <p class="prod-sub">클린 오일 블렌드, 메이크업 완벽 제거</p>
-        <p class="prod-price">₩ 34,000</p>
+        <p class="prod-cat">Body Essence</p>
+        <h3 class="prod-name">Ocean Breeze Essence</h3>
+        <p class="prod-sub">피부 흡수력을 높이는 바디 에센스</p>
+        <p class="prod-price">₩ 42,000</p>
       </div>
     </div>
   </div>
@@ -1442,29 +1442,29 @@ app.get('/', (c) => {
 <section class="section promise" id="ingredients">
   <div class="container">
     <div class="promise-top r">
-      <p class="tag">The Soumé Standard</p>
-      <h2 class="h2 r d1">성분에 대한<br/><em>우리의 약속</em></h2>
-      <p class="promise-lead r d2">Soumé는 무엇을 넣을지보다 <strong>무엇을 넣지 않을지</strong>를 먼저 생각합니다.<br/>순수한 유효 성분으로만 빛나는 피부를 만드는 것, 그것이 우리의 약속입니다.</p>
+      <p class="tag">Pure & Effective</p>
+      <h2 class="h2 r d1">Ocean Breeze의<br/><em>포뮬러 철학</em></h2>
+      <p class="promise-lead r d2">Ocean Breeze는 해로운 성분을 제외하고 <strong>유효 성분만으로</strong> 만들어집니다.<br/>상큼한 오션 향과 순수한 포뮬러로 매일의 피부를 가꿔보세요.</p>
     </div>
     <div class="promise-cards">
       <div class="p-card p-card-lg r d1">
         <div class="p-card-inner" style="background:linear-gradient(135deg,#F2EDE4 0%,#E8DDD0 100%)">
-          <div class="p-card-icon">🌿</div>
+          <div class="p-card-icon">🌊</div>
           <div>
             <span class="p-card-tag">원칙 01</span>
-            <h3 class="p-card-h">No Harmful<br/>Substances</h3>
-            <p class="p-card-p">해로운 성분을 제외한 순수한 포뮬러. 피부에 필요 없는 것은 처음부터 배제합니다.</p>
+            <h3 class="p-card-h">Ocean-Inspired<br/>Fragrance</h3>
+            <p class="p-card-p">상큼하고 깨끗한 오션 향이 피부를 감싸며, 매일의 케어를 특별한 경험으로 만들어줍니다.</p>
           </div>
           <div class="p-card-num">01</div>
         </div>
       </div>
       <div class="p-card r d2">
         <div class="p-card-inner" style="background:linear-gradient(135deg,#EAF0E8 0%,#D8E4D4 100%)">
-          <div class="p-card-icon">🔬</div>
+          <div class="p-card-icon">✨</div>
           <div>
             <span class="p-card-tag">원칙 02</span>
-            <h3 class="p-card-h">Science<br/>Meets Nature</h3>
-            <p class="p-card-p">자연 유래 유효 성분을 과학적으로 검증한 배합. 눈에 보이는 피부 변화를 만듭니다.</p>
+            <h3 class="p-card-h">Pure Effective<br/>Formula</h3>
+            <p class="p-card-p">해로운 성분 없이 유효 성분만으로 배합. 과학적으로 검증된 피부 개선 효과를 경험하세요.</p>
           </div>
           <div class="p-card-num">02</div>
         </div>
@@ -1474,8 +1474,8 @@ app.get('/', (c) => {
           <div class="p-card-icon">♻️</div>
           <div>
             <span class="p-card-tag">원칙 03</span>
-            <h3 class="p-card-h">Sustainable<br/>Beauty</h3>
-            <p class="p-card-p">친환경 패키징으로 제품의 효능을 지속 가능하게 제공합니다.</p>
+            <h3 class="p-card-h">Eco-Conscious<br/>Packaging</h3>
+            <p class="p-card-p">친환경 패키징으로 프리미엄 제품을 지속 가능하게 제공합니다.</p>
           </div>
           <div class="p-card-num">03</div>
         </div>
@@ -1486,7 +1486,7 @@ app.get('/', (c) => {
       <div class="ps-div"></div>
       <div class="ps-item"><div class="ps-num">0</div><div class="ps-label">Harmful Ingredients</div></div>
       <div class="ps-div"></div>
-      <div class="ps-item"><div class="ps-num">∞</div><div class="ps-label">Effective Results</div></div>
+      <div class="ps-item"><div class="ps-num">∞</div><div class="ps-label">Effective Care</div></div>
       <div class="ps-div"></div>
       <div class="ps-item"><div class="ps-num">All</div><div class="ps-label">Skin Types</div></div>
     </div>
@@ -1497,32 +1497,32 @@ app.get('/', (c) => {
 <section class="section philos" id="philosophy">
   <div class="container">
     <p class="tag r">Our Philosophy</p>
-    <h2 class="h2 r d1">클린뷰티,<br/>그 이상의 <em>의미</em></h2>
+    <h2 class="h2 r d1">Ocean Breeze<br/>그 이상의 <em>의미</em></h2>
     <div class="philos-grid">
       <blockquote class="philos-quote r d1">
-        "아름다움은 복잡하지 않아야 한다.<br/>
-        피부가 <em>원하는 것</em>을 주면, 나머지는 피부가 해결한다."
+        "바다의 향기로,<br/>
+        피부에 <em>활력을 더하다.</em>"
       </blockquote>
       <div class="philos-points r d2">
         <div class="philos-pt">
-          <div class="philos-ico">🚫</div>
+          <div class="philos-ico">🌊</div>
           <div>
-            <h3 class="philos-pt-h">No Harmful Ingredients</h3>
-            <p class="philos-pt-p">해로운 성분을 사용하지 않습니다. 순수한 유효 성분만으로 피부를 책임집니다.</p>
+            <h3 class="philos-pt-h">Ocean's Gift</h3>
+            <p class="philos-pt-p">바다의 순수함을 담은 향. 매일의 피부를 위한 선물 같은 경험을 선사합니다.</p>
           </div>
         </div>
         <div class="philos-pt">
           <div class="philos-ico">✨</div>
           <div>
             <h3 class="philos-pt-h">Effective Results</h3>
-            <p class="philos-pt-p">유효 성분의 과학적 검증. 빠르고 눈에 보이는 피부 변화를 경험하세요.</p>
+            <p class="philos-pt-p">과학적으로 검증된 유효 성분. 빠르고 확실한 피부 개선을 경험하세요.</p>
           </div>
         </div>
         <div class="philos-pt">
           <div class="philos-ico">♻️</div>
           <div>
-            <h3 class="philos-pt-h">Eco Packaging</h3>
-            <p class="philos-pt-p">재활용 가능한 소재로 친환경 뷰티를 실천합니다.</p>
+            <h3 class="philos-pt-h">Sustainable Care</h3>
+            <p class="philos-pt-p">환경을 생각하는 친환경 패키징. 지속 가능한 뷰티를 실천합니다.</p>
           </div>
         </div>
       </div>
@@ -1534,42 +1534,28 @@ app.get('/', (c) => {
 <section class="section routine">
   <div class="container">
     <p class="tag r">Daily Ritual</p>
-    <h2 class="h2 r d1">Soumé의 <em>5단계 루틴</em></h2>
+    <h2 class="h2 r d1">Ocean Breeze <em>3단계 루틴</em></h2>
     <div class="routine-steps r d2">
       <div class="r-step">
         <span class="r-step-num">01</span>
-        <div class="r-step-ico">💧</div>
+        <div class="r-step-ico">🫧</div>
         <p class="r-step-lbl">Step 01</p>
         <h3 class="r-step-h">클렌징</h3>
-        <p class="r-step-p">메이크업과 노폐물 제거. 피부 장벽 보호.</p>
+        <p class="r-step-p">순한 클렌저로 피부를 깨끗하게 정돈</p>
       </div>
       <div class="r-step">
         <span class="r-step-num">02</span>
-        <div class="r-step-ico">🌊</div>
+        <div class="r-step-ico">💧</div>
         <p class="r-step-lbl">Step 02</p>
-        <h3 class="r-step-h">토너</h3>
-        <p class="r-step-p">각질 제거 & 수분 공급 준비. 다음 단계 흡수력 향상.</p>
+        <h3 class="r-step-h">에센스</h3>
+        <p class="r-step-p">Ocean Breeze 에센스로 피부 준비</p>
       </div>
       <div class="r-step">
         <span class="r-step-num">03</span>
-        <div class="r-step-ico">✨</div>
+        <div class="r-step-ico">🌊</div>
         <p class="r-step-lbl">Step 03</p>
-        <h3 class="r-step-h">세럼</h3>
-        <p class="r-step-p">고농축 유효 성분 집중 케어. 목적에 맞는 제품 선택.</p>
-      </div>
-      <div class="r-step">
-        <span class="r-step-num">04</span>
-        <div class="r-step-ico">🌸</div>
-        <p class="r-step-lbl">Step 04</p>
-        <h3 class="r-step-h">크림</h3>
-        <p class="r-step-p">수분 잠금 & 피부 장벽 강화. 촉촉함 유지.</p>
-      </div>
-      <div class="r-step">
-        <span class="r-step-num">05</span>
-        <div class="r-step-ico">☀️</div>
-        <p class="r-step-lbl">Step 05 (AM)</p>
-        <h3 class="r-step-h">선케어</h3>
-        <p class="r-step-p">최고의 안티에이징. 피부 노화 방지.</p>
+        <h3 class="r-step-h">바디 케어</h3>
+        <p class="r-step-p">Ocean Breeze 로션 스프레이로 마무리</p>
       </div>
     </div>
   </div>
@@ -1579,20 +1565,20 @@ app.get('/', (c) => {
 <section class="section reviews">
   <div class="container">
     <p class="tag r">Real Reviews</p>
-    <h2 class="h2 r d1">실제 사용자의 <em>이야기</em></h2>
+    <h2 class="h2 r d1">사용자의 <em>진실한 후기</em></h2>
   </div>
   <div style="overflow:hidden;margin-top:0">
     <div class="rev-track">
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Pure Glow Serum 3주 만에 피부톤이 달라졌어요. 이렇게 빠른 효과는 처음이에요."</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없는 제품을 찾다가 발견했어요. 효과도 좋아서 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심해요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Pure Glow Serum 3주 만에 피부톤이 달라졌어요. 이렇게 빠른 효과는 처음이에요."</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없는 제품을 찾다가 발견했어요. 효과도 좋아서 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심해요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Ocean Breeze 향이 정말 상큼하고 좋아요. 피부도 촉촉해졌어요!"</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없고 향도 좋은 제품이네요. 매일 사용하고 있습니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"스프레이 타입이라 편해요. 직장에서도 자주 사용합니다."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 정말 좋아요. 피부가 더 생기 있어 보여요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"향도 훌륭하고 피부 개선이 눈에 띄어요. 추천합니다!"</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 지성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Ocean Breeze 향이 정말 상큼하고 좋아요. 피부도 촉촉해졌어요!"</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없고 향도 좋은 제품이네요. 매일 사용하고 있습니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"스프레이 타입이라 편해요. 직장에서도 자주 사용합니다."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 정말 좋아요. 피부가 더 생기 있어 보여요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"향도 훌륭하고 피부 개선이 눈에 띄어요. 추천합니다!"</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 지성 피부</p></div></div></div>
     </div>
   </div>
 </section>
@@ -1601,36 +1587,36 @@ app.get('/', (c) => {
 <section class="section vision" id="vision">
   <div class="container">
     <p class="tag r">Brand Roadmap</p>
-    <h2 class="h2 r d1">클린뷰티에서<br/><em>미래 솔루션</em>까지</h2>
-    <p class="vision-intro r d2">Soumé는 지금 시작합니다. 스킨케어를 완성하고, 다양한 솔루션으로 확장하며, 글로벌 K-뷰티 브랜드로 성장합니다.</p>
+    <h2 class="h2 r d1">Ocean Breeze에서<br/><em>글로벌 브랜드로</em></h2>
+    <p class="vision-intro r d2">Ocean Breeze는 시작입니다. 프리미엄 바디 케어로 시작해 다양한 제품으로 확장하고, 글로벌 K-뷰티 리더로 성장합니다.</p>
     <div class="vis-phases">
       <div class="vis-phase now r d1">
         <p class="vis-tag"><span class="vis-tag-live"></span>Phase 01 · 현재 진행</p>
-        <h3 class="vis-h">Clean Skincare</h3>
+        <h3 class="vis-h">Ocean Breeze Launch</h3>
         <ul class="vis-list">
-          <li>클린 스킨케어 라인 론칭</li>
-          <li>세럼, 크림, 클렌저 코어 라인업</li>
-          <li>제품 라인 확장 계획</li>
+          <li>프리미엄 바디 케어 라인 론칭</li>
+          <li>로션, 스프레이, 에센스 코어 라인업</li>
+          <li>캠페인 확장 계획</li>
           <li>국내 온라인 유통 시작</li>
         </ul>
       </div>
       <div class="vis-phase r d2">
         <p class="vis-tag">Phase 02 · 2025–2026</p>
-        <h3 class="vis-h">Solution Expansion</h3>
+        <h3 class="vis-h">Product Expansion</h3>
         <ul class="vis-list">
-          <li>제품 라인업 개발</li>
-          <li>통합 솔루션 개발 예정</li>
-          <li>제품 시너지 루틴 구성</li>
-          <li>오프라인 팝업 스토어 예정</li>
+          <li>향수 & 디퓨저 개발</li>
+          <li>헤어 케어 라인 출시</li>
+          <li>통합 뷰티 솔루션 구성</li>
+          <li>오프라인 팝업 스토어 오픈</li>
         </ul>
       </div>
       <div class="vis-phase r d3">
         <p class="vis-tag">Phase 03 · 2027+</p>
         <h3 class="vis-h">Global K-Beauty</h3>
         <ul class="vis-list">
-          <li>글로벌 뷰티 솔루션 확장</li>
-          <li>개인화된 뷰티 솔루션 도입</li>
-          <li>K-뷰티 글로벌 리더십</li>
+          <li>글로벌 뷰티 시장 진출</li>
+          <li>프리미엄 라이프스타일 브랜드화</li>
+          <li>K-뷰티 글로벌 리더십 확보</li>
         </ul>
       </div>
     </div>
@@ -1641,8 +1627,8 @@ app.get('/', (c) => {
 <section class="section news" id="newsletter">
   <div class="container">
     <div class="news-inner">
-      <h2 class="news-h r">Soumé와 함께<br/>새로운 뷰티를 경험하세요</h2>
-      <p class="news-p r d1">신제품 소식, 클린뷰티 팁, 스킨케어 루틴 가이드를 먼저 받아보세요.<br/>구독자 전용 20% 할인 코드를 드립니다.</p>
+      <h2 class="news-h r">Ocean Breeze와 함께<br/>프리미엄 케어를 경험하세요</h2>
+      <p class="news-p r d1">신제품 출시 소식, 케어 팁, 최신 캠페인 정보를 먼저 받아보세요.<br/>구독자 전용 15% 할인 코드를 드립니다.</p>
       <div class="news-form r d2">
         <input type="email" class="news-inp" placeholder="이메일 주소 입력" id="mailInput" />
         <button class="news-btn" onclick="subscribe()">구독</button>
@@ -1657,7 +1643,7 @@ app.get('/', (c) => {
   <div class="ft-main">
     <div>
       <img src="/static/soume-logo-black.png" alt="Soumé" class="ft-logo" />
-      <p class="ft-tagline">클린뷰티의 새로운 기준.<br/>순수한 성분과 과학적 혁신으로<br/>당신의 피부를 변화시킵니다.</p>
+      <p class="ft-tagline">프리미엄 바디 케어<br/>Ocean Breeze.<br/>상큼한 향기로 일상을 특별하게.</p>
       <div class="ft-soc">
         <a href="#" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="#" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
@@ -1668,28 +1654,28 @@ app.get('/', (c) => {
     <div>
       <h4 class="ft-col-h">Products</h4>
       <ul class="ft-links">
-        <li><a href="#">스킨케어</a></li>
-        <li><a href="#">세럼</a></li>
-        <li><a href="#">모이스처라이저</a></li>
-        <li><a href="#">클렌저</a></li>
-        <li><a href="#">선케어</a></li>
+        <li><a href="#">바디 로션</a></li>
+        <li><a href="#">바디 스프레이</a></li>
+        <li><a href="#">바디 에센스</a></li>
+        <li><a href="#">나이트 케어</a></li>
+        <li><a href="#">데이 스프레이</a></li>
       </ul>
     </div>
     <div>
       <h4 class="ft-col-h">Brand</h4>
       <ul class="ft-links">
-        <li><a href="#about">브랜드 스토리</a></li>
+        <li><a href="#about">제품 스토리</a></li>
         <li><a href="#philosophy">철학</a></li>
-        <li><a href="#ingredients">성분</a></li>
+        <li><a href="#ingredients">포뮬러</a></li>
         <li><a href="#vision">비전</a></li>
-        <li><a href="#">Press</a></li>
+        <li><a href="#">캠페인</a></li>
       </ul>
     </div>
     <div>
       <h4 class="ft-col-h">Support</h4>
       <ul class="ft-links">
-        <li><a href="#">스킨케어 가이드</a></li>
-        <li><a href="#">성분 사전</a></li>
+        <li><a href="#">케어 가이드</a></li>
+        <li><a href="#">성분 정보</a></li>
         <li><a href="#">피부 타입 테스트</a></li>
         <li><a href="#">고객센터</a></li>
         <li><a href="#">FAQ</a></li>
@@ -1729,10 +1715,10 @@ app.get('/', (c) => {
   const progressBar = document.getElementById('heroProgressBar');
 
   const slideTexts = [
-    { headline: '피부가 원하는<br/><em>단 하나의 선택</em>', sub: '유해 성분 없이 만든 클린 포뮬러.<br/>과학적으로 검증된 유효 성분으로 피부 본연의 건강을 되찾아드립니다.' },
-    { headline: 'Ocean Breeze<br/><em>Essence</em>',     sub: '상큼한 오션 향이 나는 프리미엄 에센스.<br/>유효 성분으로 표현되는 럭셔리한 경험.' },
-    { headline: '아름다움의<br/><em>새로운 정의</em>',     sub: '럭셔리 스타일로 표현하는 클린뷰티.<br/>스타일과 효능 모두 타협하지 않습니다.' },
-    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 Ocean Breeze.<br/>검증된 포뮬러를 경험하세요.' }
+    { headline: 'Ocean Breeze<br/><em>캠페인 시작</em>', sub: '상큼한 오션 향이 나는 프리미엄 바디 로션 스프레이.<br/>유효 성분으로 피부에 생기를 더해드립니다.' },
+    { headline: 'Ocean Breeze<br/><em>Duo Campaign</em>', sub: '우아한 듀오 캠페인으로 만나보는 프리미엄 바디 케어.<br/>상큼한 향기와 순수한 포뮬러의 조화.' },
+    { headline: 'Ocean Breeze<br/><em>스프레이 타입</em>', sub: '편리한 스프레이로 언제 어디서나 빠른 케어.<br/>바쁜 일상 속에서도 피부에 활력을 더해줍니다.' },
+    { headline: 'Ocean Breeze<br/><em>당신의 선택</em>', sub: '해로운 성분 없이 만든 순수한 포뮬러.<br/>Ocean Breeze와 함께 매일을 특별하게 가꿔보세요.' }
   ];
 
   let curSlide = 0;
@@ -1822,7 +1808,7 @@ app.get('/', (c) => {
   function subscribe() {
     const v = document.getElementById('mailInput').value;
     if (!v || !v.includes('@')) { alert('올바른 이메일을 입력해주세요.'); return; }
-    alert('구독 완료! 🌿\\nSoumé 뉴스레터와 구독자 전용 20% 할인 코드를 보내드릴게요.');
+    alert('구독 완료! 🌊\\nOcean Breeze 뉴스레터와 구독자 전용 15% 할인 코드를 보내드릴게요.');
     document.getElementById('mailInput').value = '';
   }
 
