@@ -1112,13 +1112,13 @@ app.get('/', (c) => {
       <img src="/static/model-hero-duo.jpg" alt="Soumé Campaign — Duo" />
     </div>
     <div class="hero-slide" data-slide="1">
-      <img src="/static/model-sora-beauty.jpg" alt="Soumé Campaign — Beauty" />
+      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé Campaign — Ocean Breeze" />
     </div>
     <div class="hero-slide" data-slide="2">
       <img src="/static/model-fashion.jpg" alt="Soumé Campaign — Fashion" />
     </div>
     <div class="hero-slide" data-slide="3">
-      <img src="/static/model-sora-product.jpg" alt="Soumé Campaign — Product" />
+      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé Campaign — Ocean Breeze Product" />
     </div>
   </div>
 
@@ -1184,10 +1184,10 @@ app.get('/', (c) => {
     </button>
     <button class="hero-nav-item" onclick="goSlide(1)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">Beauty</span>
-        <span class="hero-nav-role">Campaign Visual</span>
+        <span class="hero-nav-name">Ocean Breeze</span>
+        <span class="hero-nav-role">Product Campaign</span>
       </div>
-      <img class="hero-nav-thumb" src="/static/model-sora-beauty.jpg" alt="Beauty" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(2)">
       <div class="hero-nav-info">
@@ -1198,10 +1198,10 @@ app.get('/', (c) => {
     </button>
     <button class="hero-nav-item" onclick="goSlide(3)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">Product</span>
-        <span class="hero-nav-role">Campaign Visual</span>
+        <span class="hero-nav-name">Ocean Breeze</span>
+        <span class="hero-nav-role">Product Campaign</span>
       </div>
-      <img class="hero-nav-thumb" src="/static/model-sora-product.jpg" alt="Product" />
+      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze" />
     </button>
   </div>
 
@@ -1262,13 +1262,13 @@ app.get('/', (c) => {
     </div>
 
     <div class="model-panel">
-      <img src="/static/model-sora-beauty.jpg" alt="Beauty Campaign" />
+      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze Campaign" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Beauty</div>
+      <div class="model-panel-badge">Product</div>
       <div class="model-panel-info">
-        <span class="model-panel-tag">Premium Skincare</span>
-        <h3 class="model-panel-name">Beauty<br/>Campaign</h3>
-        <p class="model-panel-desc">유효 성분으로 표현되는 프리미엄 스킨케어</p>
+        <span class="model-panel-tag">Product Campaign</span>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Essence</h3>
+        <p class="model-panel-desc">상큼한 오션 향이 나는 프리미엄 에센스</p>
       </div>
     </div>
 
@@ -1284,12 +1284,12 @@ app.get('/', (c) => {
     </div>
 
     <div class="model-panel">
-      <img src="/static/model-sora-product.jpg" alt="Product Campaign" />
+      <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Ocean Breeze Product" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Product</div>
+      <div class="model-panel-badge">Best Seller</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Product Campaign</span>
-        <h3 class="model-panel-name">Product<br/>Campaign</h3>
+        <h3 class="model-panel-name">Ocean Breeze<br/>Campaign</h3>
         <p class="model-panel-desc">유효 성분을 강조하는 시그니처 캠페인</p>
       </div>
     </div>
@@ -1315,7 +1315,7 @@ app.get('/', (c) => {
       </div>
       <div class="about-visual r d2">
         <div class="about-img-wrap">
-          <img src="/static/model-sora-product.jpg" alt="Soumé — Product Campaign" />
+          <img src="https://www.genspark.ai/api/files/s/w2vTzpwC" alt="Soumé — Ocean Breeze" />
         </div>
         <div class="about-float">
           <div class="about-float-num">100%</div>
@@ -1732,9 +1732,9 @@ app.get('/', (c) => {
 
   const slideTexts = [
     { headline: '피부가 원하는<br/><em>단 하나의 선택</em>', sub: '유해 성분 없이 만든 클린 포뮬러.<br/>과학적으로 검증된 유효 성분으로 피부 본연의 건강을 되찾아드립니다.' },
-    { headline: 'Effective<br/><em>Clean Formula</em>',     sub: '유효 성분으로 표현되는 프리미엄 스킨케어.<br/>포슬린 스킨을 위한 과학적 배합.' },
+    { headline: 'Ocean Breeze<br/><em>Essence</em>',     sub: '상큼한 오션 향이 나는 프리미엄 에센스.<br/>유효 성분으로 표현되는 럭셔리한 경험.' },
     { headline: '아름다움의<br/><em>새로운 정의</em>',     sub: '럭셔리 스타일로 표현하는 클린뷰티.<br/>스타일과 효능 모두 타협하지 않습니다.' },
-    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 유효 세럼.<br/>검증된 포뮬러를 경험하세요.' }
+    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 Ocean Breeze.<br/>검증된 포뮬러를 경험하세요.' }
   ];
 
   let curSlide = 0;
