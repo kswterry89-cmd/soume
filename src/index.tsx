@@ -1089,7 +1089,7 @@ app.get('/', (c) => {
       <div class="model-panel-info">
         <span class="model-panel-tag">Premium Skincare</span>
         <h3 class="model-panel-name">SORA<br/>뷰티 모델</h3>
-        <p class="model-panel-desc">프리미엄 스킨케어 라인을 대표하는 뷰티 모델 SORA. 포슬린 스킨과 세련된 무드.</p>
+        <p class="model-panel-desc">프리미엄 스킨케어 라인을 대표하는 뷰티 모델. 포슬린 스킨과 세련된 무드.</p>
       </div>
     </div>
 
