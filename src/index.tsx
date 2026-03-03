@@ -9,10 +9,29 @@ app.get('/', c => c.html(`<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soumé - Ocean Breeze Collection</title>
+  <title>Soumé - Luxury Ocean Breeze Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ==========================================
-       RESET & TYPOGRAPHY
+       ROOT VARIABLES
+       ========================================== */
+    :root {
+      --color-black: #0a0a0a;
+      --color-dark: #1a1a1a;
+      --color-white: #ffffff;
+      --color-light: #f5f5f5;
+      --color-beige: #d4af8f;
+      --color-gold: #c9a961;
+      --color-gray: #8b8b8b;
+      --color-light-gray: #e8e8e8;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Montserrat', sans-serif;
+    }
+
+    /* ==========================================
+       RESET & BASE
        ========================================== */
     * {
       margin: 0;
@@ -20,25 +39,16 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       box-sizing: border-box;
     }
 
-    :root {
-      --primary-dark: #1a1a1a;
-      --primary-light: #f8f8f8;
-      --accent-beige: #e8dcc8;
-      --text-dark: #2a2a2a;
-      --text-light: #666;
-      --border-light: #e5e5e5;
-      --white: #ffffff;
-    }
-
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--text-dark);
-      background: var(--white);
+      font-family: var(--font-sans);
+      color: var(--color-dark);
+      background: var(--color-white);
       line-height: 1.6;
+      letter-spacing: 0.3px;
       overflow-x: hidden;
     }
 
@@ -56,13 +66,13 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       left: 0;
       width: 100%;
       height: 100%;
-      background: var(--white);
+      background: var(--color-white);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.8s ease 0.5s;
     }
 
     .loader.hidden {
@@ -70,31 +80,33 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       pointer-events: none;
     }
 
-    .loader-dot {
-      width: 12px;
-      height: 12px;
-      margin: 0 6px;
-      background: var(--primary-dark);
-      border-radius: 50%;
-      animation: bounce 1.4s infinite ease-in-out both;
+    .loader-content {
+      text-align: center;
     }
 
-    .loader-dot:nth-child(1) {
-      animation-delay: -0.32s;
+    .loader-logo {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--color-black);
+      margin-bottom: 2rem;
     }
 
-    .loader-dot:nth-child(2) {
-      animation-delay: -0.16s;
+    .loader-bar {
+      width: 60px;
+      height: 1px;
+      background: var(--color-beige);
+      margin: 0 auto;
+      animation: loading 2s ease-in-out infinite;
     }
 
-    @keyframes bounce {
-      0%, 80%, 100% {
-        transform: scale(0);
-        opacity: 0.5;
+    @keyframes loading {
+      0%, 100% {
+        width: 60px;
       }
-      40% {
-        transform: scale(1);
-        opacity: 1;
+      50% {
+        width: 120px;
       }
     }
 
@@ -105,46 +117,85 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
       z-index: 1000;
-      border-bottom: 1px solid var(--border-light);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
+      padding: 0.8rem 0;
     }
 
-    .navbar-content {
-      max-width: 1400px;
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.99);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 0.5rem 0;
+    }
+
+    .nav-container {
+      max-width: 1600px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--primary-dark);
-      text-transform: uppercase;
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--color-black);
     }
 
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 3rem;
+      gap: 3.5rem;
+      align-items: center;
     }
 
     .nav-menu a {
-      font-size: 0.9rem;
-      color: var(--text-dark);
+      font-size: 0.85rem;
+      color: var(--color-dark);
       text-decoration: none;
-      transition: color 0.3s ease;
       font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
     }
 
-    .nav-menu a:hover {
-      color: var(--accent-beige);
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-beige);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-icon {
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--color-dark);
+      transition: color 0.3s ease;
+    }
+
+    .nav-icon:hover {
+      color: var(--color-beige);
     }
 
     .hamburger {
@@ -156,113 +207,127 @@ app.get('/', c => c.html(`<!DOCTYPE html>
 
     .hamburger span {
       width: 25px;
-      height: 2px;
-      background: var(--primary-dark);
-      border-radius: 2px;
+      height: 1.5px;
+      background: var(--color-dark);
+      border-radius: 1px;
       transition: all 0.3s ease;
     }
 
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translateY(10px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-10px);
-    }
-
     /* ==========================================
-       HERO SECTION - MINIMAL
+       HERO SECTION
        ========================================== */
     .hero {
       margin-top: 60px;
       height: 100vh;
-      background: var(--white);
+      background: var(--color-white);
       display: grid;
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
     }
 
-    .hero-content {
+    .hero-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 4rem;
-      background: var(--white);
+      padding: 5rem;
+      background: var(--color-white);
+      position: relative;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, rgba(201, 169, 97, 0.3), transparent);
     }
 
     .hero-label {
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      font-weight: 600;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: var(--color-beige);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
     }
 
     .hero-title {
-      font-size: 3.5rem;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 4.5rem;
+      font-weight: 600;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: var(--primary-dark);
-      letter-spacing: -2px;
+      margin-bottom: 2rem;
+      color: var(--color-black);
+      letter-spacing: -1px;
     }
 
-    .hero-description {
-      font-size: 1.1rem;
-      color: var(--text-light);
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--color-gray);
       margin-bottom: 2.5rem;
       line-height: 1.8;
-      max-width: 400px;
+      max-width: 450px;
       font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
-    .hero-cta {
-      display: inline-flex;
-      padding: 0.9rem 2rem;
-      background: var(--primary-dark);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.95rem;
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero-btn-primary {
+      padding: 1rem 2.5rem;
+      background: var(--color-black);
+      color: var(--color-white);
+      border: 2px solid var(--color-black);
+      font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      cursor: pointer;
       transition: all 0.4s ease;
-      width: fit-content;
-      border: 2px solid var(--primary-dark);
+      text-transform: uppercase;
     }
 
-    .hero-cta:hover {
+    .hero-btn-primary:hover {
       background: transparent;
-      color: var(--primary-dark);
+      color: var(--color-black);
     }
 
-    .hero-image {
+    .hero-btn-secondary {
+      padding: 1rem 2.5rem;
+      background: transparent;
+      color: var(--color-black);
+      border: 2px solid var(--color-black);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+    }
+
+    .hero-btn-secondary:hover {
+      background: var(--color-black);
+      color: var(--color-white);
+    }
+
+    .hero-right {
       position: relative;
-      background: var(--accent-beige);
+      background: linear-gradient(135deg, #f5f5f5 0%, #ede7d9 100%);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
     }
 
     .hero-slider {
-      position: absolute;
-      top: 0;
-      right: 0;
+      position: relative;
       width: 100%;
       height: 100%;
-      display: flex;
     }
 
     .hero-slide {
@@ -286,13 +351,42 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       object-position: center;
     }
 
-    .hero-nav-dots {
+    .hero-nav-buttons {
       position: absolute;
-      bottom: 2rem;
-      right: 2rem;
+      bottom: 3rem;
+      left: 3rem;
       display: flex;
-      gap: 0.8rem;
-      z-index: 10;
+      gap: 1rem;
+      z-index: 20;
+    }
+
+    .nav-arrow {
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--color-black);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      color: var(--color-black);
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .nav-arrow:hover {
+      background: var(--color-black);
+      color: var(--color-white);
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 20;
     }
 
     .dot {
@@ -301,222 +395,189 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       border: 1px solid rgba(0, 0, 0, 0.3);
     }
 
     .dot.active {
-      background: var(--primary-dark);
-      width: 28px;
+      background: var(--color-black);
+      width: 24px;
       border-radius: 5px;
     }
 
-    .hero-nav-arrows {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      display: flex;
-      gap: 1rem;
-      z-index: 10;
-    }
-
-    .arrow-btn {
-      width: 45px;
-      height: 45px;
-      border: 1px solid var(--primary-dark);
-      background: transparent;
-      color: var(--primary-dark);
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .arrow-btn:hover {
-      background: var(--primary-dark);
-      color: var(--white);
+    /* ==========================================
+       SECTION DIVIDER
+       ========================================== */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
     }
 
     /* ==========================================
-       FEATURES SECTION
+       COLLECTION SECTION
        ========================================== */
-    .features {
-      padding: 6rem 2rem;
-      background: var(--white);
+    .collection {
+      padding: 8rem 5rem;
+      background: var(--color-white);
     }
 
-    .features-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-    }
-
-    .feature-card {
+    .section-intro {
       text-align: center;
+      margin-bottom: 5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .feature-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      background: var(--accent-beige);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      color: var(--primary-dark);
-    }
-
-    .feature-card p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.7;
-    }
-
-    /* ==========================================
-       PRODUCTS GRID
-       ========================================== */
-    .products {
-      padding: 6rem 2rem;
-      background: var(--primary-light);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    .section-label {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: var(--color-beige);
+      margin-bottom: 1rem;
     }
 
     .section-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--primary-dark);
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--color-black);
+      margin-bottom: 1.5rem;
       letter-spacing: -1px;
     }
 
     .section-desc {
       font-size: 1rem;
-      color: var(--text-light);
-      max-width: 500px;
-      margin: 0 auto;
+      color: var(--color-gray);
+      line-height: 1.8;
+      font-weight: 300;
     }
 
-    .products-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .product-item {
-      background: var(--white);
-      overflow: hidden;
-      transition: all 0.4s ease;
-      border: 1px solid var(--border-light);
+    .collection-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1600px;
+      margin: 0 auto;
     }
 
-    .product-item:hover {
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-      border-color: var(--accent-beige);
+    .collection-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
     }
 
-    .product-image {
-      height: 100%;
+    .collection-item:hover .collection-image {
+      transform: scale(1.02);
+    }
+
+    .collection-image {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #f5f5f5 0%, #ede7d9 100%);
       overflow: hidden;
-      background: var(--accent-beige);
+      transition: transform 0.4s ease;
     }
 
-    .product-image img {
+    .collection-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.4s ease;
     }
 
-    .product-item:hover .product-image img {
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .product-label {
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      color: var(--text-light);
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
+    .collection-content h3 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
       font-weight: 600;
-    }
-
-    .product-name {
-      font-size: 1.8rem;
-      font-weight: 700;
+      color: var(--color-black);
       margin-bottom: 1rem;
-      color: var(--primary-dark);
     }
 
-    .product-desc {
+    .collection-content .label {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--color-beige);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .collection-content p {
       font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      color: var(--color-gray);
+      line-height: 1.8;
+      margin-bottom: 2rem;
     }
 
-    .product-btn {
-      align-self: flex-start;
-      padding: 0.7rem 1.5rem;
-      background: transparent;
-      border: 2px solid var(--primary-dark);
-      color: var(--primary-dark);
-      cursor: pointer;
-      font-weight: 600;
+    .collection-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
       font-size: 0.9rem;
-      letter-spacing: 0.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--color-black);
+      text-decoration: none;
       transition: all 0.3s ease;
+      text-transform: uppercase;
+      border-bottom: 1px solid transparent;
     }
 
-    .product-btn:hover {
-      background: var(--primary-dark);
-      color: var(--white);
+    .collection-link:hover {
+      color: var(--color-beige);
+      border-bottom-color: var(--color-beige);
+    }
+
+    .collection-link::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .collection-link:hover::after {
+      transform: translateX(5px);
     }
 
     /* ==========================================
        ABOUT SECTION
        ========================================== */
     .about {
-      padding: 6rem 2rem;
-      background: var(--white);
+      padding: 8rem 5rem;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
     }
 
     .about-container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
     }
 
+    .about-content h2 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--color-black);
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      color: var(--color-gray);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
     .about-image {
-      aspect-ratio: 4/5;
-      background: var(--accent-beige);
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #f5f5f5 0%, #ede7d9 100%);
       overflow: hidden;
     }
 
@@ -527,178 +588,150 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       object-position: center;
     }
 
-    .about-content h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-item {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .value-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-black);
+      margin-bottom: 0.8rem;
+    }
+
+    .value-item p {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ==========================================
+       PHILOSOPHY SECTION
+       ========================================== */
+    .philosophy {
+      padding: 8rem 5rem;
+      background: var(--color-black);
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .philosophy-label {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: var(--color-beige);
       margin-bottom: 1.5rem;
-      color: var(--primary-dark);
+    }
+
+    .philosophy h2 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
       letter-spacing: -1px;
     }
 
-    .about-content p {
-      font-size: 1rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-points {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 2.5rem;
-    }
-
-    .about-point {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .point-number {
-      width: 40px;
-      height: 40px;
-      background: var(--accent-beige);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--primary-dark);
-      flex-shrink: 0;
-    }
-
-    .point-text h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: var(--primary-dark);
-    }
-
-    .point-text p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin: 0;
+    .philosophy p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.9;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
     }
 
     /* ==========================================
        TESTIMONIALS
        ========================================== */
     .testimonials {
-      padding: 6rem 2rem;
-      background: var(--primary-light);
+      padding: 8rem 5rem;
+      background: var(--color-white);
     }
 
-    .testimonials-container {
-      max-width: 1400px;
+    .testimonials-intro {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+    .testimonial-card {
+      background: var(--color-light);
+      padding: 3rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
     }
 
-    .testimonial {
-      background: var(--white);
-      padding: 2rem;
-      border: 1px solid var(--border-light);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial:hover {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border-color: var(--accent-beige);
+    .testimonial-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
     .stars {
-      color: #ffd700;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
+      color: var(--color-beige);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
     }
 
     .testimonial-text {
       font-size: 0.95rem;
-      color: var(--text-light);
+      color: var(--color-dark);
       line-height: 1.8;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       font-style: italic;
+      font-weight: 300;
     }
 
     .testimonial-author {
+      font-size: 0.85rem;
+      color: var(--color-beige);
       font-weight: 600;
-      color: var(--primary-dark);
-      font-size: 0.95rem;
-    }
-
-    /* ==========================================
-       CTA SECTION
-       ========================================== */
-    .cta {
-      padding: 5rem 2rem;
-      background: var(--primary-dark);
-      color: var(--white);
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .cta p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      padding: 1rem 2.5rem;
-      background: var(--white);
-      color: var(--primary-dark);
-      border: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
       letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: var(--accent-beige);
+      text-transform: uppercase;
     }
 
     /* ==========================================
        FOOTER
        ========================================== */
     footer {
-      background: var(--primary-dark);
-      color: #999;
-      padding: 3rem 2rem;
+      background: var(--color-black);
+      color: var(--color-white);
+      padding: 4rem 5rem 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-content {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 4rem;
+      margin-bottom: 3rem;
     }
 
     .footer-col h3 {
-      color: var(--white);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      color: var(--color-white);
     }
 
     .footer-col ul {
@@ -706,74 +739,66 @@ app.get('/', c => c.html(`<!DOCTYPE html>
     }
 
     .footer-col ul li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
     .footer-col ul li a {
-      color: #999;
       font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
       transition: color 0.3s ease;
+      text-decoration: none;
     }
 
     .footer-col ul li a:hover {
-      color: var(--white);
+      color: var(--color-beige);
     }
 
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.5px;
     }
 
     /* ==========================================
        RESPONSIVE
        ========================================== */
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        height: auto;
+    @media (max-width: 1200px) {
+      .nav-container {
+        padding: 0 2rem;
       }
 
-      .hero-content {
-        padding: 3rem;
-        min-height: 500px;
-        justify-content: center;
+      .hero-left,
+      .collection,
+      .about,
+      .philosophy,
+      .testimonials,
+      footer {
+        padding: 5rem 2rem;
       }
 
-      .hero-image {
-        min-height: 500px;
+      .hero-title,
+      .section-title,
+      .about-content h2,
+      .philosophy h2 {
+        font-size: 2.8rem;
       }
 
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .products-container {
-        grid-template-columns: 1fr;
-      }
-
-      .product-item {
+      .collection-grid {
         grid-template-columns: 1fr;
       }
 
-      .product-image {
-        height: 300px;
+      .collection-item {
+        grid-template-columns: 1fr;
       }
 
       .about-container {
-        grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
-      .about-image {
-        aspect-ratio: 16/9;
-      }
-
-      .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .features-container {
+      .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -788,11 +813,12 @@ app.get('/', c => c.html(`<!DOCTYPE html>
         left: -100%;
         top: 60px;
         flex-direction: column;
-        background: var(--white);
+        background: var(--color-white);
         width: 100%;
         gap: 0;
         transition: 0.3s;
         padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
 
       .nav-menu.active {
@@ -800,39 +826,58 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       }
 
       .nav-menu a {
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.5rem;
         display: block;
+      }
+
+      .nav-icons {
+        display: none;
       }
 
       .hamburger {
         display: flex;
       }
 
-      .navbar-content {
-        padding: 1rem;
+      .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        margin-top: 50px;
+      }
+
+      .hero-left {
+        padding: 3rem 1.5rem;
+        min-height: 500px;
+      }
+
+      .hero-right {
+        height: 500px;
       }
 
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
-      .hero-description {
-        font-size: 1rem;
+      .hero-subtitle {
+        font-size: 0.95rem;
       }
 
-      .product-info {
-        padding: 2rem;
-      }
-
-      .about-content h2 {
-        font-size: 2rem;
+      .hero-buttons {
+        flex-wrap: wrap;
       }
 
       .section-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      .testimonial-grid {
+      .collection-item {
+        padding-bottom: 2rem;
+      }
+
+      .about-values {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
         grid-template-columns: 1fr;
       }
 
@@ -842,71 +887,56 @@ app.get('/', c => c.html(`<!DOCTYPE html>
     }
 
     @media (max-width: 480px) {
-      .navbar-content {
-        padding: 0.8rem;
+      .nav-container {
+        padding: 0 1rem;
       }
 
-      .logo {
-        font-size: 1rem;
+      .nav-logo {
+        font-size: 1.2rem;
       }
 
-      .nav-menu {
-        gap: 0;
-      }
-
-      .hero-content {
-        padding: 1.5rem;
-        min-height: 400px;
+      .hero-left {
+        padding: 2rem 1rem;
       }
 
       .hero-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
-      .hero-description {
+      .hero-subtitle {
         font-size: 0.9rem;
+        max-width: 100%;
       }
 
-      .hero-cta {
+      .hero-btn-primary,
+      .hero-btn-secondary {
         padding: 0.8rem 1.5rem;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
       }
 
-      .products {
-        padding: 3rem 1rem;
+      .hero-nav-buttons,
+      .hero-dots {
+        display: none;
+      }
+
+      .collection,
+      .about,
+      .philosophy,
+      .testimonials,
+      footer {
+        padding: 2.5rem 1rem;
       }
 
       .section-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
-      .features-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .philosophy h2 {
+        font-size: 2rem;
       }
 
-      .product-item {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 250px;
-      }
-
-      .product-info {
-        padding: 1.5rem;
-      }
-
-      .about {
-        padding: 3rem 1rem;
-      }
-
-      .hero-nav-dots {
-        display: none;
-      }
-
-      .hero-nav-arrows {
-        display: none;
+      .testimonial-card {
+        padding: 2rem;
       }
     }
   </style>
@@ -914,22 +944,27 @@ app.get('/', c => c.html(`<!DOCTYPE html>
 <body>
   <!-- LOADER -->
   <div class="loader" id="loader">
-    <div class="loader-dot"></div>
-    <div class="loader-dot"></div>
-    <div class="loader-dot"></div>
+    <div class="loader-content">
+      <div class="loader-logo">SOUMÉ</div>
+      <div class="loader-bar"></div>
+    </div>
   </div>
 
   <!-- NAVIGATION -->
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="logo">SOUMÉ</div>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">SOUMÉ</div>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#collection">COLLECTION</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#testimonials">REVIEWS</a></li>
       </ul>
+      <div class="nav-icons">
+        <span class="nav-icon">🔍</span>
+        <span class="nav-icon">❤️</span>
+        <span class="nav-icon">🛍️</span>
+      </div>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -938,257 +973,268 @@ app.get('/', c => c.html(`<!DOCTYPE html>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-label">New Collection</div>
+    <div class="hero-left">
+      <div class="hero-label">NEW COLLECTION</div>
       <h1 class="hero-title">Ocean Breeze</h1>
-      <p class="hero-description">
-        Experience the perfect harmony of nature and science. Our premium skincare collection is formulated with effective ingredients to transform your skin.
+      <p class="hero-subtitle">
+        Immerse yourself in the essence of luxury. Our Ocean Breeze collection represents the pinnacle of skincare refinement, blending time-honored beauty traditions with cutting-edge formulation science.
       </p>
-      <a href="#products" class="hero-cta">Explore Collection</a>
+      <div class="hero-buttons">
+        <button class="hero-btn-primary">Discover</button>
+        <button class="hero-btn-secondary">Learn More</button>
+      </div>
     </div>
 
-    <div class="hero-image">
+    <div class="hero-right">
       <div class="hero-slider" id="heroSlider">
         <div class="hero-slide active">
           <img src="/static/ocean-breeze-home.png" alt="Ocean Breeze Home" />
         </div>
         <div class="hero-slide">
-          <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze 1" />
+          <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze Collection 1" />
         </div>
         <div class="hero-slide">
           <img src="/static/ocean-breeze-campaign.png" alt="Ocean Breeze Campaign" />
         </div>
         <div class="hero-slide">
-          <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze 2" />
+          <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze Collection 2" />
         </div>
       </div>
 
-      <div class="hero-nav-arrows">
-        <button class="arrow-btn" id="prevBtn">←</button>
-        <button class="arrow-btn" id="nextBtn">→</button>
+      <div class="hero-nav-buttons">
+        <button class="nav-arrow" id="prevBtn">←</button>
+        <button class="nav-arrow" id="nextBtn">→</button>
       </div>
 
-      <div class="hero-nav-dots" id="heroDots"></div>
+      <div class="hero-dots" id="heroDots"></div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="features-container">
-      <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>Pure Formula</h3>
-        <p>Crafted with effective ingredients for visible results</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🌊</div>
-        <h3>Ocean Extract</h3>
-        <p>Infused with natural ocean-derived botanicals</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💎</div>
-        <h3>Premium Quality</h3>
-        <p>Laboratory tested and certified for safety</p>
-      </div>
-    </div>
-  </section>
+  <div class="divider"></div>
 
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
-    <div class="section-header">
-      <h2 class="section-title">Campaign Collections</h2>
-      <p class="section-desc">Discover our carefully curated skincare essentials</p>
+  <!-- COLLECTION SECTION -->
+  <section class="collection" id="collection">
+    <div class="section-intro">
+      <div class="section-label">OUR COLLECTIONS</div>
+      <h2 class="section-title">Crafted Elegance</h2>
+      <p class="section-desc">
+        Each product in our Ocean Breeze collection has been meticulously formulated to deliver uncompromising quality and visible results.
+      </p>
     </div>
 
-    <div class="products-container">
-      <div class="product-item">
-        <div class="product-image">
-          <img src="/static/ocean-breeze-home.png" alt="Serum Collection" />
+    <div class="collection-grid">
+      <div class="collection-item">
+        <div class="collection-image">
+          <img src="/static/ocean-breeze-home.png" alt="Essence Serum" />
         </div>
-        <div class="product-info">
-          <span class="product-label">Collection 01</span>
-          <h3 class="product-name">Essence Serum</h3>
-          <p class="product-desc">Lightweight hydrating serum infused with ocean botanicals. Perfect for all skin types.</p>
-          <button class="product-btn">Learn More</button>
-        </div>
-      </div>
-
-      <div class="product-item">
-        <div class="product-image">
-          <img src="/static/ocean-breeze-1.png" alt="Cream Collection" />
-        </div>
-        <div class="product-info">
-          <span class="product-label">Collection 02</span>
-          <h3 class="product-name">Rich Cream</h3>
-          <p class="product-desc">Luxurious moisturizing cream with intensive nourishing properties for dry skin.</p>
-          <button class="product-btn">Learn More</button>
+        <div class="collection-content">
+          <span class="label">ESSENCE SERUM</span>
+          <h3>Pure Vitality</h3>
+          <p>
+            A luminous serum essence that captures the restorative power of marine botanicals. This lightweight formula penetrates deeply to restore radiance and elasticity, leaving skin visibly transformed.
+          </p>
+          <a href="#" class="collection-link">Explore</a>
         </div>
       </div>
 
-      <div class="product-item">
-        <div class="product-image">
-          <img src="/static/ocean-breeze-campaign.png" alt="Mask Collection" />
+      <div class="collection-item">
+        <div class="collection-image">
+          <img src="/static/ocean-breeze-1.png" alt="Luxe Cream" />
         </div>
-        <div class="product-info">
-          <span class="product-label">Collection 03</span>
-          <h3 class="product-name">Revitalizing Mask</h3>
-          <p class="product-desc">Weekly treatment mask that delivers instant radiance and deep hydration boost.</p>
-          <button class="product-btn">Learn More</button>
+        <div class="collection-content">
+          <span class="label">LUXE CREAM</span>
+          <h3>Supreme Nourishment</h3>
+          <p>
+            An indulgent facial cream infused with precious ocean extracts. Its rich, silky texture envelops the skin in nourishment, restoring suppleness and imparting a luminous glow that speaks of inner beauty.
+          </p>
+          <a href="#" class="collection-link">Explore</a>
         </div>
       </div>
 
-      <div class="product-item">
-        <div class="product-image">
-          <img src="/static/ocean-breeze-2.png" alt="Toner Collection" />
+      <div class="collection-item">
+        <div class="collection-image">
+          <img src="/static/ocean-breeze-campaign.png" alt="Ritual Mask" />
         </div>
-        <div class="product-info">
-          <span class="product-label">Collection 04</span>
-          <h3 class="product-name">Balancing Toner</h3>
-          <p class="product-desc">Alcohol-free toner that balances skin pH and preps for treatment products.</p>
-          <button class="product-btn">Learn More</button>
+        <div class="collection-content">
+          <span class="label">RITUAL MASK</span>
+          <h3>Transformative Treatment</h3>
+          <p>
+            A luxurious weekly treatment mask that delivers intensive revitalization. Enriched with potent botanical compounds, it works to refine texture, enhance radiance, and restore the skin's natural vitality.
+          </p>
+          <a href="#" class="collection-link">Explore</a>
+        </div>
+      </div>
+
+      <div class="collection-item">
+        <div class="collection-image">
+          <img src="/static/ocean-breeze-2.png" alt="Toning Essence" />
+        </div>
+        <div class="collection-content">
+          <span class="label">TONING ESSENCE</span>
+          <h3>Balancing Perfection</h3>
+          <p>
+            An exquisite toning essence that preps the skin for optimal absorption of subsequent treatments. Its delicate formula balances pH while infusing the complexion with moisture and vitality.
+          </p>
+          <a href="#" class="collection-link">Explore</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <div class="divider"></div>
+
+  <!-- ABOUT SECTION -->
   <section class="about" id="about">
     <div class="about-container">
       <div class="about-image">
-        <img src="/static/ocean-breeze-2.png" alt="About Soumé" />
+        <img src="/static/ocean-breeze-2.png" alt="Soumé Heritage" />
       </div>
 
       <div class="about-content">
-        <h2>About Soumé</h2>
+        <h2>The Soumé Heritage</h2>
         <p>
-          At Soumé, we believe skincare should be an experience of pure luxury and effectiveness. 
-          Our Ocean Breeze collection represents years of research into the most potent natural ingredients.
+          Soumé stands as a testament to the art of skincare refinement. Our commitment to excellence transcends generations, rooted in the belief that true beauty emerges from the marriage of science and nature.
         </p>
         <p>
-          Each product is formulated to work in harmony with your skin, delivering visible transformation 
-          while maintaining its natural balance.
+          Every formulation is a masterpiece, carefully orchestrated to deliver visible transformation while respecting the skin's natural balance. Our ocean-inspired collections represent years of dedicated research and uncompromising standards.
         </p>
 
-        <div class="about-points">
-          <div class="about-point">
-            <div class="point-number">1</div>
-            <div class="point-text">
-              <h3>Pure Ingredients</h3>
-              <p>Sourced from sustainable origins worldwide</p>
-            </div>
+        <div class="about-values">
+          <div class="value-item">
+            <h3>Pure Origins</h3>
+            <p>Sourced from pristine marine ecosystems, our ingredients are selected for their potency and purity.</p>
           </div>
-          <div class="about-point">
-            <div class="point-number">2</div>
-            <div class="point-text">
-              <h3>Effective Results</h3>
-              <p>Clinically proven formulations</p>
-            </div>
+          <div class="value-item">
+            <h3>Scientific Precision</h3>
+            <p>Each formula undergoes rigorous testing to ensure efficacy and safety standards exceed industry benchmarks.</p>
           </div>
-          <div class="about-point">
-            <div class="point-number">3</div>
-            <div class="point-text">
-              <h3>Sustainable</h3>
-              <p>Eco-conscious packaging and practices</p>
-            </div>
+          <div class="value-item">
+            <h3>Timeless Elegance</h3>
+            <p>Our aesthetic reflects a commitment to understated luxury and enduring sophistication.</p>
+          </div>
+          <div class="value-item">
+            <h3>Sustainable Beauty</h3>
+            <p>We honor the ocean by practicing eco-conscious sourcing and sustainable manufacturing.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <div class="divider"></div>
+
+  <!-- PHILOSOPHY SECTION -->
+  <section class="philosophy">
+    <div class="philosophy-label">OUR PHILOSOPHY</div>
+    <h2>The Ritual of Excellence</h2>
+    <p>
+      In a world of fleeting trends, Soumé remains steadfast in its pursuit of timeless beauty. We believe that skincare is not merely a regimen—it is a ritual of self-care, a moment of tranquility, and an investment in the most precious canvas: your skin. Every product is an invitation to experience the transformative power of luxury, responsibly crafted and consciously chosen.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TESTIMONIALS SECTION -->
   <section class="testimonials" id="testimonials">
-    <div class="testimonials-container">
-      <div class="section-header" style="margin-bottom: 3rem;">
-        <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonials-intro">
+      <div class="section-label">VOICES OF ELEGANCE</div>
+      <h2 class="section-title">Client Testimonials</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Soumé has transformed my skin in ways I never thought possible. The luxury feel combined with real, visible results is incomparable."
+        </p>
+        <p class="testimonial-author">SARAH M. — LUXURY ENTHUSIAST</p>
       </div>
 
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "This is hands down the best skincare product I've ever used. My skin feels incredibly soft and hydrated!"
-          </p>
-          <p class="testimonial-author">Sarah M.</p>
-        </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Every product feels like a ritual. The attention to detail, from the formula to the packaging, speaks volumes about Soumé's commitment to excellence."
+        </p>
+        <p class="testimonial-author">JESSICA L. — BEAUTY DIRECTOR</p>
+      </div>
 
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "The results are visible after just two weeks. My skin tone has improved dramatically and I feel so confident."
-          </p>
-          <p class="testimonial-author">Jessica L.</p>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Worth every penny. The luxury feel combined with real results makes this a must-have in my routine."
-          </p>
-          <p class="testimonial-author">Emily K.</p>
-        </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "This is luxury redefined. Soumé doesn't just promise results—it delivers them with grace, elegance, and undeniable efficacy."
+        </p>
+        <p class="testimonial-author">EMILY K. — SKINCARE AFICIONADO</p>
       </div>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contact">
-    <h2>Ready to Experience Ocean Breeze?</h2>
-    <p>Join thousands of satisfied customers and discover the difference premium skincare makes</p>
-    <button class="cta-btn">Shop Now</button>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-col">
-        <h3>About</h3>
+        <h3>DISCOVER</h3>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Products</a></li>
+          <li><a href="#collection">Our Collection</a></li>
+          <li><a href="#about">About Soumé</a></li>
           <li><a href="#">Ingredients</a></li>
+          <li><a href="#">Sustainability</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Support</h3>
+        <h3>SUPPORT</h3>
         <ul>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">Contact Us</a></li>
           <li><a href="#">FAQ</a></li>
-          <li><a href="#">Returns</a></li>
+          <li><a href="#">Returns & Exchange</a></li>
+          <li><a href="#">Shipping</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Legal</h3>
+        <h3>POLICY</h3>
         <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Legal</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Follow</h3>
+        <h3>CONNECT</h3>
         <ul>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">Facebook</a></li>
+          <li><a href="#">LinkedIn</a></li>
           <li><a href="#">TikTok</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2024 Soumé Ocean Breeze. All rights reserved.</p>
+      <p>&copy; 2024 SOUMÉ. ALL RIGHTS RESERVED. | CRAFTED WITH PRECISION AND ELEGANCE.</p>
     </div>
   </footer>
 
   <script>
     /* LOADER */
     window.addEventListener('load', () => {
-      document.getElementById('loader').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 800);
+    });
+
+    /* NAVBAR SCROLL EFFECT */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
 
     /* HAMBURGER MENU */
