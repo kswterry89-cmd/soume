@@ -1109,16 +1109,16 @@ app.get('/', (c) => {
   <!-- 풀스크린 슬라이드 -->
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" data-slide="0">
-      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Soumé Campaign — Ocean Breeze 1" />
+      <img src="/static/ocean-breeze-1.png" alt="Soumé Campaign — Ocean Breeze 1" />
     </div>
     <div class="hero-slide" data-slide="1">
-      <img src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Soumé Campaign — Ocean Breeze Campaign" />
+      <img src="/static/ocean-breeze-campaign.png" alt="Soumé Campaign — Ocean Breeze Campaign" />
     </div>
     <div class="hero-slide" data-slide="2">
-      <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Soumé Campaign — Ocean Breeze 2" />
+      <img src="/static/ocean-breeze-2.png" alt="Soumé Campaign — Ocean Breeze 2" />
     </div>
     <div class="hero-slide" data-slide="3">
-      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Soumé Campaign — Ocean Breeze Product" />
+      <img src="/static/ocean-breeze-1.png" alt="Soumé Campaign — Ocean Breeze Product" />
     </div>
   </div>
 
@@ -1179,28 +1179,28 @@ app.get('/', (c) => {
         <span class="hero-nav-name">Product 1</span>
         <span class="hero-nav-role">Body Lotion</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze 1" />
+      <img class="hero-nav-thumb" src="/static/ocean-breeze-1.png" alt="Ocean Breeze 1" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(1)">
       <div class="hero-nav-info">
         <span class="hero-nav-name">Campaign</span>
         <span class="hero-nav-role">Duo Campaign</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Ocean Breeze Campaign" />
+      <img class="hero-nav-thumb" src="/static/ocean-breeze-campaign.png" alt="Ocean Breeze Campaign" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(2)">
       <div class="hero-nav-info">
         <span class="hero-nav-name">Product 2</span>
         <span class="hero-nav-role">Body Spray</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze 2" />
+      <img class="hero-nav-thumb" src="/static/ocean-breeze-2.png" alt="Ocean Breeze 2" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(3)">
       <div class="hero-nav-info">
         <span class="hero-nav-name">Ocean Breeze</span>
         <span class="hero-nav-role">Full Collection</span>
       </div>
-      <img class="hero-nav-thumb" src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Collection" />
+      <img class="hero-nav-thumb" src="/static/ocean-breeze-1.png" alt="Ocean Breeze Collection" />
     </button>
   </div>
 
@@ -1249,7 +1249,7 @@ app.get('/', (c) => {
 
   <div class="models-panorama r">
     <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Product 1" />
+      <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze Product 1" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">NEW</div>
       <div class="model-panel-info">
@@ -1260,7 +1260,7 @@ app.get('/', (c) => {
     </div>
 
     <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/qk3r13aB" alt="Ocean Breeze Campaign" />
+      <img src="/static/ocean-breeze-campaign.png" alt="Ocean Breeze Campaign" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">Campaign</div>
       <div class="model-panel-info">
@@ -1271,7 +1271,7 @@ app.get('/', (c) => {
     </div>
 
     <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze Product 2" />
+      <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze Product 2" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">BEST</div>
       <div class="model-panel-info">
@@ -1282,7 +1282,7 @@ app.get('/', (c) => {
     </div>
 
     <div class="model-panel">
-      <img src="https://www.genspark.ai/api/files/s/FezJKYBW" alt="Ocean Breeze Collection" />
+      <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze Collection" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">Collection</div>
       <div class="model-panel-info">
@@ -1313,7 +1313,7 @@ app.get('/', (c) => {
       </div>
       <div class="about-visual r d2">
         <div class="about-img-wrap">
-          <img src="https://www.genspark.ai/api/files/s/xPbuZZmw" alt="Ocean Breeze Product" />
+          <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze Product" />
         </div>
         <div class="about-float">
           <div class="about-float-num">100%</div>
