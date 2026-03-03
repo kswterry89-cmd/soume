@@ -9,11 +9,10 @@ app.get('/', c => c.html(`<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Soumé - Ocean Breeze Skincare</title>
+  <title>Soumé - Ocean Breeze Collection</title>
   <style>
     /* ==========================================
-       RESET & BASE STYLES
+       RESET & TYPOGRAPHY
        ========================================== */
     * {
       margin: 0;
@@ -21,100 +20,112 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       box-sizing: border-box;
     }
 
+    :root {
+      --primary-dark: #1a1a1a;
+      --primary-light: #f8f8f8;
+      --accent-beige: #e8dcc8;
+      --text-dark: #2a2a2a;
+      --text-light: #666;
+      --border-light: #e5e5e5;
+      --white: #ffffff;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
       line-height: 1.6;
-      color: #333;
-      background-color: #fff;
       overflow-x: hidden;
     }
 
     img {
-      max-width: 100%;
       display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-family: inherit;
+      max-width: 100%;
     }
 
     /* ==========================================
-       LOADING SPINNER
+       LOADER
        ========================================== */
-    .loader-container {
+    .loader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #ffffff;
+      background: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1;
+      transition: opacity 0.6s ease;
     }
 
-    .loader-container.hidden {
+    .loader.hidden {
       opacity: 0;
-      visibility: hidden;
+      pointer-events: none;
     }
 
-    .loader-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid #f0f0f0;
-      border-top: 4px solid #000;
+    .loader-dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 6px;
+      background: var(--primary-dark);
       border-radius: 50%;
-      animation: loader-spin 1s linear infinite;
+      animation: bounce 1.4s infinite ease-in-out both;
     }
 
-    @keyframes loader-spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .loader-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .loader-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     /* ==========================================
-       NAVIGATION BAR
+       NAVIGATION
        ========================================== */
     .navbar {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.98);
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-content {
+      max-width: 1400px;
+      margin: 0 auto;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      padding: 0.8rem 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: #000;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary-dark);
       text-transform: uppercase;
     }
 
@@ -122,81 +133,133 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       display: flex;
       list-style: none;
       gap: 3rem;
-      align-items: center;
     }
 
     .nav-menu a {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #333;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-decoration: none;
       transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #000;
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
+      font-weight: 500;
     }
 
     .nav-menu a:hover {
-      color: #000;
+      color: var(--accent-beige);
     }
 
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 6px;
-      z-index: 1001;
+      gap: 5px;
     }
 
-    .hamburger-line {
-      width: 28px;
-      height: 3px;
-      background: #000;
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--primary-dark);
       border-radius: 2px;
       transition: all 0.3s ease;
     }
 
-    .hamburger.active .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translateY(12px);
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(10px);
     }
 
-    .hamburger.active .hamburger-line:nth-child(2) {
+    .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
 
-    .hamburger.active .hamburger-line:nth-child(3) {
-      transform: rotate(-45deg) translateY(-12px);
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-10px);
     }
 
     /* ==========================================
-       HERO SECTION
+       HERO SECTION - MINIMAL
        ========================================== */
     .hero {
-      width: 100%;
+      margin-top: 60px;
       height: 100vh;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      background: var(--white);
+    }
+
+    .hero-label {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+      letter-spacing: -2px;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      max-width: 400px;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      padding: 0.9rem 2rem;
+      background: var(--primary-dark);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.4s ease;
+      width: fit-content;
+      border: 2px solid var(--primary-dark);
+    }
+
+    .hero-cta:hover {
+      background: transparent;
+      color: var(--primary-dark);
+    }
+
+    .hero-image {
       position: relative;
+      background: var(--accent-beige);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 60px;
       overflow: hidden;
-      background: #f5f5f5;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .hero-slider {
-      position: relative;
+      position: absolute;
+      top: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       display: flex;
@@ -209,16 +272,11 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity 0.8s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      transition: opacity 0.8s ease;
     }
 
     .hero-slide.active {
       opacity: 1;
-      z-index: 10;
     }
 
     .hero-slide img {
@@ -228,273 +286,227 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       object-position: center;
     }
 
-    .hero-slide-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.15);
-      z-index: 5;
-    }
-
-    .hero-content {
-      position: absolute;
-      bottom: 4rem;
-      left: 4rem;
-      z-index: 20;
-      color: white;
-      max-width: 600px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 900;
-      margin-bottom: 1rem;
-      letter-spacing: -2px;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-content p {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      font-weight: 300;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-      margin-bottom: 2rem;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: rgba(255, 255, 255, 0.95);
-      color: #000;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .hero-btn:hover {
-      background: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* ==========================================
-       HERO NAVIGATION (THUMBNAILS)
-       ========================================== */
-    .hero-nav {
+    .hero-nav-dots {
       position: absolute;
       bottom: 2rem;
       right: 2rem;
-      display: flex;
-      gap: 1rem;
-      z-index: 20;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      max-width: 600px;
-    }
-
-    .hero-nav-btn {
-      width: 90px;
-      height: 90px;
-      border: 3px solid rgba(255, 255, 255, 0.5);
-      background: rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .hero-nav-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero-nav-btn.active {
-      border-color: #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-      transform: scale(1.1);
-    }
-
-    .hero-nav-btn:hover {
-      border-color: rgba(255, 255, 255, 0.8);
-      transform: scale(1.05);
-    }
-
-    /* ==========================================
-       SLIDER ARROWS
-       ========================================== */
-    .hero-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 20;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: white;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-
-    .hero-arrow:hover {
-      background: rgba(255, 255, 255, 0.4);
-      border-color: rgba(255, 255, 255, 0.8);
-    }
-
-    .hero-arrow.prev {
-      left: 2rem;
-    }
-
-    .hero-arrow.next {
-      right: 2rem;
-    }
-
-    /* ==========================================
-       HERO DOTS INDICATOR
-       ========================================== */
-    .hero-dots {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
       gap: 0.8rem;
-      z-index: 20;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-    }
-
-    .dot.active {
-      background: #fff;
-      width: 30px;
-      border-radius: 6px;
-    }
-
-    /* ==========================================
-       PRODUCTS SECTION
-       ========================================== */
-    .products-section {
-      padding: 6rem 2rem;
-      background: #fff;
-      position: relative;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
-      color: #000;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 4rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 300;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      aspect-ratio: 3/4;
-      background: #f5f5f5;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .product-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-      padding: 2rem 1.5rem;
-      color: white;
-      transform: translateY(50px);
-      transition: transform 0.3s ease;
       z-index: 10;
     }
 
-    .product-card:hover .product-overlay {
-      transform: translateY(0);
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.3);
     }
 
-    .product-overlay h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+    .dot.active {
+      background: var(--primary-dark);
+      width: 28px;
+      border-radius: 5px;
+    }
+
+    .hero-nav-arrows {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .arrow-btn {
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--primary-dark);
+      background: transparent;
+      color: var(--primary-dark);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .arrow-btn:hover {
+      background: var(--primary-dark);
+      color: var(--white);
+    }
+
+    /* ==========================================
+       FEATURES SECTION
+       ========================================== */
+    .features {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .features-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--accent-beige);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ==========================================
+       PRODUCTS GRID
+       ========================================== */
+    .products {
+      padding: 6rem 2rem;
+      background: var(--primary-light);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
       font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      letter-spacing: -1px;
     }
 
-    .product-overlay p {
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .product-item {
+      background: var(--white);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .product-item:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent-beige);
+    }
+
+    .product-image {
+      height: 100%;
+      overflow: hidden;
+      background: var(--accent-beige);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .product-item:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-label {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-btn {
+      align-self: flex-start;
+      padding: 0.7rem 1.5rem;
+      background: transparent;
+      border: 2px solid var(--primary-dark);
+      color: var(--primary-dark);
+      cursor: pointer;
+      font-weight: 600;
       font-size: 0.9rem;
-      opacity: 0.9;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .product-btn:hover {
+      background: var(--primary-dark);
+      color: var(--white);
     }
 
     /* ==========================================
        ABOUT SECTION
        ========================================== */
-    .about-section {
+    .about {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
-      position: relative;
+      background: var(--white);
     }
 
     .about-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -502,68 +514,10 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       align-items: center;
     }
 
-    .about-content h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-      color: #000;
-      letter-spacing: -1px;
-    }
-
-    .about-content p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-    }
-
-    .about-features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .feature-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .feature-icon {
-      width: 50px;
-      height: 50px;
-      background: #000;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      flex-shrink: 0;
-      font-size: 1.5rem;
-    }
-
-    .feature-text h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #000;
-    }
-
-    .feature-text p {
-      font-size: 0.95rem;
-      color: #666;
-      margin: 0;
-    }
-
     .about-image {
-      aspect-ratio: 1/1;
-      background: #e8e8e8;
-      border-radius: 16px;
+      aspect-ratio: 4/5;
+      background: var(--accent-beige);
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
 
     .about-image img {
@@ -573,136 +527,178 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       object-position: center;
     }
 
-    /* ==========================================
-       TESTIMONIAL SECTION
-       ========================================== */
-    .testimonial-section {
-      padding: 6rem 2rem;
-      background: #000;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial-title {
-      text-align: center;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      margin-bottom: 4rem;
+    .about-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
       letter-spacing: -1px;
     }
 
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
+    .about-content p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .point-number {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-beige);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+    }
+
+    .point-text h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--primary-dark);
+    }
+
+    .point-text p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* ==========================================
+       TESTIMONIALS
+       ========================================== */
+    .testimonials {
+      padding: 6rem 2rem;
+      background: var(--primary-light);
+    }
+
+    .testimonials-container {
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.08);
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial {
+      background: var(--white);
       padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-light);
       transition: all 0.3s ease;
     }
 
-    .testimonial-card:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-5px);
+    .testimonial:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent-beige);
     }
 
-    .testimonial-stars {
+    .stars {
+      color: #ffd700;
       font-size: 1.2rem;
       margin-bottom: 1rem;
-      color: #ffd700;
     }
 
     .testimonial-text {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.8;
       margin-bottom: 1.5rem;
       font-style: italic;
     }
 
     .testimonial-author {
-      font-weight: 700;
+      font-weight: 600;
+      color: var(--primary-dark);
       font-size: 0.95rem;
     }
 
     /* ==========================================
        CTA SECTION
        ========================================== */
-    .cta-section {
+    .cta {
       padding: 5rem 2rem;
-      background: linear-gradient(135deg, #000 0%, #333 100%);
-      color: white;
+      background: var(--primary-dark);
+      color: var(--white);
       text-align: center;
-      position: relative;
     }
 
-    .cta-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
-    .cta-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
-      font-weight: 300;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 1.2rem 3rem;
-      background: #fff;
-      color: #000;
-      font-weight: 800;
-      font-size: 1rem;
-      border-radius: 50px;
+    .cta-btn {
+      padding: 1rem 2.5rem;
+      background: var(--white);
+      color: var(--primary-dark);
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
       cursor: pointer;
+      letter-spacing: 1px;
       transition: all 0.3s ease;
-      border: 2px solid #fff;
     }
 
-    .cta-button:hover {
-      background: transparent;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    .cta-btn:hover {
+      background: var(--accent-beige);
     }
 
     /* ==========================================
        FOOTER
        ========================================== */
     footer {
-      background: #1a1a1a;
+      background: var(--primary-dark);
       color: #999;
-      padding: 4rem 2rem 2rem;
+      padding: 3rem 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
 
     .footer-col h3 {
-      color: #fff;
-      font-size: 1.1rem;
+      color: var(--white);
       margin-bottom: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .footer-col ul {
@@ -710,132 +706,59 @@ app.get('/', c => c.html(`<!DOCTYPE html>
     }
 
     .footer-col ul li {
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
 
     .footer-col ul li a {
       color: #999;
+      font-size: 0.9rem;
       transition: color 0.3s ease;
-      font-size: 0.95rem;
     }
 
     .footer-col ul li a:hover {
-      color: #fff;
+      color: var(--white);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 2rem;
       text-align: center;
-      color: #666;
-    }
-
-    .footer-bottom p {
-      margin-bottom: 0.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
     }
 
     /* ==========================================
-       RESPONSIVE DESIGN
+       RESPONSIVE
        ========================================== */
     @media (max-width: 1024px) {
-      .hero-content {
-        bottom: 2rem;
-        left: 2rem;
-        max-width: 500px;
-      }
-
-      .hero-nav {
-        bottom: 1rem;
-        right: 1rem;
-        gap: 0.8rem;
-      }
-
-      .hero-nav-btn {
-        width: 70px;
-        height: 70px;
-      }
-
-      .about-container {
-        gap: 2rem;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 1rem 1.5rem;
-      }
-
-      .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 60px;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-        gap: 1rem;
-      }
-
-      .nav-menu.active {
-        left: 0;
-      }
-
-      .nav-menu a::after {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
       .hero {
-        height: 80vh;
-        margin-top: 50px;
+        grid-template-columns: 1fr;
+        height: auto;
       }
 
       .hero-content {
-        bottom: 1.5rem;
-        left: 1.5rem;
-        max-width: 400px;
+        padding: 3rem;
+        min-height: 500px;
+        justify-content: center;
       }
 
-      .hero-content h1 {
-        font-size: 1.8rem;
+      .hero-image {
+        min-height: 500px;
       }
 
-      .hero-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+      .hero-title {
+        font-size: 2.5rem;
       }
 
-      .hero-arrow.prev {
-        left: 1rem;
+      .products-container {
+        grid-template-columns: 1fr;
       }
 
-      .hero-arrow.next {
-        right: 1rem;
+      .product-item {
+        grid-template-columns: 1fr;
       }
 
-      .hero-nav {
-        right: 0.5rem;
-        gap: 0.5rem;
-        justify-content: flex-end;
-        max-width: 400px;
-      }
-
-      .hero-nav-btn {
-        width: 60px;
-        height: 60px;
-        border-width: 2px;
+      .product-image {
+        height: 300px;
       }
 
       .about-container {
@@ -843,388 +766,396 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       }
 
       .about-image {
-        aspect-ratio: 4/5;
+        aspect-ratio: 16/9;
       }
 
-      .products-section,
-      .about-section,
-      .testimonial-section,
-      .cta-section {
-        padding: 4rem 1.5rem;
-      }
-
-      .products-grid {
+      .testimonial-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
       }
 
-      .testimonials-grid {
+      .features-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: var(--white);
+        width: 100%;
+        gap: 0;
+        transition: 0.3s;
+        padding: 1rem 0;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-menu a {
+        padding: 0.8rem 1.5rem;
+        display: block;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .navbar-content {
+        padding: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .product-info {
+        padding: 2rem;
+      }
+
+      .about-content h2 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 480px) {
-      .navbar {
-        padding: 0.8rem 1rem;
+      .navbar-content {
+        padding: 0.8rem;
       }
 
       .logo {
-        font-size: 1.3rem;
+        font-size: 1rem;
       }
 
-      .hero {
-        height: 70vh;
-        margin-top: 50px;
+      .nav-menu {
+        gap: 0;
       }
 
       .hero-content {
-        bottom: 1rem;
-        left: 1rem;
+        padding: 1.5rem;
+        min-height: 400px;
       }
 
-      .hero-content h1 {
+      .hero-title {
         font-size: 1.5rem;
-        margin-bottom: 0.5rem;
       }
 
-      .hero-content p {
+      .hero-description {
         font-size: 0.9rem;
-        margin-bottom: 1rem;
       }
 
-      .hero-btn {
+      .hero-cta {
         padding: 0.8rem 1.5rem;
         font-size: 0.85rem;
       }
 
-      .hero-arrow {
-        display: none;
-      }
-
-      .hero-nav {
-        left: 0;
-        right: 0;
-        width: 100%;
-        bottom: 1rem;
-        justify-content: center;
-        max-width: 100%;
-        padding: 0 1rem;
-      }
-
-      .hero-nav-btn {
-        width: 50px;
-        height: 50px;
-      }
-
-      .hero-dots {
-        display: none;
+      .products {
+        padding: 3rem 1rem;
       }
 
       .section-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
 
-      .section-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
+      .features-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
-      .products-grid {
+      .product-item {
         grid-template-columns: 1fr;
       }
 
-      .feature-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+      .product-image {
+        height: 250px;
       }
 
-      .about-features {
-        gap: 1rem;
+      .product-info {
+        padding: 1.5rem;
       }
-    }
 
-    /* ==========================================
-       UTILITIES
-       ========================================== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* ==========================================
-       ANIMATIONS
-       ========================================== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+      .about {
+        padding: 3rem 1rem;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
+      .hero-nav-dots {
+        display: none;
       }
-      to {
-        opacity: 1;
+
+      .hero-nav-arrows {
+        display: none;
       }
-    }
-
-    .fade-in {
-      animation: fadeIn 0.6s ease;
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease;
     }
   </style>
 </head>
 <body>
   <!-- LOADER -->
-  <div class="loader-container" id="loaderContainer">
-    <div class="loader-spinner"></div>
+  <div class="loader" id="loader">
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
   </div>
 
   <!-- NAVIGATION -->
-  <nav class="navbar" id="navbar">
-    <div class="logo">Soumé</div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="logo">SOUMÉ</div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero">
-    <div class="hero-slider" id="heroSlider">
-      <!-- SLIDE 1 -->
-      <div class="hero-slide active">
-        <img src="/static/ocean-breeze-home.png" alt="Ocean Breeze Home" />
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-content">
-          <h1>Ocean Breeze</h1>
-          <p>Experience the perfect blend of nature and science</p>
-          <button class="hero-btn">Discover Now</button>
-        </div>
-      </div>
-
-      <!-- SLIDE 2 -->
-      <div class="hero-slide">
-        <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze Collection 1" />
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-content">
-          <h1>Pure Essence</h1>
-          <p>Formulated with effective ingredients</p>
-          <button class="hero-btn">Shop Now</button>
-        </div>
-      </div>
-
-      <!-- SLIDE 3 -->
-      <div class="hero-slide">
-        <img src="/static/ocean-breeze-campaign.png" alt="Ocean Breeze Campaign" />
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-content">
-          <h1>Transform Your Skin</h1>
-          <p>Radiant skin starts here</p>
-          <button class="hero-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- SLIDE 4 -->
-      <div class="hero-slide">
-        <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze Collection 2" />
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-content">
-          <h1>Complete Skincare</h1>
-          <p>Your journey to beautiful skin</p>
-          <button class="hero-btn">Explore</button>
-        </div>
-      </div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-label">New Collection</div>
+      <h1 class="hero-title">Ocean Breeze</h1>
+      <p class="hero-description">
+        Experience the perfect harmony of nature and science. Our premium skincare collection is formulated with effective ingredients to transform your skin.
+      </p>
+      <a href="#products" class="hero-cta">Explore Collection</a>
     </div>
 
-    <!-- HERO NAVIGATION ARROWS -->
-    <button class="hero-arrow prev" id="prevArrow">❮</button>
-    <button class="hero-arrow next" id="nextArrow">❯</button>
+    <div class="hero-image">
+      <div class="hero-slider" id="heroSlider">
+        <div class="hero-slide active">
+          <img src="/static/ocean-breeze-home.png" alt="Ocean Breeze Home" />
+        </div>
+        <div class="hero-slide">
+          <img src="/static/ocean-breeze-1.png" alt="Ocean Breeze 1" />
+        </div>
+        <div class="hero-slide">
+          <img src="/static/ocean-breeze-campaign.png" alt="Ocean Breeze Campaign" />
+        </div>
+        <div class="hero-slide">
+          <img src="/static/ocean-breeze-2.png" alt="Ocean Breeze 2" />
+        </div>
+      </div>
 
-    <!-- HERO DOTS INDICATOR -->
-    <div class="hero-dots" id="heroDots"></div>
+      <div class="hero-nav-arrows">
+        <button class="arrow-btn" id="prevBtn">←</button>
+        <button class="arrow-btn" id="nextBtn">→</button>
+      </div>
 
-    <!-- HERO NAVIGATION THUMBNAILS -->
-    <div class="hero-nav" id="heroNav">
-      <button class="hero-nav-btn active" data-index="0">
-        <img src="/static/ocean-breeze-home.png" alt="Slide 1" />
-      </button>
-      <button class="hero-nav-btn" data-index="1">
-        <img src="/static/ocean-breeze-1.png" alt="Slide 2" />
-      </button>
-      <button class="hero-nav-btn" data-index="2">
-        <img src="/static/ocean-breeze-campaign.png" alt="Slide 3" />
-      </button>
-      <button class="hero-nav-btn" data-index="3">
-        <img src="/static/ocean-breeze-2.png" alt="Slide 4" />
-      </button>
+      <div class="hero-nav-dots" id="heroDots"></div>
     </div>
   </section>
 
-  <!-- PRODUCTS SECTION -->
-  <section class="products-section" id="products">
-    <h2 class="section-title">Campaign Collections</h2>
-    <p class="section-subtitle">Discover our carefully curated collection of skincare essentials</p>
-
-    <div class="products-grid">
-      <div class="product-card">
-        <img src="/static/ocean-breeze-home.png" alt="Campaign 1" />
-        <div class="product-overlay">
-          <h3>Campaign 1</h3>
-          <p>Discover the essence</p>
-        </div>
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-container">
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Pure Formula</h3>
+        <p>Crafted with effective ingredients for visible results</p>
       </div>
-
-      <div class="product-card">
-        <img src="/static/ocean-breeze-1.png" alt="Campaign 2" />
-        <div class="product-overlay">
-          <h3>Campaign 2</h3>
-          <p>Pure formulation</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌊</div>
+        <h3>Ocean Extract</h3>
+        <p>Infused with natural ocean-derived botanicals</p>
       </div>
-
-      <div class="product-card">
-        <img src="/static/ocean-breeze-campaign.png" alt="Campaign 3" />
-        <div class="product-overlay">
-          <h3>Campaign 3</h3>
-          <p>Transform skin</p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="/static/ocean-breeze-2.png" alt="Campaign 4" />
-        <div class="product-overlay">
-          <h3>Campaign 4</h3>
-          <p>Complete care</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">💎</div>
+        <h3>Premium Quality</h3>
+        <p>Laboratory tested and certified for safety</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section class="about-section" id="about">
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="section-header">
+      <h2 class="section-title">Campaign Collections</h2>
+      <p class="section-desc">Discover our carefully curated skincare essentials</p>
+    </div>
+
+    <div class="products-container">
+      <div class="product-item">
+        <div class="product-image">
+          <img src="/static/ocean-breeze-home.png" alt="Serum Collection" />
+        </div>
+        <div class="product-info">
+          <span class="product-label">Collection 01</span>
+          <h3 class="product-name">Essence Serum</h3>
+          <p class="product-desc">Lightweight hydrating serum infused with ocean botanicals. Perfect for all skin types.</p>
+          <button class="product-btn">Learn More</button>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <div class="product-image">
+          <img src="/static/ocean-breeze-1.png" alt="Cream Collection" />
+        </div>
+        <div class="product-info">
+          <span class="product-label">Collection 02</span>
+          <h3 class="product-name">Rich Cream</h3>
+          <p class="product-desc">Luxurious moisturizing cream with intensive nourishing properties for dry skin.</p>
+          <button class="product-btn">Learn More</button>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <div class="product-image">
+          <img src="/static/ocean-breeze-campaign.png" alt="Mask Collection" />
+        </div>
+        <div class="product-info">
+          <span class="product-label">Collection 03</span>
+          <h3 class="product-name">Revitalizing Mask</h3>
+          <p class="product-desc">Weekly treatment mask that delivers instant radiance and deep hydration boost.</p>
+          <button class="product-btn">Learn More</button>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <div class="product-image">
+          <img src="/static/ocean-breeze-2.png" alt="Toner Collection" />
+        </div>
+        <div class="product-info">
+          <span class="product-label">Collection 04</span>
+          <h3 class="product-name">Balancing Toner</h3>
+          <p class="product-desc">Alcohol-free toner that balances skin pH and preps for treatment products.</p>
+          <button class="product-btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
     <div class="about-container">
+      <div class="about-image">
+        <img src="/static/ocean-breeze-2.png" alt="About Soumé" />
+      </div>
+
       <div class="about-content">
         <h2>About Soumé</h2>
         <p>
-          Soumé represents a commitment to skincare excellence. We believe that effective skincare 
-          should be accessible to everyone, combining scientific innovation with the power of natural ingredients.
+          At Soumé, we believe skincare should be an experience of pure luxury and effectiveness. 
+          Our Ocean Breeze collection represents years of research into the most potent natural ingredients.
         </p>
         <p>
-          Our formulations are developed with meticulous attention to detail, ensuring that each product 
-          delivers visible results while maintaining the highest standards of purity and safety.
+          Each product is formulated to work in harmony with your skin, delivering visible transformation 
+          while maintaining its natural balance.
         </p>
 
-        <div class="about-features">
-          <div class="feature-item">
-            <div class="feature-icon">✓</div>
-            <div class="feature-text">
-              <h3>Effective Ingredients</h3>
-              <p>Scientifically-proven formulations</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="point-number">1</div>
+            <div class="point-text">
+              <h3>Pure Ingredients</h3>
+              <p>Sourced from sustainable origins worldwide</p>
             </div>
           </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">✓</div>
-            <div class="feature-text">
-              <h3>Quality Assured</h3>
-              <p>Rigorous testing standards</p>
+          <div class="about-point">
+            <div class="point-number">2</div>
+            <div class="point-text">
+              <h3>Effective Results</h3>
+              <p>Clinically proven formulations</p>
             </div>
           </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">✓</div>
-            <div class="feature-text">
-              <h3>Results Focused</h3>
-              <p>Visible transformation guaranteed</p>
+          <div class="about-point">
+            <div class="point-number">3</div>
+            <div class="point-text">
+              <h3>Sustainable</h3>
+              <p>Eco-conscious packaging and practices</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="about-image">
-        <img src="/static/ocean-breeze-2.png" alt="Soumé Product" />
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-container">
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <h2 class="section-title">What Our Customers Say</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "This is hands down the best skincare product I've ever used. My skin feels incredibly soft and hydrated!"
+          </p>
+          <p class="testimonial-author">Sarah M.</p>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The results are visible after just two weeks. My skin tone has improved dramatically and I feel so confident."
+          </p>
+          <p class="testimonial-author">Jessica L.</p>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Worth every penny. The luxury feel combined with real results makes this a must-have in my routine."
+          </p>
+          <p class="testimonial-author">Emily K.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL SECTION -->
-  <section class="testimonial-section" id="testimonials">
-    <h2 class="testimonial-title">Customer Reviews</h2>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "This product line has completely transformed my skin. I've never felt more confident!"
-        </p>
-        <p class="testimonial-author">- Sarah M.</p>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "Finally found a skincare brand that actually delivers on its promises. Highly recommended!"
-        </p>
-        <p class="testimonial-author">- Jessica L.</p>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "The quality and effectiveness are unmatched. Worth every penny!"
-        </p>
-        <p class="testimonial-author">- Emily K.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section" id="cta">
-    <h2 class="cta-title">Ready to Transform Your Skin?</h2>
-    <p class="cta-subtitle">Join thousands of satisfied customers and start your skincare journey today</p>
-    <button class="cta-button">Shop Now</button>
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Ready to Experience Ocean Breeze?</h2>
+    <p>Join thousands of satisfied customers and discover the difference premium skincare makes</p>
+    <button class="cta-btn">Shop Now</button>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-col">
-        <h3>About Us</h3>
+        <h3>About</h3>
         <ul>
-          <li><a href="#">Our Story</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#">Ingredients</a></li>
-          <li><a href="#">Sustainability</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h3>Support</h3>
         <ul>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Contact</a></li>
           <li><a href="#">FAQ</a></li>
           <li><a href="#">Returns</a></li>
         </ul>
@@ -1233,14 +1164,14 @@ app.get('/', c => c.html(`<!DOCTYPE html>
       <div class="footer-col">
         <h3>Legal</h3>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookies</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Follow Us</h3>
+        <h3>Follow</h3>
         <ul>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">Facebook</a></li>
@@ -1250,202 +1181,93 @@ app.get('/', c => c.html(`<!DOCTYPE html>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2024 Soumé. All rights reserved.</p>
-      <p>Crafted with care for your skin.</p>
+      <p>&copy; 2024 Soumé Ocean Breeze. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    /* ========================================
-       INITIALIZATION
-       ======================================== */
-    const loaderContainer = document.getElementById('loaderContainer');
-    const navbar = document.getElementById('navbar');
+    /* LOADER */
+    window.addEventListener('load', () => {
+      document.getElementById('loader').classList.add('hidden');
+    });
+
+    /* HAMBURGER MENU */
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    const heroSlider = document.getElementById('heroSlider');
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroNav = document.getElementById('heroNav');
-    const heroNavBtns = document.querySelectorAll('.hero-nav-btn');
-    const prevArrow = document.getElementById('prevArrow');
-    const nextArrow = document.getElementById('nextArrow');
-    const heroDots = document.getElementById('heroDots');
 
-    let currentSlide = 0;
-    const totalSlides = heroSlides.length;
-    let autoSlideInterval;
-
-    /* ========================================
-       LOADER
-       ======================================== */
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loaderContainer.classList.add('hidden');
-      }, 500);
-    });
-
-    /* ========================================
-       NAVBAR SCROLL EFFECT
-       ======================================== */
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    /* ========================================
-       HAMBURGER MENU
-       ======================================== */
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
     });
 
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
       });
     });
 
-    /* ========================================
-       HERO DOTS INITIALIZATION
-       ======================================== */
-    function createDots() {
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = i === 0 ? 'dot active' : 'dot';
-        dot.addEventListener('click', () => goToSlide(i));
-        heroDots.appendChild(dot);
-      }
+    /* HERO SLIDER */
+    const heroSlider = document.getElementById('heroSlider');
+    const slides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.getElementById('heroDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = i === 0 ? 'dot active' : 'dot';
+      dot.addEventListener('click', () => goToSlide(i));
+      heroDots.appendChild(dot);
     }
 
-    /* ========================================
-       HERO SLIDER FUNCTIONS
-       ======================================== */
-    function updateSlide() {
-      // Update slides
-      heroSlides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        if (index === currentSlide) {
-          slide.classList.add('active');
-        }
-      });
-
-      // Update nav buttons
-      heroNavBtns.forEach((btn, index) => {
-        btn.classList.remove('active');
-        if (index === currentSlide) {
-          btn.classList.add('active');
-        }
-      });
-
-      // Update dots
-      document.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.remove('active');
-        if (index === currentSlide) {
-          dot.classList.add('active');
-        }
-      });
+    function showSlide(n) {
+      slides.forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+      slides[n].classList.add('active');
+      document.querySelectorAll('.dot')[n].classList.add('active');
     }
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlide();
-      resetAutoSlide();
+      showSlide(currentSlide);
+      resetTimer();
     }
 
     function prevSlide() {
       currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlide();
-      resetAutoSlide();
+      showSlide(currentSlide);
+      resetTimer();
     }
 
-    function goToSlide(index) {
-      currentSlide = index;
-      updateSlide();
-      resetAutoSlide();
+    function goToSlide(n) {
+      currentSlide = n;
+      showSlide(n);
+      resetTimer();
     }
 
-    function autoSlide() {
-      nextSlide();
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    let autoSlideTimer = setInterval(nextSlide, 5000);
+
+    function resetTimer() {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(nextSlide, 5000);
     }
 
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(autoSlide, 5000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-
-    /* ========================================
-       EVENT LISTENERS - HERO SLIDER
-       ========================================*/
-    prevArrow.addEventListener('click', prevSlide);
-    nextArrow.addEventListener('click', nextSlide);
-
-    heroNavBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const index = parseInt(e.currentTarget.dataset.index);
-        goToSlide(index);
-      });
-    });
-
-    /* ========================================
-       INITIALIZATION
-       ======================================== */
-    createDots();
-    startAutoSlide();
-    updateSlide();
-
-    /* ========================================
-       INTERSECTION OBSERVER FOR ANIMATIONS
-       ======================================== */
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.product-card, .testimonial-card, .about-container').forEach((el) => {
-      observer.observe(el);
-    });
-
-    /* ========================================
-       SMOOTH SCROLL
-       ======================================== */
+    /* SMOOTH SCROLL */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
-      });
-    });
-
-    /* ========================================
-       CTA BUTTON CLICK
-       ======================================== */
-    document.querySelectorAll('.cta-button, .hero-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        alert('Thank you for your interest! Visit our shop to explore products.');
       });
     });
   </script>
