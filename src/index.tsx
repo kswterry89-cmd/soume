@@ -1167,12 +1167,12 @@ app.get('/', (c) => {
       <div class="val-card r d2">
         <div class="val-num">02</div>
         <h3 class="val-title">Science-Backed</h3>
-        <p class="val-desc">수십 번의 임상 테스트와 피부과학 연구를 기반으로 개발된 포뮬러. 피부과 전문의가 검증한 성분 배합으로 눈에 보이는 피부 변화를 만들어냅니다.</p>
+        <p class="val-desc">수십 번의 테스트와 피부과학 연구를 기반으로 개발된 포뮬러. 전문가가 검증한 성분 배합으로 눈에 보이는 피부 변화를 만들어냅니다.</p>
       </div>
       <div class="val-card r d3">
         <div class="val-num">03</div>
         <h3 class="val-title">Sustainable</h3>
-        <p class="val-desc">100% 비건 인증, 친환경 패키징, 재활용 가능한 용기. 아름다움을 위해 지구를 희생하지 않는 지속 가능한 뷰티를 실천합니다.</p>
+        <p class="val-desc">친환경 패키징, 재활용 가능한 용기. 아름다움을 위해 지구를 희생하지 않는 지속 가능한 뷰티를 실천합니다.</p>
       </div>
     </div>
   </div>
@@ -1340,14 +1340,14 @@ app.get('/', (c) => {
           <div class="philos-ico">🐾</div>
           <div>
             <h3 class="philos-pt-h">Cruelty-Free & Vegan</h3>
-            <p class="philos-pt-p">동물 실험 없이 개발되며, 동물성 성분을 배제한 비건 인증 포뮬러로 양심에 거리낌 없는 뷰티를 추구합니다.</p>
+            <p class="philos-pt-p">생명을 존중하는 아름다움, 자연과의 약속을 담은 클린 뷰티.</p>
           </div>
         </div>
         <div class="philos-pt">
           <div class="philos-ico">♻️</div>
           <div>
             <h3 class="philos-pt-h">Eco Packaging</h3>
-            <p class="philos-pt-p">재활용 가능한 소재와 최소한의 포장. 2025년부터 리필 시스템을 도입해 지속 가능한 뷰티를 실천합니다.</p>
+            <p class="philos-pt-p">재활용 가능한 소재와 최소한의 포장. 친환경 시스템을 도입해 지속 가능한 뷰티를 실천합니다.</p>
           </div>
         </div>
       </div>
@@ -1435,7 +1435,7 @@ app.get('/', (c) => {
         <ul class="vis-list">
           <li>클린 스킨케어 라인 론칭</li>
           <li>세럼, 크림, 클렌저 코어 라인업</li>
-          <li>비건 인증 획득</li>
+          <li>바디 로션 스프레이 출시</li>
           <li>국내 온라인 유통 시작</li>
         </ul>
       </div>
@@ -1443,17 +1443,16 @@ app.get('/', (c) => {
         <p class="vis-tag">Phase 02 · 2025–2026</p>
         <h3 class="vis-h">Beauty Tech</h3>
         <ul class="vis-list">
-          <li>홈 뷰티 디바이스 1호기 개발</li>
-          <li>LED 마스크 / 초음파 디바이스</li>
+          <li>뷰티 제품 라인업 개발</li>
+          <li>뷰티 디바이스 개발 예정</li>
           <li>제품-디바이스 시너지 루틴</li>
-          <li>오프라인 팝업 스토어</li>
+          <li>오프라인 팝업 스토어 예정</li>
         </ul>
       </div>
       <div class="vis-phase r d3">
         <p class="vis-tag">Phase 03 · 2027+</p>
         <h3 class="vis-h">Global K-Beauty</h3>
         <ul class="vis-list">
-          <li>일본, 미국, 동남아 진출</li>
           <li>글로벌 헬스케어 솔루션 확장</li>
           <li>퍼스널라이즈드 뷰티 AI 도입</li>
           <li>K-뷰티 테크 글로벌 리더십</li>
@@ -1523,7 +1522,7 @@ app.get('/', (c) => {
     </div>
   </div>
   <div class="ft-bottom">
-    <p class="ft-copy">© 2024 Soumé. All rights reserved. Made in Korea.</p>
+    <p class="ft-copy">© 2025 Soumé. All rights reserved. Made in Korea.</p>
     <div class="ft-legal">
       <a href="#">개인정보처리방침</a>
       <a href="#">이용약관</a>
@@ -1556,9 +1555,9 @@ app.get('/', (c) => {
 
   const slideTexts = [
     { headline: '피부가 원하는<br/><em>단 하나의 선택</em>', sub: '유해 성분 제로, 과학적으로 검증된 클린 포뮬러.<br/>자연에서 온 성분으로 피부 본연의 건강을 되찾아드립니다.' },
-    { headline: 'Science of<br/><em>Pure Beauty</em>',     sub: 'AI 가상 뷰티 모델 SORA가 전하는 Soumé 스킨케어의 세계.<br/>포슬린 스킨을 위한 프리미엄 포뮬러.' },
+    { headline: 'Science of<br/><em>Pure Beauty</em>',     sub: 'Soumé 뷰티 모델이 전하는 Soumé 스킨케어의 세계.<br/>포슬린 스킨을 위한 프리미엄 포뮬러.' },
     { headline: '아름다움의<br/><em>새로운 정의</em>',     sub: '패션 에디토리얼이 만난 클린뷰티 — 스타일과 성분 모두 타협하지 않습니다.' },
-    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 Soumé 세럼.<br/>SORA가 직접 사용하는 클린 포뮬러를 경험하세요.' }
+    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 Soumé 세럼.<br/>Soumé 모델이 직접 사용하는 클린 포뮬러를 경험하세요.' }
   ];
 
   let curSlide = 0;
