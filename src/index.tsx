@@ -1063,7 +1063,7 @@ app.get('/', (c) => {
       <em>두 개의 시선</em>
     </h2>
     <p class="models-sub r d2">
-      뷰티 모델 SORA와 패션 에디토리얼 모델이 표현하는 Soumé의 세계.<br/>
+      뷰티 모델과 패션 에디토리얼 모델이 표현하는 Soumé의 세계.<br/>
       클린뷰티의 새로운 미감을 두 가지 눈으로 만나보세요.
     </p>
   </div>
@@ -1081,7 +1081,7 @@ app.get('/', (c) => {
       </div>
     </div>
 
-    <!-- 패널 2: SORA 뷰티 -->
+    <!-- 패널 2: Soumé 뷰티 -->
     <div class="model-panel">
       <img src="/static/model-sora-beauty.jpg" alt="SORA Beauty Model" />
       <div class="model-panel-overlay"></div>
@@ -1105,7 +1105,7 @@ app.get('/', (c) => {
       </div>
     </div>
 
-    <!-- 패널 4: SORA 제품 -->
+    <!-- 패널 4: Soumé 제품 -->
     <div class="model-panel">
       <img src="/static/model-sora-product.jpg" alt="SORA Product Campaign" />
       <div class="model-panel-overlay"></div>
@@ -1113,7 +1113,7 @@ app.get('/', (c) => {
       <div class="model-panel-info">
         <span class="model-panel-tag">Product Campaign</span>
         <h3 class="model-panel-name">SORA<br/>제품 캠페인</h3>
-        <p class="model-panel-desc">Soumé 세럼을 손에 든 SORA의 시그니처 뷰티 캠페인 비주얼.</p>
+        <p class="model-panel-desc">Soumé 세럼을 손에 든 시그니처 뷰티 캠페인 비주얼.</p>
       </div>
     </div>
   </div>
