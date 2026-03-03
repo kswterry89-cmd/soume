@@ -1311,7 +1311,7 @@ app.get('/', (c) => {
       <div class="ps-div"></div>
       <div class="ps-item"><div class="ps-num">0</div><div class="ps-label">유해 화학 성분</div></div>
       <div class="ps-div"></div>
-      <div class="ps-item"><div class="ps-num">100<span>%</span></div><div class="ps-label">비건 인증 포뮬러</div></div>
+      <div class="ps-item"><div class="ps-num">100<span>%</span></div><div class="ps-label">유효 인증 포뮬러</div></div>
       <div class="ps-div"></div>
       <div class="ps-item"><div class="ps-num">All</div><div class="ps-label">피부 타입 적합</div></div>
     </div>
