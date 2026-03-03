@@ -63,13 +63,13 @@ app.get('/', (c) => {
       position: fixed; inset: 0; z-index: 9999;
       background: var(--ink);
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 40px;
+      align-items: center; justify-content: center; gap: clamp(20px, 5vh, 40px);
       transition: opacity 1.2s var(--ease), visibility 1.2s;
     }
     #loader.out { opacity: 0; visibility: hidden; }
 
     .loader-logo {
-      height: 44px; width: auto;
+      height: clamp(28px, 8vw, 44px); width: auto;
       animation: logoFadeIn 1.2s var(--ease) forwards;
       opacity: 0;
       filter: invert(1);
@@ -79,7 +79,7 @@ app.get('/', (c) => {
       to   { opacity: 1; transform: translateY(0); }
     }
     .loader-bar {
-      width: 80px; height: 1px;
+      width: clamp(60px, 15vw, 80px); height: 1px;
       background: rgba(255,255,255,0.15);
       position: relative; overflow: hidden;
     }
@@ -95,23 +95,23 @@ app.get('/', (c) => {
     /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 76px;
+      height: clamp(56px, 12vw, 76px);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 60px;
+      padding: 0 clamp(20px, 4vw, 60px);
       transition: background 0.5s var(--ease), border-color 0.5s var(--ease), height 0.4s;
     }
     nav.solid {
       background: rgba(248, 246, 242, 0.97);
       backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--gray-2);
-      height: 62px;
+      height: clamp(48px, 10vw, 62px);
     }
     nav.solid .nav-logo img { filter: none; }
     nav.solid .nav-menu a { color: var(--ink); }
     nav.solid .nav-pill { background: var(--ink); color: var(--white); }
 
     .nav-logo img {
-      height: 26px; width: auto;
+      height: clamp(18px, 5vw, 26px); width: auto;
       display: block;
       filter: invert(1);
       transition: opacity 0.3s, filter 0.5s;
@@ -119,12 +119,12 @@ app.get('/', (c) => {
     .nav-logo:hover img { opacity: 0.6; }
 
     .nav-menu {
-      display: flex; align-items: center; gap: 40px;
+      display: flex; align-items: center; gap: clamp(24px, 4vw, 40px);
       list-style: none;
     }
     .nav-menu a {
       font-family: var(--sans);
-      font-size: 11px; font-weight: 400;
+      font-size: clamp(9px, 1.5vw, 11px); font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.75);
@@ -133,13 +133,13 @@ app.get('/', (c) => {
     }
     .nav-menu a:hover { color: var(--white); opacity: 1; }
 
-    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-right { display: flex; align-items: center; gap: clamp(12px, 3vw, 20px); }
     .nav-pill {
-      padding: 9px 24px;
+      padding: clamp(7px, 1.5vw, 9px) clamp(16px, 3vw, 24px);
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(8px);
       color: var(--white);
-      font-size: 11px; font-weight: 400;
+      font-size: clamp(9px, 1.5vw, 11px); font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
@@ -163,30 +163,30 @@ app.get('/', (c) => {
     .mob-overlay {
       display: none; position: fixed; inset: 0; z-index: 998;
       background: var(--ink);
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      flex-direction: column; align-items: center; justify-content: center; gap: clamp(24px, 6vw, 32px);
     }
     .mob-overlay.open { display: flex; }
     .mob-overlay a {
       font-family: var(--serif);
-      font-size: 3rem; font-weight: 300;
+      font-size: clamp(2rem, 7vw, 3rem); font-weight: 300;
       color: var(--white); text-decoration: none;
       letter-spacing: 0.04em;
       transition: color 0.2s;
     }
     .mob-overlay a:hover { color: var(--warm-lt); }
     .mob-close {
-      position: absolute; top: 28px; right: 36px;
+      position: absolute; top: clamp(20px, 5vw, 28px); right: clamp(20px, 5vw, 36px);
       background: none; border: none;
-      color: var(--white); font-size: 1.4rem; cursor: pointer; opacity: 0.5;
+      color: var(--white); font-size: clamp(1rem, 3vw, 1.4rem); cursor: pointer; opacity: 0.5;
     }
     .mob-close:hover { opacity: 1; }
 
     /* ══════════════════════════════════════
-       HERO — FULLSCREEN MODEL SLIDESHOW
+       HERO — FULLSCREEN CAMPAIGN SLIDESHOW
        ══════════════════════════════════════ */
     .hero {
       position: relative;
-      height: 100svh; min-height: 700px;
+      height: 100svh; min-height: clamp(500px, 100vh, 1200px);
       overflow: hidden;
     }
 
@@ -225,26 +225,26 @@ app.get('/', (c) => {
     .hero-content {
       position: absolute; inset: 0; z-index: 2;
       display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 80px 80px;
+      padding: 0 clamp(20px, 5vw, 80px) clamp(40px, 10vw, 80px);
     }
 
     /* 왼쪽 텍스트 */
     .hero-text { max-width: 600px; }
 
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 10px; font-weight: 400; letter-spacing: 0.42em; text-transform: uppercase;
-      color: var(--warm-lt); margin-bottom: 28px;
+      display: inline-flex; align-items: center; gap: clamp(8px, 2vw, 12px);
+      font-size: clamp(8px, 1.5vw, 10px); font-weight: 400; letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--warm-lt); margin-bottom: clamp(16px, 4vw, 28px);
       opacity: 0; animation: heroUp 1s var(--ease) 1.5s forwards;
     }
-    .hero-eyebrow::before { content:''; width:24px; height:1px; background:var(--warm-lt); }
+    .hero-eyebrow::before { content:''; width: clamp(16px, 4vw, 24px); height:1px; background:var(--warm-lt); }
 
     .hero-headline {
       font-family: var(--serif);
-      font-size: clamp(3.2rem, 6.5vw, 7.5rem);
+      font-size: clamp(2rem, 6vw, 7.5rem);
       font-weight: 300; line-height: 1.0;
       color: var(--white); letter-spacing: -0.015em;
-      margin-bottom: 28px;
+      margin-bottom: clamp(16px, 4vw, 28px);
       opacity: 0; animation: heroUp 1.1s var(--ease) 1.7s forwards;
     }
     .hero-headline em {
@@ -256,21 +256,22 @@ app.get('/', (c) => {
 
     .hero-sub {
       font-family: var(--noto);
-      font-size: 0.875rem; font-weight: 300; line-height: 1.95;
+      font-size: clamp(0.75rem, 2vw, 0.875rem); font-weight: 300; line-height: 1.95;
       color: rgba(255,255,255,0.55); max-width: 380px;
-      margin-bottom: 44px;
+      margin-bottom: clamp(24px, 6vw, 44px);
       opacity: 0; animation: heroUp 1s var(--ease) 1.9s forwards;
     }
 
     .hero-actions {
-      display: flex; align-items: center; gap: 16px;
+      display: flex; align-items: center; gap: clamp(12px, 3vw, 16px);
       opacity: 0; animation: heroUp 1s var(--ease) 2.1s forwards;
+      flex-wrap: wrap;
     }
     .btn-hero-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 36px;
+      display: inline-flex; align-items: center; gap: clamp(6px, 1.5vw, 10px);
+      padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 36px);
       background: var(--white); color: var(--ink);
-      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      font-size: clamp(9px, 1.5vw, 11px); letter-spacing: 0.16em; text-transform: uppercase;
       text-decoration: none; font-family: var(--sans);
       transition: background 0.3s, transform 0.3s;
     }
@@ -278,8 +279,8 @@ app.get('/', (c) => {
     .btn-hero-primary:hover { background: var(--warm-lt); transform: translateY(-2px); }
 
     .btn-hero-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: clamp(6px, 1.5vw, 8px);
+      font-size: clamp(8px, 1.5vw, 11px); letter-spacing: 0.14em; text-transform: uppercase;
       color: rgba(255,255,255,0.65); text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.3);
       padding-bottom: 3px;
@@ -290,19 +291,19 @@ app.get('/', (c) => {
 
     /* 오른쪽 슬라이드 썸네일 네비 */
     .hero-nav {
-      position: absolute; right: 60px; bottom: 80px; z-index: 3;
-      display: flex; flex-direction: column; gap: 10px;
+      position: absolute; right: clamp(20px, 4vw, 60px); bottom: clamp(40px, 8vw, 80px); z-index: 3;
+      display: flex; flex-direction: column; gap: clamp(6px, 1.5vw, 10px);
       opacity: 0; animation: heroFade 1s var(--ease) 2.3s forwards;
     }
     .hero-nav-item {
-      display: flex; align-items: center; gap: 14px;
+      display: flex; align-items: center; gap: clamp(10px, 2vw, 14px);
       background: none; border: none; cursor: pointer;
-      padding: 8px 10px;
+      padding: clamp(6px, 1.5vw, 8px) clamp(6px, 1.5vw, 10px);
       opacity: 0.4; transition: opacity 0.35s;
     }
     .hero-nav-item.active, .hero-nav-item:hover { opacity: 1; }
     .hero-nav-thumb {
-      width: 46px; height: 62px;
+      width: clamp(32px, 6vw, 46px); height: clamp(42px, 8vw, 62px);
       object-fit: cover; object-position: top;
       outline: 2px solid transparent; outline-offset: 2px;
       transition: outline-color 0.35s;
@@ -311,11 +312,11 @@ app.get('/', (c) => {
     .hero-nav-info { text-align: right; }
     .hero-nav-name {
       font-family: var(--serif);
-      font-size: 0.9rem; font-weight: 400; color: var(--white);
+      font-size: clamp(0.75rem, 2vw, 0.9rem); font-weight: 400; color: var(--white);
       display: block; line-height: 1;
     }
     .hero-nav-role {
-      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: clamp(7px, 1.2vw, 9px); letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(255,255,255,0.4); margin-top: 3px;
     }
 
@@ -331,8 +332,8 @@ app.get('/', (c) => {
 
     /* 스크롤 힌트 */
     .hero-scroll {
-      position: absolute; left: 80px; bottom: 36px; z-index: 3;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      position: absolute; left: clamp(20px, 4vw, 80px); bottom: clamp(24px, 5vw, 36px); z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 1.5vw, 10px);
       opacity: 0; animation: heroFade 1s var(--ease) 2.8s forwards;
     }
     .scroll-wheel {
@@ -352,25 +353,25 @@ app.get('/', (c) => {
       100% { transform: translateY(0); opacity: 0; }
     }
     .scroll-label {
-      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      font-size: clamp(7px, 1.2vw, 9px); letter-spacing: 0.3em; text-transform: uppercase;
       color: rgba(255,255,255,0.3);
       writing-mode: vertical-rl; transform: rotate(180deg);
     }
 
     /* 브랜드 배지 — 상단 우측 */
     .hero-badge-corner {
-      position: absolute; top: 110px; right: 60px; z-index: 3;
-      display: flex; flex-direction: column; gap: 8px;
+      position: absolute; top: clamp(60px, 10vw, 110px); right: clamp(20px, 4vw, 60px); z-index: 3;
+      display: flex; flex-direction: column; gap: clamp(6px, 1.5vw, 8px);
       opacity: 0; animation: heroFade 1s var(--ease) 2s forwards;
     }
     .hero-badge-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px;
+      display: inline-flex; align-items: center; gap: clamp(5px, 1vw, 7px);
+      padding: clamp(6px, 1.2vw, 8px) clamp(12px, 2vw, 16px);
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.14);
       border-radius: 100px;
-      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 0.14em; text-transform: uppercase;
       color: rgba(255,255,255,0.8);
       white-space: nowrap;
     }
@@ -381,7 +382,7 @@ app.get('/', (c) => {
 
     /* 슬라이드 인덱스 */
     .hero-index {
-      position: absolute; left: 80px; top: 50%; z-index: 3;
+      position: absolute; left: clamp(20px, 4vw, 80px); top: 50%; z-index: 3;
       transform: translateY(-50%);
       display: flex; flex-direction: column; gap: 6px;
       opacity: 0; animation: heroFade 1s var(--ease) 2.5s forwards;
@@ -406,7 +407,7 @@ app.get('/', (c) => {
     /* ─── MARQUEE STRIP ─── */
     .strip {
       background: var(--ink);
-      padding: 16px 0; overflow: hidden; display: flex;
+      padding: clamp(12px, 2vw, 16px) 0; overflow: hidden; display: flex;
     }
     .strip-track {
       display: flex; gap: 0;
@@ -415,8 +416,8 @@ app.get('/', (c) => {
     }
     .strip-item { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
     .strip-text {
-      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); padding: 0 36px;
+      font-size: clamp(9px, 1.5vw, 11px); letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); padding: 0 clamp(20px, 3vw, 36px);
     }
     .strip-dot {
       width: 4px; height: 4px; border-radius: 50%;
@@ -425,19 +426,19 @@ app.get('/', (c) => {
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ─── SECTION BASE ─── */
-    .section { padding: 128px 80px; }
+    .section { padding: clamp(80px, 15vw, 128px) clamp(20px, 5vw, 80px); }
     .container { max-width: 1280px; margin: 0 auto; }
 
     .tag {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: clamp(8px, 1.5vw, 10px);
+      font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: clamp(16px, 3vw, 24px);
     }
-    .tag::before { content:''; width:24px; height:1px; background:var(--accent); }
+    .tag::before { content:''; width: clamp(16px, 3vw, 24px); height:1px; background:var(--accent); }
 
     .h2 {
       font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      font-size: clamp(1.8rem, 5vw, 4.2rem);
       font-weight: 300; line-height: 1.1;
       color: var(--ink); letter-spacing: -0.01em;
     }
@@ -455,41 +456,43 @@ app.get('/', (c) => {
     .r.d5 { transition-delay: 0.58s; }
 
     /* ══════════════════════════════════════
-       MODELS SECTION — 풀블리드 시네마틱
+       MODELS SECTION
        ══════════════════════════════════════ */
     .models { background: var(--ink); color: var(--white); padding: 0; }
 
     .models-head {
-      padding: 100px 80px 60px;
+      padding: clamp(60px, 12vw, 100px) clamp(20px, 5vw, 80px) clamp(40px, 8vw, 60px);
     }
     .models .tag { color: rgba(255,255,255,0.35); }
     .models .tag::before { background: rgba(255,255,255,0.35); }
     .models-title {
       font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      font-size: clamp(1.8rem, 5vw, 4.2rem);
       font-weight: 300; color: var(--white);
       line-height: 1.1;
     }
     .models-title em { font-style: italic; color: var(--warm-lt); }
     .models-sub {
       font-family: var(--noto);
-      font-size: 0.875rem; font-weight: 300;
+      font-size: clamp(0.8rem, 1.8vw, 0.875rem); font-weight: 300;
       color: rgba(255,255,255,0.4); line-height: 1.9;
-      margin-top: 20px; max-width: 480px;
+      margin-top: clamp(12px, 2vw, 20px); max-width: 480px;
     }
 
-    /* 모델 쇼케이스 — 가로 스크롤 파노라마 */
+    /* 모델 쇼케이스 — 반응형 그리드 */
     .models-panorama {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr 1.1fr 0.9fr;
-      min-height: 70vh;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      min-height: clamp(400px, 60vh, 70vh);
+      gap: 0;
     }
     .model-panel {
       position: relative; overflow: hidden;
       cursor: pointer;
+      min-height: clamp(300px, 50vh, 520px);
     }
     .model-panel img {
-      width: 100%; height: 100%; min-height: 520px;
+      width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       transition: transform 0.9s var(--ease), filter 0.6s;
       filter: brightness(0.88) saturate(0.9);
@@ -514,23 +517,23 @@ app.get('/', (c) => {
     }
     .model-panel-info {
       position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 40px 36px;
+      padding: clamp(24px, 5vw, 40px) clamp(20px, 4vw, 36px);
       transform: translateY(8px);
       transition: transform 0.5s var(--ease);
     }
     .model-panel:hover .model-panel-info { transform: translateY(0); }
     .model-panel-tag {
-      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--warm-lt); margin-bottom: 8px; display: block;
+      font-size: clamp(7px, 1.2vw, 9px); letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--warm-lt); margin-bottom: clamp(6px, 1vw, 8px); display: block;
     }
     .model-panel-name {
       font-family: var(--serif);
-      font-size: 2rem; font-weight: 300; color: var(--white);
-      line-height: 1.1; margin-bottom: 10px;
+      font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 300; color: var(--white);
+      line-height: 1.1; margin-bottom: clamp(8px, 1.5vw, 10px);
     }
     .model-panel-desc {
       font-family: var(--noto);
-      font-size: 0.8rem; font-weight: 300;
+      font-size: clamp(0.75rem, 1.5vw, 0.8rem); font-weight: 300;
       color: rgba(255,255,255,0.5); line-height: 1.7;
       max-width: 260px;
       opacity: 0; transform: translateY(6px);
@@ -538,37 +541,36 @@ app.get('/', (c) => {
     }
     .model-panel:hover .model-panel-desc { opacity: 1; transform: translateY(0); }
     .model-panel-badge {
-      position: absolute; top: 20px; right: 20px;
-      padding: 6px 13px;
+      position: absolute; top: clamp(12px, 2vw, 20px); right: clamp(12px, 2vw, 20px);
+      padding: clamp(4px, 1vw, 6px) clamp(8px, 1.5vw, 13px);
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255,255,255,0.15);
-      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: clamp(7px, 1vw, 9px); letter-spacing: 0.15em; text-transform: uppercase;
       color: rgba(255,255,255,0.7);
     }
 
     /* ─── ABOUT ─── */
     .about { background: var(--white); }
     .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 96px; align-items: center;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(40px, 8vw, 96px); align-items: center;
     }
-    .about-text .h2 { margin-bottom: 28px; }
+    .about-text .h2 { margin-bottom: clamp(16px, 3vw, 28px); }
     .about-p {
       font-family: var(--noto);
-      font-size: 0.9rem; font-weight: 300;
+      font-size: clamp(0.85rem, 1.8vw, 0.9rem); font-weight: 300;
       line-height: 1.95; color: var(--gray-4);
-      margin-bottom: 16px;
+      margin-bottom: clamp(12px, 2vw, 16px);
     }
     .about-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: clamp(8px, 1.5vw, 10px);
+      font-size: clamp(9px, 1.5vw, 11px); letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--ink); text-decoration: none;
-      margin-top: 20px; transition: gap 0.3s;
+      margin-top: clamp(12px, 2vw, 20px); transition: gap 0.3s;
     }
     .about-link:hover { gap: 16px; }
 
-    /* About 비주얼: 모델 이미지로 */
     .about-visual { position: relative; }
     .about-img-wrap {
       width: 100%; aspect-ratio: 4/5;
@@ -582,19 +584,19 @@ app.get('/', (c) => {
     }
     .about-img-wrap:hover img { transform: scale(1.04); }
     .about-float {
-      position: absolute; bottom: -28px; left: -28px;
-      width: 164px; height: 164px;
+      position: absolute; bottom: clamp(-20px, -3vw, -28px); left: clamp(-20px, -3vw, -28px);
+      width: clamp(120px, 20vw, 164px); height: clamp(120px, 20vw, 164px);
       background: var(--ink);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 4px;
     }
     .about-float-num {
       font-family: var(--serif);
-      font-size: 2.4rem; font-weight: 300;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 300;
       color: var(--white); line-height: 1;
     }
     .about-float-lbl {
-      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: clamp(7px, 1.2vw, 9px); letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6;
     }
 
@@ -602,12 +604,18 @@ app.get('/', (c) => {
     .values { background: var(--gray-1); }
     .values-head {
       display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 72px;
+      margin-bottom: clamp(48px, 10vw, 72px);
+      flex-direction: column;
+      gap: clamp(24px, 5vw, 0px);
     }
-    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .values-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: clamp(12px, 2vw, 2px); 
+    }
     .val-card {
       background: var(--white);
-      padding: 52px 44px;
+      padding: clamp(32px, 5vw, 52px) clamp(24px, 4vw, 44px);
       position: relative; overflow: hidden;
       transition: transform 0.35s var(--ease);
     }
@@ -623,17 +631,17 @@ app.get('/', (c) => {
     .val-card:hover::after { transform: scaleX(1); }
     .val-num {
       font-family: var(--serif);
-      font-size: 3rem; font-weight: 300;
-      color: var(--gray-2); line-height: 1; margin-bottom: 28px;
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 300;
+      color: var(--gray-2); line-height: 1; margin-bottom: clamp(16px, 3vw, 28px);
     }
     .val-title {
       font-family: var(--serif);
-      font-size: 1.5rem; font-weight: 400;
-      color: var(--ink); margin-bottom: 14px;
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 400;
+      color: var(--ink); margin-bottom: clamp(10px, 2vw, 14px);
     }
     .val-desc {
       font-family: var(--noto);
-      font-size: 0.85rem; font-weight: 300;
+      font-size: clamp(0.8rem, 1.5vw, 0.85rem); font-weight: 300;
       color: var(--gray-4); line-height: 1.85;
     }
 
@@ -641,33 +649,39 @@ app.get('/', (c) => {
     .products { background: var(--white); }
     .prod-head {
       display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 64px;
+      margin-bottom: clamp(40px, 8vw, 64px);
+      flex-direction: column;
+      gap: clamp(20px, 4vw, 0px);
     }
-    .prod-filters { display: flex; gap: 2px; }
+    .prod-filters { display: flex; gap: clamp(1px, 0.5vw, 2px); flex-wrap: wrap; }
     .f-btn {
-      padding: 9px 18px;
+      padding: clamp(7px, 1.2vw, 9px) clamp(12px, 2vw, 18px);
       background: none; border: 1px solid var(--gray-2);
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: clamp(9px, 1.3vw, 11px); letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer; font-family: var(--sans);
       color: var(--gray-4);
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .f-btn.on, .f-btn:hover { background: var(--ink); border-color: var(--ink); color: var(--white); }
-    .prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .prod-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: clamp(16px, 3vw, 28px); 
+    }
     .prod-card { cursor: pointer; transition: transform 0.35s var(--ease); }
     .prod-card:hover { transform: translateY(-6px); }
     .prod-img {
       aspect-ratio: 3/4;
       border-radius: 3px;
       position: relative; overflow: hidden;
-      margin-bottom: 20px;
+      margin-bottom: clamp(12px, 2vw, 20px);
       display: flex; align-items: center; justify-content: center;
     }
-    .prod-img-ico { font-size: 3.5rem; opacity: 0.18; color: var(--stone-dk); position: relative; z-index: 1; }
+    .prod-img-ico { font-size: clamp(2rem, 4vw, 3.5rem); opacity: 0.18; color: var(--stone-dk); position: relative; z-index: 1; }
     .prod-badge {
-      position: absolute; top: 14px; left: 14px;
-      padding: 5px 11px;
-      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      position: absolute; top: clamp(10px, 1.5vw, 14px); left: clamp(10px, 1.5vw, 14px);
+      padding: clamp(4px, 1vw, 5px) clamp(8px, 1.5vw, 11px);
+      font-size: clamp(7px, 1vw, 9px); letter-spacing: 0.15em; text-transform: uppercase;
       font-weight: 500; border-radius: 2px;
     }
     .b-new  { background: var(--ink);  color: var(--white); }
@@ -681,99 +695,169 @@ app.get('/', (c) => {
     }
     .prod-card:hover .prod-hover { opacity: 1; }
     .prod-hover-btn {
-      padding: 13px 28px;
+      padding: clamp(10px, 1.5vw, 13px) clamp(20px, 3vw, 28px);
       background: var(--white); color: var(--ink);
-      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 0.15em; text-transform: uppercase;
       border: none; cursor: pointer; font-family: var(--sans);
       transition: background 0.2s;
     }
     .prod-hover-btn:hover { background: var(--warm-lt); }
-    .prod-cat { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .prod-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
-    .prod-sub { font-family: var(--noto); font-size: 0.8rem; font-weight: 300; color: var(--gray-3); margin-bottom: 12px; line-height: 1.6; }
-    .prod-price { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
-    .prod-price-orig { font-size: 0.875rem; color: var(--gray-3); text-decoration: line-through; margin-right: 8px; }
+    .prod-cat { font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: clamp(4px, 1vw, 6px); }
+    .prod-name { font-family: var(--serif); font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 400; color: var(--ink); margin-bottom: clamp(4px, 1vw, 6px); line-height: 1.2; }
+    .prod-sub { font-family: var(--noto); font-size: clamp(0.75rem, 1.5vw, 0.8rem); font-weight: 300; color: var(--gray-3); margin-bottom: clamp(8px, 1.5vw, 12px); line-height: 1.6; }
+    .prod-price { font-family: var(--serif); font-size: clamp(0.9rem, 1.8vw, 1.05rem); color: var(--ink); }
+    .prod-price-orig { font-size: clamp(0.8rem, 1.5vw, 0.875rem); color: var(--gray-3); text-decoration: line-through; margin-right: 8px; }
 
     /* ─── CLEAN PROMISE ─── */
     .promise { background: var(--parchment); }
-    .promise-top { max-width: 680px; margin-bottom: 64px; }
+    .promise-top { max-width: 680px; margin-bottom: clamp(40px, 8vw, 64px); }
     .promise-lead {
       font-family: var(--noto);
-      font-size: 0.95rem; font-weight: 300;
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem); font-weight: 300;
       color: var(--gray-4); line-height: 1.9;
-      margin-top: 20px;
+      margin-top: clamp(12px, 2vw, 20px);
     }
     .promise-lead strong { color: var(--ink); font-weight: 500; }
     .promise-cards {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 16px; margin-bottom: 56px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: clamp(12px, 2vw, 16px); margin-bottom: clamp(40px, 8vw, 56px);
     }
     .p-card-inner {
-      border-radius: 4px; padding: 52px 48px;
+      border-radius: 4px; padding: clamp(32px, 5vw, 52px) clamp(28px, 4vw, 48px);
       height: 100%; position: relative; overflow: hidden;
       display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 320px;
+      min-height: clamp(260px, 50vh, 320px);
       transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
     }
     .p-card:hover .p-card-inner { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.10); }
-    .p-card-icon { font-size: 2.4rem; margin-bottom: 24px; display: block; }
-    .p-card-tag { display: block; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .p-card-h { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 14px; }
-    .p-card-p { font-family: var(--noto); font-size: 0.83rem; font-weight: 300; color: var(--gray-5); line-height: 1.8; }
-    .p-card-num { position: absolute; bottom: 24px; right: 28px; font-family: var(--serif); font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; }
-    .promise-stats { display: flex; align-items: center; justify-content: center; background: var(--white); border-radius: 4px; overflow: hidden; }
-    .ps-item { flex: 1; text-align: center; padding: 36px 24px; transition: background 0.25s; }
+    .p-card-icon { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: clamp(16px, 2vw, 24px); display: block; }
+    .p-card-tag { display: block; font-size: clamp(7px, 1.2vw, 9px); letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: clamp(8px, 1.5vw, 10px); }
+    .p-card-h { font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: clamp(10px, 1.5vw, 14px); }
+    .p-card-p { font-family: var(--noto); font-size: clamp(0.78rem, 1.5vw, 0.83rem); font-weight: 300; color: var(--gray-5); line-height: 1.8; }
+    .p-card-num { position: absolute; bottom: clamp(16px, 2vw, 24px); right: clamp(16px, 2vw, 28px); font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; }
+    .promise-stats { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+      background: var(--white); border-radius: 4px; overflow: hidden; 
+      gap: clamp(1px, 0.5vw, 1px);
+    }
+    .ps-item { flex: 1; text-align: center; padding: clamp(20px, 4vw, 36px) clamp(16px, 2vw, 24px); transition: background 0.25s; }
     .ps-item:hover { background: var(--gray-1); }
-    .ps-num { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: 6px; }
-    .ps-num span { font-size: 1.4rem; color: var(--warm); }
-    .ps-label { font-family: var(--noto); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-3); }
+    .ps-num { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: clamp(4px, 1vw, 6px); }
+    .ps-num span { font-size: clamp(1rem, 2vw, 1.4rem); color: var(--warm); }
+    .ps-label { font-family: var(--noto); font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-3); }
     .ps-div { width: 1px; background: var(--gray-2); height: 40px; flex-shrink: 0; }
 
     /* ─── PHILOSOPHY ─── */
     .philos { background: var(--white); }
-    .philos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 72px; }
+    .philos-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: clamp(40px, 8vw, 80px); margin-top: clamp(48px, 8vw, 72px); 
+    }
     .philos-quote {
       font-family: var(--serif);
-      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
       font-weight: 300; line-height: 1.4;
       color: var(--ink);
-      padding-left: 28px;
+      padding-left: clamp(16px, 3vw, 28px);
       border-left: 2px solid var(--sage);
       position: sticky; top: 100px; align-self: start;
     }
     .philos-quote em { font-style: italic; color: var(--sage-dk); }
     .philos-points { display: flex; flex-direction: column; gap: 0; }
-    .philos-pt { padding: 32px 0; border-bottom: 1px solid var(--gray-2); display: flex; gap: 20px; }
+    .philos-pt { padding: clamp(20px, 3vw, 32px) 0; border-bottom: 1px solid var(--gray-2); display: flex; gap: clamp(12px, 2vw, 20px); }
     .philos-pt:first-child { padding-top: 0; }
     .philos-ico { width: 44px; height: 44px; flex-shrink: 0; background: var(--gray-1); display: flex; align-items: center; justify-content: center; color: var(--sage-dk); font-size: 1rem; border-radius: 2px; }
-    .philos-pt-h { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 6px; }
-    .philos-pt-p { font-family: var(--noto); font-size: 0.83rem; font-weight: 300; color: var(--gray-4); line-height: 1.85; }
+    .philos-pt-h { font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.1rem); font-weight: 400; color: var(--ink); margin-bottom: clamp(4px, 1vw, 6px); }
+    .philos-pt-p { font-family: var(--noto); font-size: clamp(0.78rem, 1.5vw, 0.83rem); font-weight: 300; color: var(--gray-4); line-height: 1.85; }
 
     /* ─── ROUTINE ─── */
     .routine { background: var(--gray-1); }
-    .routine-steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; border: 1px solid var(--gray-2); margin-top: 72px; }
-    .r-step { padding: 44px 28px; border-right: 1px solid var(--gray-2); position: relative; background: var(--white); transition: background 0.3s; }
+    .routine-steps { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: clamp(1px, 0.5vw, 1px);
+      border: 1px solid var(--gray-2); 
+      margin-top: clamp(48px, 8vw, 72px); 
+    }
+    .r-step { 
+      padding: clamp(28px, 4vw, 44px) clamp(16px, 3vw, 28px); 
+      border-right: 1px solid var(--gray-2); 
+      position: relative; background: var(--white); 
+      transition: background 0.3s; 
+    }
     .r-step:last-child { border-right: none; }
     .r-step:hover { background: var(--off); }
-    .r-step-num { position: absolute; top: -1px; right: -1px; padding: 5px 10px; background: var(--ink); color: var(--white); font-size: 9px; letter-spacing: 0.12em; }
-    .r-step-ico { width: 48px; height: 48px; border: 1px solid var(--gray-2); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--stone-dk); font-size: 1.2rem; }
-    .r-step-lbl { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .r-step-h { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
-    .r-step-p { font-family: var(--noto); font-size: 0.78rem; font-weight: 300; color: var(--gray-3); line-height: 1.75; }
+    .r-step-num { 
+      position: absolute; top: -1px; right: -1px; 
+      padding: clamp(4px, 1vw, 5px) clamp(8px, 1.5vw, 10px); 
+      background: var(--ink); color: var(--white); 
+      font-size: clamp(7px, 1vw, 9px); letter-spacing: 0.12em; 
+    }
+    .r-step-ico { 
+      width: 48px; height: 48px; 
+      border: 1px solid var(--gray-2); 
+      display: flex; align-items: center; justify-content: center; 
+      margin-bottom: clamp(12px, 2vw, 20px); 
+      color: var(--stone-dk); font-size: clamp(1rem, 2vw, 1.2rem); 
+    }
+    .r-step-lbl { 
+      font-size: clamp(7px, 1.2vw, 9px); 
+      letter-spacing: 0.2em; text-transform: uppercase; 
+      color: var(--accent); margin-bottom: clamp(4px, 1vw, 6px); 
+    }
+    .r-step-h { 
+      font-family: var(--serif); 
+      font-size: clamp(0.95rem, 2vw, 1.05rem); 
+      font-weight: 400; color: var(--ink); 
+      margin-bottom: clamp(8px, 1.5vw, 10px); 
+    }
+    .r-step-p { 
+      font-family: var(--noto); 
+      font-size: clamp(0.73rem, 1.3vw, 0.78rem); 
+      font-weight: 300; color: var(--gray-3); 
+      line-height: 1.75; 
+    }
 
     /* ─── REVIEWS ─── */
     .reviews { background: var(--white); overflow: hidden; }
-    .rev-track { display: flex; gap: 20px; margin-top: 60px; animation: rev-scroll 45s linear infinite; width: max-content; }
+    .rev-track { 
+      display: flex; gap: clamp(12px, 2vw, 20px); 
+      margin-top: clamp(40px, 8vw, 60px); 
+      animation: rev-scroll 45s linear infinite; 
+      width: max-content; 
+    }
     .reviews:hover .rev-track { animation-play-state: paused; }
     @keyframes rev-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .rev-card { width: 360px; flex-shrink: 0; padding: 36px; background: var(--gray-1); border-radius: 3px; }
-    .rev-stars { color: var(--warm); font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
-    .rev-text { font-family: var(--serif); font-size: 1rem; font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.72; margin-bottom: 24px; }
-    .rev-author { display: flex; align-items: center; gap: 12px; }
-    .rev-av { width: 36px; height: 36px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.95rem; color: var(--stone-dk); }
-    .rev-name { font-size: 0.82rem; font-weight: 400; color: var(--ink); }
-    .rev-info { font-size: 0.75rem; color: var(--gray-3); font-weight: 300; margin-top: 1px; }
+    .rev-card { 
+      width: clamp(300px, 80vw, 360px); 
+      flex-shrink: 0; 
+      padding: clamp(20px, 3vw, 36px); 
+      background: var(--gray-1); 
+      border-radius: 3px; 
+    }
+    .rev-stars { color: var(--warm); font-size: clamp(11px, 1.5vw, 13px); letter-spacing: 2px; margin-bottom: clamp(12px, 2vw, 16px); }
+    .rev-text { 
+      font-family: var(--serif); 
+      font-size: clamp(0.9rem, 1.8vw, 1rem); 
+      font-weight: 400; font-style: italic; 
+      color: var(--ink); line-height: 1.72; 
+      margin-bottom: clamp(16px, 3vw, 24px); 
+    }
+    .rev-author { display: flex; align-items: center; gap: clamp(8px, 1.5vw, 12px); }
+    .rev-av { 
+      width: clamp(28px, 5vw, 36px); 
+      height: clamp(28px, 5vw, 36px); 
+      border-radius: 50%; background: var(--blush); 
+      display: flex; align-items: center; justify-content: center; 
+      font-family: var(--serif); 
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem); 
+      color: var(--stone-dk); 
+    }
+    .rev-name { font-size: clamp(0.75rem, 1.5vw, 0.82rem); font-weight: 400; color: var(--ink); }
+    .rev-info { font-size: clamp(0.65rem, 1.2vw, 0.75rem); color: var(--gray-3); font-weight: 300; margin-top: 1px; }
 
     /* ─── VISION ─── */
     .vision { background: var(--ink); color: var(--white); }
@@ -781,106 +865,203 @@ app.get('/', (c) => {
     .vision .tag::before { background: var(--warm-lt); }
     .vision .h2 { color: var(--white); }
     .vision .h2 em { color: var(--warm-lt); }
-    .vision-intro { max-width: 560px; font-family: var(--noto); font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.9; margin-top: 20px; }
-    .vis-phases { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 80px; }
-    .vis-phase { padding: 44px 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s, border-color 0.3s; }
+    .vision-intro { 
+      max-width: 560px; 
+      font-family: var(--noto); 
+      font-size: clamp(0.85rem, 1.8vw, 0.9rem); 
+      font-weight: 300; 
+      color: rgba(255,255,255,0.45); 
+      line-height: 1.9; 
+      margin-top: clamp(12px, 2vw, 20px); 
+    }
+    .vis-phases { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: clamp(1px, 0.5vw, 1px); 
+      margin-top: clamp(48px, 8vw, 80px); 
+    }
+    .vis-phase { 
+      padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 40px); 
+      background: rgba(255,255,255,0.03); 
+      border: 1px solid rgba(255,255,255,0.05); 
+      transition: background 0.3s, border-color 0.3s; 
+    }
     .vis-phase:hover { background: rgba(255,255,255,0.06); }
     .vis-phase.now { background: rgba(196,168,130,0.07); border-color: rgba(196,168,130,0.25); }
-    .vis-tag { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--warm); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+    .vis-tag { 
+      font-size: clamp(7px, 1.2vw, 9px); 
+      letter-spacing: 0.3em; text-transform: uppercase; 
+      color: var(--warm); margin-bottom: clamp(12px, 2vw, 16px); 
+      display: flex; align-items: center; gap: 6px; 
+    }
     .vis-tag-live { width: 5px; height: 5px; border-radius: 50%; background: var(--warm); animation: blink 1.4s ease infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-    .vis-h { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 20px; }
-    .vis-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .vis-list li { font-family: var(--noto); font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.4); padding-left: 16px; position: relative; line-height: 1.5; }
+    .vis-h { 
+      font-family: var(--serif); 
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem); 
+      font-weight: 300; color: var(--white); 
+      margin-bottom: clamp(12px, 2vw, 20px); 
+    }
+    .vis-list { list-style: none; display: flex; flex-direction: column; gap: clamp(6px, 1.2vw, 9px); }
+    .vis-list li { 
+      font-family: var(--noto); 
+      font-size: clamp(0.75rem, 1.5vw, 0.82rem); 
+      font-weight: 300; color: rgba(255,255,255,0.4); 
+      padding-left: 16px; position: relative; line-height: 1.5; 
+    }
     .vis-list li::before { content: '—'; position: absolute; left: 0; color: var(--warm); font-size: 0.7rem; }
 
     /* ─── NEWSLETTER ─── */
     .news { background: var(--parchment); }
     .news-inner { max-width: 560px; margin: 0 auto; text-align: center; }
-    .news-h { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--ink); margin-bottom: 16px; line-height: 1.15; }
-    .news-p { font-family: var(--noto); font-size: 0.88rem; font-weight: 300; color: var(--gray-4); line-height: 1.8; margin-bottom: 44px; }
-    .news-form { display: flex; max-width: 420px; margin: 0 auto; }
-    .news-inp { flex: 1; padding: 15px 18px; border: 1px solid var(--gray-2); border-right: none; background: var(--white); font-size: 0.875rem; color: var(--ink); outline: none; font-family: var(--sans); transition: border-color 0.25s; }
+    .news-h { 
+      font-family: var(--serif); 
+      font-size: clamp(1.6rem, 4vw, 3rem); 
+      font-weight: 300; color: var(--ink); 
+      margin-bottom: clamp(12px, 2vw, 16px); 
+      line-height: 1.15; 
+    }
+    .news-p { 
+      font-family: var(--noto); 
+      font-size: clamp(0.8rem, 1.6vw, 0.88rem); 
+      font-weight: 300; color: var(--gray-4); 
+      line-height: 1.8; 
+      margin-bottom: clamp(28px, 6vw, 44px); 
+    }
+    .news-form { 
+      display: flex; 
+      max-width: 420px; margin: 0 auto; 
+      gap: 0;
+      flex-direction: row;
+    }
+    .news-inp { 
+      flex: 1; 
+      padding: clamp(12px, 2vw, 15px) clamp(12px, 2vw, 18px); 
+      border: 1px solid var(--gray-2); 
+      border-right: none; 
+      background: var(--white); 
+      font-size: clamp(0.8rem, 1.5vw, 0.875rem); 
+      color: var(--ink); 
+      outline: none; 
+      font-family: var(--sans); 
+      transition: border-color 0.25s; 
+      min-width: 0;
+    }
     .news-inp:focus { border-color: var(--warm); }
     .news-inp::placeholder { color: var(--gray-3); }
-    .news-btn { padding: 15px 24px; background: var(--ink); color: var(--white); border: 1px solid var(--ink); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; font-family: var(--sans); white-space: nowrap; transition: background 0.25s; }
+    .news-btn { 
+      padding: clamp(12px, 2vw, 15px) clamp(16px, 3vw, 24px); 
+      background: var(--ink); color: var(--white); 
+      border: 1px solid var(--ink); 
+      font-size: clamp(8px, 1.2vw, 10px); 
+      letter-spacing: 0.15em; text-transform: uppercase; 
+      cursor: pointer; font-family: var(--sans); 
+      white-space: nowrap; transition: background 0.25s; 
+    }
     .news-btn:hover { background: var(--warm); border-color: var(--warm); }
-    .news-note { font-size: 11px; color: var(--gray-3); margin-top: 12px; }
+    .news-note { 
+      font-size: clamp(9px, 1.2vw, 11px); 
+      color: var(--gray-3); 
+      margin-top: clamp(8px, 1.5vw, 12px); 
+    }
 
     /* ─── FOOTER ─── */
     footer {
       background: var(--ink-lt); color: var(--white);
-      padding: 80px 80px 40px;
+      padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 80px) clamp(20px, 4vw, 40px);
     }
-    .ft-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .ft-logo { height: 24px; width: auto; margin-bottom: 20px; display: block; filter: invert(1); }
-    .ft-tagline { font-family: var(--noto); font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.8; max-width: 240px; margin-bottom: 28px; }
-    .ft-soc { display: flex; gap: 12px; }
-    .ft-soc a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; transition: border-color 0.2s, color 0.2s; }
+    .ft-main { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: clamp(32px, 6vw, 64px); 
+      padding-bottom: clamp(40px, 6vw, 64px); 
+      border-bottom: 1px solid rgba(255,255,255,0.07); 
+    }
+    .ft-logo { height: clamp(18px, 4vw, 24px); width: auto; margin-bottom: clamp(12px, 2vw, 20px); display: block; filter: invert(1); }
+    .ft-tagline { 
+      font-family: var(--noto); 
+      font-size: clamp(0.75rem, 1.3vw, 0.82rem); 
+      font-weight: 300; color: rgba(255,255,255,0.35); 
+      line-height: 1.8; 
+      max-width: 240px; 
+      margin-bottom: clamp(16px, 2vw, 28px); 
+    }
+    .ft-soc { display: flex; gap: clamp(8px, 1.5vw, 12px); }
+    .ft-soc a { 
+      width: clamp(28px, 5vw, 34px); 
+      height: clamp(28px, 5vw, 34px); 
+      border: 1px solid rgba(255,255,255,0.12); 
+      display: flex; align-items: center; justify-content: center; 
+      color: rgba(255,255,255,0.4); 
+      text-decoration: none; 
+      font-size: clamp(11px, 1.5vw, 13px); 
+      transition: border-color 0.2s, color 0.2s; 
+    }
     .ft-soc a:hover { border-color: var(--warm); color: var(--warm); }
-    .ft-col-h { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-    .ft-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .ft-links a { text-decoration: none; color: rgba(255,255,255,0.5); font-family: var(--noto); font-size: 0.83rem; font-weight: 300; transition: color 0.2s; }
+    .ft-col-h { 
+      font-size: clamp(7px, 1.2vw, 9px); 
+      letter-spacing: 0.25em; text-transform: uppercase; 
+      color: rgba(255,255,255,0.3); 
+      margin-bottom: clamp(12px, 2vw, 20px); 
+    }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: clamp(6px, 1.5vw, 10px); }
+    .ft-links a { 
+      text-decoration: none; 
+      color: rgba(255,255,255,0.5); 
+      font-family: var(--noto); 
+      font-size: clamp(0.75rem, 1.3vw, 0.83rem); 
+      font-weight: 300; transition: color 0.2s; 
+    }
     .ft-links a:hover { color: var(--white); }
-    .ft-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
-    .ft-copy { font-size: 11px; color: rgba(255,255,255,0.2); font-weight: 300; }
-    .ft-legal { display: flex; gap: 20px; }
-    .ft-legal a { font-size: 11px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s; }
+    .ft-bottom { 
+      padding-top: clamp(16px, 3vw, 28px); 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      flex-wrap: wrap;
+      gap: clamp(12px, 2vw, 0px);
+    }
+    .ft-copy { 
+      font-size: clamp(8px, 1.2vw, 11px); 
+      color: rgba(255,255,255,0.2); 
+      font-weight: 300; 
+    }
+    .ft-legal { 
+      display: flex; gap: clamp(12px, 2vw, 20px); 
+      flex-wrap: wrap;
+    }
+    .ft-legal a { 
+      font-size: clamp(8px, 1.2vw, 11px); 
+      color: rgba(255,255,255,0.2); 
+      text-decoration: none; 
+      transition: color 0.2s; 
+    }
     .ft-legal a:hover { color: rgba(255,255,255,0.5); }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1100px) {
-      .section { padding: 100px 48px; }
-      nav { padding: 0 40px; }
-      footer { padding: 64px 48px 32px; }
-      .hero-content { padding: 0 48px 72px; }
-      .hero-nav { right: 40px; }
-      .hero-badge-corner { right: 40px; }
-      .hero-index { left: 48px; }
-      .hero-scroll { left: 48px; }
-      .models-head { padding: 80px 48px 48px; }
-    }
-    @media (max-width: 880px) {
-      .about-grid, .philos-grid { grid-template-columns: 1fr; gap: 56px; }
-      .values-grid, .prod-grid { grid-template-columns: repeat(2,1fr); }
-      .routine-steps { grid-template-columns: repeat(2,1fr); }
-      .r-step:nth-child(2) { border-right: none; }
-      .r-step:nth-child(3) { border-right: 1px solid var(--gray-2); }
-      .r-step:nth-child(4) { border-right: none; }
-      .vis-phases { grid-template-columns: 1fr; }
-      .ft-main { grid-template-columns: 1fr 1fr; gap: 48px; }
-      .philos-quote { position: static; }
-      .models-panorama { grid-template-columns: 1fr 1fr; }
+    /* ─── MOBILE RESPONSIVE ─── */
+    @media (max-width: 768px) {
       .hero-nav { display: none; }
       .hero-badge-corner { display: none; }
-      .promise-cards { grid-template-columns: 1fr 1fr; }
+      .hero-index { display: none; }
+      .models-panorama { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      .values-head { flex-direction: column; gap: 24px; }
+      .prod-head { flex-direction: column; gap: 20px; }
+      .ft-bottom { flex-direction: column; text-align: center; }
+      .news-form { flex-direction: column; }
+      .news-inp { border-right: 1px solid var(--gray-2); border-bottom: none; }
     }
-    @media (max-width: 600px) {
-      .section { padding: 80px 24px; }
-      nav { padding: 0 24px; }
+
+    @media (max-width: 480px) {
+      nav { height: clamp(50px, 10vw, 56px); }
       .nav-menu { display: none; }
       .nav-pill { display: none; }
       .nav-burger { display: flex; }
-      .hero-content { padding: 0 28px 60px; }
-      .hero-headline { font-size: 2.8rem; }
-      .hero-scroll { left: 28px; }
-      .hero-index { left: 28px; }
-      .values-grid, .prod-grid { grid-template-columns: 1fr; }
+      .section { padding: clamp(60px, 12vw, 80px) clamp(16px, 4vw, 24px); }
+      .container { padding: 0; }
+      .hero-content { padding: 0 clamp(16px, 4vw, 28px) clamp(40px, 8vw, 60px); }
       .routine-steps { grid-template-columns: 1fr; }
       .r-step { border-right: none; border-bottom: 1px solid var(--gray-2); }
       .r-step:last-child { border-bottom: none; }
-      .news-form { flex-direction: column; }
-      .news-inp { border-right: 1px solid var(--gray-2); border-bottom: none; }
-      .ft-main { grid-template-columns: 1fr; gap: 36px; }
-      .ft-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      footer { padding: 56px 24px 32px; }
-      .models-panorama { grid-template-columns: 1fr; }
-      .model-panel img { min-height: 380px; }
-      .models-head { padding: 60px 24px 40px; }
-      .promise-cards { grid-template-columns: 1fr; }
-      .promise-stats { flex-wrap: wrap; }
-      .ps-item { min-width: 50%; }
-      .ps-div { display: none; }
     }
   </style>
 </head>
@@ -895,7 +1076,7 @@ app.get('/', (c) => {
 <!-- MOBILE OVERLAY -->
 <div class="mob-overlay" id="mobMenu">
   <button class="mob-close" onclick="mobClose()">✕</button>
-  <a href="#models" onclick="mobClose()">Models</a>
+  <a href="#models" onclick="mobClose()">Campaign</a>
   <a href="#about" onclick="mobClose()">About</a>
   <a href="#products" onclick="mobClose()">Products</a>
   <a href="#philosophy" onclick="mobClose()">Philosophy</a>
@@ -908,21 +1089,21 @@ app.get('/', (c) => {
     <img src="/static/soume-logo-black.png" alt="Soumé" id="navLogo" />
   </a>
   <ul class="nav-menu">
-    <li><a href="#models">Models</a></li>
+    <li><a href="#models">Campaign</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#philosophy">Philosophy</a></li>
     <li><a href="#vision">Vision</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#newsletter" class="nav-pill">구독하기</a>
+    <a href="#newsletter" class="nav-pill">Subscribe</a>
     <button class="nav-burger" onclick="mobOpen()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- ══════════════ HERO — FULLSCREEN MODEL SLIDESHOW ══════════════ -->
+<!-- ══════════════ HERO — FULLSCREEN CAMPAIGN SLIDESHOW ══════════════ -->
 <section class="hero" id="top">
 
   <!-- 풀스크린 슬라이드 -->
@@ -931,7 +1112,7 @@ app.get('/', (c) => {
       <img src="/static/model-hero-duo.jpg" alt="Soumé Campaign — Duo" />
     </div>
     <div class="hero-slide" data-slide="1">
-      <img src="/static/model-sora-beauty.jpg" alt="Soumé Campaign — SORA" />
+      <img src="/static/model-sora-beauty.jpg" alt="Soumé Campaign — Beauty" />
     </div>
     <div class="hero-slide" data-slide="2">
       <img src="/static/model-fashion.jpg" alt="Soumé Campaign — Fashion" />
@@ -948,7 +1129,7 @@ app.get('/', (c) => {
   <div class="hero-badge-corner">
     <div class="hero-badge-pill">
       <div class="hero-badge-dot" style="background:var(--sage)"></div>
-      Vegan Certified
+      Clean Formula
     </div>
     <div class="hero-badge-pill">
       <div class="hero-badge-dot" style="background:var(--warm)"></div>
@@ -956,7 +1137,7 @@ app.get('/', (c) => {
     </div>
     <div class="hero-badge-pill">
       <div class="hero-badge-dot" style="background:var(--warm-lt)"></div>
-      Clean Formula
+      Science-Backed
     </div>
   </div>
 
@@ -977,8 +1158,8 @@ app.get('/', (c) => {
         <em>단 하나의 선택</em>
       </h1>
       <p class="hero-sub" id="heroSub">
-        유해 성분 제로, 과학적으로 검증된 클린 포뮬러.<br/>
-        자연에서 온 성분으로 피부 본연의 건강을 되찾아드립니다.
+        유해 성분 없이 만든 클린 포뮬러.<br/>
+        과학적으로 검증된 유효 성분으로 피부 본연의 건강을 되찾아드립니다.
       </p>
       <div class="hero-actions">
         <a href="#products" class="btn-hero-primary">
@@ -1003,10 +1184,10 @@ app.get('/', (c) => {
     </button>
     <button class="hero-nav-item" onclick="goSlide(1)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">SORA</span>
-        <span class="hero-nav-role">Beauty Model</span>
+        <span class="hero-nav-name">Beauty</span>
+        <span class="hero-nav-role">Campaign Visual</span>
       </div>
-      <img class="hero-nav-thumb" src="/static/model-sora-beauty.jpg" alt="SORA" />
+      <img class="hero-nav-thumb" src="/static/model-sora-beauty.jpg" alt="Beauty" />
     </button>
     <button class="hero-nav-item" onclick="goSlide(2)">
       <div class="hero-nav-info">
@@ -1017,8 +1198,8 @@ app.get('/', (c) => {
     </button>
     <button class="hero-nav-item" onclick="goSlide(3)">
       <div class="hero-nav-info">
-        <span class="hero-nav-name">SORA</span>
-        <span class="hero-nav-role">Product Campaign</span>
+        <span class="hero-nav-name">Product</span>
+        <span class="hero-nav-role">Campaign Visual</span>
       </div>
       <img class="hero-nav-thumb" src="/static/model-sora-product.jpg" alt="Product" />
     </button>
@@ -1038,38 +1219,37 @@ app.get('/', (c) => {
 <div class="strip">
   <div class="strip-track">
     <div class="strip-item"><span class="strip-text">Clean Beauty</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Science-Backed Formula</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Vegan Certified</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Science-Backed</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Effective Ingredients</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Dermatologist Tested</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">1,500+ Banned Ingredients</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Eco Packaging</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Harmful Substances Excluded</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Sustainable Packaging</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Made in Korea</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Clean Beauty</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Science-Backed Formula</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Vegan Certified</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Science-Backed</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Effective Ingredients</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Dermatologist Tested</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">1,500+ Banned Ingredients</span><span class="strip-dot"></span></div>
-    <div class="strip-item"><span class="strip-text">Eco Packaging</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Harmful Substances Excluded</span><span class="strip-dot"></span></div>
+    <div class="strip-item"><span class="strip-text">Sustainable Packaging</span><span class="strip-dot"></span></div>
     <div class="strip-item"><span class="strip-text">Made in Korea</span><span class="strip-dot"></span></div>
   </div>
 </div>
 
-<!-- ══════════════ MODELS SECTION ══════════════ -->
+<!-- ══════════════ CAMPAIGN SECTION ══════════════ -->
 <section class="models" id="models">
   <div class="models-head">
-    <p class="tag r">Campaign Models</p>
+    <p class="tag r">Campaign Visuals</p>
     <h2 class="models-title r d1">
-      Soumé를 입은<br/>
-      <em>두 개의 시선</em>
+      클린뷰티의<br/>
+      <em>다양한 표정</em>
     </h2>
     <p class="models-sub r d2">
-      뷰티 모델과 패션 에디토리얼 모델이 표현하는 Soumé의 세계.<br/>
-      클린뷰티의 새로운 미감을 두 가지 눈으로 만나보세요.
+      유효 성분으로 표현되는 클린뷰티의 세계.<br/>
+      여러 캠페인 비주얼로 만나보세요.
     </p>
   </div>
 
   <div class="models-panorama r">
-    <!-- 패널 1: 듀오 -->
     <div class="model-panel">
       <img src="/static/model-hero-duo.jpg" alt="Soumé Duo Campaign" />
       <div class="model-panel-overlay"></div>
@@ -1077,43 +1257,40 @@ app.get('/', (c) => {
       <div class="model-panel-info">
         <span class="model-panel-tag">Campaign Visual</span>
         <h3 class="model-panel-name">Pure Glow<br/>Campaign</h3>
-        <p class="model-panel-desc">클린뷰티의 아름다움을 두 모델이 함께 표현한 플래그십 캠페인.</p>
+        <p class="model-panel-desc">클린뷰티의 아름다움을 표현한 플래그십 캠페인</p>
       </div>
     </div>
 
-    <!-- 패널 2: Soumé 뷰티 -->
     <div class="model-panel">
-      <img src="/static/model-sora-beauty.jpg" alt="SORA Beauty Model" />
+      <img src="/static/model-sora-beauty.jpg" alt="Beauty Campaign" />
       <div class="model-panel-overlay"></div>
-      <div class="model-panel-badge">Beauty Model</div>
+      <div class="model-panel-badge">Beauty</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Premium Skincare</span>
-        <h3 class="model-panel-name">Soumé<br/>뷰티 모델</h3>
-        <p class="model-panel-desc">프리미엄 스킨케어 라인을 대표하는 뷰티 모델. 포슬린 스킨과 세련된 무드.</p>
+        <h3 class="model-panel-name">Beauty<br/>Campaign</h3>
+        <p class="model-panel-desc">유효 성분으로 표현되는 프리미엄 스킨케어</p>
       </div>
     </div>
 
-    <!-- 패널 3: 패션 -->
     <div class="model-panel">
-      <img src="/static/model-fashion.jpg" alt="Fashion Editorial Model" />
+      <img src="/static/model-fashion.jpg" alt="Fashion Editorial" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">Editorial</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Fashion Editorial</span>
         <h3 class="model-panel-name">패션<br/>에디토리얼</h3>
-        <p class="model-panel-desc">하이엔드 패션 에디토리얼 스타일로 Soumé의 럭셔리 포지셔닝을 표현합니다.</p>
+        <p class="model-panel-desc">럭셔리 스타일로 표현하는 클린뷰티</p>
       </div>
     </div>
 
-    <!-- 패널 4: Soumé 제품 -->
     <div class="model-panel">
-      <img src="/static/model-sora-product.jpg" alt="SORA Product Campaign" />
+      <img src="/static/model-sora-product.jpg" alt="Product Campaign" />
       <div class="model-panel-overlay"></div>
       <div class="model-panel-badge">Product</div>
       <div class="model-panel-info">
         <span class="model-panel-tag">Product Campaign</span>
-        <h3 class="model-panel-name">Soumé<br/>제품 캠페인</h3>
-        <p class="model-panel-desc">Soumé 세럼을 손에 든 시그니처 뷰티 캠페인 비주얼.</p>
+        <h3 class="model-panel-name">Product<br/>Campaign</h3>
+        <p class="model-panel-desc">유효 성분을 강조하는 시그니처 캠페인</p>
       </div>
     </div>
   </div>
@@ -1127,22 +1304,22 @@ app.get('/', (c) => {
         <p class="tag r">Our Story</p>
         <h2 class="h2 r d1">불필요한 것을 덜고,<br/><em>본질만 남긴</em> 뷰티</h2>
         <p class="about-p r d2">
-          Soumé는 '순수함'에서 시작했습니다. 피부에 해로운 성분을 과감히 제거하고,
+          Soumé는 순수함에서 시작했습니다. 피부에 해로운 성분을 제거하고,
           자연에서 온 최상의 원료와 첨단 과학을 결합해 진짜 피부 변화를 만들어냅니다.
         </p>
         <p class="about-p r d3">
-          10대부터 40대까지, 성별을 넘어 모든 피부가 건강하게 빛날 수 있도록.
-          클린뷰티를 시작으로 홈 뷰티 테크까지 함께 성장하는 브랜드를 만들어갑니다.
+          10대부터 40대까지, 모든 피부가 건강하게 빛날 수 있도록.
+          클린뷰티를 시작으로 확장된 솔루션까지 함께 성장하는 브랜드를 만들어갑니다.
         </p>
         <a href="#philosophy" class="about-link r d4">브랜드 철학 →</a>
       </div>
       <div class="about-visual r d2">
         <div class="about-img-wrap">
-          <img src="/static/model-sora-product.jpg" alt="Soumé — SORA with Product" />
+          <img src="/static/model-sora-product.jpg" alt="Soumé — Product Campaign" />
         </div>
         <div class="about-float">
           <div class="about-float-num">100%</div>
-          <div class="about-float-lbl">Clean<br/>Ingredients</div>
+          <div class="about-float-lbl">Clean<br/>Formula</div>
         </div>
       </div>
     </div>
@@ -1162,17 +1339,17 @@ app.get('/', (c) => {
       <div class="val-card r d1">
         <div class="val-num">01</div>
         <h3 class="val-title">Clean Formula</h3>
-        <p class="val-desc">파라벤, 인공향료, 유해 방부제 없이 피부 유익 성분만 담습니다. 1,500개 이상의 금지 성분 리스트를 바탕으로 엄격하게 포뮬러를 검증합니다.</p>
+        <p class="val-desc">해로운 성분을 제외하고 순수한 유효 성분만 담았습니다. 엄격한 기준에 따라 포뮬러를 검증합니다.</p>
       </div>
       <div class="val-card r d2">
         <div class="val-num">02</div>
         <h3 class="val-title">Science-Backed</h3>
-        <p class="val-desc">수십 번의 테스트와 피부과학 연구를 기반으로 개발된 포뮬러. 전문가가 검증한 성분 배합으로 눈에 보이는 피부 변화를 만들어냅니다.</p>
+        <p class="val-desc">과학적 연구와 테스트를 통해 개발된 포뮬러. 전문가가 검증한 배합으로 눈에 보이는 피부 변화를 만들어냅니다.</p>
       </div>
       <div class="val-card r d3">
         <div class="val-num">03</div>
         <h3 class="val-title">Sustainable</h3>
-        <p class="val-desc">친환경 패키징, 재활용 가능한 용기. 아름다움을 위해 지구를 희생하지 않는 지속 가능한 뷰티를 실천합니다.</p>
+        <p class="val-desc">친환경 패키징으로 효과적인 제품을 지속 가능하게 제공합니다. 환경을 생각하는 뷰티를 실천합니다.</p>
       </div>
     </div>
   </div>
@@ -1202,7 +1379,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Brightening Serum</p>
         <h3 class="prod-name">Pure Glow Serum</h3>
-        <p class="prod-sub">나이아신아마이드 10% + 비타민C로 맑고 투명한 피부톤</p>
+        <p class="prod-sub">고효능 유효 성분으로 맑고 투명한 피부톤</p>
         <p class="prod-price">₩ 48,000</p>
       </div>
       <div class="prod-card r d2" data-cat="moist">
@@ -1213,7 +1390,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Deep Moisturizer</p>
         <h3 class="prod-name">Barrier Calm Cream</h3>
-        <p class="prod-sub">세라마이드 3종 + 판테놀 복합 보습, 손상된 피부 장벽 강화</p>
+        <p class="prod-sub">유효 성분으로 보습, 손상된 피부 장벽 강화</p>
         <p class="prod-price">₩ 52,000</p>
       </div>
       <div class="prod-card r d3" data-cat="clean">
@@ -1224,7 +1401,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Gentle Cleanser</p>
         <h3 class="prod-name">Soft Reset Foam</h3>
-        <p class="prod-sub">저자극 아미노산 세정 성분, pH 밸런스 유지 순한 폼</p>
+        <p class="prod-sub">순한 클렌징, pH 밸런스 유지로 피부 장벽 보호</p>
         <p class="prod-price">₩ 28,000</p>
       </div>
       <div class="prod-card r d1" data-cat="serum">
@@ -1234,7 +1411,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Night Repair Serum</p>
         <h3 class="prod-name">Midnight Restore</h3>
-        <p class="prod-sub">수면 중 피부 재생, 레티놀 0.1% + 펩타이드 안티에이징</p>
+        <p class="prod-sub">수면 중 피부 재생, 유효 성분 안티에이징</p>
         <p class="prod-price"><span class="prod-price-orig">₩ 68,000</span>₩ 58,000</p>
       </div>
       <div class="prod-card r d2" data-cat="moist">
@@ -1245,7 +1422,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Daily Sunscreen</p>
         <h3 class="prod-name">Veil Sun Fluid</h3>
-        <p class="prod-sub">SPF 50+ PA++++, 백탁 없는 물광 마무리 클린 선크림</p>
+        <p class="prod-sub">SPF 50+ PA++++, 백탁 없는 물광 마무리</p>
         <p class="prod-price">₩ 38,000</p>
       </div>
       <div class="prod-card r d3" data-cat="clean">
@@ -1256,7 +1433,7 @@ app.get('/', (c) => {
         </div>
         <p class="prod-cat">Cleansing Oil</p>
         <h3 class="prod-name">Green Melt Oil</h3>
-        <p class="prod-sub">식물성 오일 블렌드, 메이크업 & 선크림 완벽 이중세안</p>
+        <p class="prod-sub">클린 오일 블렌드, 메이크업 완벽 제거</p>
         <p class="prod-price">₩ 34,000</p>
       </div>
     </div>
@@ -1269,7 +1446,7 @@ app.get('/', (c) => {
     <div class="promise-top r">
       <p class="tag">The Soumé Standard</p>
       <h2 class="h2 r d1">성분에 대한<br/><em>우리의 약속</em></h2>
-      <p class="promise-lead r d2">Soumé는 무엇을 넣을지보다 <strong>무엇을 넣지 않을지</strong>를 먼저 생각합니다.<br/>아직 라인업을 확정하는 단계이지만, 모든 제품에 적용되는 원칙은 변하지 않습니다.</p>
+      <p class="promise-lead r d2">Soumé는 무엇을 넣을지보다 <strong>무엇을 넣지 않을지</strong>를 먼저 생각합니다.<br/>순수한 유효 성분으로만 빛나는 피부를 만드는 것, 그것이 우리의 약속입니다.</p>
     </div>
     <div class="promise-cards">
       <div class="p-card p-card-lg r d1">
@@ -1277,8 +1454,8 @@ app.get('/', (c) => {
           <div class="p-card-icon">🌿</div>
           <div>
             <span class="p-card-tag">원칙 01</span>
-            <h3 class="p-card-h">No Compromise<br/>on Purity</h3>
-            <p class="p-card-p">1,500개 이상의 유해 성분 금지 리스트. 파라벤, 인공향료, 합성색소 — 피부에 필요 없는 것은 처음부터 배제합니다.</p>
+            <h3 class="p-card-h">No Harmful<br/>Substances</h3>
+            <p class="p-card-p">해로운 성분을 제외한 순수한 포뮬러. 피부에 필요 없는 것은 처음부터 배제합니다.</p>
           </div>
           <div class="p-card-num">01</div>
         </div>
@@ -1289,31 +1466,31 @@ app.get('/', (c) => {
           <div>
             <span class="p-card-tag">원칙 02</span>
             <h3 class="p-card-h">Science<br/>Meets Nature</h3>
-            <p class="p-card-p">자연 유래 성분을 과학적으로 검증된 배합으로. 피부과 전문의와 함께 개발하는 포뮬러.</p>
+            <p class="p-card-p">자연 유래 유효 성분을 과학적으로 검증한 배합. 눈에 보이는 피부 변화를 만듭니다.</p>
           </div>
           <div class="p-card-num">02</div>
         </div>
       </div>
       <div class="p-card r d3">
         <div class="p-card-inner" style="background:linear-gradient(135deg,#EDE8F0 0%,#DDD4E8 100%)">
-          <div class="p-card-icon">🐾</div>
+          <div class="p-card-icon">♻️</div>
           <div>
             <span class="p-card-tag">원칙 03</span>
-            <h3 class="p-card-h">Vegan &<br/>Cruelty-Free</h3>
-            <p class="p-card-p">동물 실험 없이, 동물성 원료 없이. 양심과 피부 모두를 위한 선택.</p>
+            <h3 class="p-card-h">Sustainable<br/>Beauty</h3>
+            <p class="p-card-p">친환경 패키징으로 제품의 효능을 지속 가능하게 제공합니다.</p>
           </div>
           <div class="p-card-num">03</div>
         </div>
       </div>
     </div>
     <div class="promise-stats r d3">
-      <div class="ps-item"><div class="ps-num">1,500<span>+</span></div><div class="ps-label">금지 성분 리스트</div></div>
+      <div class="ps-item"><div class="ps-num">100<span>%</span></div><div class="ps-label">Pure Formula</div></div>
       <div class="ps-div"></div>
-      <div class="ps-item"><div class="ps-num">0</div><div class="ps-label">유해 화학 성분</div></div>
+      <div class="ps-item"><div class="ps-num">0</div><div class="ps-label">Harmful Ingredients</div></div>
       <div class="ps-div"></div>
-      <div class="ps-item"><div class="ps-num">100<span>%</span></div><div class="ps-label">유효 인증 포뮬러</div></div>
+      <div class="ps-item"><div class="ps-num">∞</div><div class="ps-label">Effective Results</div></div>
       <div class="ps-div"></div>
-      <div class="ps-item"><div class="ps-num">All</div><div class="ps-label">피부 타입 적합</div></div>
+      <div class="ps-item"><div class="ps-num">All</div><div class="ps-label">Skin Types</div></div>
     </div>
   </div>
 </section>
@@ -1333,21 +1510,21 @@ app.get('/', (c) => {
           <div class="philos-ico">🚫</div>
           <div>
             <h3 class="philos-pt-h">No Harmful Ingredients</h3>
-            <p class="philos-pt-p">파라벤, 인공향료, 합성색소, 포름알데히드 방출 방부제를 사용하지 않습니다. 1,500개 이상의 금지 성분이 Soumé의 Negative List에 등재되어 있습니다.</p>
+            <p class="philos-pt-p">해로운 성분을 사용하지 않습니다. 순수한 유효 성분만으로 피부를 책임집니다.</p>
           </div>
         </div>
         <div class="philos-pt">
-          <div class="philos-ico">🐾</div>
+          <div class="philos-ico">✨</div>
           <div>
-            <h3 class="philos-pt-h">Cruelty-Free & Vegan</h3>
-            <p class="philos-pt-p">생명을 존중하는 아름다움, 자연과의 약속을 담은 클린 뷰티.</p>
+            <h3 class="philos-pt-h">Effective Results</h3>
+            <p class="philos-pt-p">유효 성분의 과학적 검증. 빠르고 눈에 보이는 피부 변화를 경험하세요.</p>
           </div>
         </div>
         <div class="philos-pt">
           <div class="philos-ico">♻️</div>
           <div>
             <h3 class="philos-pt-h">Eco Packaging</h3>
-            <p class="philos-pt-p">재활용 가능한 소재와 최소한의 포장. 친환경 시스템을 도입해 지속 가능한 뷰티를 실천합니다.</p>
+            <p class="philos-pt-p">재활용 가능한 소재로 친환경 뷰티를 실천합니다.</p>
           </div>
         </div>
       </div>
@@ -1366,7 +1543,7 @@ app.get('/', (c) => {
         <div class="r-step-ico">💧</div>
         <p class="r-step-lbl">Step 01</p>
         <h3 class="r-step-h">클렌징</h3>
-        <p class="r-step-p">메이크업과 노폐물 제거. pH 밸런스 유지로 피부 장벽 보호.</p>
+        <p class="r-step-p">메이크업과 노폐물 제거. 피부 장벽 보호.</p>
       </div>
       <div class="r-step">
         <span class="r-step-num">02</span>
@@ -1380,21 +1557,21 @@ app.get('/', (c) => {
         <div class="r-step-ico">✨</div>
         <p class="r-step-lbl">Step 03</p>
         <h3 class="r-step-h">세럼</h3>
-        <p class="r-step-p">고농축 유효 성분 집중 케어. 목적에 맞는 세럼 선택.</p>
+        <p class="r-step-p">고농축 유효 성분 집중 케어. 목적에 맞는 제품 선택.</p>
       </div>
       <div class="r-step">
         <span class="r-step-num">04</span>
         <div class="r-step-ico">🌸</div>
         <p class="r-step-lbl">Step 04</p>
         <h3 class="r-step-h">크림</h3>
-        <p class="r-step-p">수분 잠금 & 피부 장벽 강화. 하루 종일 촉촉함 유지.</p>
+        <p class="r-step-p">수분 잠금 & 피부 장벽 강화. 촉촉함 유지.</p>
       </div>
       <div class="r-step">
         <span class="r-step-num">05</span>
         <div class="r-step-ico">☀️</div>
         <p class="r-step-lbl">Step 05 (AM)</p>
         <h3 class="r-step-h">선케어</h3>
-        <p class="r-step-p">최고의 안티에이징. SPF 50+ 클린 선크림으로 피부 노화 방지.</p>
+        <p class="r-step-p">최고의 안티에이징. 피부 노화 방지.</p>
       </div>
     </div>
   </div>
@@ -1409,15 +1586,15 @@ app.get('/', (c) => {
   <div style="overflow:hidden;margin-top:0">
     <div class="rev-track">
       <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Pure Glow Serum 3주 만에 피부톤이 달라졌어요. 이렇게 빠른 효과는 처음이에요."</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"피부과 권유로 자극 없는 제품 찾다가 발견했어요. 남성 피부에도 잘 맞아 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심하고 써요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 오히려 더 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아 놀랐어요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없는 제품을 찾다가 발견했어요. 효과도 좋아서 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심해요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
       <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Pure Glow Serum 3주 만에 피부톤이 달라졌어요. 이렇게 빠른 효과는 처음이에요."</p><div class="rev-author"><div class="rev-av">지</div><div><p class="rev-name">김지연</p><p class="rev-info">27세 · 건성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"피부과 권유로 자극 없는 제품 찾다가 발견했어요. 남성 피부에도 잘 맞아 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심하고 써요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 오히려 더 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아 놀랐어요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"자극 없는 제품을 찾다가 발견했어요. 효과도 좋아서 만족합니다."</p><div class="rev-author"><div class="rev-av">민</div><div><p class="rev-name">박민준</p><p class="rev-info">32세 · 민감성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"10대 딸아이 트러블에 Barrier Calm Cream이 효과적이었어요. 순해서 안심해요."</p><div class="rev-author"><div class="rev-av">수</div><div><p class="rev-name">이수정</p><p class="rev-info">43세 · 복합성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"효과가 떨어지지 않아요. 피부에 잘 맞고 윤기가 나요!"</p><div class="rev-author"><div class="rev-av">아</div><div><p class="rev-name">최아름</p><p class="rev-info">24세 · 지성 피부</p></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Midnight Restore 쓰고 아침에 피부가 달라요. 40대인데 탄력이 돌아온 것 같아요."</p><div class="rev-author"><div class="rev-av">현</div><div><p class="rev-name">정현우</p><p class="rev-info">41세 · 노화 고민</p></div></div></div>
     </div>
   </div>
 </section>
@@ -1426,8 +1603,8 @@ app.get('/', (c) => {
 <section class="section vision" id="vision">
   <div class="container">
     <p class="tag r">Brand Roadmap</p>
-    <h2 class="h2 r d1">클린뷰티에서<br/><em>뷰티 테크</em>까지</h2>
-    <p class="vision-intro r d2">Soumé는 지금 시작합니다. 스킨케어를 완성하고, 홈 뷰티 디바이스로 확장하며, 글로벌 K-뷰티 테크 브랜드로 성장합니다.</p>
+    <h2 class="h2 r d1">클린뷰티에서<br/><em>미래 솔루션</em>까지</h2>
+    <p class="vision-intro r d2">Soumé는 지금 시작합니다. 스킨케어를 완성하고, 다양한 솔루션으로 확장하며, 글로벌 K-뷰티 브랜드로 성장합니다.</p>
     <div class="vis-phases">
       <div class="vis-phase now r d1">
         <p class="vis-tag"><span class="vis-tag-live"></span>Phase 01 · 현재 진행</p>
@@ -1435,17 +1612,17 @@ app.get('/', (c) => {
         <ul class="vis-list">
           <li>클린 스킨케어 라인 론칭</li>
           <li>세럼, 크림, 클렌저 코어 라인업</li>
-          <li>바디 로션 스프레이 출시</li>
+          <li>제품 라인 확장 계획</li>
           <li>국내 온라인 유통 시작</li>
         </ul>
       </div>
       <div class="vis-phase r d2">
         <p class="vis-tag">Phase 02 · 2025–2026</p>
-        <h3 class="vis-h">Beauty Tech</h3>
+        <h3 class="vis-h">Solution Expansion</h3>
         <ul class="vis-list">
-          <li>뷰티 제품 라인업 개발</li>
-          <li>뷰티 디바이스 개발 예정</li>
-          <li>제품-디바이스 시너지 루틴</li>
+          <li>제품 라인업 개발</li>
+          <li>통합 솔루션 개발 예정</li>
+          <li>제품 시너지 루틴 구성</li>
           <li>오프라인 팝업 스토어 예정</li>
         </ul>
       </div>
@@ -1453,9 +1630,9 @@ app.get('/', (c) => {
         <p class="vis-tag">Phase 03 · 2027+</p>
         <h3 class="vis-h">Global K-Beauty</h3>
         <ul class="vis-list">
-          <li>글로벌 헬스케어 솔루션 확장</li>
-          <li>퍼스널라이즈드 뷰티 AI 도입</li>
-          <li>K-뷰티 테크 글로벌 리더십</li>
+          <li>글로벌 뷰티 솔루션 확장</li>
+          <li>개인화된 뷰티 솔루션 도입</li>
+          <li>K-뷰티 글로벌 리더십</li>
         </ul>
       </div>
     </div>
@@ -1554,10 +1731,10 @@ app.get('/', (c) => {
   const progressBar = document.getElementById('heroProgressBar');
 
   const slideTexts = [
-    { headline: '피부가 원하는<br/><em>단 하나의 선택</em>', sub: '유해 성분 제로, 과학적으로 검증된 클린 포뮬러.<br/>자연에서 온 성분으로 피부 본연의 건강을 되찾아드립니다.' },
-    { headline: 'Science of<br/><em>Pure Beauty</em>',     sub: 'Soumé 뷰티 모델이 전하는 Soumé 스킨케어의 세계.<br/>포슬린 스킨을 위한 프리미엄 포뮬러.' },
-    { headline: '아름다움의<br/><em>새로운 정의</em>',     sub: '패션 에디토리얼이 만난 클린뷰티 — 스타일과 성분 모두 타협하지 않습니다.' },
-    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 Soumé 세럼.<br/>Soumé 모델이 직접 사용하는 클린 포뮬러를 경험하세요.' }
+    { headline: '피부가 원하는<br/><em>단 하나의 선택</em>', sub: '유해 성분 없이 만든 클린 포뮬러.<br/>과학적으로 검증된 유효 성분으로 피부 본연의 건강을 되찾아드립니다.' },
+    { headline: 'Effective<br/><em>Clean Formula</em>',     sub: '유효 성분으로 표현되는 프리미엄 스킨케어.<br/>포슬린 스킨을 위한 과학적 배합.' },
+    { headline: '아름다움의<br/><em>새로운 정의</em>',     sub: '럭셔리 스타일로 표현하는 클린뷰티.<br/>스타일과 효능 모두 타협하지 않습니다.' },
+    { headline: 'Your Skin,<br/><em>Transformed</em>',    sub: '과학과 자연이 만나 탄생한 유효 세럼.<br/>검증된 포뮬러를 경험하세요.' }
   ];
 
   let curSlide = 0;
@@ -1577,7 +1754,6 @@ app.get('/', (c) => {
     navItems[curSlide].classList.add('active');
     indexLines[curSlide].classList.add('active');
 
-    // 텍스트 업데이트
     const t = slideTexts[curSlide];
     const hEl = document.getElementById('heroHeadline');
     const sEl = document.getElementById('heroSub');
@@ -1592,7 +1768,6 @@ app.get('/', (c) => {
       sEl.style.opacity = '1'; sEl.style.transform = 'translateY(0)';
     }, 250);
 
-    // 진행 바 리셋
     clearInterval(progressTimer);
     progress = 0;
     progressBar.style.transition = 'none';
