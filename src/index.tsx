@@ -42,6 +42,37 @@ const ASSETS = {
   filmPoster: '/assets/soume/film-poster.jpg',
 }
 
+const HERO_SLIDES = [
+  {
+    image: ASSETS.heroMain,
+    alt: 'Soumé hero main visual',
+    label: 'Quiet Luxury',
+    title: '첫인상부터\n구매까지 선명하게',
+    text: '브랜드 무드는 유지하고, 구매 동선은 더 간결하게 설계한 메인 슬라이드.',
+  },
+  {
+    image: ASSETS.campaign01,
+    alt: 'Soumé campaign visual 01',
+    label: 'Ocean Breeze',
+    title: '맑고 산뜻한\n시그니처 무드',
+    text: '처음 방문한 고객도 가장 빠르게 이해할 수 있는 대표 인상에 집중합니다.',
+  },
+  {
+    image: ASSETS.campaign02,
+    alt: 'Soumé campaign visual 02',
+    label: 'Morning Haze',
+    title: '부드럽고 차분한\n데일리 리추얼',
+    text: '과하지 않지만 오래 남는 무드로 브랜드 신뢰를 만들어주는 장면.',
+  },
+  {
+    image: ASSETS.lookbook01,
+    alt: 'Soumé lookbook visual',
+    label: 'Lookbook',
+    title: '감도 높은 비주얼과\n직관적인 전환',
+    text: '모바일에서도 이미지가 먼저 보이고, CTA는 자연스럽게 이어지도록 정리했습니다.',
+  },
+]
+
 const PRODUCTS = [
   {
     id: 'ocean-breeze',
@@ -117,6 +148,26 @@ const FAQS = [
     a: '현재 메인 구매 동선은 스마트스토어로 연결되어 있어 홈페이지에서 확인한 뒤 바로 이동해 구매할 수 있습니다.',
   },
 ]
+
+const heroSlidesHtml = HERO_SLIDES.map(
+  (slide, index) => `
+    <div class="hero-slide ${index === 0 ? 'is-active' : ''}" data-slide="${index}">
+      <img src="${slide.image}" alt="${slide.alt}" />
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-copy">
+        <small>${slide.label}</small>
+        <h2>${slide.title.replace(/\n/g, '<br />')}</h2>
+        <p>${slide.text}</p>
+      </div>
+    </div>
+  `,
+).join('')
+
+const heroDotsHtml = HERO_SLIDES.map(
+  (_, index) => `
+    <button class="hero-dot ${index === 0 ? 'is-active' : ''}" data-dot="${index}" aria-label="슬라이드 ${index + 1}"></button>
+  `,
+).join('')
 
 const productCards = PRODUCTS.map(
   (product) => `
@@ -230,7 +281,7 @@ app.get('/', (c) => {
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(18px);
       background: rgba(246,241,234,0.78);
       border-bottom: 1px solid rgba(25,23,20,0.06);
@@ -290,18 +341,18 @@ app.get('/', (c) => {
     }
 
     .hero {
-      padding: 32px 0 24px;
+      padding: 28px 0 18px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.02fr 1.18fr;
+      grid-template-columns: 0.98fr 1.2fr;
       gap: 22px;
       align-items: stretch;
     }
 
     .hero-copy {
-      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.72));
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
       border: 1px solid rgba(25,23,20,0.07);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
@@ -309,7 +360,7 @@ app.get('/', (c) => {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 620px;
+      min-height: 640px;
     }
 
     .eyebrow {
@@ -422,85 +473,106 @@ app.get('/', (c) => {
 
     .hero-visual {
       position: relative;
-      min-height: 620px;
+      min-height: 640px;
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow);
       background: #ddd2c8;
+      isolation: isolate;
     }
 
-    .hero-visual img {
+    .hero-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hero-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 44%;
+      object-position: center center;
       transform: scale(1.01);
     }
 
-    .hero-visual-card {
+    .hero-slide-overlay {
       position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 14px;
-      align-items: end;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15,12,10,0.06) 0%, rgba(15,12,10,0.18) 58%, rgba(15,12,10,0.42) 100%);
     }
 
-    .hero-visual-note,
-    .hero-visual-points {
-      border-radius: 22px;
-      backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(255,255,255,0.45);
-      padding: 18px 18px 16px;
+    .hero-slide-copy {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 72px;
+      max-width: 520px;
+      color: #fff;
+      z-index: 2;
     }
 
-    .hero-visual-note small,
-    .hero-visual-points small {
-      display: block;
+    .hero-slide-copy small {
+      display: inline-block;
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      opacity: 0.9;
     }
 
-    .hero-visual-note h2 {
+    .hero-slide-copy h2 {
       margin: 0;
-      font-size: clamp(20px, 2vw, 28px);
-      line-height: 1.12;
+      font-size: clamp(28px, 3.2vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      text-shadow: 0 8px 24px rgba(0,0,0,0.18);
     }
 
-    .hero-visual-note p,
-    .hero-visual-points p {
-      margin: 10px 0 0;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #504941;
+    .hero-slide-copy p {
+      margin: 12px 0 0;
+      font-size: 14px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.9);
+      max-width: 460px;
     }
 
-    .hero-visual-points ul {
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .hero-visual-points li {
-      font-size: 13px;
-      color: #413b34;
+    .hero-dots {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
       display: flex;
       gap: 8px;
-      align-items: flex-start;
+      z-index: 3;
     }
 
-    .hero-visual-points li::before {
-      content: "•";
-      color: var(--gold);
-      font-weight: 700;
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.44);
+      cursor: pointer;
+      transition: width 0.25s ease, background 0.25s ease;
+    }
+
+    .hero-dot.is-active {
+      width: 28px;
+      background: #fff;
     }
 
     .section {
@@ -539,7 +611,7 @@ app.get('/', (c) => {
       display: grid;
       grid-template-columns: 1.02fr 1fr;
       gap: 22px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .about-copy,
@@ -598,6 +670,14 @@ app.get('/', (c) => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .about-panel {
+      min-height: 560px;
+    }
+
+    .about-panel img {
+      object-position: center 26%;
     }
 
     .products-grid {
@@ -1058,7 +1138,11 @@ app.get('/', (c) => {
       }
 
       .hero-visual {
-        min-height: 540px;
+        min-height: 560px;
+      }
+
+      .about-panel {
+        min-height: 520px;
       }
 
       .reviews-grid,
@@ -1109,37 +1193,34 @@ app.get('/', (c) => {
       }
 
       .hero-visual {
-        min-height: 52vh;
+        min-height: 54vh;
         border-radius: 22px;
         order: -1;
       }
 
-      .hero-visual img {
-        object-position: center 42%;
+      .hero-slide img {
+        object-position: center 38%;
       }
 
-      .hero-visual-card {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        grid-template-columns: 1fr;
-        gap: 8px;
+      .hero-slide-copy {
+        left: 14px;
+        right: 14px;
+        bottom: 52px;
+        max-width: none;
       }
 
-      .hero-visual-note,
-      .hero-visual-points {
-        padding: 14px;
-        border-radius: 16px;
+      .hero-slide-copy h2 {
+        font-size: clamp(24px, 8vw, 34px);
       }
 
-      .hero-visual-note h2 {
-        font-size: 18px;
-      }
-
-      .hero-visual-note p,
-      .hero-visual-points p,
-      .hero-visual-points li {
+      .hero-slide-copy p {
         font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .hero-dots {
+        left: 14px;
+        bottom: 16px;
       }
 
       .hero-copy {
@@ -1200,8 +1281,16 @@ app.get('/', (c) => {
       }
 
       .image-panel {
-        min-height: 420px;
+        min-height: 380px;
         border-radius: 22px;
+      }
+
+      .about-panel {
+        min-height: 420px;
+      }
+
+      .about-panel img {
+        object-position: center 22%;
       }
 
       .products-grid,
@@ -1296,36 +1385,27 @@ app.get('/', (c) => {
 
             <div class="hero-proof">
               <div class="hero-proof__item">
-                <strong>2 Signatures</strong>
-                <span>Ocean Breeze와 Morning Haze 두 제품만 선명하게 집중.</span>
+                <strong>4 Visual Slides</strong>
+                <span>첫 화면에서 브랜드 무드를 4장 자동 슬라이드로 전달합니다.</span>
               </div>
               <div class="hero-proof__item">
                 <strong>Easy Choice</strong>
-                <span>처음 방문한 고객도 바로 비교하고 고를 수 있게 구성.</span>
+                <span>처음 방문한 고객도 Ocean Breeze와 Morning Haze를 쉽게 비교.</span>
               </div>
               <div class="hero-proof__item">
                 <strong>Fast Checkout</strong>
-                <span>메인 전환은 스마트스토어 한 곳으로 단순하게 연결.</span>
+                <span>메인 구매 전환은 스마트스토어 한 곳으로 집중합니다.</span>
               </div>
             </div>
           </div>
 
           <div class="hero-visual">
-            <img src="${ASSETS.heroMain}" alt="Soumé hero visual" />
-            <div class="hero-visual-card">
-              <div class="hero-visual-note">
-                <small>Main Campaign</small>
-                <h2>Quiet Luxury,<br />Made Simple</h2>
-                <p>보는 순간 무드가 정리되고, 클릭하는 순간 구매까지 이어지도록 설계한 첫 화면.</p>
-              </div>
-              <div class="hero-visual-points">
-                <small>Focus</small>
-                <ul>
-                  <li>이미지가 먼저 보이는 모바일 우선 구조</li>
-                  <li>텍스트는 짧게, CTA는 분명하게</li>
-                  <li>구매 전환은 스마트스토어로 집중</li>
-                </ul>
-              </div>
+            <div class="hero-slides" id="heroSlides">
+              ${heroSlidesHtml}
+            </div>
+
+            <div class="hero-dots" id="heroDots">
+              ${heroDotsHtml}
             </div>
           </div>
         </div>
@@ -1358,8 +1438,8 @@ app.get('/', (c) => {
             </ul>
           </div>
 
-          <div class="image-panel">
-            <img src="${ASSETS.editorialMain}" alt="Soumé editorial visual" />
+          <div class="image-panel about-panel">
+            <img src="${ASSETS.campaign01}" alt="Soumé campaign visual" />
           </div>
         </div>
       </div>
@@ -1587,50 +1667,84 @@ app.get('/', (c) => {
 
   <script>
     (function () {
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.hero-dot'));
+      var current = 0;
+      var timer = null;
+
+      function activateSlide(index) {
+        current = index;
+        slides.forEach(function (slide, i) {
+          slide.classList.toggle('is-active', i === index);
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+        });
+      }
+
+      function nextSlide() {
+        var next = (current + 1) % slides.length;
+        activateSlide(next);
+      }
+
+      function startAutoSlide() {
+        if (timer) clearInterval(timer);
+        timer = window.setInterval(nextSlide, 4000);
+      }
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener('click', function () {
+          activateSlide(index);
+          startAutoSlide();
+        });
+      });
+
+      if (slides.length > 1) {
+        activateSlide(0);
+        startAutoSlide();
+      }
+
       var popup = document.getElementById('smartPopup');
       var closeBtn = document.getElementById('smartPopupClose');
       var dismissBtn = document.getElementById('smartPopupDismiss');
 
-      if (!popup) return;
+      if (popup && !window.matchMedia('(max-width: 760px)').matches) {
+        var storageKey = 'soume-smart-popup-dismissed';
 
-      var isMobile = window.matchMedia('(max-width: 760px)').matches;
-      if (isMobile) return;
-
-      var storageKey = 'soume-smart-popup-dismissed';
-
-      function openPopup() {
-        if (sessionStorage.getItem(storageKey) === '1') return;
-        popup.classList.add('is-visible');
-        popup.setAttribute('aria-hidden', 'false');
-      }
-
-      function closePopup(save) {
-        popup.classList.remove('is-visible');
-        popup.setAttribute('aria-hidden', 'true');
-        if (save) {
-          sessionStorage.setItem(storageKey, '1');
+        function openPopup() {
+          if (sessionStorage.getItem(storageKey) === '1') return;
+          popup.classList.add('is-visible');
+          popup.setAttribute('aria-hidden', 'false');
         }
-      }
 
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function () {
-          closePopup(false);
-        });
-      }
-
-      if (dismissBtn) {
-        dismissBtn.addEventListener('click', function () {
-          closePopup(true);
-        });
-      }
-
-      window.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-          closePopup(false);
+        function closePopup(save) {
+          popup.classList.remove('is-visible');
+          popup.setAttribute('aria-hidden', 'true');
+          if (save) {
+            sessionStorage.setItem(storageKey, '1');
+          }
         }
-      });
 
-      window.setTimeout(openPopup, 1400);
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function () {
+            closePopup(false);
+          });
+        }
+
+        if (dismissBtn) {
+          dismissBtn.addEventListener('click', function () {
+            closePopup(true);
+          });
+        }
+
+        window.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closePopup(false);
+          }
+        });
+
+        window.setTimeout(openPopup, 1400);
+      }
     })();
   </script>
 </body>
