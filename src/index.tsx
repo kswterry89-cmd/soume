@@ -8,11 +8,11 @@ const SITE = {
   description:
     'Soumé는 감도 높은 비주얼과 간결한 구매 동선을 결합한 모던 럭셔리 바디 리추얼 브랜드입니다.',
   heroEyebrow: 'QUIET LUXURY BODY RITUAL',
-  heroTitle1: '바쁜 하루에도',
-  heroTitle2: '무드는 선명하게',
-  heroTitle3: '남아야 하니까',
+  heroTitle1: '두 가지 시그니처',
+  heroTitle2: '하루의 무드를',
+  heroTitle3: '더 선명하게',
   heroDescription:
-    'Soumé는 과한 장식보다 오래 남는 분위기와 편안한 사용감을 제안합니다. 지금은 Ocean Breeze와 Morning Haze, 두 가지 시그니처를 중심으로 브랜드의 첫 경험을 완성합니다.',
+    'Ocean Breeze는 맑고 산뜻하게, Morning Haze는 부드럽고 차분하게. 취향은 달라도 첫 선택은 간단해야 하니까.',
 }
 
 const LINKS = {
@@ -38,8 +38,6 @@ const ASSETS = {
   lookbook01: '/assets/soume/lookbook-01.jpg',
   lookbook02: '/assets/soume/lookbook-02.jpg',
   lookbook03: '/assets/soume/lookbook-03.jpg',
-
-  filmPoster: '/assets/soume/film-poster.jpg',
 }
 
 const HERO_SLIDES = [
@@ -47,25 +45,25 @@ const HERO_SLIDES = [
     image: ASSETS.heroMain,
     eyebrow: 'Main Campaign',
     title: 'Quiet Luxury',
-    desc: '첫 화면에서 브랜드 무드를 강하게 남기고 바로 구매 CTA로 연결합니다.',
+    desc: '과하지 않지만 오래 남는 분위기. Soumé의 첫인상을 가장 선명하게 보여주는 장면.',
   },
   {
     image: ASSETS.editorialMain,
     eyebrow: 'Editorial Mood',
     title: 'Soft Precision',
-    desc: '감도 높은 에디토리얼 비주얼로 프리미엄 인상을 더합니다.',
+    desc: '정제된 피부 표현과 부드러운 무드로 브랜드의 결을 자연스럽게 전달합니다.',
   },
   {
     image: ASSETS.campaign01,
-    eyebrow: 'Conversion Focus',
-    title: 'Buy With Clarity',
-    desc: '복잡하지 않은 구조로 제품 선택과 구매 결정을 더 쉽게 만듭니다.',
+    eyebrow: 'Ocean Breeze',
+    title: 'Fresh Signature',
+    desc: '맑고 산뜻한 방향의 시그니처 무드. 가볍고 깨끗한 첫 선택에 어울립니다.',
   },
   {
     image: ASSETS.campaign02,
-    eyebrow: 'Brand Presence',
-    title: 'Lasting Impression',
-    desc: '마지막까지 분위기를 유지하면서도 구매로 자연스럽게 이어집니다.',
+    eyebrow: 'Morning Haze',
+    title: 'Soft Signature',
+    desc: '부드럽고 차분한 방향의 시그니처 무드. 잔잔하게 남는 인상을 원할 때 잘 어울립니다.',
   },
 ]
 
@@ -74,13 +72,13 @@ const PRODUCTS = [
     id: 'ocean-breeze',
     badge: 'BEST SELLER',
     name: 'Ocean Breeze',
-    subtitle: '산뜻하고 깨끗한 인상을 남기는 시그니처 리추얼',
+    subtitle: '맑고 산뜻한 인상을 남기는 시그니처 리추얼',
     price: '₩48,000',
     volume: '250ml',
     image: ASSETS.product01,
     description:
-      '첫 사용감부터 가볍고 깨끗한 무드가 느껴지는 Soumé의 대표 시그니처입니다. 샤워 후 정리된 무드를 더하고 싶을 때 가장 직관적으로 선택하기 좋은 제품입니다.',
-    features: ['첫 구매 추천', '가볍고 산뜻한 무드', '데일리 사용 적합'],
+      'Soumé의 대표 시그니처. 첫 사용감부터 가볍고 깨끗한 무드가 느껴지며, 샤워 후 정리된 분위기를 더하고 싶을 때 가장 직관적으로 선택하기 좋은 제품입니다.',
+    features: ['첫 구매 추천', '맑고 산뜻한 무드', '데일리 사용 적합'],
     notes: ['Fresh Air', 'Soft Breeze', 'Clean Finish'],
     buyLink: LINKS.smartstore,
   },
@@ -93,8 +91,8 @@ const PRODUCTS = [
     volume: '250ml',
     image: ASSETS.product02,
     description:
-      '조용하고 부드러운 인상을 선호하는 고객에게 잘 어울리는 두 번째 시그니처입니다. 은은하게 오래 남는 무드와 차분한 감도로 선물용으로도 잘 어울립니다.',
-    features: ['차분한 무드', '선물용 추천', '브랜드 감도 강조'],
+      '조용하고 부드러운 인상을 선호하는 고객에게 잘 어울리는 두 번째 시그니처. 은은하게 오래 남는 무드와 차분한 감도로 선물용으로도 잘 어울립니다.',
+    features: ['차분한 무드', '선물용 추천', '부드러운 인상'],
     notes: ['Soft Cotton', 'Morning Light', 'Calm Skin Mood'],
     buyLink: LINKS.smartstore,
   },
@@ -157,7 +155,7 @@ const LOOKBOOK = [
 const FAQS = [
   {
     q: '처음 구매할 때 어떤 제품부터 시작하면 좋나요?',
-    a: '산뜻하고 깨끗한 인상을 원하면 Ocean Breeze부터, 보다 부드럽고 차분한 무드를 원하면 Morning Haze부터 시작하는 구성을 추천합니다.',
+    a: '맑고 산뜻한 인상을 원하면 Ocean Breeze부터, 보다 부드럽고 차분한 무드를 원하면 Morning Haze부터 시작하는 구성을 추천합니다.',
   },
   {
     q: '두 제품의 분위기는 어떻게 다른가요?',
@@ -208,7 +206,7 @@ const renderProducts = () =>
           <h3>${product.name}</h3>
           <p class="product-card__subtitle">${product.subtitle}</p>
           <div class="product-card__actions">
-            <button class="btn btn-dark js-open-product" data-product-id="${product.id}">상세 보기</button>
+            <button class="btn btn-dark js-open-product" data-product-id="${product.id}" type="button">상세 보기</button>
             <a class="btn btn-line" href="${product.buyLink}" target="_blank" rel="noreferrer">스마트스토어 구매</a>
           </div>
         </div>
@@ -266,8 +264,8 @@ const renderFaqs = () =>
   ).join('')
 
 app.get('/', (c) => {
+  const heroSlidesJson = safeJson(HERO_SLIDES)
   const productsJson = safeJson(PRODUCTS)
-  const slidesJson = safeJson(HERO_SLIDES)
 
   return c.html(`<!DOCTYPE html>
 <html lang="ko">
@@ -283,7 +281,7 @@ app.get('/', (c) => {
     :root {
       --bg: #f7f1ea;
       --bg-soft: #fcf8f4;
-      --card: rgba(255,255,255,0.78);
+      --card: rgba(255,255,255,0.84);
       --line: rgba(32, 24, 18, 0.08);
       --line-strong: rgba(32, 24, 18, 0.16);
       --text: #1f1a17;
@@ -293,17 +291,18 @@ app.get('/', (c) => {
       --dark: #171311;
       --gold-grad: linear-gradient(135deg, #c9a57c 0%, #8f6b49 100%);
       --green-grad: linear-gradient(135deg, #03c75a 0%, #00b050 100%);
-      --radius-xl: 34px;
-      --radius-lg: 26px;
-      --radius-md: 20px;
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
       --shadow: 0 24px 70px rgba(31, 22, 16, 0.08);
-      --container: 1240px;
+      --container: 1200px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      overflow-x: hidden;
       color: var(--text);
       font-family: 'Inter', system-ui, sans-serif;
       background:
@@ -315,11 +314,13 @@ app.get('/', (c) => {
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
     .container { width: min(calc(100% - 32px), var(--container)); margin: 0 auto; }
+    section[id] { scroll-margin-top: 96px; }
 
-    .section { padding: 110px 0; }
+    .section { padding: 96px 0; }
+
     .eyebrow {
       margin: 0 0 10px;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.2;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -330,8 +331,8 @@ app.get('/', (c) => {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 22px;
-      margin-bottom: 34px;
+      gap: 18px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
     }
 
@@ -342,23 +343,23 @@ app.get('/', (c) => {
     .purchase-panel h2,
     .product-modal__title,
     .smart-popup h3,
-    .hero-stage__card h3,
-    .film-card__copy h3 {
+    .hero-stage__card h3 {
       font-family: 'Cormorant Garamond', serif;
       letter-spacing: -0.03em;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(34px, 5vw, 66px);
-      line-height: 0.95;
+      font-size: clamp(30px, 4.4vw, 54px);
+      line-height: 0.98;
     }
 
     .section-head p {
       margin: 0;
       max-width: 560px;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .btn {
@@ -366,8 +367,8 @@ app.get('/', (c) => {
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 52px;
-      padding: 14px 22px;
+      min-height: 50px;
+      padding: 13px 20px;
       border-radius: 999px;
       border: 1px solid transparent;
       cursor: pointer;
@@ -375,11 +376,10 @@ app.get('/', (c) => {
       font-weight: 700;
       letter-spacing: -0.01em;
       text-align: center;
+      white-space: nowrap;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-gold {
       background: var(--gold-grad);
@@ -403,12 +403,12 @@ app.get('/', (c) => {
       top: 0;
       z-index: 40;
       backdrop-filter: blur(18px);
-      background: rgba(249, 245, 240, 0.75);
+      background: rgba(249, 245, 240, 0.76);
       border-bottom: 1px solid rgba(31, 26, 23, 0.06);
     }
 
     .site-header__inner {
-      height: 78px;
+      height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -416,20 +416,18 @@ app.get('/', (c) => {
     }
 
     .site-brand img {
-      width: 118px;
+      width: 116px;
       height: auto;
     }
 
     .site-nav {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .site-nav a:hover {
-      color: var(--text);
-    }
+    .site-nav a:hover { color: var(--text); }
 
     .site-actions {
       display: flex;
@@ -438,13 +436,13 @@ app.get('/', (c) => {
     }
 
     .hero {
-      padding: 28px 0 70px;
+      padding: 24px 0 60px;
     }
 
     .hero-shell {
       display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 24px;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 22px;
       align-items: stretch;
     }
 
@@ -453,54 +451,54 @@ app.get('/', (c) => {
     .glass-card,
     .split-copy,
     .review-banner,
-    .purchase-panel,
-    .film-card {
+    .purchase-panel {
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow);
     }
 
     .hero-copy {
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(255,255,255,0.65);
-      padding: clamp(28px, 4vw, 56px);
+      min-height: 640px;
+      padding: clamp(24px, 3.6vw, 48px);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.68);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 760px;
+      justify-content: center;
     }
 
     .hero-copy h1 {
-      margin: 0 0 18px;
-      font-size: clamp(52px, 8vw, 108px);
-      line-height: 0.9;
+      margin: 0 0 14px;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
     }
 
     .hero-description {
+      max-width: 44ch;
       margin: 0;
-      max-width: 560px;
+      font-size: 15px;
+      line-height: 1.75;
       color: var(--muted);
-      line-height: 1.9;
-      font-size: clamp(15px, 1.5vw, 18px);
     }
 
     .hero-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .hero-proof {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 34px;
+      gap: 12px;
+      margin-top: 28px;
     }
 
     .hero-proof__item {
-      padding: 20px;
-      border-radius: 22px;
+      padding: 18px;
+      border-radius: 20px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.54);
     }
@@ -508,18 +506,18 @@ app.get('/', (c) => {
     .hero-proof__item strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 22px;
+      font-size: 18px;
     }
 
     .hero-proof__item span {
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .hero-stage {
       position: relative;
-      min-height: 760px;
+      min-height: 640px;
       background: #ddd;
     }
 
@@ -530,14 +528,13 @@ app.get('/', (c) => {
       transition: opacity .8s ease;
     }
 
-    .hero-slide.is-active {
-      opacity: 1;
-    }
+    .hero-slide.is-active { opacity: 1; }
 
     .hero-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 18%;
     }
 
     .hero-stage__overlay {
@@ -546,40 +543,42 @@ app.get('/', (c) => {
       z-index: 2;
       display: flex;
       align-items: end;
-      padding: 30px;
-      background: linear-gradient(180deg, rgba(20,16,14,0.04) 0%, rgba(20,16,14,0.45) 100%);
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(20,16,14,0.04) 0%, rgba(20,16,14,0.36) 100%);
     }
 
     .hero-stage__card {
-      max-width: 430px;
-      padding: 24px;
-      border-radius: 24px;
+      max-width: 320px;
+      padding: 18px 18px 16px;
+      border-radius: 20px;
       background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.24);
       backdrop-filter: blur(12px);
       color: #fff;
     }
 
     .hero-stage__card h3 {
-      margin: 6px 0 8px;
-      font-size: 30px;
+      margin: 4px 0 6px;
+      font-size: 22px;
+      line-height: 1;
     }
 
     .hero-stage__card p {
       margin: 0;
-      color: rgba(255,255,255,0.86);
-      line-height: 1.7;
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.88);
     }
 
     .hero-dots {
       display: flex;
-      gap: 8px;
-      margin-top: 16px;
+      gap: 7px;
+      margin-top: 14px;
     }
 
     .hero-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       border: 0;
       cursor: pointer;
@@ -588,20 +587,20 @@ app.get('/', (c) => {
 
     .hero-dot.is-active {
       background: #fff;
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .trust-strip {
-      margin-top: 20px;
+      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 12px;
     }
 
     .trust-box {
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.66);
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.68);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
@@ -609,37 +608,38 @@ app.get('/', (c) => {
     .trust-box strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .trust-box span {
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: 13px;
+      line-height: 1.6;
       color: var(--muted);
     }
 
     .split-layout {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
       align-items: stretch;
     }
 
     .glass-card {
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.78);
       border: 1px solid var(--line);
     }
 
     .split-visual img {
       width: 100%;
       height: 100%;
+      min-height: 520px;
       object-fit: cover;
-      min-height: 560px;
+      object-position: center 18%;
     }
 
     .split-copy {
-      padding: 40px;
-      background: rgba(255,255,255,0.78);
+      padding: 36px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
       display: flex;
       flex-direction: column;
@@ -647,15 +647,16 @@ app.get('/', (c) => {
     }
 
     .split-copy h3 {
-      margin: 0 0 14px;
-      font-size: clamp(34px, 4.8vw, 62px);
-      line-height: 0.95;
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 0.98;
     }
 
     .split-copy p {
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       color: var(--muted);
-      line-height: 1.85;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .products-grid,
@@ -671,7 +672,7 @@ app.get('/', (c) => {
     }
 
     .product-card {
-      background: rgba(255,255,255,0.76);
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
       border-radius: 28px;
       overflow: hidden;
@@ -680,7 +681,7 @@ app.get('/', (c) => {
 
     .product-card__media {
       position: relative;
-      aspect-ratio: 1 / 1.12;
+      aspect-ratio: 1 / 1.08;
       overflow: hidden;
     }
 
@@ -688,51 +689,53 @@ app.get('/', (c) => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 20%;
       transition: transform .45s ease;
     }
 
     .product-card:hover .product-card__media img {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
     .product-card__badge {
       position: absolute;
-      top: 18px;
-      left: 18px;
-      padding: 8px 12px;
+      top: 16px;
+      left: 16px;
+      padding: 7px 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.92);
-      font-size: 11px;
+      background: rgba(255,255,255,0.94);
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .product-card__body {
-      padding: 24px;
+      padding: 22px;
     }
 
     .product-card__meta {
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: var(--muted);
       font-size: 13px;
     }
 
     .product-card h3 {
       margin: 0 0 8px;
-      font-size: clamp(28px, 3vw, 34px);
+      font-size: clamp(26px, 2.6vw, 32px);
       line-height: 1;
       font-family: 'Cormorant Garamond', serif;
     }
 
     .product-card__subtitle {
-      margin: 0 0 20px;
-      min-height: 50px;
+      margin: 0 0 18px;
+      min-height: 48px;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .product-card__actions {
@@ -742,31 +745,32 @@ app.get('/', (c) => {
     }
 
     .inline-cta {
-      margin-top: 22px;
-      padding: 22px 24px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(201,165,124,0.16), rgba(255,255,255,0.84));
+      margin-top: 18px;
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(201,165,124,0.14), rgba(255,255,255,0.86));
       border: 1px solid rgba(143,107,73,0.14);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .inline-cta strong {
       display: block;
       margin-bottom: 4px;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .inline-cta span {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.65;
+      font-size: 14px;
     }
 
     .review-banner {
-      padding: 30px;
+      padding: 28px;
       margin-bottom: 18px;
       background: linear-gradient(135deg, rgba(23,19,17,0.96), rgba(58,42,28,0.94));
       color: #fff;
@@ -774,15 +778,16 @@ app.get('/', (c) => {
 
     .review-banner h2 {
       margin: 8px 0 10px;
-      font-size: clamp(34px, 5vw, 64px);
-      line-height: 0.95;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 0.98;
     }
 
     .review-banner p {
       margin: 0;
-      max-width: 760px;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.85;
+      max-width: 720px;
+      color: rgba(255,255,255,0.84);
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .reviews-grid {
@@ -790,31 +795,32 @@ app.get('/', (c) => {
     }
 
     .review-card {
-      padding: 28px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.78);
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
 
     .review-card__stars {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       color: #b98c50;
-      letter-spacing: 0.14em;
-      font-size: 14px;
+      letter-spacing: 0.12em;
+      font-size: 13px;
     }
 
     .review-card h3 {
       margin: 0 0 10px;
-      font-size: 24px;
-      line-height: 1.25;
+      font-size: 22px;
+      line-height: 1.2;
       font-family: 'Cormorant Garamond', serif;
     }
 
     .review-card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .signature-grid {
@@ -823,8 +829,8 @@ app.get('/', (c) => {
 
     .signature-card {
       position: relative;
-      min-height: 560px;
-      border-radius: 30px;
+      min-height: 500px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: var(--shadow);
     }
@@ -833,34 +839,36 @@ app.get('/', (c) => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 18%;
     }
 
     .signature-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.38));
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.36));
     }
 
     .signature-card__copy {
       position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
       z-index: 2;
       color: #fff;
     }
 
     .signature-card__copy h3 {
       margin: 6px 0 8px;
-      font-size: 28px;
+      font-size: 26px;
       font-family: 'Cormorant Garamond', serif;
     }
 
     .signature-card__copy p {
       margin: 0;
-      line-height: 1.75;
+      line-height: 1.7;
       color: rgba(255,255,255,0.84);
+      font-size: 14px;
     }
 
     .lookbook-grid {
@@ -869,8 +877,8 @@ app.get('/', (c) => {
 
     .lookbook-card {
       position: relative;
-      min-height: 500px;
-      border-radius: 28px;
+      min-height: 420px;
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--shadow);
     }
@@ -879,112 +887,78 @@ app.get('/', (c) => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 18%;
     }
 
     .lookbook-card__overlay {
       position: absolute;
       inset: auto 0 0 0;
-      padding: 26px;
+      padding: 22px;
       color: #fff;
-      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.64) 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.62) 100%);
     }
 
     .lookbook-card__overlay h3 {
       margin: 6px 0 8px;
-      font-size: 28px;
+      font-size: 24px;
       font-family: 'Cormorant Garamond', serif;
     }
 
     .lookbook-card__overlay p {
       margin: 0;
-      line-height: 1.75;
+      line-height: 1.7;
       color: rgba(255,255,255,0.84);
-    }
-
-    .film-card {
-      position: relative;
-      min-height: 620px;
-    }
-
-    .film-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .film-card__overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: end;
-      padding: 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.62));
-      color: #fff;
-    }
-
-    .film-card__copy {
-      max-width: 520px;
-    }
-
-    .film-card__copy h3 {
-      margin: 8px 0 10px;
-      font-size: clamp(34px, 4.8vw, 62px);
-      line-height: 0.95;
-    }
-
-    .film-card__copy p {
-      margin: 0 0 22px;
-      color: rgba(255,255,255,0.84);
-      line-height: 1.85;
+      font-size: 14px;
     }
 
     .purchase-layout {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1.06fr 0.94fr;
       gap: 18px;
     }
 
     .purchase-panel {
-      padding: 42px;
-      background: rgba(255,255,255,0.8);
+      padding: 36px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
     }
 
     .purchase-panel h2 {
-      margin: 8px 0 14px;
-      font-size: clamp(34px, 4.8vw, 62px);
-      line-height: 0.95;
+      margin: 8px 0 12px;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 0.98;
     }
 
     .purchase-panel p {
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .purchase-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .purchase-checks {
       display: grid;
-      gap: 10px;
-      margin-top: 22px;
+      gap: 8px;
+      margin-top: 18px;
       color: var(--muted);
       font-size: 14px;
     }
 
     .faq-list {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .faq-item {
-      padding: 22px 24px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.76);
+      padding: 20px 22px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
@@ -994,6 +968,7 @@ app.get('/', (c) => {
       cursor: pointer;
       font-weight: 800;
       line-height: 1.5;
+      font-size: 14px;
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -1001,49 +976,31 @@ app.get('/', (c) => {
     }
 
     .faq-item p {
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .site-footer {
-      padding: 36px 0 110px;
+      padding: 32px 0 110px;
       color: var(--muted);
     }
 
     .site-footer__inner {
-      padding-top: 24px;
+      padding-top: 22px;
       border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
-    }
-
-    .sticky-buy {
-      position: fixed;
-      left: 50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      width: min(calc(100% - 20px), 840px);
-      z-index: 55;
-      padding: 12px;
-      border-radius: 999px;
-      background: rgba(23,19,17,0.92);
-      box-shadow: 0 18px 46px rgba(0,0,0,0.2);
-      display: flex;
-      gap: 10px;
-      backdrop-filter: blur(16px);
-    }
-
-    .sticky-buy .btn {
-      flex: 1;
+      font-size: 14px;
     }
 
     .smart-fab {
       position: fixed;
-      right: 22px;
-      bottom: 106px;
+      right: 24px;
+      bottom: 28px;
       z-index: 56;
       display: inline-flex;
       align-items: center;
@@ -1107,12 +1064,12 @@ app.get('/', (c) => {
 
     .smart-popup {
       position: fixed;
-      right: 22px;
-      bottom: 182px;
+      right: 24px;
+      bottom: 108px;
       z-index: 57;
-      width: min(360px, calc(100vw - 28px));
+      width: min(340px, calc(100vw - 28px));
       padding: 18px 18px 16px;
-      border-radius: 24px;
+      border-radius: 22px;
       background: rgba(255,255,255,0.96);
       border: 1px solid rgba(31,26,23,0.08);
       box-shadow: 0 24px 60px rgba(20,16,14,0.14);
@@ -1152,22 +1109,26 @@ app.get('/', (c) => {
 
     .smart-popup h3 {
       margin: 0 0 8px;
-      font-size: 30px;
+      font-size: 28px;
       line-height: 0.98;
     }
 
     .smart-popup p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.7;
       font-size: 14px;
     }
 
     .smart-popup__actions {
       display: flex;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 14px;
       flex-wrap: wrap;
+    }
+
+    .sticky-buy {
+      display: none;
     }
 
     .modal {
@@ -1180,9 +1141,7 @@ app.get('/', (c) => {
       padding: 20px;
     }
 
-    .modal.is-open {
-      display: flex;
-    }
+    .modal.is-open { display: flex; }
 
     .modal__backdrop {
       position: absolute;
@@ -1193,21 +1152,21 @@ app.get('/', (c) => {
     .modal__panel {
       position: relative;
       z-index: 1;
-      width: min(980px, 100%);
+      width: min(920px, 100%);
       max-height: calc(100vh - 40px);
       overflow: auto;
-      border-radius: 30px;
+      border-radius: 28px;
       background: #fff;
       box-shadow: 0 40px 100px rgba(0,0,0,0.24);
     }
 
     .modal__close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 14px;
+      right: 14px;
       z-index: 2;
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border: 0;
       border-radius: 50%;
       background: rgba(20,16,14,0.08);
@@ -1222,16 +1181,17 @@ app.get('/', (c) => {
     .product-modal__media img {
       width: 100%;
       height: 100%;
-      min-height: 560px;
+      min-height: 520px;
       object-fit: cover;
+      object-position: center 18%;
     }
 
     .product-modal__body {
-      padding: 38px 34px 34px;
+      padding: 34px 30px 30px;
     }
 
     .product-modal__eyebrow {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -1240,7 +1200,7 @@ app.get('/', (c) => {
 
     .product-modal__title {
       margin: 10px 0 10px;
-      font-size: 50px;
+      font-size: 44px;
       line-height: 0.95;
     }
 
@@ -1248,19 +1208,21 @@ app.get('/', (c) => {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--muted);
+      font-size: 14px;
     }
 
     .product-modal__desc {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
-      line-height: 1.85;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
     .chip-label {
       margin: 0 0 10px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -1271,11 +1233,11 @@ app.get('/', (c) => {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .chip {
-      padding: 10px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
       background: #f5efe7;
       color: #6b5948;
@@ -1291,8 +1253,8 @@ app.get('/', (c) => {
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .72s ease, transform .72s ease;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.is-visible {
@@ -1341,28 +1303,50 @@ app.get('/', (c) => {
       }
 
       .site-header__inner {
-        height: 70px;
+        height: 68px;
       }
 
       .site-brand img {
-        width: 98px;
+        width: 96px;
       }
 
       .section {
-        padding: 82px 0;
+        padding: 76px 0;
       }
 
       .hero {
-        padding: 18px 0 52px;
+        padding: 16px 0 44px;
+      }
+
+      .hero-shell {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-stage {
+        order: 1;
+        min-height: auto;
+        aspect-ratio: 4 / 5;
+        border-radius: 26px;
+        overflow: hidden;
       }
 
       .hero-copy {
-        padding: 28px;
+        order: 2;
+        min-height: auto;
+        padding: 24px;
+        border-radius: 26px;
       }
 
       .hero-copy h1 {
-        font-size: 42px;
-        line-height: 0.94;
+        font-size: 36px;
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+        line-height: 1.7;
       }
 
       .hero-actions,
@@ -1386,55 +1370,85 @@ app.get('/', (c) => {
         grid-template-columns: 1fr;
       }
 
-      .hero-stage {
-        min-height: 420px;
+      .hero-slide img {
+        object-position: center 14%;
+      }
+
+      .hero-stage__overlay {
+        padding: 12px;
+      }
+
+      .hero-stage__card {
+        max-width: 250px;
+        padding: 14px 14px 12px;
+        border-radius: 18px;
+      }
+
+      .hero-stage__card h3 {
+        font-size: 18px;
+      }
+
+      .hero-stage__card p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .section-head {
+        margin-bottom: 22px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
       }
 
       .split-copy,
-      .purchase-panel {
-        padding: 28px;
-      }
-
-      .film-card {
-        min-height: 460px;
-      }
-
-      .film-card__overlay {
+      .purchase-panel,
+      .review-banner {
         padding: 24px;
       }
 
-      .review-banner h2,
-      .purchase-panel h2,
-      .film-card__copy h3 {
-        font-size: 40px;
+      .split-visual img,
+      .signature-card,
+      .lookbook-card {
+        min-height: 380px;
       }
 
-      .product-modal__title {
-        font-size: 38px;
+      .smart-fab,
+      .smart-popup {
+        display: none !important;
       }
 
       .sticky-buy {
-        width: calc(100% - 16px);
+        position: fixed;
+        left: 50%;
         bottom: 10px;
+        transform: translateX(-50%);
+        width: calc(100% - 16px);
+        z-index: 60;
         padding: 10px;
         border-radius: 22px;
+        background: rgba(23,19,17,0.92);
+        box-shadow: 0 18px 46px rgba(0,0,0,0.2);
+        display: flex;
         flex-direction: column;
+        gap: 10px;
+        backdrop-filter: blur(16px);
       }
 
       .sticky-buy .btn {
         width: 100%;
       }
 
-      .smart-fab {
-        right: 12px;
-        bottom: 92px;
-        padding: 12px 15px 12px 12px;
+      .product-modal__title {
+        font-size: 36px;
       }
 
-      .smart-popup {
-        right: 12px;
-        bottom: 168px;
-        border-radius: 20px;
+      .product-modal__body {
+        padding: 28px 22px 24px;
+      }
+
+      .site-footer {
+        padding-bottom: 130px;
       }
     }
   </style>
@@ -1455,7 +1469,7 @@ app.get('/', (c) => {
       </nav>
 
       <div class="site-actions">
-        <a class="btn btn-line" href="#reviews">후기 보기</a>
+        <a class="btn btn-line" href="#products">제품 보기</a>
         <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어</a>
       </div>
     </div>
@@ -1482,16 +1496,16 @@ app.get('/', (c) => {
 
             <div class="hero-proof">
               <div class="hero-proof__item">
-                <strong>2 Signature Items</strong>
-                <span>복잡하지 않게, 지금 가장 보여주기 좋은 두 제품만 집중합니다.</span>
+                <strong>2 Signatures</strong>
+                <span>지금 가장 보여주기 좋은 두 제품만 선명하게.</span>
               </div>
               <div class="hero-proof__item">
-                <strong>Fast Purchase Flow</strong>
-                <span>첫 화면부터 스마트스토어 진입까지 구매 동선을 짧게 설계했습니다.</span>
+                <strong>Easy Choice</strong>
+                <span>Ocean Breeze와 Morning Haze 중 취향대로 고르기 쉽게.</span>
               </div>
               <div class="hero-proof__item">
-                <strong>Mobile Ready</strong>
-                <span>모바일에서도 CTA가 계속 보이도록 버튼 위치와 크기를 최적화했습니다.</span>
+                <strong>Fast Checkout</strong>
+                <span>복잡한 분기 없이 스마트스토어로 바로 연결.</span>
               </div>
             </div>
           </div>
@@ -1503,7 +1517,7 @@ app.get('/', (c) => {
             <div class="hero-stage__card">
               <p class="eyebrow" id="heroEyebrow">Main Campaign</p>
               <h3 id="heroTitle">Quiet Luxury</h3>
-              <p id="heroDesc">첫 화면에서 브랜드 무드를 강하게 남기고 바로 구매 CTA로 연결합니다.</p>
+              <p id="heroDesc">과하지 않지만 오래 남는 분위기. Soumé의 첫인상을 가장 선명하게 보여주는 장면.</p>
               <div class="hero-dots">
                 ${renderHeroDots()}
               </div>
@@ -1515,20 +1529,20 @@ app.get('/', (c) => {
       <div class="container">
         <div class="trust-strip">
           <div class="trust-box">
-            <strong>구매 유도형 카피</strong>
-            <span>브랜드 소개보다 구매 이유가 먼저 보이도록 문구를 재정렬했습니다.</span>
+            <strong>구매 중심 구성</strong>
+            <span>브랜드 무드를 해치지 않으면서도 바로 선택할 수 있게 정리했습니다.</span>
           </div>
           <div class="trust-box">
-            <strong>후기 섹션 추가</strong>
-            <span>신뢰를 보강하는 영역을 중간에 배치해 구매 전 망설임을 줄입니다.</span>
+            <strong>두 제품 집중</strong>
+            <span>Ocean Breeze와 Morning Haze만 선명하게 보여줍니다.</span>
           </div>
           <div class="trust-box">
-            <strong>CTA 반복 설계</strong>
-            <span>상단·중간·하단·모바일 고정 버튼까지 구매 링크를 반복 노출합니다.</span>
+            <strong>후기 보강</strong>
+            <span>구매 직전 신뢰를 더하는 후기 섹션을 중간에 배치했습니다.</span>
           </div>
           <div class="trust-box">
-            <strong>스마트스토어 직결</strong>
-            <span>메인 전환 링크를 스마트스토어 한 곳으로 집중시켜 클릭 분산을 줄입니다.</span>
+            <strong>모바일 최적화</strong>
+            <span>작은 화면에서는 CTA를 단순화해 사진과 정보가 덜 겹치게 했습니다.</span>
           </div>
         </div>
       </div>
@@ -1539,11 +1553,11 @@ app.get('/', (c) => {
         <div class="section-head">
           <div>
             <p class="eyebrow">About Soumé</p>
-            <h2>많이 보여주는 대신<br />더 잘 기억되게</h2>
+            <h2>많이 보여주기보다<br />더 또렷하게 남도록</h2>
           </div>
           <p>
-            Soumé는 제품 수를 늘려 복잡하게 보이기보다, 지금 가장 인상이 선명한 두 가지 시그니처에 집중합니다.
-            사용자는 빠르게 이해하고 더 쉽게 선택하고 바로 구매까지 이어질 수 있습니다.
+            Soumé는 제품 수를 늘리기보다, 지금 가장 인상이 선명한 두 가지 시그니처에 집중합니다.
+            빠르게 이해되고, 더 쉽게 선택되고, 바로 구매까지 이어지도록 구성했습니다.
           </p>
         </div>
 
@@ -1553,10 +1567,10 @@ app.get('/', (c) => {
           </div>
           <div class="split-copy reveal">
             <p class="eyebrow">Brand Direction</p>
-            <h3>Ocean Breeze와 Morning Haze,<br />두 가지 무드의 균형</h3>
+            <h3>Ocean Breeze와 Morning Haze,<br />서로 다른 두 가지 무드</h3>
             <p>
-              하나는 더 깨끗하고 산뜻하게, 다른 하나는 더 부드럽고 차분하게.
-              Soumé의 첫 경험은 두 제품만으로도 브랜드의 결을 충분히 느낄 수 있도록 구성했습니다.
+              하나는 맑고 산뜻하게, 다른 하나는 부드럽고 차분하게.
+              두 제품만으로도 Soumé가 어떤 브랜드인지 충분히 느껴지도록 정리했습니다.
             </p>
             <div class="hero-actions">
               <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 바로가기</a>
@@ -1575,7 +1589,7 @@ app.get('/', (c) => {
             <h2>복잡하지 않게,<br />지금 필요한 두 제품만</h2>
           </div>
           <p>
-            처음 방문한 고객도 바로 이해할 수 있도록 Ocean Breeze와 Morning Haze 두 제품만 중심에 배치했습니다.
+            처음 방문한 고객도 바로 이해할 수 있도록 Ocean Breeze와 Morning Haze만 중심에 배치했습니다.
             비교는 쉽게, 구매는 더 빠르게 이어집니다.
           </p>
         </div>
@@ -1587,7 +1601,7 @@ app.get('/', (c) => {
         <div class="inline-cta reveal">
           <div>
             <strong>첫 구매 추천 동선</strong>
-            <span>먼저 두 제품의 성격을 비교하고, 상세 확인 후 바로 스마트스토어로 이동하는 흐름이 가장 빠릅니다.</span>
+            <span>먼저 두 제품의 분위기를 비교하고, 상세 확인 후 바로 스마트스토어로 이동하는 흐름이 가장 빠릅니다.</span>
           </div>
           <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">두 제품 구매하러 가기</a>
         </div>
@@ -1600,8 +1614,8 @@ app.get('/', (c) => {
           <p class="eyebrow">Customer Voice</p>
           <h2>후기 한 줄이<br />구매 결정을 더 쉽게 만듭니다</h2>
           <p>
-            실제 운영 시에는 스마트스토어 리뷰 문구로 교체하면 더 좋지만,
-            지금 구조는 후기 섹션이 어디에 들어가야 가장 전환에 도움이 되는지까지 반영해 배치했습니다.
+            실제 운영 시에는 스마트스토어 리뷰 문구로 교체하면 더 좋고,
+            지금은 후기 섹션의 위치와 밀도 자체를 전환 중심으로 정리해둔 상태입니다.
           </p>
         </div>
 
@@ -1619,7 +1633,7 @@ app.get('/', (c) => {
             <h2>제품보다 먼저 보이는 건<br />브랜드의 태도입니다</h2>
           </div>
           <p>
-            메인 컷, 사용감, 디테일 컷을 분리해 보여주면 단순 감성 이미지가 아니라
+            메인 컷, 사용감, 디테일 컷을 나눠 보여주면 단순 감성 이미지가 아니라
             믿을 수 있는 브랜드라는 인상으로 이어집니다.
           </p>
         </div>
@@ -1648,35 +1662,16 @@ app.get('/', (c) => {
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="film-card reveal">
-          <img src="${ASSETS.filmPoster}" alt="Soumé brand poster" />
-          <div class="film-card__overlay">
-            <div class="film-card__copy">
-              <p class="eyebrow">Brand Mood</p>
-              <h3>감도를 끝까지 유지하면서도<br />구매를 놓치지 않기</h3>
-              <p>
-                하단 구간은 브랜드 이미지를 마무리하면서 동시에 구매 버튼을 다시 노출하는 구간입니다.
-                감성으로 닫지 않고 전환으로 닫는 구조가 중요합니다.
-              </p>
-              <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어에서 구매</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="purchase">
       <div class="container">
         <div class="section-head">
           <div>
             <p class="eyebrow">Purchase Funnel</p>
-            <h2>이제는 고민보다<br />구매가 더 가까워지도록</h2>
+            <h2>결정은 간단하게,<br />구매는 더 빠르게</h2>
           </div>
           <p>
             제품 이해, 후기 확인, 브랜드 무드까지 충분히 본 뒤 마지막에는 하나의 구매 동선으로 정리합니다.
-            클릭이 분산되지 않게 메인 전환은 스마트스토어로 집중시키는 것이 가장 효율적입니다.
+            메인 전환은 스마트스토어로 집중시키는 것이 가장 효율적입니다.
           </p>
         </div>
 
@@ -1703,7 +1698,7 @@ app.get('/', (c) => {
           </div>
 
           <div class="glass-card split-visual reveal">
-            <img src="${ASSETS.product02}" alt="purchase visual" />
+            <img src="${ASSETS.campaign02}" alt="Soumé purchase visual" />
           </div>
         </div>
       </div>
@@ -1740,11 +1735,6 @@ app.get('/', (c) => {
     </div>
   </footer>
 
-  <div class="sticky-buy">
-    <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어에서 구매</a>
-    <a class="btn btn-line" href="#products">두 제품 비교하기</a>
-  </div>
-
   <a
     class="smart-fab"
     href="${LINKS.smartstore}"
@@ -1761,7 +1751,7 @@ app.get('/', (c) => {
   </a>
 
   <div class="smart-popup" id="smartPopup" aria-hidden="true">
-    <button class="smart-popup__close" id="smartPopupClose" aria-label="닫기">✕</button>
+    <button class="smart-popup__close" id="smartPopupClose" aria-label="닫기" type="button">✕</button>
     <p class="smart-popup__eyebrow">Official Store</p>
     <h3>Ocean Breeze와<br />Morning Haze를<br />바로 만나보세요</h3>
     <p>
@@ -1774,6 +1764,11 @@ app.get('/', (c) => {
     </div>
   </div>
 
+  <div class="sticky-buy">
+    <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어에서 구매</a>
+    <a class="btn btn-line" href="#products">두 제품 비교하기</a>
+  </div>
+
   <div class="modal" id="productModal" aria-hidden="true">
     <div class="modal__backdrop" data-close-modal></div>
     <div class="modal__panel">
@@ -1783,7 +1778,7 @@ app.get('/', (c) => {
   </div>
 
   <script>
-    const HERO_DATA = ${slidesJson};
+    const HERO_DATA = ${heroSlidesJson};
     const PRODUCT_DATA = ${productsJson};
 
     const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -1817,7 +1812,7 @@ app.get('/', (c) => {
       heroTimer = setInterval(() => {
         const next = (currentSlide + 1) % HERO_DATA.length;
         activateSlide(next);
-      }, 4500);
+      }, 4600);
     }
 
     heroDots.forEach((dot, index) => {
@@ -1916,37 +1911,10 @@ app.get('/', (c) => {
 
     function showSmartPopup() {
       if (!smartPopup) return;
+      if (window.innerWidth <= 760) return;
       if (sessionStorage.getItem('soume-smart-popup-closed') === 'true') return;
 
-      setTimeout(() => {
-        smartPopup.classList.add('is-visible');
-        smartPopup.setAttribute('aria-hidden', 'false');
-      }, 1400);
-    }
-
-    function closeSmartPopup() {
-      if (!smartPopup) return;
-      smartPopup.classList.remove('is-visible');
-      smartPopup.setAttribute('aria-hidden', 'true');
-      sessionStorage.setItem('soume-smart-popup-closed', 'true');
-    }
-
-    if (smartPopupClose) {
-      smartPopupClose.addEventListener('click', closeSmartPopup);
-    }
-
-    if (smartPopupDismiss) {
-      smartPopupDismiss.addEventListener('click', closeSmartPopup);
-    }
-
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeModal(productModal);
-        closeSmartPopup();
-      }
-    });
-
-    showSmartPopup();
+      setTimeout(()
   </script>
 </body>
 </html>`)
