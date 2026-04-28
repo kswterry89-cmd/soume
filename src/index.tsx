@@ -5,50 +5,58 @@ const app = new Hono()
 
 app.use('/static/*', serveStatic({ root: './public' }))
 
-/* =========================================================
-   SOUMÉ OPERATING CONFIG
-   자주 수정할 곳은 대부분 여기입니다.
-   ========================================================= */
-
 const SITE = {
   brand: 'Soumé',
-  title: 'Soumé — Quiet Luxury in Clean Beauty',
+  title: 'Soumé — 조용한 럭셔리, 피부 위에 남는 본질',
   description:
-    'Soumé는 순수한 포뮬러와 절제된 아름다움으로 완성한 클린 뷰티 브랜드입니다.',
+    'Soumé는 절제된 감도와 섬세한 텍스처로 완성하는 클린 뷰티 하우스입니다. 오션 브리즈 시그니처를 중심으로 감각적인 뷰티 경험을 제안합니다.',
   heroEyebrow: 'Soumé / Clean Beauty House',
-  heroTitle1: '조용한 럭셔리,',
-  heroTitle2: '피부 위에 남는',
-  heroTitle3: '본질',
+  heroTitleLine1: '조용한 럭셔리,',
+  heroTitleLine2: '피부 위에 남는',
+  heroTitleLine3: '본질',
   heroDescription:
-    'Soumé는 더 많은 것을 더하지 않습니다. 불필요한 요소는 덜어내고, 피부에 필요한 경험만 남깁니다. 절제된 포뮬러와 세련된 오브제 감각으로 클린 뷰티를 한층 더 우아한 방식으로 다시 정의합니다.',
-  aboutCopy:
-    '이번 버전은 많은 요소를 한 화면에 나열하는 대신, 시선이 머무는 여백과 톤, 오브제 중심의 구성을 통해 브랜드의 태도가 먼저 보이도록 재정리했습니다. 이미지는 public 폴더에서 운영하고, 링크와 상품 데이터도 상단 설정 영역에서만 쉽게 바꿀 수 있도록 구조화했습니다.',
-  philosophyTitle1: 'Less noise,',
-  philosophyTitle2: 'more essence',
-  philosophyCopy:
-    'Soumé의 미감은 복잡하지 않습니다. 강한 자극 대신 조용한 존재감, 과장된 장식 대신 오래 남는 인상, 무거운 설명 대신 균형 잡힌 경험을 지향합니다.',
-  newsletterTitle: 'Enter the world of Soumé',
-  newsletterCopy:
-    '신제품 공개, 브랜드 스토리, 시즌 에디토리얼을 가장 먼저 받아보는 Soumé 하우스 레터.',
-  footerCopy: '© 2026 Soumé. All rights reserved.'
+    '과장된 장식보다 오래 남는 감각. Soumé는 가볍고 세련된 사용감, 부드러운 잔향, 절제된 디자인으로 일상의 루틴을 더 정교하게 만듭니다.',
+  heroPrimaryCta: '시그니처 보기',
+  heroSecondaryCta: '제품 둘러보기',
+  aboutEyebrow: 'About Soumé',
+  aboutTitle: '기능과 분위기가 동시에 남는 뷰티',
+  aboutDescription:
+    'Soumé는 제품의 효능만이 아니라 사용하는 순간의 무드까지 설계합니다. 미니멀한 패키지, 정돈된 컬러, 공기처럼 가벼운 사용감이 하나의 경험으로 이어지도록 구성했습니다.',
+  signatureEyebrow: 'Signature',
+  signatureTitle: 'Ocean Breeze Body Lotion Spray',
+  signatureDescription:
+    'Soumé의 시그니처 오션 브리즈는 산뜻한 분사감과 부드러운 보습감을 동시에 전하는 바디 로션 스프레이입니다. 피부 위에 얇고 균일하게 밀착되며, 잔여감 없이 정돈된 마무리를 남깁니다.',
+  productsEyebrow: 'Products',
+  productsTitle: '오늘의 루틴을 구성하는 라인업',
+  lookbookEyebrow: 'Lookbook',
+  lookbookTitle: '브랜드의 분위기를 입은 장면들',
+  philosophyEyebrow: 'Philosophy',
+  philosophyTitle: 'Less noise, more presence',
+  philosophyDescription:
+    '우리는 더 많은 장식보다 더 정확한 인상을 남기는 방식을 선호합니다. Soumé는 피부 위에 오래 남는 감각, 공간에 머무는 태도, 루틴 속에서 반복될 수 있는 아름다움을 만듭니다.',
+  filmEyebrow: 'Brand Film',
+  filmTitle: 'A moving portrait of Soumé',
+  filmDescription:
+    '브랜드의 무드와 사용 경험을 영상으로 풀어낸 섹션입니다. 영상이 업로드되면 자동으로 플레이되며, 영상이 아직 없다면 포스터 이미지가 먼저 보이도록 설계했습니다.',
+  newsletterEyebrow: 'Newsletter',
+  newsletterTitle: 'Soumé의 새로운 장면을 가장 먼저',
+  newsletterDescription:
+    '신제품, 에디토리얼, 브랜드 필름, 룩북 업데이트를 뉴스레터로 받아보세요.',
+  footerText: '© Soumé. All rights reserved.',
 }
 
- const ASSETS = {
+const ASSETS = {
   logo: '/static/soume-logo-black.png',
 
   heroMain: '/static/assets/soume/hero-main.jpg',
   editorialMain: '/static/assets/soume/editorial-main.jpg',
-
-  signatureMain: '/static/assets/soume/editorial-main.jpg',
-  signatureOpen: '/static/assets/soume/hero-main.jpg',
-  signatureDetail: '/static/assets/soume/campaign-01.jpg',
 
   campaign01: '/static/assets/soume/campaign-01.jpg',
   campaign02: '/static/assets/soume/campaign-02.jpg',
 
   product01: '/static/assets/soume/product-01.jpg',
   product02: '/static/assets/soume/product-02.jpg',
-  product03: '/static/assets/soume/product-02.jpg',
+  product03: '/static/assets/soume/product-03.jpg',
 
   lookbook01: '/static/assets/soume/lookbook-01.jpg',
   lookbook02: '/static/assets/soume/lookbook-02.jpg',
@@ -56,8 +64,6 @@ const SITE = {
 
   filmPoster: '/static/assets/soume/film-poster.jpg',
   filmVideo: '/static/videos/soume-brand-film.mp4',
-}
-
 }
 
 const PRODUCTS = [
@@ -69,77 +75,78 @@ const PRODUCTS = [
     price: '₩48,000',
     volume: '250ml',
     description:
-      'Soumé의 시그니처 제품입니다. 스프레이 타입의 가벼운 사용감과 오브제 같은 패키지 감각을 동시에 담은 바디 로션으로, 매일의 루틴에 조용한 럭셔리를 더해줍니다.',
-    notes: ['Citrus', 'Woody', 'Marine'],
-    ingredients: ['Niacinamide', 'Panthenol', 'Squalane'],
+      '미세하게 분사되는 텍스처가 피부 위에 고르게 스며들며, 끈적임 없이 정돈된 보습감을 남깁니다. 샤워 후, 외출 전, 혹은 리프레시가 필요한 순간에 간결하게 사용할 수 있는 시그니처 바디 루틴 제품입니다.',
+    notes: ['Fresh air', 'Soft musk', 'Clean skin finish'],
+    ingredients: ['Panthenol', 'Glycerin', 'Botanical moisture complex'],
     image: ASSETS.product01,
-    gallery: [ASSETS.signatureMain, ASSETS.signatureOpen, ASSETS.signatureDetail],
-    buyLink: 'https://smartstore.naver.com/your-store/products/0000000001',
-    detailLink: 'https://your-brand.com/products/ocean-breeze',
-    inquiryLink: 'https://pf.kakao.com/_YOURCHANNEL'
+    gallery: [ASSETS.product01, ASSETS.product02, ASSETS.product03],
+    buyLink: 'https://example.com/products/ocean-breeze',
+    detailLink: '#products',
+    inquiryLink: '#newsletter',
   },
   {
     id: 'veil-recovery',
-    badge: 'Core Care',
-    name: 'Veil Recovery Cream',
-    subtitle: '건조하고 민감한 피부를 위한 저자극 배리어 크림',
-    price: '₩52,000',
-    volume: '50ml',
+    badge: 'Routine',
+    name: 'Veil Recovery Mist',
+    subtitle: '가볍고 세련된 보습막을 더하는 데일리 리커버리 미스트',
+    price: '₩39,000',
+    volume: '120ml',
     description:
-      '수분막을 얇고 균일하게 형성해 피부 컨디션을 정돈해주는 데일리 크림입니다. 밤낮 루틴 모두에 조용하게 스며드는 타입으로 설계했습니다.',
-    notes: ['Soft', 'Comfort', 'Barrier'],
-    ingredients: ['Ceramide', 'Madecassoside', 'Beta-Glucan'],
+      '건조한 순간 피부 결을 빠르게 정돈하고, 메이크업 전후에도 부담 없이 사용할 수 있도록 설계된 미스트입니다. 공기처럼 얇은 수분막이 피부 위에 매끄럽게 내려앉습니다.',
+    notes: ['Soft floral', 'Transparent citrus', 'Airy finish'],
+    ingredients: ['Niacinamide', 'Betaine', 'Hyaluronic acid'],
     image: ASSETS.product02,
-    gallery: [ASSETS.product02, ASSETS.signatureDetail, ASSETS.editorialMain],
-    buyLink: 'https://smartstore.naver.com/your-store/products/0000000002',
-    detailLink: 'https://your-brand.com/products/veil-recovery',
-    inquiryLink: 'https://pf.kakao.com/_YOURCHANNEL'
+    gallery: [ASSETS.product02, ASSETS.product01, ASSETS.editorialMain],
+    buyLink: 'https://example.com/products/veil-recovery-mist',
+    detailLink: '#products',
+    inquiryLink: '#newsletter',
   },
   {
     id: 'bare-reset',
-    badge: 'Daily Cleanse',
-    name: 'Bare Reset Cleanser',
-    subtitle: '자극 없이 균형을 남기는 데일리 클렌징',
-    price: '₩32,000',
-    volume: '150ml',
+    badge: 'Essential',
+    name: 'Bare Reset Body Care',
+    subtitle: '루틴의 마무리를 정갈하게 정리하는 에센셜 바디 케어',
+    price: '₩52,000',
+    volume: '300ml',
     description:
-      '불필요한 잔여감 없이 깨끗하게 마무리되는 데일리 클렌저입니다. 세정 후에도 피부가 당기지 않도록 밸런스를 고려했습니다.',
-    notes: ['Fresh', 'Clear', 'Gentle'],
-    ingredients: ['Panthenol', 'Glycerin', 'Allantoin'],
+      '무게감은 줄이고 사용감은 더 정제한 바디 케어 포뮬러입니다. 피부 위에 남는 번들거림 없이 정돈된 윤기와 편안함을 중심으로 설계했습니다.',
+    notes: ['Skin musk', 'Powder clean', 'Calm woody air'],
+    ingredients: ['Ceramide', 'Squalane', 'Soothing herbal complex'],
     image: ASSETS.product03,
-    gallery: [ASSETS.product03, ASSETS.signatureOpen, ASSETS.campaign02],
-    buyLink: 'https://smartstore.naver.com/your-store/products/0000000003',
-    detailLink: 'https://your-brand.com/products/bare-reset',
-    inquiryLink: 'https://pf.kakao.com/_YOURCHANNEL'
-  }
+    gallery: [ASSETS.product03, ASSETS.product01, ASSETS.product02],
+    buyLink: 'https://example.com/products/bare-reset',
+    detailLink: '#products',
+    inquiryLink: '#newsletter',
+  },
 ]
 
 const LOOKBOOK = [
   {
     category: 'Lookbook 01',
     title: 'Quiet Skin, Quiet Mood',
-    image: ASSETS.lookbook01
+    description: '은은한 톤과 정돈된 실루엣으로 브랜드의 첫인상을 구성하는 장면',
+    image: ASSETS.lookbook01,
   },
   {
     category: 'Lookbook 02',
-    title: 'Soft Editorial Light',
-    image: ASSETS.lookbook02
+    title: 'Soft Editorial Presence',
+    description: '에디토리얼한 시선으로 해석한 Soumé의 공기감과 표정',
+    image: ASSETS.lookbook02,
   },
   {
     category: 'Lookbook 03',
-    title: 'Object & Presence',
-    image: ASSETS.lookbook03
-  }
+    title: 'Clean Form, Lasting Impression',
+    description: '군더더기 없는 프레임 안에서 제품과 무드가 함께 남는 방식',
+    image: ASSETS.lookbook03,
+  },
 ]
 
 const FILM = {
-  eyebrow: 'Brand Film',
-  title: 'A moving portrait of Soumé',
-  description:
-    '브랜드 필름 섹션입니다. MP4 파일만 교체하면 자동으로 반영됩니다. 영상이 준비되지 않았을 때는 포스터 이미지가 먼저 보이고, 영상 로드에 실패하면 자동으로 포스터형 플레이스홀더로 전환됩니다.',
+  title: SITE.filmTitle,
+  description: SITE.filmDescription,
   video: ASSETS.filmVideo,
   poster: ASSETS.filmPoster,
-  externalLink: 'https://your-brand.com/brand-film'
+  externalLink: '#newsletter',
 }
 
 const escapeForScript = (value: unknown) =>
@@ -147,32 +154,26 @@ const escapeForScript = (value: unknown) =>
 
 const renderProductCards = () =>
   PRODUCTS.map(
-    (product, index) => `
+    (product) => `
       <article class="product-card reveal">
-        <div class="product-media">
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            loading="lazy"
-            data-fallback-label="${product.name}"
-            data-ratio="4 / 5"
-          />
-          <span class="product-badge">${product.badge}</span>
+        <div class="product-card__media">
+          <img src="${product.image}" alt="${product.name}" loading="lazy" />
         </div>
-
-        <div class="product-body">
-          <small>${product.badge}</small>
+        <div class="product-card__body">
+          <span class="product-card__badge">${product.badge}</span>
           <h3>${product.name}</h3>
-          <p class="product-subtitle">${product.subtitle}</p>
-
-          <div class="product-meta-row">
+          <p class="product-card__subtitle">${product.subtitle}</p>
+          <div class="product-card__meta">
             <span>${product.price}</span>
             <span>${product.volume}</span>
           </div>
-
-          <div class="product-actions">
-            <button class="btn" type="button" data-open-product="${index}">상세 보기</button>
-            <a class="btn btn-light" href="${product.buyLink}" target="_blank" rel="noopener">구매하기</a>
+          <div class="product-card__actions">
+            <button class="btn btn-dark product-detail-btn" data-product-id="${product.id}">
+              상품 상세 보기
+            </button>
+            <a class="btn btn-line" href="${product.buyLink}" target="_blank" rel="noreferrer">
+              구매하기
+            </a>
           </div>
         </div>
       </article>
@@ -183,25 +184,20 @@ const renderLookbookCards = () =>
   LOOKBOOK.map(
     (item) => `
       <article class="lookbook-card reveal">
-        <div class="lookbook-media">
-          <img
-            src="${item.image}"
-            alt="${item.title}"
-            loading="lazy"
-            data-fallback-label="${item.title}"
-            data-ratio="4 / 5"
-          />
+        <div class="lookbook-card__media">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" />
         </div>
-        <div class="lookbook-caption">
-          <small>${item.category}</small>
+        <div class="lookbook-card__body">
+          <span class="section-kicker">${item.category}</span>
           <h3>${item.title}</h3>
+          <p>${item.description}</p>
         </div>
       </article>
     `
   ).join('')
 
 app.get('/', (c) => {
-  const productsJson = escapeForScript(PRODUCTS)
+  const productDataJson = escapeForScript(PRODUCTS)
 
   return c.html(`<!DOCTYPE html>
 <html lang="ko">
@@ -210,1284 +206,1329 @@ app.get('/', (c) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${SITE.title}</title>
   <meta name="description" content="${SITE.description}" />
-
+  <meta property="og:title" content="${SITE.title}" />
+  <meta property="og:description" content="${SITE.description}" />
+  <meta property="og:image" content="${ASSETS.heroMain}" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
     rel="stylesheet"
   />
-
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #f6f2ec;
-      --paper: #fcf9f4;
-      --paper-2: #f2ece4;
-      --white: #ffffff;
-      --ink: #111111;
-      --muted: #6e6962;
-      --line: #ddd4ca;
-      --accent: #8f7765;
-      --accent-soft: #c8b7a6;
-      --overlay: rgba(17,17,17,0.55);
-      --serif: 'Cormorant Garamond', serif;
-      --sans: 'Inter', 'Noto Sans KR', sans-serif;
-      --kr: 'Noto Sans KR', sans-serif;
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --max: 1440px;
+      --bg: #f6f2eb;
+      --bg-soft: #fbf8f3;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: rgba(255, 255, 255, 0.9);
+      --text: #171615;
+      --muted: #70695f;
+      --line: rgba(23, 22, 21, 0.1);
+      --line-strong: rgba(23, 22, 21, 0.18);
+      --accent: #d6c7b2;
+      --accent-deep: #b49d7b;
+      --shadow: 0 18px 50px rgba(39, 33, 24, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: 1240px;
+      --transition: 220ms ease;
+      --nav-height: 82px;
     }
 
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(214, 199, 178, 0.26), transparent 30%),
+        linear-gradient(180deg, #fbf8f3 0%, #f5f0e8 100%);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      overflow-x: hidden;
     }
 
-    img, video { display: block; width: 100%; height: auto; }
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
 
     .container {
-      width: min(calc(100% - 40px), var(--max));
+      width: min(calc(100% - 40px), var(--container));
       margin: 0 auto;
     }
 
-    .eyebrow {
+    .section {
+      padding: 110px 0;
+    }
+
+    .section + .section {
+      padding-top: 0;
+    }
+
+    .section-label,
+    .section-kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--muted);
     }
-    .eyebrow::before {
+
+    .section-label::before,
+    .section-kicker::before {
       content: '';
+      display: inline-block;
       width: 28px;
       height: 1px;
-      background: var(--accent);
-      opacity: 0.8;
+      background: var(--line-strong);
     }
 
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 5vw, 4.9rem);
-      line-height: 0.98;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
-    .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
+    .section-head {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 34px;
     }
 
-    .section-copy {
-      font-family: var(--kr);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.95;
+    .section-head h2 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.3rem, 4vw, 4.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 720px;
       color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(251, 248, 243, 0.68);
+      border-bottom: 1px solid transparent;
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(251, 248, 243, 0.92);
+      border-color: var(--line);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .nav__brand img {
+      width: auto;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .nav__brand span {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav__links a {
+      position: relative;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 1px;
+      background: var(--text);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav__links a:hover {
+      color: var(--text);
+    }
+
+    .nav__links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 1.6px;
+      background: var(--text);
+      position: relative;
+      transition: transform var(--transition), opacity var(--transition);
+      content: '';
+    }
+
+    .menu-toggle span::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+    }
+
+    .menu-toggle span::after {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+
+    .mobile-panel {
+      display: none;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: var(--white);
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      gap: 8px;
+      height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      cursor: pointer;
-      transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
     }
-    .btn:hover { transform: translateY(-2px); }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-dark {
+      color: #f6f2eb;
+      background: #141311;
+      box-shadow: 0 14px 30px rgba(20, 19, 17, 0.18);
+    }
 
     .btn-light {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--line);
-    }
-    .btn-light:hover {
-      background: var(--ink);
-      color: var(--white);
-      border-color: var(--ink);
-    }
-
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(252,249,244,0.8);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(17,17,17,0.08);
-    }
-    .nav-inner {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .nav-logo img {
-      width: auto;
-      height: 18px;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-menu a {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.72);
-      transition: opacity 0.25s ease;
-    }
-    .nav-menu a:hover { opacity: 0.5; }
-
-    .nav-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 40px;
-      padding: 0 18px;
-      border: 1px solid var(--ink);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.65);
       border: 1px solid var(--line);
-      background: transparent;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .nav-toggle span {
-      width: 16px;
-      height: 1.5px;
-      background: var(--ink);
-      display: block;
     }
 
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      z-index: 99;
-      background: rgba(17,17,17,0.96);
-      color: var(--white);
-      display: none;
-      padding: 100px 24px 32px;
-    }
-    .mobile-menu.open { display: block; }
-    .mobile-menu-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    .mobile-menu a {
-      font-family: var(--serif);
-      font-size: 2rem;
-      font-weight: 300;
-      line-height: 1;
+    .btn-line {
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+      background: transparent;
     }
 
     .hero {
-      padding-top: 76px;
-      min-height: 100svh;
-      background: linear-gradient(180deg, #f8f4ef 0%, #f2ece4 100%);
+      padding: 48px 0 70px;
     }
-    .hero-grid {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      min-height: calc(100svh - 76px);
+
+    .hero__grid {
       display: grid;
-      grid-template-columns: 0.96fr 1.04fr;
-      gap: 0;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: stretch;
     }
-    .hero-copy {
+
+    .hero__copy,
+    .hero__visual {
+      min-height: calc(100vh - var(--nav-height) - 88px);
+      border-radius: 36px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero__copy {
+      padding: clamp(28px, 5vw, 68px);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: clamp(48px, 8vw, 96px) clamp(12px, 2vw, 28px) clamp(48px, 8vw, 96px) 0;
+      justify-content: space-between;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.42)),
+        radial-gradient(circle at 20% 20%, rgba(214, 199, 178, 0.26), transparent 32%),
+        #f7f2eb;
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: var(--shadow);
     }
-    .hero-copy .eyebrow { margin-bottom: 22px; }
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(3.1rem, 7vw, 7.2rem);
-      line-height: 0.9;
-      font-weight: 400;
-      letter-spacing: -0.05em;
-      margin-bottom: 24px;
+
+    .hero__top {
+      display: grid;
+      gap: 22px;
     }
-    .hero-title em {
-      display: block;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
-    }
-    .hero-text {
-      max-width: 460px;
-      font-family: var(--kr);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.95;
+
+    .hero__eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 34px;
     }
-    .hero-actions {
+
+    .hero__title {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 6.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    .hero__description {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero__actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 42px;
-    }
-    .hero-meta {
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
-      gap: 18px;
-      max-width: 560px;
-    }
-    .hero-meta small {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.42);
-    }
-    .hero-meta span {
-      display: block;
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--ink);
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 720px;
-      background: #eadfd3;
-      overflow: hidden;
+    .hero__meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
     }
-    .hero-visual > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-badge {
-      position: absolute;
-      top: 28px;
-      right: 28px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
+
+    .hero__meta-item {
+      display: grid;
       gap: 8px;
     }
-    .hero-badge span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(17,17,17,0.08);
-      backdrop-filter: blur(10px);
-      font-size: 10px;
+
+    .hero__meta-item span {
+      font-size: 12px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(17,17,17,0.72);
-    }
-    .hero-badge span::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-    .hero-card {
-      position: absolute;
-      left: 32px;
-      bottom: 32px;
-      width: min(320px, calc(100% - 64px));
-      padding: 22px 20px;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(17,17,17,0.08);
-      backdrop-filter: blur(12px);
-      z-index: 2;
-    }
-    .hero-card small {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.45);
-    }
-    .hero-card strong {
-      display: block;
-      font-family: var(--serif);
-      font-size: 30px;
-      font-weight: 400;
-      margin-bottom: 8px;
-      line-height: 1;
-    }
-    .hero-card p {
-      font-size: 13px;
-      line-height: 1.8;
       color: var(--muted);
     }
 
-    .section { padding: 120px 0; }
-
-    .manifesto-grid,
-    .signature-grid,
-    .film-grid,
-    .newsletter-grid {
-      display: grid;
-      gap: 36px;
-      align-items: start;
-    }
-    .manifesto-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-    .manifesto-quote {
-      font-family: var(--serif);
-      font-size: clamp(2.1rem, 5vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-    }
-    .manifesto-quote em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
+    .hero__meta-item strong {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.6;
     }
 
-    .signature {
-      background: var(--paper);
-      padding-top: 0;
-    }
-    .signature-inner {
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-    }
-    .signature-grid {
-      grid-template-columns: 0.72fr 1.28fr;
-    }
-    .signature-copy {
-      position: sticky;
-      top: 108px;
-    }
-    .signature-copy .section-title {
-      margin: 16px 0 18px;
-    }
-    .signature-notes {
-      display: grid;
-      gap: 14px;
-      margin: 26px 0 30px;
-    }
-    .signature-notes div {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .signature-notes div span:first-child {
-      color: rgba(17,17,17,0.42);
+    .hero__visual {
+      background: #ede6db;
+      box-shadow: var(--shadow);
     }
 
-    .signature-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .asset-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(17,17,17,0.05);
-      background: #efe7dd;
-    }
-    .asset-card img {
-      width: 100%;
+    .hero__visual img {
       height: 100%;
       object-fit: cover;
     }
-    .asset-card.tall { aspect-ratio: 4 / 5.25; }
-    .asset-card.square { aspect-ratio: 1 / 1; }
-    .asset-card.wide { grid-column: 1 / -1; aspect-ratio: 16 / 8.5; }
-    .asset-caption {
+
+    .hero__floating {
       position: absolute;
-      left: 0; right: 0; bottom: 0;
-      padding: 16px 18px;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(17,17,17,0.72) 100%);
-      color: var(--white);
+      right: 24px;
+      bottom: 24px;
+      width: min(320px, calc(100% - 48px));
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 14px 28px rgba(28, 24, 20, 0.08);
     }
-    .asset-caption small {
+
+    .hero__floating small {
       display: block;
       margin-bottom: 6px;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.72;
-    }
-    .asset-caption strong {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.1;
-    }
-
-    .products {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .products-head,
-    .lookbook-head {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      margin-bottom: 34px;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .product-card {
-      background: #f8f3ed;
-      border: 1px solid rgba(17,17,17,0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .product-media {
-      position: relative;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: #ede3d7;
-    }
-    .product-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .product-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 7px 10px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(17,17,17,0.08);
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-    .product-body {
-      padding: 22px 20px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-    }
-    .product-body small {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.42);
-    }
-    .product-body h3 {
-      font-family: var(--serif);
-      font-size: 32px;
-      font-weight: 400;
-      line-height: 1;
-    }
-    .product-subtitle {
-      font-family: var(--kr);
-      font-size: 14px;
-      line-height: 1.85;
       color: var(--muted);
-      font-weight: 300;
-    }
-    .product-meta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding-top: 6px;
-      font-size: 13px;
-    }
-    .product-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-      padding-top: 8px;
-      flex-wrap: wrap;
     }
 
-    .lookbook {
-      background: linear-gradient(180deg, #faf7f2 0%, #ffffff 100%);
-    }
-    .lookbook-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .lookbook-card {
-      border: 1px solid rgba(17,17,17,0.06);
-      background: #f6f0e9;
-    }
-    .lookbook-media {
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: #eadfd2;
-    }
-    .lookbook-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .lookbook-caption {
-      padding: 18px 18px 20px;
-      border-top: 1px solid rgba(17,17,17,0.06);
-    }
-    .lookbook-caption small {
+    .hero__floating strong {
       display: block;
       margin-bottom: 8px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.42);
-    }
-    .lookbook-caption h3 {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1;
+      font-size: 18px;
+      line-height: 1.3;
     }
 
-    .philosophy-grid {
+    .hero__floating p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .about-grid,
+    .signature-grid,
+    .philosophy-grid,
+    .film-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
-      align-items: stretch;
+      gap: 28px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
     }
-    .philosophy-visual {
-      min-height: 760px;
+
+    .about-card,
+    .signature-card,
+    .philosophy-card,
+    .film-card,
+    .newsletter-card {
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(255,255,255,0.78);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      background: #eadfd2;
-      border: 1px solid rgba(17,17,17,0.05);
     }
-    .philosophy-visual img {
+
+    .about-card__body,
+    .signature-card__body,
+    .philosophy-card__body,
+    .film-card__body,
+    .newsletter-card__body {
+      padding: clamp(24px, 4vw, 40px);
+    }
+
+    .about-card__body p,
+    .signature-card__body p,
+    .philosophy-card__body p,
+    .film-card__body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .signature-card__body h3,
+    .philosophy-card__body h3,
+    .film-card__body h3 {
+      margin: 14px 0 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .about-card__stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-card__stats div {
+      display: grid;
+      gap: 6px;
+    }
+
+    .about-card__stats span {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .about-card__stats strong {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .visual-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      min-height: 560px;
+      box-shadow: var(--shadow);
+      background: #e9dfd0;
+    }
+
+    .visual-frame img,
+    .visual-frame video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .philosophy-copy {
-      background: var(--white);
-      border: 1px solid var(--line);
-      padding: clamp(28px, 5vw, 56px);
+
+    .signature-stack {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .signature-stack__main,
+    .signature-stack__side {
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 420px;
+      background: #f1ebe2;
+    }
+
+    .signature-stack__side {
+      display: grid;
+      gap: 16px;
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    .signature-stack__side img,
+    .signature-stack__main img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card__media {
+      background: #f1ebe2;
+      aspect-ratio: 4 / 4.7;
+      overflow: hidden;
+    }
+
+    .product-card__media img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-card__media img {
+      transform: scale(1.035);
+    }
+
+    .product-card__body {
+      padding: 22px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .product-card__badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(23, 22, 21, 0.06);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .product-card__body h3 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .product-card__subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .product-card__meta {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 34px;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
     }
-    .philosophy-copy .section-title {
-      margin: 16px 0 18px;
+
+    .product-card__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
     }
-    .philosophy-points {
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .lookbook-card {
+      overflow: hidden;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow);
+    }
+
+    .lookbook-card__media {
+      aspect-ratio: 4 / 5.2;
+      background: #efe8de;
+      overflow: hidden;
+    }
+
+    .lookbook-card__media img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .lookbook-card:hover .lookbook-card__media img {
+      transform: scale(1.04);
+    }
+
+    .lookbook-card__body {
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .lookbook-card__body h3 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .lookbook-card__body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .campaign-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      min-height: 560px;
+      box-shadow: var(--shadow);
+      background: #ece5da;
+    }
+
+    .campaign-card img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .campaign-card__overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 26px;
+      background: linear-gradient(180deg, transparent 0%, rgba(16, 14, 13, 0.65) 100%);
+      color: white;
+      display: grid;
+      gap: 8px;
+    }
+
+    .campaign-card__overlay small {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
+
+    .campaign-card__overlay strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .campaign-card__overlay p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.92;
+    }
+
+    .newsletter-card {
+      overflow: visible;
+    }
+
+    .newsletter-card__body {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .newsletter-copy {
       display: grid;
       gap: 14px;
     }
-    .philosophy-points li {
-      list-style: none;
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-      display: grid;
-      grid-template-columns: 86px 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-    .philosophy-points small {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.42);
-      padding-top: 3px;
-    }
-    .philosophy-points span {
-      font-family: var(--kr);
-      font-size: 14px;
-      line-height: 1.85;
-      color: var(--ink);
-      font-weight: 300;
-    }
 
-    .film {
-      background: var(--paper);
-    }
-    .film-grid {
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: stretch;
-    }
-    .film-player {
-      position: relative;
-      background: #111;
-      border: 1px solid rgba(17,17,17,0.08);
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-    }
-    .film-player video,
-    .film-player img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .film-copy {
-      border: 1px solid var(--line);
-      background: var(--white);
-      padding: clamp(28px, 5vw, 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 28px;
-    }
-    .film-copy .section-title {
-      margin: 16px 0 18px;
-    }
-    .film-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .newsletter {
-      background: #111111;
-      color: var(--white);
-    }
-    .newsletter-grid {
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 26px;
-    }
-    .newsletter .eyebrow {
-      color: #cab8a7;
-    }
-    .newsletter .eyebrow::before {
-      background: #cab8a7;
-    }
-    .newsletter h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 4.5vw, 4.7rem);
-      line-height: 0.98;
-      font-weight: 400;
+    .newsletter-copy h3 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1;
+      font-weight: 600;
       letter-spacing: -0.03em;
-      margin: 16px 0 14px;
     }
-    .newsletter p {
-      max-width: 540px;
-      font-family: var(--kr);
-      font-size: 14px;
-      line-height: 1.9;
-      font-weight: 300;
-      color: rgba(255,255,255,0.62);
+
+    .newsletter-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+      max-width: 640px;
     }
+
     .newsletter-form {
       display: flex;
-      gap: 0;
-      min-width: min(440px, 100%);
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
+
     .newsletter-form input {
-      flex: 1;
+      width: min(360px, 100%);
       height: 52px;
       padding: 0 18px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-right: none;
-      background: rgba(255,255,255,0.04);
-      color: var(--white);
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.74);
       outline: none;
-    }
-    .newsletter-form input::placeholder {
-      color: rgba(255,255,255,0.45);
-    }
-    .newsletter-form button {
-      width: 150px;
-      border: 1px solid var(--white);
-      background: var(--white);
-      color: var(--ink);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
+      font-size: 14px;
     }
 
-    .footer {
-      background: #111111;
-      color: rgba(255,255,255,0.55);
-      padding: 0 0 40px;
+    .newsletter-form input:focus {
+      border-color: var(--line-strong);
+      box-shadow: 0 0 0 4px rgba(180, 157, 123, 0.08);
     }
-    .footer-inner {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+
+    .site-footer {
+      padding: 0 0 38px;
+    }
+
+    .footer-box {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
     }
-    .footer-logo {
-      width: auto;
-      height: 16px;
-      filter: invert(1);
-      opacity: 0.95;
-    }
+
     .footer-links {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .media-fallback {
-      width: 100%;
-      height: 100%;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #efe5da 0%, #e6dacd 100%);
-      color: rgba(17,17,17,0.72);
-      text-align: center;
-      padding: 24px;
-    }
-    .media-fallback strong {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1;
-    }
-    .media-fallback span {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.45);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-    }
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
+      gap: 18px;
     }
 
     .modal {
       position: fixed;
       inset: 0;
-      z-index: 200;
+      z-index: 80;
       display: none;
-    }
-    .modal.open {
-      display: block;
-    }
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(17,17,17,0.52);
-      backdrop-filter: blur(6px);
-    }
-    .modal-panel {
-      position: relative;
-      width: min(1120px, calc(100% - 32px));
-      max-height: calc(100vh - 32px);
-      overflow: auto;
-      margin: 16px auto;
-      background: var(--white);
-      border: 1px solid rgba(17,17,17,0.08);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.18);
-      z-index: 1;
-    }
-    .modal-close {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      margin-left: auto;
-      display: flex;
       align-items: center;
       justify-content: center;
-      width: 52px;
-      height: 52px;
-      border: none;
-      background: rgba(255,255,255,0.9);
-      border-left: 1px solid rgba(17,17,17,0.06);
-      border-bottom: 1px solid rgba(17,17,17,0.06);
-      cursor: pointer;
-      font-size: 18px;
-    }
-    .modal-body {
-      padding: 0 0 28px;
-    }
-    .modal-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 28px;
-      padding: 0 28px 0 28px;
-    }
-    .modal-gallery {
-      display: grid;
-      gap: 12px;
-      padding-bottom: 28px;
-    }
-    .modal-main-media {
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: #eee3d7;
-      border: 1px solid rgba(17,17,17,0.06);
-    }
-    .modal-main-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .modal-thumbs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .modal-thumb {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border: 1px solid rgba(17,17,17,0.08);
-      background: #f2e7db;
-      cursor: pointer;
-    }
-    .modal-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .modal-info {
-      padding: 4px 0 28px;
-    }
-    .modal-badge {
-      display: inline-flex;
-      margin-bottom: 14px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.45);
-    }
-    .modal-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 400;
-      line-height: 0.96;
-      margin-bottom: 12px;
-    }
-    .modal-subtitle {
-      font-family: var(--kr);
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--muted);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-    .modal-meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 20px;
-      font-size: 13px;
-    }
-    .modal-meta strong {
-      font-weight: 500;
-    }
-    .modal-text {
-      font-family: var(--kr);
-      font-size: 14px;
-      line-height: 1.95;
-      color: var(--muted);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-    .modal-block {
-      border-top: 1px solid var(--line);
-      padding-top: 16px;
-      margin-top: 16px;
-    }
-    .modal-block h4 {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17,17,17,0.45);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-    .modal-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .modal-tags span {
-      padding: 8px 10px;
-      border: 1px solid var(--line);
-      font-size: 12px;
-      background: #faf6f0;
-    }
-    .modal-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      padding: 24px;
     }
 
-    @media (max-width: 1180px) {
-      .hero-grid,
-      .manifesto-grid,
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 11, 10, 0.56);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal__panel {
+      position: relative;
+      width: min(1100px, 100%);
+      max-height: min(88vh, 980px);
+      overflow: auto;
+      border-radius: 30px;
+      background: #fbf8f3;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(23, 22, 21, 0.08);
+      font-size: 22px;
+      line-height: 1;
+      z-index: 2;
+    }
+
+    .modal__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 680px;
+    }
+
+    .modal__gallery {
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+      background: #f2ece3;
+    }
+
+    .modal__gallery-main {
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 440px;
+      background: white;
+    }
+
+    .modal__gallery-main img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal__gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .modal__thumb {
+      border: 0;
+      padding: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: white;
+      aspect-ratio: 1 / 1.15;
+    }
+
+    .modal__thumb img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal__body {
+      padding: 34px 30px 30px;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .modal__badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(23, 22, 21, 0.06);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .modal__title {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 0.94;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .modal__subtitle,
+    .modal__desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .modal__price {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      align-items: center;
+    }
+
+    .modal__price strong {
+      font-size: 18px;
+    }
+
+    .modal__detail-block {
+      display: grid;
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .modal__detail-block h4 {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .modal__chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .modal__chips span {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(23, 22, 21, 0.05);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .modal__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 8px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .media-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .media-fallback.is-visible {
+      display: block;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      .hero__grid,
+      .about-grid,
       .signature-grid,
-      .products-head,
-      .lookbook-head,
       .philosophy-grid,
       .film-grid,
-      .newsletter-grid,
-      .modal-grid {
+      .modal__content {
         grid-template-columns: 1fr;
       }
-      .signature-copy {
-        position: static;
+
+      .products-grid,
+      .lookbook-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .campaign-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-card__body {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        justify-content: flex-start;
+      }
+
+      .hero__copy,
+      .hero__visual {
+        min-height: auto;
+      }
+
+      .visual-frame,
+      .campaign-card {
+        min-height: 480px;
       }
     }
 
     @media (max-width: 860px) {
-      .nav-menu,
-      .nav-cta {
+      .nav__links,
+      .nav__actions .btn-line {
         display: none;
       }
-      .nav-toggle {
+
+      .menu-toggle {
         display: inline-flex;
       }
-      .hero-grid {
-        min-height: auto;
+
+      .mobile-panel {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 20px;
+        right: 20px;
+        display: none;
+        padding: 16px;
+        border-radius: 24px;
+        background: rgba(251, 248, 243, 0.96);
+        border: 1px solid var(--line);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.08);
       }
-      .hero-copy {
-        padding: 46px 0 34px;
+
+      .mobile-panel.is-open {
+        display: grid;
+        gap: 8px;
       }
-      .hero-visual {
-        min-height: 72vh;
+
+      .mobile-panel a {
+        padding: 12px 14px;
+        border-radius: 14px;
+        color: var(--text);
+        background: rgba(23,22,21,0.03);
+        font-size: 14px;
       }
-      .hero-meta {
+
+      .hero__meta,
+      .about-card__stats {
         grid-template-columns: 1fr;
       }
-      .hero-badge {
-        top: 18px;
-        right: 18px;
+
+      .signature-stack {
+        grid-template-columns: 1fr;
       }
-      .signature-gallery,
+
+      .signature-stack__side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+      }
+
       .products-grid,
       .lookbook-grid {
         grid-template-columns: 1fr;
       }
-      .asset-card.wide {
-        grid-column: auto;
-        aspect-ratio: 4 / 5.25;
-      }
-      .philosophy-points li {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-      .newsletter-form {
-        flex-direction: column;
-      }
-      .newsletter-form input {
-        border-right: 1px solid rgba(255,255,255,0.18);
-        border-bottom: none;
-      }
-      .newsletter-form button {
-        width: 100%;
-        height: 52px;
-      }
-      .modal-thumbs {
-        grid-template-columns: repeat(2, 1fr);
+
+      .modal__gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 560px) {
-      .container,
-      .nav-inner,
-      .hero-grid,
-      .footer-inner {
-        width: min(calc(100% - 24px), var(--max));
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 28px), var(--container));
       }
-      .hero-card {
-        left: 18px;
-        right: 18px;
-        bottom: 18px;
-        width: auto;
+
+      .section {
+        padding: 84px 0;
       }
-      .hero-title,
-      .section-title,
-      .newsletter h2,
-      .modal-title {
-        line-height: 1.02;
+
+      .hero {
+        padding: 24px 0 52px;
       }
-      .product-body h3,
-      .lookbook-caption h3 {
-        font-size: 26px;
+
+      .hero__copy {
+        padding: 24px;
       }
-      .modal-grid {
-        padding: 0 16px 0 16px;
+
+      .hero__floating {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .visual-frame,
+      .campaign-card,
+      .signature-stack__main,
+      .signature-stack__side {
+        min-height: 320px;
+      }
+
+      .signature-stack__side {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .modal {
+        padding: 14px;
+      }
+
+      .modal__gallery,
+      .modal__body {
+        padding: 20px;
+      }
+
+      .footer-box {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="${SITE.brand} home">
-        <img src="${ASSETS.logo}" alt="${SITE.brand}" data-fallback-label="${SITE.brand}" />
+  <header class="site-header" id="site-header">
+    <div class="container nav">
+      <a href="#top" class="nav__brand" aria-label="Soumé 홈으로 이동">
+        <img src="${ASSETS.logo}" alt="Soumé logo" />
+        <span>Clean Beauty House</span>
       </a>
 
-      <ul class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#signature">Signature</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#lookbook">Lookbook</a></li>
-        <li><a href="#film">Film</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <nav class="nav__links" aria-label="주요 메뉴">
+        <a href="#about">About</a>
+        <a href="#signature">Signature</a>
+        <a href="#products">Products</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#film">Brand Film</a>
+        <a href="#newsletter">Contact</a>
+      </nav>
 
-      <div class="nav-actions">
-        <a class="nav-cta" href="#products">Shop Signature</a>
-        <button class="nav-toggle" id="menuToggle" aria-label="Open menu">
-          <span></span><span></span><span></span>
+      <div class="nav__actions">
+        <a class="btn btn-line" href="#newsletter">Contact</a>
+        <a class="btn btn-dark" href="#products">Shop</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="모바일 메뉴 열기" aria-expanded="false">
+          <span></span>
         </button>
       </div>
     </div>
-  </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
+    <div class="mobile-panel container" id="mobile-panel">
       <a href="#about">About</a>
       <a href="#signature">Signature</a>
       <a href="#products">Products</a>
       <a href="#lookbook">Lookbook</a>
-      <a href="#film">Film</a>
-      <a href="#contact">Contact</a>
+      <a href="#film">Brand Film</a>
+      <a href="#newsletter">Contact</a>
     </div>
-  </div>
+  </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <span class="eyebrow">${SITE.heroEyebrow}</span>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="hero__top">
+            <span class="hero__eyebrow">${SITE.heroEyebrow}</span>
+            <h1 class="hero__title">
+              ${SITE.heroTitleLine1}<br />
+              ${SITE.heroTitleLine2}<br />
+              ${SITE.heroTitleLine3}
+            </h1>
+            <p class="hero__description">${SITE.heroDescription}</p>
 
-          <h1 class="hero-title">
-            ${SITE.heroTitle1}<br />
-            <em>${SITE.heroTitle2}<br />${SITE.heroTitle3}</em>
-          </h1>
-
-          <p class="hero-text">${SITE.heroDescription}</p>
-
-          <div class="hero-actions">
-            <a href="#signature" class="btn">Explore Ocean Breeze</a>
-            <a href="#lookbook" class="btn btn-light">View Lookbook</a>
+            <div class="hero__actions">
+              <a class="btn btn-dark" href="#signature">${SITE.heroPrimaryCta}</a>
+              <a class="btn btn-light" href="#products">${SITE.heroSecondaryCta}</a>
+            </div>
           </div>
 
-          <div class="hero-meta">
-            <div>
-              <small>Formula</small>
-              <span>불필요한 자극을 덜어낸 미니멀 클린 포뮬러</span>
+          <div class="hero__meta">
+            <div class="hero__meta-item">
+              <span>Signature</span>
+              <strong>Ocean Breeze Body Lotion Spray</strong>
             </div>
-            <div>
-              <small>Design</small>
-              <span>오브제처럼 남는 실루엣과 절제된 타이포그래피</span>
+            <div class="hero__meta-item">
+              <span>Texture</span>
+              <strong>Light spray, soft moisture, refined finish</strong>
             </div>
-            <div>
-              <small>Experience</small>
-              <span>가볍지만 오래 남는, 조용하고 우아한 루틴</span>
+            <div class="hero__meta-item">
+              <span>Mood</span>
+              <strong>Quiet luxury, clean air, editorial softness</strong>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <img
-            src="${ASSETS.heroMain}"
-            alt="${SITE.brand} main hero"
-            data-fallback-label="Hero Main"
-            data-ratio="4 / 5"
-          />
-
-          <div class="hero-badge">
-            <span>Quiet Luxury</span>
-            <span>Clean Formula</span>
-            <span>Modern Editorial</span>
-          </div>
-
-          <div class="hero-card">
-            <small>Featured Signature</small>
-            <strong>Ocean Breeze</strong>
-            <p>
-              바디 로션 스프레이의 가벼운 사용감과
-              고급스러운 오브제 감각을 함께 담은 ${SITE.brand}의 시그니처 컬렉션.
-            </p>
+        <div class="hero__visual">
+          <img src="${ASSETS.heroMain}" alt="Soumé hero visual" />
+          <div class="hero__floating">
+            <small>Featured Essence</small>
+            <strong>Designed to remain softly, not loudly.</strong>
+            <p>브랜드의 첫 인상을 강하게 밀어붙이기보다, 오래 남는 질감과 공기감을 중심으로 설계했습니다.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
-      <div class="container manifesto-grid">
-        <div class="reveal">
-          <span class="eyebrow">Brand Manifesto</span>
-          <h2 class="manifesto-quote">
-            클린함은 더 단순해야 하고,<br />
-            럭셔리는 더 <em>조용해야 한다</em>.
-          </h2>
-        </div>
-
-        <div class="reveal">
-          <p class="section-copy">${SITE.aboutCopy}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section signature" id="signature">
-      <div class="container signature-inner">
-        <div class="signature-grid">
-          <div class="signature-copy reveal">
-            <span class="eyebrow">Signature Product</span>
-            <h2 class="section-title">Ocean Breeze</h2>
-            <p class="section-copy">
-              제품을 단순한 판매 이미지가 아니라 브랜드를 대표하는 오브제로 보이게 하는 데 집중했습니다.
-              실루엣, 캡, 노즐, 사용 순간까지 나누어 보여줌으로써 제품의 질감과 태도를 동시에 전달합니다.
-            </p>
-
-            <div class="signature-notes">
-              <div><span>Character</span><span>Citrus · Woody · Marine</span></div>
-              <div><span>Texture</span><span>Light Lotion Spray</span></div>
-              <div><span>Finish</span><span>Clean · Elegant · Airy</span></div>
+      <div class="container about-grid">
+        <div class="about-card reveal">
+          <div class="about-card__body">
+            <span class="section-label">${SITE.aboutEyebrow}</span>
+            <div class="section-head" style="margin: 14px 0 0;">
+              <h2>${SITE.aboutTitle}</h2>
+              <p>${SITE.aboutDescription}</p>
             </div>
 
-            <a href="#products" class="btn btn-light">Shop Signature</a>
+            <div class="about-card__stats">
+              <div>
+                <span>Keyword</span>
+                <strong>Quiet luxury</strong>
+              </div>
+              <div>
+                <span>Focus</span>
+                <strong>Texture + mood</strong>
+              </div>
+              <div>
+                <span>Routine</span>
+                <strong>Daily editorial care</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-frame reveal">
+          <img src="${ASSETS.editorialMain}" alt="Soumé editorial visual" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signature">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">${SITE.signatureEyebrow}</span>
+          <h2>${SITE.signatureTitle}</h2>
+          <p>${SITE.signatureDescription}</p>
+        </div>
+
+        <div class="signature-grid">
+          <div class="signature-card reveal">
+            <div class="signature-card__body">
+              <span class="section-kicker">Key Product</span>
+              <h3>Editorial product composition for everyday ritual</h3>
+              <p>
+                오션 브리즈는 제품 자체의 성능뿐 아니라 사용하는 순간의 장면을 함께 설계합니다.
+                제품이 보이는 방식, 손에 쥐는 방식, 사용 후 남는 인상까지 하나의 루틴 경험으로 연결합니다.
+              </p>
+
+              <div class="signature-stack">
+                <div class="signature-stack__main">
+                  <img src="${ASSETS.product01}" alt="Soumé product main" />
+                </div>
+                <div class="signature-stack__side">
+                  <div>
+                    <img src="${ASSETS.product02}" alt="Soumé product detail 1" />
+                  </div>
+                  <div>
+                    <img src="${ASSETS.product03}" alt="Soumé product detail 2" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="signature-gallery">
-            <figure class="asset-card tall reveal">
-              <img
-                src="${ASSETS.signatureMain}"
-                alt="Soumé signature main"
-                loading="lazy"
-                data-fallback-label="Signature Main"
-                data-ratio="4 / 5"
-              />
-              <figcaption class="asset-caption">
-                <small>Object</small>
-                <strong>Quiet silhouette</strong>
-              </figcaption>
-            </figure>
-
-            <figure class="asset-card square reveal">
-              <img
-                src="${ASSETS.signatureDetail}"
-                alt="Soumé signature detail"
-                loading="lazy"
-                data-fallback-label="Signature Detail"
-                data-ratio="1 / 1"
-              />
-              <figcaption class="asset-caption">
-                <small>Detail</small>
-                <strong>Crafted finish</strong>
-              </figcaption>
-            </figure>
-
-            <figure class="asset-card square reveal">
-              <img
-                src="${ASSETS.signatureOpen}"
-                alt="Soumé signature open"
-                loading="lazy"
-                data-fallback-label="Signature Open"
-                data-ratio="1 / 1"
-              />
-              <figcaption class="asset-caption">
-                <small>Function</small>
-                <strong>Precise spray head</strong>
-              </figcaption>
-            </figure>
-
-            <figure class="asset-card wide reveal">
-              <img
-                src="${ASSETS.editorialMain}"
-                alt="Soumé editorial"
-                loading="lazy"
-                data-fallback-label="Editorial Main"
-                data-ratio="16 / 9"
-              />
-              <figcaption class="asset-caption">
-                <small>Editorial</small>
-                <strong>Beauty reduced to its purest form</strong>
-              </figcaption>
-            </figure>
+          <div class="visual-frame reveal">
+            <img src="${ASSETS.editorialMain}" alt="Soumé signature editorial" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section products" id="products">
+    <section class="section" id="products">
       <div class="container">
-        <div class="products-head">
-          <div class="reveal">
-            <span class="eyebrow">Product Selection</span>
-            <h2 class="section-title">The Soumé wardrobe</h2>
-          </div>
-
-          <div class="reveal">
-            <p class="section-copy">
-              상품 카드, 상세 모달, 구매 링크는 모두 PRODUCTS 데이터 기반으로 렌더링됩니다.
-              상품명, 가격, 이미지, 상세 설명, 구매 링크는 상단 PRODUCTS 배열만 수정하면 전체 페이지에 자동 반영됩니다.
-            </p>
-          </div>
+        <div class="section-head reveal">
+          <span class="section-label">${SITE.productsEyebrow}</span>
+          <h2>${SITE.productsTitle}</h2>
+          <p>
+            상세 모달, 구매 버튼, 문의 버튼까지 포함한 운영형 제품 카드입니다.
+            실제 구매 링크만 교체하면 바로 사용할 수 있도록 구성했습니다.
+          </p>
         </div>
 
         <div class="products-grid">
@@ -1496,20 +1537,46 @@ app.get('/', (c) => {
       </div>
     </section>
 
-    <section class="section lookbook" id="lookbook">
+    <section class="section" id="campaign">
       <div class="container">
-        <div class="lookbook-head">
-          <div class="reveal">
-            <span class="eyebrow">Lookbook</span>
-            <h2 class="section-title">A quiet editorial archive</h2>
-          </div>
+        <div class="section-head reveal">
+          <span class="section-label">Campaign</span>
+          <h2>Product and presence in one frame</h2>
+          <p>
+            제품과 무드, 그리고 인물의 결을 한 장면 안에 정리하는 Soumé식 캠페인 프레임입니다.
+          </p>
+        </div>
 
-          <div class="reveal">
-            <p class="section-copy">
-              룩북 섹션은 브랜드 캠페인, 인물 화보, 무드컷을 시즌별로 교체하면서 운영하기 가장 좋은 구조입니다.
-              이미지 파일만 같은 이름으로 바꾸면 코드 수정 없이 새 비주얼을 반영할 수 있습니다.
-            </p>
-          </div>
+        <div class="campaign-grid">
+          <article class="campaign-card reveal">
+            <img src="${ASSETS.campaign01}" alt="Soumé campaign 01" />
+            <div class="campaign-card__overlay">
+              <small>Campaign 01</small>
+              <strong>Soft hold, clear impression</strong>
+              <p>절제된 배경 위에서 제품이 얼굴 옆으로 자연스럽게 연결되는 브랜드 컷.</p>
+            </div>
+          </article>
+
+          <article class="campaign-card reveal">
+            <img src="${ASSETS.campaign02}" alt="Soumé campaign 02" />
+            <div class="campaign-card__overlay">
+              <small>Campaign 02</small>
+              <strong>Clean styling, lasting mood</strong>
+              <p>과장 없는 스타일링과 정제된 실루엣으로 완성하는 에디토리얼 무드.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lookbook">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">${SITE.lookbookEyebrow}</span>
+          <h2>${SITE.lookbookTitle}</h2>
+          <p>
+            룩북형 추가 섹션입니다. 이미지만 교체하면 같은 레이아웃 안에서 무드 업데이트가 가능합니다.
+          </p>
         </div>
 
         <div class="lookbook-grid">
@@ -1520,145 +1587,133 @@ app.get('/', (c) => {
 
     <section class="section" id="philosophy">
       <div class="container philosophy-grid">
-        <div class="philosophy-visual reveal">
-          <img
-            src="${ASSETS.editorialMain}"
-            alt="Soumé philosophy visual"
-            loading="lazy"
-            data-fallback-label="Philosophy Visual"
-            data-ratio="4 / 5"
-          />
+        <div class="visual-frame reveal">
+          <img src="${ASSETS.heroMain}" alt="Soumé philosophy visual" />
         </div>
 
-        <div class="philosophy-copy reveal">
-          <div>
-            <span class="eyebrow">House Philosophy</span>
-            <h2 class="section-title">
-              ${SITE.philosophyTitle1}<br />
-              <em>${SITE.philosophyTitle2}</em>
-            </h2>
-            <p class="section-copy">${SITE.philosophyCopy}</p>
+        <div class="philosophy-card reveal">
+          <div class="philosophy-card__body">
+            <span class="section-label">${SITE.philosophyEyebrow}</span>
+            <h3>${SITE.philosophyTitle}</h3>
+            <p>${SITE.philosophyDescription}</p>
           </div>
-
-          <ul class="philosophy-points">
-            <li>
-              <small>01 / Clean</small>
-              <span>피부에 불필요한 요소는 덜고, 필요한 감각과 효능만 또렷하게 남깁니다.</span>
-            </li>
-            <li>
-              <small>02 / Elegant</small>
-              <span>타이포, 여백, 컬러를 통해 제품 하나만으로도 품격이 느껴지도록 설계합니다.</span>
-            </li>
-            <li>
-              <small>03 / Essential</small>
-              <span>많이 보여주는 대신 정확하게 보여주는 방식으로 브랜드의 본질을 전달합니다.</span>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section film" id="film">
+    <section class="section" id="film">
       <div class="container film-grid">
-        <div class="film-player reveal" id="filmPlayer">
+        <div class="film-card reveal">
+          <div class="film-card__body">
+            <span class="section-label">${SITE.filmEyebrow}</span>
+            <h3>${FILM.title}</h3>
+            <p>${FILM.description}</p>
+            <div class="hero__actions" style="margin-top: 22px;">
+              <a class="btn btn-dark" href="${FILM.externalLink}">브랜드 문의</a>
+              <a class="btn btn-line" href="#lookbook">룩북 이어보기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-frame reveal" id="film-frame">
           <video
-            id="brandFilm"
+            id="brand-film-video"
             controls
             playsinline
             preload="metadata"
             poster="${FILM.poster}"
-            data-poster="${FILM.poster}"
-            data-fallback-label="Brand Film"
+            aria-label="Soumé brand film"
           >
             <source src="${FILM.video}" type="video/mp4" />
           </video>
-        </div>
-
-        <div class="film-copy reveal">
-          <div>
-            <span class="eyebrow">${FILM.eyebrow}</span>
-            <h2 class="section-title">${FILM.title}</h2>
-            <p class="section-copy">${FILM.description}</p>
-          </div>
-
-          <div class="film-actions">
-            <a class="btn" href="${FILM.externalLink}" target="_blank" rel="noopener">Watch Full Film</a>
-            <a class="btn btn-light" href="#contact">Contact Us</a>
-          </div>
+          <img
+            id="brand-film-poster"
+            class="media-fallback"
+            src="${FILM.poster}"
+            alt="Soumé brand film poster"
+          />
         </div>
       </div>
     </section>
 
-    <section class="section newsletter" id="contact">
-      <div class="container newsletter-grid">
-        <div class="reveal">
-          <span class="eyebrow">Private Letter</span>
-          <h2>${SITE.newsletterTitle}</h2>
-          <p>${SITE.newsletterCopy}</p>
-        </div>
+    <section class="section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-card reveal">
+          <div class="newsletter-card__body">
+            <div class="newsletter-copy">
+              <span class="section-label">${SITE.newsletterEyebrow}</span>
+              <h3>${SITE.newsletterTitle}</h3>
+              <p>${SITE.newsletterDescription}</p>
+            </div>
 
-        <form class="newsletter-form reveal" onsubmit="return subscribe(event)">
-          <input id="emailInput" type="email" placeholder="Email address" />
-          <button type="submit">Subscribe</button>
-        </form>
+            <form class="newsletter-form" id="newsletter-form">
+              <input
+                id="newsletter-email"
+                type="email"
+                name="email"
+                placeholder="이메일 주소를 입력하세요"
+                autocomplete="email"
+                required
+              />
+              <button class="btn btn-dark" type="submit">구독하기</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <img src="${ASSETS.logo}" alt="${SITE.brand}" class="footer-logo" data-fallback-label="${SITE.brand}" />
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <div>${SITE.footerText}</div>
       <div class="footer-links">
         <a href="#about">About</a>
-        <a href="#signature">Signature</a>
         <a href="#products">Products</a>
         <a href="#lookbook">Lookbook</a>
-        <a href="#film">Film</a>
+        <a href="#film">Brand Film</a>
       </div>
-      <div style="font-size:11px; letter-spacing:0.05em;">${SITE.footerCopy}</div>
     </div>
   </footer>
 
-  <div class="modal" id="productModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal" id="product-modal" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" id="modal-close" aria-label="모달 닫기">×</button>
 
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close">✕</button>
+      <div class="modal__content">
+        <div class="modal__gallery">
+          <div class="modal__gallery-main">
+            <img id="modal-main-image" src="" alt="" />
+          </div>
+          <div class="modal__gallery-grid" id="modal-gallery-grid"></div>
+        </div>
 
-      <div class="modal-body">
-        <div class="modal-grid">
-          <div class="modal-gallery">
-            <div class="modal-main-media" id="modalMainMedia"></div>
-            <div class="modal-thumbs" id="modalThumbs"></div>
+        <div class="modal__body">
+          <span class="modal__badge" id="modal-badge"></span>
+          <h3 class="modal__title" id="modal-title"></h3>
+          <p class="modal__subtitle" id="modal-subtitle"></p>
+
+          <div class="modal__price">
+            <strong id="modal-price"></strong>
+            <span id="modal-volume"></span>
           </div>
 
-          <div class="modal-info">
-            <span class="modal-badge" id="modalBadge"></span>
-            <h2 class="modal-title" id="modalTitle"></h2>
-            <p class="modal-subtitle" id="modalSubtitle"></p>
+          <p class="modal__desc" id="modal-description"></p>
 
-            <div class="modal-meta">
-              <div><strong>Price</strong> <span id="modalPrice"></span></div>
-              <div><strong>Volume</strong> <span id="modalVolume"></span></div>
-            </div>
+          <div class="modal__detail-block">
+            <h4>Fragrance Notes</h4>
+            <div class="modal__chips" id="modal-notes"></div>
+          </div>
 
-            <p class="modal-text" id="modalDescription"></p>
+          <div class="modal__detail-block">
+            <h4>Key Ingredients</h4>
+            <div class="modal__chips" id="modal-ingredients"></div>
+          </div>
 
-            <div class="modal-block">
-              <h4>Notes</h4>
-              <div class="modal-tags" id="modalNotes"></div>
-            </div>
-
-            <div class="modal-block">
-              <h4>Ingredients</h4>
-              <div class="modal-tags" id="modalIngredients"></div>
-            </div>
-
-            <div class="modal-actions">
-              <a class="btn" id="modalBuyLink" href="#" target="_blank" rel="noopener">구매하기</a>
-              <a class="btn btn-light" id="modalDetailLink" href="#" target="_blank" rel="noopener">상세페이지</a>
-              <a class="btn btn-light" id="modalInquiryLink" href="#" target="_blank" rel="noopener">문의하기</a>
-            </div>
+          <div class="modal__actions">
+            <a class="btn btn-dark" id="modal-buy-link" href="#" target="_blank" rel="noreferrer">지금 구매하기</a>
+            <a class="btn btn-line" id="modal-detail-link" href="#">섹션으로 이동</a>
+            <a class="btn btn-line" id="modal-inquiry-link" href="#">문의하기</a>
           </div>
         </div>
       </div>
@@ -1666,152 +1721,214 @@ app.get('/', (c) => {
   </div>
 
   <script>
-    const PRODUCT_DATA = ${productsJson};
+    const PRODUCT_DATA = ${productDataJson};
 
-    function subscribe(e) {
-      e.preventDefault();
-      var input = document.getElementById('emailInput');
-      var value = input.value.trim();
+    const header = document.getElementById('site-header');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobilePanel = document.getElementById('mobile-panel');
+    const modal = document.getElementById('product-modal');
+    const modalClose = document.getElementById('modal-close');
+    const detailButtons = document.querySelectorAll('.product-detail-btn');
 
-      if (!value || value.indexOf('@') === -1) {
-        alert('올바른 이메일 주소를 입력해주세요.');
-        return false;
+    function setHeaderState() {
+      if (!header) return;
+      if (window.scrollY > 10) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
       }
-
-      alert('구독이 완료되었습니다. Soumé의 소식을 가장 먼저 전해드릴게요.');
-      input.value = '';
-      return false;
-    }
-
-    function createFallback(label, ratio) {
-      var wrapper = document.createElement('div');
-      wrapper.className = 'media-fallback';
-      if (ratio) wrapper.style.aspectRatio = ratio;
-      wrapper.innerHTML =
-        '<strong>' + label + '</strong>' +
-        '<span>Check /public file path and filename</span>';
-      return wrapper;
-    }
-
-    function applyImageFallback(img) {
-      if (!img) return;
-      var done = false;
-
-      function replace() {
-        if (done) return;
-        done = true;
-        var label = img.getAttribute('data-fallback-label') || 'Soumé Asset';
-        var ratio = img.getAttribute('data-ratio') || '';
-        var parent = img.parentElement;
-        if (!parent) return;
-        var fallback = createFallback(label, ratio);
-        parent.innerHTML = '';
-        parent.appendChild(fallback);
-      }
-
-      img.addEventListener('error', replace);
-
-      if (img.complete && !img.naturalWidth) replace();
-    }
-
-    function setupMediaFallbacks() {
-      document.querySelectorAll('img[data-fallback-label]').forEach(function(img) {
-        applyImageFallback(img);
-      });
-    }
-
-    function setupFilmFallback() {
-      var video = document.getElementById('brandFilm');
-      var player = document.getElementById('filmPlayer');
-      if (!video || !player) return;
-
-      function replaceFilm() {
-        var poster = video.getAttribute('data-poster');
-        var label = video.getAttribute('data-fallback-label') || 'Brand Film';
-        player.innerHTML = '';
-
-        if (poster) {
-          var img = document.createElement('img');
-          img.src = poster;
-          img.alt = label;
-          img.setAttribute('data-fallback-label', label);
-          img.setAttribute('data-ratio', '16 / 9');
-          player.appendChild(img);
-          applyImageFallback(img);
-        } else {
-          player.appendChild(createFallback(label, '16 / 9'));
-        }
-      }
-
-      video.addEventListener('error', replaceFilm);
-
-      setTimeout(function() {
-        if (video.networkState === 3 || (video.readyState === 0 && video.currentSrc === '')) {
-          replaceFilm();
-        }
-      }, 1200);
     }
 
     function setupReveal() {
-      var revealEls = document.querySelectorAll('.reveal');
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) entry.target.classList.add('in-view');
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) {
+          el.classList.add('is-visible');
         });
-      }, { threshold: 0.12 });
+        return;
+      }
 
-      revealEls.forEach(function(el) {
-        io.observe(el);
-      });
-    }
-
-    function setupMobileMenu() {
-      var menuToggle = document.getElementById('menuToggle');
-      var mobileMenu = document.getElementById('mobileMenu');
-      if (!menuToggle || !mobileMenu) return;
-
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-      });
-
-      mobileMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          document.body.style.overflow = '';
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
         });
+      }, { threshold: 0.14 });
+
+      items.forEach(function (el) {
+        observer.observe(el);
       });
     }
 
     function setupSmoothScroll() {
-      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-        a.addEventListener('click', function(e) {
-          var target = document.querySelector(a.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          const href = link.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          if (mobilePanel && mobilePanel.classList.contains('is-open')) {
+            mobilePanel.classList.remove('is-open');
+            if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
           }
         });
       });
     }
 
-    function renderMainModalImage(src, alt) {
-      return '<img src="' + src + '" alt="' + alt + '" data-fallback-label="' + alt + '" data-ratio="4 / 5" />';
+    function setupMobileMenu() {
+      if (!menuToggle || !mobilePanel) return;
+
+      menuToggle.addEventListener('click', function () {
+        const isOpen = mobilePanel.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
     }
 
-    function openProductModal(index) {
-      var product = PRODUCT_DATA[index];
-      if (!product) return;
+    function fillChips(container, items) {
+      container.innerHTML = '';
+      items.forEach(function (item) {
+        const chip = document.createElement('span');
+        chip.textContent = item;
+        container.appendChild(chip);
+      });
+    }
 
-      var modal = document.getElementById('productModal');
-      var mainMedia = document.getElementById('modalMainMedia');
-      var thumbs = document.getElementById('modalThumbs');
+    function buildGallery(images, title) {
+      const grid = document.getElementById('modal-gallery-grid');
+      const mainImage = document.getElementById('modal-main-image');
 
-      document.getElementById('modalBadge').textContent = product.badge;
-      document.getElementById('modalTitle').textContent = product.name;
-      document.getElementById('modalSubtitle').textContent = product.subtitle;
-      document.getElementById('modalPrice').textContent = product.price;
-      document.getElementById('modalVolume').textContent = product.volume;
-      document.getElementById('modalDescription').textContent = product.description;
+      if (!grid || !mainImage) return;
 
-      document.getElementById('modalBuyLink').setAttribute('
+      grid.innerHTML = '';
+      images.forEach(function (src, index) {
+        const btn = document.createElement('button');
+        btn.className = 'modal__thumb';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', title + ' 이미지 ' + (index + 1));
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = title + ' gallery image ' + (index + 1);
+
+        btn.appendChild(img);
+        btn.addEventListener('click', function () {
+          mainImage.src = src;
+          mainImage.alt = title;
+        });
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function openProductModal(productId) {
+      const product = PRODUCT_DATA.find(function (item) {
+        return item.id === productId;
+      });
+
+      if (!product || !modal) return;
+
+      const badge = document.getElementById('modal-badge');
+      const title = document.getElementById('modal-title');
+      const subtitle = document.getElementById('modal-subtitle');
+      const price = document.getElementById('modal-price');
+      const volume = document.getElementById('modal-volume');
+      const desc = document.getElementById('modal-description');
+      const mainImage = document.getElementById('modal-main-image');
+      const notes = document.getElementById('modal-notes');
+      const ingredients = document.getElementById('modal-ingredients');
+      const buyLink = document.getElementById('modal-buy-link');
+      const detailLink = document.getElementById('modal-detail-link');
+      const inquiryLink = document.getElementById('modal-inquiry-link');
+
+      if (badge) badge.textContent = product.badge;
+      if (title) title.textContent = product.name;
+      if (subtitle) subtitle.textContent = product.subtitle;
+      if (price) price.textContent = product.price;
+      if (volume) volume.textContent = product.volume;
+      if (desc) desc.textContent = product.description;
+      if (mainImage) {
+        mainImage.src = product.image;
+        mainImage.alt = product.name;
+      }
+      if (notes) fillChips(notes, product.notes || []);
+      if (ingredients) fillChips(ingredients, product.ingredients || []);
+      if (buyLink) buyLink.setAttribute('href', product.buyLink || '#');
+      if (detailLink) detailLink.setAttribute('href', product.detailLink || '#products');
+      if (inquiryLink) inquiryLink.setAttribute('href', product.inquiryLink || '#newsletter');
+
+      buildGallery(product.gallery || [product.image], product.name);
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function setupModal() {
+      detailButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const productId = btn.getAttribute('data-product-id');
+          if (productId) openProductModal(productId);
+        });
+      });
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeProductModal);
+      }
+
+      document.querySelectorAll('[data-modal-close]').forEach(function (el) {
+        el.addEventListener('click', closeProductModal);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeProductModal();
+      });
+    }
+
+    function setupNewsletter() {
+      const form = document.getElementById('newsletter-form');
+      const input = document.getElementById('newsletter-email');
+
+      if (!form || !input) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const value = input.value.trim();
+        if (!value) return;
+        window.alert('뉴스레터 구독 UI가 연결되었습니다. 실제 메일 수집 API만 연결하면 운영 가능합니다.\\n입력값: ' + value);
+        form.reset();
+      });
+    }
+
+    function setupFilmFallback() {
+      const video = document.getElementById('brand-film-video');
+      const poster = document.getElementById('brand-film-poster');
+
+      if (!video || !poster) return;
+
+      function showPosterFallback() {
+        video.classList.add('hidden');
+        poster.classList.add('is-visible');
+      }
+
+      video.addEventListener('error', showPosterFallback);
+
+      const source = video.querySelector('source');
+      if (!source || !source.getAttribute('src')) {
+        showPosterFallback();
+      }
+    }
+
+    function setupImage
