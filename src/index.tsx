@@ -1932,3 +1932,9 @@ app.get('/', (c) => {
     }
 
     function setupImage
+  </script>
+</body>
+</html>`)
+})
+
+export default app
