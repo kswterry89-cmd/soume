@@ -39,6 +39,10 @@ const ASSETS = {
   filmPoster: '/assets/soume/film-poster.jpg',
   filmVideo: '/videos/soume-brand-film.mp4',
 }
+const LINKS = {
+  smartstore: 'https://smartstore.naver.com/neography/',
+}
+
 
 const HERO_SLIDES = [
   {
@@ -80,7 +84,7 @@ const PRODUCTS = [
       '분사형 텍스처가 피부 위에 균일하게 밀착되며, 산뜻한 보습감과 정돈된 피부 윤기를 남깁니다.',
     features: ['미스트처럼 가벼운 분사감', '끈적임 적은 마무리', '데일리 바디 루틴 추천'],
     notes: ['Fresh Air', 'Soft Musk', 'Clean Skin Finish'],
-    buyLink: '#purchase',
+    buyLink: LINKS.smartstore,
   },
   {
     id: 'veil-recovery',
@@ -94,7 +98,8 @@ const PRODUCTS = [
       '건조한 순간 피부 결을 빠르게 정돈하고, 메이크업 전후에도 부담 없이 사용할 수 있는 미스트입니다.',
     features: ['빠른 수분 정돈', '메이크업 전후 사용', '간편한 데일리 케어'],
     notes: ['Transparent Citrus', 'Airy Floral', 'Skin Veil'],
-    buyLink: '#purchase',
+    buyLink: LINKS.smartstore,
+
   },
   {
     id: 'bare-reset',
@@ -108,7 +113,8 @@ const PRODUCTS = [
       '무게감은 줄이고 사용 후의 편안함과 은은한 광채를 더한 바디 케어 포뮬러입니다.',
     features: ['편안한 마무리감', '은은한 윤기 표현', '선물용으로도 적합'],
     notes: ['Skin Musk', 'Powder Clean', 'Calm Woody'],
-    buyLink: '#purchase',
+    buyLink: LINKS.smartstore,
+
   },
 ]
 
@@ -620,6 +626,164 @@ app.get('/', (c) => {
       }
       .sticky-buy .btn { width: 100%; }
     }
+    .smart-fab {
+  position: fixed;
+  right: 22px;
+  bottom: 110px;
+  z-index: 55;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px 14px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #03c75a 0%, #00b050 100%);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(3, 199, 90, 0.28);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+
+.smart-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(3, 199, 90, 0.34);
+}
+
+.smart-fab__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+
+.smart-fab__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.smart-fab__text small {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.88;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.smart-fab__pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 1px solid rgba(3, 199, 90, 0.35);
+  animation: smartPulse 2.2s infinite;
+  pointer-events: none;
+}
+
+@keyframes smartPulse {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+}
+
+.smart-popup {
+  position: fixed;
+  right: 22px;
+  bottom: 184px;
+  z-index: 56;
+  width: min(360px, calc(100vw - 28px));
+  padding: 18px 18px 16px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(31, 26, 23, 0.08);
+  box-shadow: 0 24px 60px rgba(20, 16, 14, 0.14);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.smart-popup.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.smart-popup__eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #03c75a;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.smart-popup h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.05;
+  font-family: 'Cormorant Garamond', serif;
+  color: #1f1a17;
+}
+
+.smart-popup p {
+  margin: 0;
+  color: #6c625b;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.smart-popup__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.smart-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(20,16,14,0.06);
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .smart-fab {
+    right: 12px;
+    bottom: 96px;
+    padding: 12px 15px 12px 12px;
+  }
+
+  .smart-fab__text strong {
+    font-size: 14px;
+  }
+
+  .smart-popup {
+    right: 12px;
+    bottom: 168px;
+    border-radius: 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -658,7 +822,7 @@ app.get('/', (c) => {
             <p>${SITE.heroDescription}</p>
 
             <div class="hero-copy__buttons">
-              <a class="btn btn-gold" href="#purchase">지금 구매하러 가기</a>
+              <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 구매하기</a>
               <a class="btn btn-line" href="#products">베스트셀러 보기</a>
             </div>
 
@@ -895,10 +1059,11 @@ app.get('/', (c) => {
               아래 버튼은 현재 데모용 구조입니다. 추후 스마트스토어, 자사몰, 카카오 상담 주문 링크만 연결하면 그대로 사용 가능합니다.
             </p>
             <div class="cta-panel__buttons">
-              <button class="btn btn-gold js-open-start">3초 시작하기</button>
-              <a class="btn btn-dark" href="#products">베스트셀러 선택하기</a>
-              <a class="btn btn-line" href="#faq">구매 FAQ 보기</a>
-            </div>
+  <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 바로가기</a>
+  <button class="btn btn-dark js-open-start">빠른 구매 안내</button>
+  <a class="btn btn-line" href="#faq">구매 전 질문 보기</a>
+</div>
+
             <div class="cta-panel__list">
               <span>• 비회원 빠른 구매 흐름 대응 가능</span>
               <span>• 카카오 상담 주문 / DM 주문 연결 가능</span>
@@ -945,9 +1110,10 @@ app.get('/', (c) => {
   </footer>
 
   <div class="sticky-buy">
-    <a class="btn btn-gold" href="#purchase">지금 구매하기</a>
-    <button class="btn btn-line js-open-start">카카오 상담 시작</button>
-  </div>
+  <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 구매</a>
+  <button class="btn btn-line js-open-start">구매 안내 보기</button>
+</div>
+
 
   <div class="modal" id="productModal" aria-hidden="true">
     <div class="modal__backdrop" data-close-modal></div>
@@ -970,9 +1136,11 @@ app.get('/', (c) => {
           지금은 데모 구조이므로 실제 운영 시에는 아래 버튼에 스마트스토어, 자사몰, 카카오채널 링크를 연결하면 됩니다.
         </p>
         <div style="display:grid;gap:12px;">
-          <a class="btn btn-gold" href="#products">베스트셀러 먼저 보기</a>
-          <a class="btn btn-dark" href="#purchase">비회원 빠른 구매 동선</a>
-          <a class="btn btn-line" href="#faq">구매 전 질문 먼저 보기</a>
+  <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어에서 구매하기</a>
+  <a class="btn btn-dark" href="#products">베스트셀러 먼저 보기</a>
+  <a class="btn btn-line" href="#faq">구매 전 질문 먼저 보기</a>
+</div>
+
         </div>
       </div>
     </div>
@@ -1110,6 +1278,65 @@ app.get('/', (c) => {
       }
     });
   </script>
+  <a
+  class="smart-fab"
+  href="${LINKS.smartstore}"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="스마트스토어 바로가기"
+>
+  <span class="smart-fab__pulse"></span>
+  <span class="smart-fab__icon">N</span>
+  <span class="smart-fab__text">
+    <small>OFFICIAL STORE</small>
+    <strong>스마트스토어 바로가기</strong>
+  </span>
+</a>
+
+<div class="smart-popup" id="smartPopup" aria-hidden="true">
+  <button class="smart-popup__close" id="smartPopupClose" aria-label="close">✕</button>
+  <p class="smart-popup__eyebrow">Official Store</p>
+  <h3>지금 바로<br />구매할 수 있어요</h3>
+  <p>
+    Soumé 제품은 스마트스토어에서 바로 확인하고 구매할 수 있습니다.
+    가장 빠른 구매 동선으로 연결해둘게요.
+  </p>
+  <div class="smart-popup__actions">
+    <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 가기</a>
+    <button class="btn btn-line" id="smartPopupDismiss">나중에 보기</button>
+  </div>
+</div>
+const smartPopup = document.getElementById('smartPopup');
+const smartPopupClose = document.getElementById('smartPopupClose');
+const smartPopupDismiss = document.getElementById('smartPopupDismiss');
+
+function showSmartPopup() {
+  if (!smartPopup) return;
+  if (sessionStorage.getItem('soume-smart-popup-closed') === 'true') return;
+
+  setTimeout(() => {
+    smartPopup.classList.add('is-visible');
+    smartPopup.setAttribute('aria-hidden', 'false');
+  }, 1400);
+}
+
+function closeSmartPopup() {
+  if (!smartPopup) return;
+  smartPopup.classList.remove('is-visible');
+  smartPopup.setAttribute('aria-hidden', 'true');
+  sessionStorage.setItem('soume-smart-popup-closed', 'true');
+}
+
+if (smartPopupClose) {
+  smartPopupClose.addEventListener('click', closeSmartPopup);
+}
+
+if (smartPopupDismiss) {
+  smartPopupDismiss.addEventListener('click', closeSmartPopup);
+}
+
+showSmartPopup();
+
 </body>
 </html>`)
 })
