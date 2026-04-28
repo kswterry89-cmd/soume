@@ -33,29 +33,31 @@ const SITE = {
   footerCopy: '© 2026 Soumé. All rights reserved.'
 }
 
-const ASSETS = {
-  logo: '/public/soume-logo-black.png',
+ const ASSETS = {
+  logo: '/static/soume-logo-black.png',
 
-  heroMain: '/public/assets/soume/hero-main.jpg',
-  editorialMain: '/public/assets/soume/editorial-main.jpg',
+  heroMain: '/static/assets/soume/hero-main.jpg',
+  editorialMain: '/static/assets/soume/editorial-main.jpg',
 
-  signatureMain: '/public/assets/soume/signature-main.jpg',
-  signatureOpen: '/public/assets/soume/signature-open.jpg',
-  signatureDetail: '/public/assets/soume/signature-detail.jpg',
+  signatureMain: '/static/assets/soume/editorial-main.jpg',
+  signatureOpen: '/static/assets/soume/hero-main.jpg',
+  signatureDetail: '/static/assets/soume/campaign-01.jpg',
 
-  campaign01: '/public/assets/soume/campaign-01.jpg',
-  campaign02: '/public/assets/soume/campaign-02.jpg',
+  campaign01: '/static/assets/soume/campaign-01.jpg',
+  campaign02: '/static/assets/soume/campaign-02.jpg',
 
-  product01: '/public/assets/soume/product-01.jpg',
-  product02: '/public/assets/soume/product-02.jpg',
-  product03: '/public/assets/soume/product-03.jpg',
+  product01: '/static/assets/soume/product-01.jpg',
+  product02: '/static/assets/soume/product-02.jpg',
+  product03: '/static/assets/soume/product-02.jpg',
 
-  lookbook01: '/public/assets/soume/lookbook-01.jpg',
-  lookbook02: '/public/assets/soume/lookbook-02.jpg',
-  lookbook03: '/public/assets/soume/lookbook-03.jpg',
+  lookbook01: '/static/assets/soume/lookbook-01.jpg',
+  lookbook02: '/static/assets/soume/lookbook-02.jpg',
+  lookbook03: '/static/assets/soume/lookbook-03.jpg',
 
-  filmPoster: '/public/assets/soume/film-poster.jpg',
-  filmVideo: '/public/videos/soume-brand-film.mp4'
+  filmPoster: '/static/assets/soume/film-poster.jpg',
+  filmVideo: '/static/videos/soume-brand-film.mp4',
+}
+
 }
 
 const PRODUCTS = [
