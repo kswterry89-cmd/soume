@@ -1346,8 +1346,6 @@ const renderFooter = () => `
   </div>
 </footer>
 `
-
-const
       .modal {
       position: fixed;
       inset: 0;
