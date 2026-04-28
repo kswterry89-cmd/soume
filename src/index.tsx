@@ -8,11 +8,11 @@ const SITE = {
   description:
     'Soumé는 감도 높은 비주얼과 간결한 구매 동선을 결합한 모던 럭셔리 바디 리추얼 브랜드입니다.',
   heroEyebrow: 'QUIET LUXURY BODY RITUAL',
-  heroTitle1: '두 가지 시그니처',
+  heroTitle1: '두 가지 시그니처로',
   heroTitle2: '하루의 무드를',
   heroTitle3: '더 선명하게',
   heroDescription:
-    'Ocean Breeze는 맑고 산뜻하게, Morning Haze는 부드럽고 차분하게. 취향은 달라도 첫 선택은 간단해야 하니까.',
+    'Ocean Breeze는 맑고 산뜻하게, Morning Haze는 부드럽고 차분하게. 처음 방문해도 바로 비교하고, 바로 구매할 수 있도록 가장 직관적인 흐름으로 정리했습니다.',
 }
 
 const LINKS = {
@@ -38,34 +38,9 @@ const ASSETS = {
   lookbook01: '/assets/soume/lookbook-01.jpg',
   lookbook02: '/assets/soume/lookbook-02.jpg',
   lookbook03: '/assets/soume/lookbook-03.jpg',
-}
 
-const HERO_SLIDES = [
-  {
-    image: ASSETS.heroMain,
-    eyebrow: 'Main Campaign',
-    title: 'Quiet Luxury',
-    desc: '과하지 않지만 오래 남는 분위기. Soumé의 첫인상을 가장 선명하게 보여주는 장면.',
-  },
-  {
-    image: ASSETS.editorialMain,
-    eyebrow: 'Editorial Mood',
-    title: 'Soft Precision',
-    desc: '정제된 피부 표현과 부드러운 무드로 브랜드의 결을 자연스럽게 전달합니다.',
-  },
-  {
-    image: ASSETS.campaign01,
-    eyebrow: 'Ocean Breeze',
-    title: 'Fresh Signature',
-    desc: '맑고 산뜻한 방향의 시그니처 무드. 가볍고 깨끗한 첫 선택에 어울립니다.',
-  },
-  {
-    image: ASSETS.campaign02,
-    eyebrow: 'Morning Haze',
-    title: 'Soft Signature',
-    desc: '부드럽고 차분한 방향의 시그니처 무드. 잔잔하게 남는 인상을 원할 때 잘 어울립니다.',
-  },
-]
+  filmPoster: '/assets/soume/film-poster.jpg',
+}
 
 const PRODUCTS = [
   {
@@ -77,9 +52,13 @@ const PRODUCTS = [
     volume: '250ml',
     image: ASSETS.product01,
     description:
-      'Soumé의 대표 시그니처. 첫 사용감부터 가볍고 깨끗한 무드가 느껴지며, 샤워 후 정리된 분위기를 더하고 싶을 때 가장 직관적으로 선택하기 좋은 제품입니다.',
-    features: ['첫 구매 추천', '맑고 산뜻한 무드', '데일리 사용 적합'],
-    notes: ['Fresh Air', 'Soft Breeze', 'Clean Finish'],
+      '가볍고 깨끗한 분위기를 선호하는 고객에게 가장 먼저 추천하기 좋은 시그니처.',
+    features: ['Fresh Mood', 'Clean Finish', 'Daily Use'],
+    notes: [
+      '처음 시작하기 부담 없는 인상',
+      '홈페이지 첫 구매 전환용 대표 제품',
+      '선명하고 깨끗한 무드 표현에 적합',
+    ],
     buyLink: LINKS.smartstore,
   },
   {
@@ -91,9 +70,13 @@ const PRODUCTS = [
     volume: '250ml',
     image: ASSETS.product02,
     description:
-      '조용하고 부드러운 인상을 선호하는 고객에게 잘 어울리는 두 번째 시그니처. 은은하게 오래 남는 무드와 차분한 감도로 선물용으로도 잘 어울립니다.',
-    features: ['차분한 무드', '선물용 추천', '부드러운 인상'],
-    notes: ['Soft Cotton', 'Morning Light', 'Calm Skin Mood'],
+      '조용하고 고급스러운 무드를 선호하는 고객에게 어울리는 소프트 시그니처.',
+    features: ['Soft Mood', 'Calm Finish', 'Gift Ready'],
+    notes: [
+      '데일리 루틴에 녹아드는 부드러운 인상',
+      '선물용 추천에도 잘 어울리는 톤',
+      '브랜드 무드를 깊게 느끼게 하는 제품',
+    ],
     buyLink: LINKS.smartstore,
   },
 ]
@@ -101,54 +84,18 @@ const PRODUCTS = [
 const REVIEWS = [
   {
     title: '첫 구매가 어렵지 않았어요',
-    body: '제품이 많지 않아서 무엇을 먼저 사야 할지 바로 이해됐고, Ocean Breeze부터 시작하기 좋았어요.',
+    body: '제품이 많지 않아서 바로 비교가 됐고, Ocean Breeze부터 시작하기 좋았어요.',
+    author: '고객 후기',
   },
   {
     title: 'Morning Haze가 생각보다 더 고급스러워요',
-    body: '강하지 않고 차분하게 남는 무드가 좋아서 데일리로 쓰기 편하고 선물용으로도 잘 어울릴 것 같았어요.',
+    body: '강하지 않고 잔잔하게 남는 무드라서 데일리로 쓰기 편하고 선물용으로도 좋아 보여요.',
+    author: '고객 후기',
   },
   {
-    title: '브랜드 분위기와 제품 인상이 잘 이어져요',
-    body: '홈페이지에서 느낀 무드가 제품 이미지와 자연스럽게 연결돼서 구매할 때 신뢰감이 들었어요.',
-  },
-]
-
-const SIGNATURES = [
-  {
-    image: ASSETS.signatureMain,
-    number: '01',
-    title: 'Signature Main',
-    body: '브랜드의 첫인상을 정리하는 메인 컷',
-  },
-  {
-    image: ASSETS.signatureOpen,
-    number: '02',
-    title: 'Signature Open',
-    body: '제품 경험과 사용 장면을 자연스럽게 연결하는 이미지',
-  },
-  {
-    image: ASSETS.signatureDetail,
-    number: '03',
-    title: 'Signature Detail',
-    body: '텍스처와 디테일을 보여줘 구매 전 신뢰감을 높이는 컷',
-  },
-]
-
-const LOOKBOOK = [
-  {
-    image: ASSETS.lookbook01,
-    title: 'Quiet Skin, Quiet Mood',
-    body: '첫 인상을 정리하는 차분한 톤의 룩북 컷',
-  },
-  {
-    image: ASSETS.lookbook02,
-    title: 'Editorial Softness',
-    body: '피부 위 질감과 조도를 부드럽게 보여주는 에디토리얼 장면',
-  },
-  {
-    image: ASSETS.lookbook03,
-    title: 'Lasting Impression',
-    body: '브랜드 홈페이지와 상세페이지를 자연스럽게 잇는 무드 컷',
+    title: '브랜드 분위기와 제품 인상이 자연스럽게 이어져요',
+    body: '홈페이지에서 느낀 무드가 제품 이미지와 잘 연결돼서 구매할 때 신뢰감이 들었어요.',
+    author: '고객 후기',
   },
 ]
 
@@ -171,102 +118,62 @@ const FAQS = [
   },
 ]
 
-const safeJson = (value: unknown) =>
-  JSON.stringify(value).replace(/</g, '\\u003c')
-
-const renderHeroSlides = () =>
-  HERO_SLIDES.map(
-    (slide, index) => `
-      <div class="hero-slide ${index === 0 ? 'is-active' : ''}" data-slide="${index}">
-        <img src="${slide.image}" alt="${slide.title}" loading="${index === 0 ? 'eager' : 'lazy'}" />
+const productCards = PRODUCTS.map(
+  (product) => `
+    <article class="product-card" id="${product.id}">
+      <div class="product-image-wrap">
+        <img src="${product.image}" alt="${product.name}" class="product-image" />
+        <span class="product-badge">${product.badge}</span>
       </div>
-    `,
-  ).join('')
 
-const renderHeroDots = () =>
-  HERO_SLIDES.map(
-    (_, index) => `
-      <button class="hero-dot ${index === 0 ? 'is-active' : ''}" data-dot="${index}" aria-label="slide ${index + 1}"></button>
-    `,
-  ).join('')
-
-const renderProducts = () =>
-  PRODUCTS.map(
-    (product) => `
-      <article class="product-card reveal">
-        <div class="product-card__media">
-          <img src="${product.image}" alt="${product.name}" loading="lazy" />
-          <span class="product-card__badge">${product.badge}</span>
+      <div class="product-body">
+        <div class="product-meta">
+          <span>${product.volume}</span>
+          <span>${product.price}</span>
         </div>
-        <div class="product-card__body">
-          <div class="product-card__meta">
-            <span>${product.volume}</span>
-            <span>${product.price}</span>
-          </div>
-          <h3>${product.name}</h3>
-          <p class="product-card__subtitle">${product.subtitle}</p>
-          <div class="product-card__actions">
-            <button class="btn btn-dark js-open-product" data-product-id="${product.id}" type="button">상세 보기</button>
-            <a class="btn btn-line" href="${product.buyLink}" target="_blank" rel="noreferrer">스마트스토어 구매</a>
-          </div>
+
+        <h3>${product.name}</h3>
+        <p class="product-subtitle">${product.subtitle}</p>
+        <p class="product-description">${product.description}</p>
+
+        <div class="feature-tags">
+          ${product.features.map((feature) => `<span>${feature}</span>`).join('')}
         </div>
-      </article>
-    `,
-  ).join('')
 
-const renderReviews = () =>
-  REVIEWS.map(
-    (review) => `
-      <article class="review-card reveal">
-        <div class="review-card__stars">★★★★★</div>
-        <h3>${review.title}</h3>
-        <p>${review.body}</p>
-      </article>
-    `,
-  ).join('')
+        <ul class="product-notes">
+          ${product.notes.map((note) => `<li>${note}</li>`).join('')}
+        </ul>
 
-const renderSignatures = () =>
-  SIGNATURES.map(
-    (item) => `
-      <article class="signature-card reveal">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" />
-        <div class="signature-card__copy">
-          <p class="eyebrow">${item.number}</p>
-          <h3>${item.title}</h3>
-          <p>${item.body}</p>
+        <div class="product-actions">
+          <a class="btn btn-gold" href="${product.buyLink}" target="_blank" rel="noreferrer">스마트스토어 구매</a>
+          <a class="btn btn-line" href="#purchase">구매 안내 보기</a>
         </div>
-      </article>
-    `,
-  ).join('')
+      </div>
+    </article>
+  `,
+).join('')
 
-const renderLookbooks = () =>
-  LOOKBOOK.map(
-    (item) => `
-      <article class="lookbook-card reveal">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" />
-        <div class="lookbook-card__overlay">
-          <p class="eyebrow">LOOKBOOK</p>
-          <h3>${item.title}</h3>
-          <p>${item.body}</p>
-        </div>
-      </article>
-    `,
-  ).join('')
+const reviewCards = REVIEWS.map(
+  (review) => `
+    <article class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3>${review.title}</h3>
+      <p>${review.body}</p>
+      <span>${review.author}</span>
+    </article>
+  `,
+).join('')
 
-const renderFaqs = () =>
-  FAQS.map(
-    (item) => `
-      <details class="faq-item reveal">
-        <summary>${item.q}</summary>
-        <p>${item.a}</p>
-      </details>
-    `,
-  ).join('')
+const faqItems = FAQS.map(
+  (faq, index) => `
+    <details class="faq-item" ${index === 0 ? 'open' : ''}>
+      <summary>${faq.q}</summary>
+      <p>${faq.a}</p>
+    </details>
+  `,
+).join('')
 
 app.get('/', (c) => {
-  const heroSlidesJson = safeJson(HERO_SLIDES)
-  const productsJson = safeJson(PRODUCTS)
-
   return c.html(`<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -274,128 +181,50 @@ app.get('/', (c) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${SITE.title}</title>
   <meta name="description" content="${SITE.description}" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="${SITE.title}" />
+  <meta property="og:description" content="${SITE.description}" />
+  <meta property="og:image" content="${ASSETS.heroMain}" />
+  <meta name="theme-color" content="#f5f1ea" />
   <style>
     :root {
-      --bg: #f7f1ea;
-      --bg-soft: #fcf8f4;
-      --card: rgba(255,255,255,0.84);
-      --line: rgba(32, 24, 18, 0.08);
-      --line-strong: rgba(32, 24, 18, 0.16);
-      --text: #1f1a17;
-      --muted: #6f635a;
-      --accent: #b7926e;
-      --accent-deep: #8f6b49;
-      --dark: #171311;
-      --gold-grad: linear-gradient(135deg, #c9a57c 0%, #8f6b49 100%);
-      --green-grad: linear-gradient(135deg, #03c75a 0%, #00b050 100%);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --shadow: 0 24px 70px rgba(31, 22, 16, 0.08);
-      --container: 1200px;
+      --bg: #f6f1ea;
+      --bg-soft: #fbf8f4;
+      --surface: rgba(255,255,255,0.78);
+      --surface-strong: rgba(255,255,255,0.92);
+      --text: #191714;
+      --muted: #6b6258;
+      --line: rgba(25, 23, 20, 0.09);
+      --gold: #a7814b;
+      --gold-dark: #8e6b3c;
+      --green: #1f8f57;
+      --shadow: 0 20px 60px rgba(30, 24, 18, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --container: 1180px;
+      --header-h: 76px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      overflow-x: hidden;
+      font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(183,146,110,0.14), transparent 28%),
-        linear-gradient(180deg, #f9f5f0 0%, #f5efe8 48%, #f8f3ee 100%);
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), rgba(255,255,255,0) 28%),
+        linear-gradient(180deg, #f8f3ed 0%, #f5f1ea 38%, #f3eee7 100%);
+      line-height: 1.55;
+      word-break: keep-all;
     }
 
     img { display: block; width: 100%; }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
-    .container { width: min(calc(100% - 32px), var(--container)); margin: 0 auto; }
-    section[id] { scroll-margin-top: 96px; }
-
-    .section { padding: 96px 0; }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      font-size: 11px;
-      line-height: 1.2;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-deep);
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2,
-    .hero-copy h1,
-    .split-copy h3,
-    .review-banner h2,
-    .purchase-panel h2,
-    .product-modal__title,
-    .smart-popup h3,
-    .hero-stage__card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      letter-spacing: -0.03em;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(30px, 4.4vw, 54px);
-      line-height: 0.98;
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 560px;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 50px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-gold {
-      background: var(--gold-grad);
-      color: #fff;
-      box-shadow: 0 14px 34px rgba(143, 107, 73, 0.22);
-    }
-
-    .btn-dark {
-      background: var(--dark);
-      color: #fff;
-    }
-
-    .btn-line {
-      background: rgba(255,255,255,0.58);
-      border-color: var(--line-strong);
-      color: var(--text);
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
     }
 
     .site-header {
@@ -403,551 +232,589 @@ app.get('/', (c) => {
       top: 0;
       z-index: 40;
       backdrop-filter: blur(18px);
-      background: rgba(249, 245, 240, 0.76);
-      border-bottom: 1px solid rgba(31, 26, 23, 0.06);
+      background: rgba(246,241,234,0.78);
+      border-bottom: 1px solid rgba(25,23,20,0.06);
     }
 
-    .site-header__inner {
-      height: 74px;
+    .header-inner {
+      min-height: var(--header-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-    }
-
-    .site-brand img {
-      width: 116px;
-      height: auto;
-    }
-
-    .site-nav {
-      display: flex;
       gap: 20px;
-      color: var(--muted);
-      font-size: 13px;
     }
 
-    .site-nav a:hover { color: var(--text); }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-    .site-actions {
+    .brand img {
+      width: 126px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 24px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: #4b443c;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #171411;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .hero {
-      padding: 24px 0 60px;
+      padding: 32px 0 24px;
     }
 
-    .hero-shell {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 0.94fr 1.06fr;
+      grid-template-columns: 1.02fr 1.18fr;
       gap: 22px;
       align-items: stretch;
     }
 
-    .hero-copy,
-    .hero-stage,
-    .glass-card,
-    .split-copy,
-    .review-banner,
-    .purchase-panel {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
     .hero-copy {
-      min-height: 640px;
-      padding: clamp(24px, 3.6vw, 48px);
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(255,255,255,0.68);
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.72));
+      border: 1px solid rgba(25,23,20,0.07);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 36px 34px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-height: 620px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: rgba(25,23,20,0.24);
     }
 
     .hero-copy h1 {
-      margin: 0 0 14px;
-      font-size: clamp(42px, 6vw, 82px);
-      line-height: 0.94;
+      margin: 0;
+      font-size: clamp(34px, 4.6vw, 62px);
+      line-height: 1.02;
       letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .hero-copy h1 span {
+      display: block;
     }
 
     .hero-description {
-      max-width: 44ch;
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--muted);
+      margin: 20px 0 0;
+      max-width: 560px;
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.72;
+      color: #4d463d;
     }
 
     .hero-actions {
+      margin-top: 28px;
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      gap: 12px;
+    }
+
+    .btn {
+      height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(167,129,75,0.22);
+    }
+
+    .btn-gold:hover { background: var(--gold-dark); }
+
+    .btn-dark {
+      background: #171411;
+      color: #fff;
+    }
+
+    .btn-line {
+      background: transparent;
+      color: #171411;
+      border-color: rgba(23,20,17,0.16);
     }
 
     .hero-proof {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
       margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .hero-proof__item {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.54);
+      padding: 16px 16px 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(25,23,20,0.06);
     }
 
     .hero-proof__item strong {
       display: block;
+      font-size: 14px;
       margin-bottom: 6px;
-      font-size: 18px;
     }
 
     .hero-proof__item span {
-      color: var(--muted);
+      display: block;
       font-size: 13px;
       line-height: 1.55;
+      color: var(--muted);
     }
 
-    .hero-stage {
+    .hero-visual {
       position: relative;
-      min-height: 640px;
-      background: #ddd;
+      min-height: 620px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #ddd2c8;
     }
 
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity .8s ease;
-    }
-
-    .hero-slide.is-active { opacity: 1; }
-
-    .hero-slide img {
+    .hero-visual img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 18%;
+      object-position: center 44%;
+      transform: scale(1.01);
     }
 
-    .hero-stage__overlay {
+    .hero-visual-card {
       position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      align-items: end;
-      padding: 20px;
-      background: linear-gradient(180deg, rgba(20,16,14,0.04) 0%, rgba(20,16,14,0.36) 100%);
-    }
-
-    .hero-stage__card {
-      max-width: 320px;
-      padding: 18px 18px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.24);
-      backdrop-filter: blur(12px);
-      color: #fff;
-    }
-
-    .hero-stage__card h3 {
-      margin: 4px 0 6px;
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    .hero-stage__card p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.55;
-      color: rgba(255,255,255,0.88);
-    }
-
-    .hero-dots {
-      display: flex;
-      gap: 7px;
-      margin-top: 14px;
-    }
-
-    .hero-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: 0;
-      cursor: pointer;
-      background: rgba(255,255,255,0.42);
-    }
-
-    .hero-dot.is-active {
-      background: #fff;
-      transform: scale(1.08);
-    }
-
-    .trust-strip {
-      margin-top: 18px;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .hero-visual-note,
+    .hero-visual-points {
+      border-radius: 22px;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.45);
+      padding: 18px 18px 16px;
+    }
+
+    .hero-visual-note small,
+    .hero-visual-points small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-visual-note h2 {
+      margin: 0;
+      font-size: clamp(20px, 2vw, 28px);
+      line-height: 1.12;
+    }
+
+    .hero-visual-note p,
+    .hero-visual-points p {
+      margin: 10px 0 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #504941;
+    }
+
+    .hero-visual-points ul {
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-visual-points li {
+      font-size: 13px;
+      color: #413b34;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-visual-points li::before {
+      content: "•";
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #544d45;
+    }
+
+    .about-grid,
+    .purchase-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .about-copy,
+    .purchase-copy {
+      background: rgba(255,255,255,0.64);
+      border: 1px solid rgba(25,23,20,0.06);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy h3,
+    .purchase-copy h3 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 2.5vw, 36px);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .about-copy p,
+    .purchase-copy p {
+      margin: 0;
+      font-size: 15px;
+      color: #564f47;
+      line-height: 1.8;
+    }
+
+    .about-points,
+    .purchase-points {
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+      display: grid;
       gap: 12px;
     }
 
-    .trust-box {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.68);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .trust-box strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-
-    .trust-box span {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .split-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .glass-card {
+    .about-points li,
+    .purchase-points li {
+      padding: 14px 16px;
+      border-radius: 16px;
       background: rgba(255,255,255,0.78);
-      border: 1px solid var(--line);
-    }
-
-    .split-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      object-fit: cover;
-      object-position: center 18%;
-    }
-
-    .split-copy {
-      padding: 36px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .split-copy h3 {
-      margin: 0 0 12px;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 0.98;
-    }
-
-    .split-copy p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.75;
+      border: 1px solid rgba(25,23,20,0.06);
+      color: #453f38;
       font-size: 14px;
     }
 
-    .products-grid,
-    .reviews-grid,
-    .signature-grid,
-    .lookbook-grid {
-      display: grid;
-      gap: 18px;
+    .image-panel {
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      min-height: 560px;
+      background: #e7ddd2;
+    }
+
+    .image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .products-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .product-card {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .product-card__media {
-      position: relative;
-      aspect-ratio: 1 / 1.08;
-      overflow: hidden;
-    }
-
-    .product-card__media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      transition: transform .45s ease;
-    }
-
-    .product-card:hover .product-card__media img {
-      transform: scale(1.03);
-    }
-
-    .product-card__badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.94);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .product-card__body {
-      padding: 22px;
-    }
-
-    .product-card__meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .product-card h3 {
-      margin: 0 0 8px;
-      font-size: clamp(26px, 2.6vw, 32px);
-      line-height: 1;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .product-card__subtitle {
-      margin: 0 0 18px;
-      min-height: 48px;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .product-card__actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .inline-cta {
-      margin-top: 18px;
-      padding: 20px 22px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(201,165,124,0.14), rgba(255,255,255,0.86));
-      border: 1px solid rgba(143,107,73,0.14);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .inline-cta strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 16px;
-    }
-
-    .inline-cta span {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 14px;
-    }
-
-    .review-banner {
-      padding: 28px;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, rgba(23,19,17,0.96), rgba(58,42,28,0.94));
-      color: #fff;
-    }
-
-    .review-banner h2 {
-      margin: 8px 0 10px;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 0.98;
-    }
-
-    .review-banner p {
-      margin: 0;
-      max-width: 720px;
-      color: rgba(255,255,255,0.84);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .reviews-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .review-card {
-      padding: 24px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .review-card__stars {
-      margin-bottom: 14px;
-      color: #b98c50;
-      letter-spacing: 0.12em;
-      font-size: 13px;
-    }
-
-    .review-card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.2;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .review-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .signature-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .signature-card {
-      position: relative;
-      min-height: 500px;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .signature-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 18%;
-    }
-
-    .signature-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.36));
-    }
-
-    .signature-card__copy {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2;
-      color: #fff;
-    }
-
-    .signature-card__copy h3 {
-      margin: 6px 0 8px;
-      font-size: 26px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .signature-card__copy p {
-      margin: 0;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.84);
-      font-size: 14px;
-    }
-
-    .lookbook-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .lookbook-card {
-      position: relative;
-      min-height: 420px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .lookbook-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 18%;
-    }
-
-    .lookbook-card__overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 22px;
-      color: #fff;
-      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.62) 100%);
-    }
-
-    .lookbook-card__overlay h3 {
-      margin: 6px 0 8px;
-      font-size: 24px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .lookbook-card__overlay p {
-      margin: 0;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.84);
-      font-size: 14px;
-    }
-
-    .purchase-layout {
       display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .purchase-panel {
-      padding: 36px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
+    .product-card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(25,23,20,0.06);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
-    .purchase-panel h2 {
-      margin: 8px 0 12px;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 0.98;
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1.08;
+      overflow: hidden;
+      background: #e6ddd3;
     }
 
-    .purchase-panel p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.75;
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.03);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(25,23,20,0.08);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #3f392f;
+    }
+
+    .product-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    .purchase-actions {
+    .product-body h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .product-subtitle {
+      margin: 10px 0 0;
+      font-size: 15px;
+      color: #453f38;
+    }
+
+    .product-description {
+      margin: 14px 0 0;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #5d564d;
+    }
+
+    .feature-tags {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feature-tags span {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(25,23,20,0.06);
+      font-size: 13px;
+      color: #433d35;
+    }
+
+    .product-notes {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: #5c554d;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .product-actions {
+      margin-top: auto;
+      padding-top: 18px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .purchase-checks {
+    .reviews-grid {
       display: grid;
-      gap: 8px;
-      margin-top: 18px;
-      color: var(--muted);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(25,23,20,0.06);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .review-stars {
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .review-card h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .review-card p {
+      margin: 12px 0 0;
       font-size: 14px;
+      line-height: 1.75;
+      color: #564f47;
+    }
+
+    .review-card span {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .signature-grid,
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .visual-card {
+      overflow: hidden;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(25,23,20,0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-card img {
+      aspect-ratio: 0.95 / 1.15;
+      object-fit: cover;
+    }
+
+    .visual-body {
+      padding: 18px 18px 20px;
+    }
+
+    .visual-index {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .visual-body h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .visual-body p {
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #564f47;
+      line-height: 1.7;
+    }
+
+    .purchase-copy .purchase-actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .faq-list {
@@ -956,461 +823,418 @@ app.get('/', (c) => {
     }
 
     .faq-item {
-      padding: 20px 22px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(25,23,20,0.06);
+      border-radius: 18px;
+      padding: 0 18px;
       box-shadow: var(--shadow);
     }
 
     .faq-item summary {
       list-style: none;
       cursor: pointer;
-      font-weight: 800;
-      line-height: 1.5;
-      font-size: 14px;
+      padding: 18px 0;
+      font-weight: 700;
+      font-size: 16px;
+      position: relative;
+      padding-right: 28px;
     }
 
-    .faq-item summary::-webkit-details-marker {
-      display: none;
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 18px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .faq-item[open] summary::after {
+      content: "–";
     }
 
     .faq-item p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      line-height: 1.75;
+      margin: 0;
+      padding: 0 0 18px;
       font-size: 14px;
+      color: #5b544c;
+      line-height: 1.8;
     }
 
     .site-footer {
-      padding: 32px 0 110px;
-      color: var(--muted);
+      padding: 40px 0 96px;
+      color: #675f57;
     }
 
-    .site-footer__inner {
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
+    .footer-box {
+      border-top: 1px solid rgba(25,23,20,0.08);
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .smart-fab {
       position: fixed;
       right: 24px;
       bottom: 28px;
-      z-index: 56;
+      z-index: 60;
       display: inline-flex;
       align-items: center;
       gap: 12px;
       padding: 14px 18px 14px 14px;
       border-radius: 999px;
-      background: var(--green-grad);
+      background: var(--green);
       color: #fff;
-      box-shadow: 0 18px 40px rgba(3,199,90,0.28);
-      font-weight: 800;
-      transition: transform .24s ease, box-shadow .24s ease;
+      box-shadow: 0 18px 36px rgba(31,143,87,0.28);
+      border: 0;
     }
 
     .smart-fab:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 50px rgba(3,199,90,0.34);
+      transform: translateY(-1px);
     }
 
     .smart-fab__icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.16);
+      font-weight: 800;
       font-size: 18px;
-      position: relative;
-      z-index: 1;
+      flex: 0 0 auto;
     }
 
     .smart-fab__text {
       display: flex;
       flex-direction: column;
-      line-height: 1.08;
-      position: relative;
-      z-index: 1;
+      line-height: 1.1;
     }
 
-    .smart-fab__text small {
-      font-size: 11px;
+    .smart-fab__text strong {
+      font-size: 14px;
+    }
+
+    .smart-fab__text span {
+      margin-top: 4px;
+      font-size: 12px;
       opacity: 0.9;
-      margin-bottom: 4px;
     }
 
-    .smart-fab__pulse {
+    .smart-fab::after {
+      content: "";
       position: absolute;
-      inset: -6px;
-      border-radius: 999px;
-      border: 1px solid rgba(3,199,90,0.36);
-      animation: smartPulse 2.2s infinite;
-      pointer-events: none;
+      inset: -4px;
+      border-radius: inherit;
+      border: 1px solid rgba(31,143,87,0.25);
+      animation: pulseFab 2s infinite;
     }
 
-    @keyframes smartPulse {
-      0% { transform: scale(0.96); opacity: 0.82; }
-      70% { transform: scale(1.08); opacity: 0; }
-      100% { transform: scale(1.08); opacity: 0; }
+    @keyframes pulseFab {
+      0% { transform: scale(1); opacity: 0.9; }
+      70% { transform: scale(1.04); opacity: 0; }
+      100% { transform: scale(1.06); opacity: 0; }
     }
 
     .smart-popup {
       position: fixed;
       right: 24px;
-      bottom: 108px;
-      z-index: 57;
-      width: min(340px, calc(100vw - 28px));
-      padding: 18px 18px 16px;
-      border-radius: 22px;
+      bottom: 106px;
+      z-index: 70;
+      width: min(360px, calc(100vw - 32px));
+      padding: 22px;
+      border-radius: 24px;
       background: rgba(255,255,255,0.96);
-      border: 1px solid rgba(31,26,23,0.08);
-      box-shadow: 0 24px 60px rgba(20,16,14,0.14);
-      backdrop-filter: blur(14px);
-      opacity: 0;
-      transform: translateY(12px);
-      pointer-events: none;
-      transition: opacity .28s ease, transform .28s ease;
+      border: 1px solid rgba(25,23,20,0.08);
+      box-shadow: 0 24px 60px rgba(26,22,18,0.16);
+      display: none;
     }
 
     .smart-popup.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+      display: block;
+      animation: popupUp 0.25s ease;
     }
 
-    .smart-popup__close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(20,16,14,0.06);
-      cursor: pointer;
+    @keyframes popupUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .smart-popup__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .smart-popup__eyebrow {
-      margin: 0 0 8px;
       font-size: 11px;
-      font-weight: 800;
-      color: #03c75a;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
     .smart-popup h3 {
-      margin: 0 0 8px;
-      font-size: 28px;
-      line-height: 0.98;
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
     }
 
     .smart-popup p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
+      margin: 12px 0 0;
       font-size: 14px;
+      line-height: 1.7;
+      color: #554e46;
+    }
+
+    .smart-popup__close {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(25,23,20,0.08);
+      background: #fff;
+      font-size: 20px;
+      line-height: 1;
+      color: #5c554d;
+      cursor: pointer;
+      flex: 0 0 auto;
     }
 
     .smart-popup__actions {
+      margin-top: 18px;
       display: flex;
       gap: 10px;
-      margin-top: 14px;
       flex-wrap: wrap;
+    }
+
+    .smart-popup__meta {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .sticky-buy {
-      display: none;
-    }
-
-    .modal {
       position: fixed;
-      inset: 0;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
       z-index: 70;
       display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(25,23,20,0.08);
+      box-shadow: 0 16px 36px rgba(22,18,14,0.12);
     }
 
-    .modal.is-open { display: flex; }
-
-    .modal__backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.48);
-    }
-
-    .modal__panel {
-      position: relative;
-      z-index: 1;
-      width: min(920px, 100%);
-      max-height: calc(100vh - 40px);
-      overflow: auto;
-      border-radius: 28px;
-      background: #fff;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.24);
-    }
-
-    .modal__close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 2;
-      width: 42px;
-      height: 42px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(20,16,14,0.08);
-      cursor: pointer;
-    }
-
-    .product-modal {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .product-modal__media img {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      object-fit: cover;
-      object-position: center 18%;
-    }
-
-    .product-modal__body {
-      padding: 34px 30px 30px;
-    }
-
-    .product-modal__eyebrow {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-deep);
-    }
-
-    .product-modal__title {
-      margin: 10px 0 10px;
-      font-size: 44px;
-      line-height: 0.95;
-    }
-
-    .product-modal__price {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-      color: var(--muted);
+    .sticky-buy .btn {
+      flex: 1;
+      height: 48px;
+      padding: 0 12px;
       font-size: 14px;
     }
 
-    .product-modal__desc {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .chip-label {
-      margin: 0 0 10px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent-deep);
-    }
-
-    .chip-list {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .chip {
-      padding: 9px 13px;
-      border-radius: 999px;
-      background: #f5efe7;
-      color: #6b5948;
-      font-size: 13px;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1120px) {
-      .hero-shell,
-      .split-layout,
-      .purchase-layout,
-      .product-modal {
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .purchase-grid {
         grid-template-columns: 1fr;
       }
 
-      .products-grid,
-      .reviews-grid,
-      .signature-grid,
-      .lookbook-grid,
-      .trust-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .hero-copy,
-      .hero-stage {
+      .hero-visual,
+      .image-panel {
         min-height: auto;
       }
 
-      .hero-stage {
-        min-height: 560px;
+      .hero-visual {
+        min-height: 540px;
       }
 
-      .split-visual img,
-      .product-modal__media img {
-        min-height: 360px;
+      .reviews-grid,
+      .signature-grid,
+      .lookbook-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 760px) {
-      .site-nav {
+      :root {
+        --header-h: 66px;
+      }
+
+      .container {
+        width: min(calc(100% - 20px), var(--container));
+      }
+
+      .site-header {
+        background: rgba(246,241,234,0.94);
+      }
+
+      .header-inner {
+        min-height: var(--header-h);
+      }
+
+      .brand img {
+        width: 102px;
+      }
+
+      .brand-text,
+      .nav {
         display: none;
       }
 
-      .site-actions .btn-line {
-        display: none;
-      }
-
-      .site-header__inner {
-        height: 68px;
-      }
-
-      .site-brand img {
-        width: 96px;
-      }
-
-      .section {
-        padding: 76px 0;
+      .header-cta {
+        height: 40px;
+        padding: 0 14px;
+        font-size: 13px;
       }
 
       .hero {
-        padding: 16px 0 44px;
+        padding: 14px 0 8px;
       }
 
-      .hero-shell {
-        display: flex;
-        flex-direction: column;
+      .hero-grid {
+        gap: 12px;
       }
 
-      .hero-stage {
-        order: 1;
-        min-height: auto;
-        aspect-ratio: 4 / 5;
-        border-radius: 26px;
-        overflow: hidden;
+      .hero-visual {
+        min-height: 52vh;
+        border-radius: 22px;
+        order: -1;
+      }
+
+      .hero-visual img {
+        object-position: center 42%;
+      }
+
+      .hero-visual-card {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-visual-note,
+      .hero-visual-points {
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .hero-visual-note h2 {
+        font-size: 18px;
+      }
+
+      .hero-visual-note p,
+      .hero-visual-points p,
+      .hero-visual-points li {
+        font-size: 12px;
       }
 
       .hero-copy {
-        order: 2;
         min-height: auto;
-        padding: 24px;
-        border-radius: 26px;
+        padding: 22px 18px 18px;
+        border-radius: 22px;
       }
 
       .hero-copy h1 {
-        font-size: 36px;
-        line-height: 1.02;
-        margin-bottom: 12px;
+        font-size: clamp(30px, 8.4vw, 42px);
       }
 
       .hero-description {
+        margin-top: 14px;
         font-size: 14px;
-        line-height: 1.7;
+        line-height: 1.72;
       }
 
-      .hero-actions,
-      .purchase-actions,
-      .product-card__actions {
-        flex-direction: column;
+      .hero-actions {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
-      .hero-actions .btn,
-      .purchase-actions .btn,
-      .product-card__actions .btn {
+      .hero-actions .btn {
         width: 100%;
       }
 
-      .hero-proof,
-      .trust-strip,
+      .hero-proof {
+        grid-template-columns: 1fr;
+        margin-top: 18px;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .section-head {
+        margin-bottom: 20px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(24px, 7vw, 34px);
+      }
+
+      .section-head p,
+      .about-copy p,
+      .purchase-copy p {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .about-copy,
+      .purchase-copy {
+        padding: 20px 18px;
+        border-radius: 22px;
+      }
+
+      .image-panel {
+        min-height: 420px;
+        border-radius: 22px;
+      }
+
       .products-grid,
       .reviews-grid,
       .signature-grid,
       .lookbook-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
 
-      .hero-slide img {
-        object-position: center 14%;
+      .product-card {
+        border-radius: 22px;
       }
 
-      .hero-stage__overlay {
-        padding: 12px;
+      .product-body {
+        padding: 18px;
       }
 
-      .hero-stage__card {
-        max-width: 250px;
-        padding: 14px 14px 12px;
-        border-radius: 18px;
+      .product-body h3 {
+        font-size: 24px;
       }
 
-      .hero-stage__card h3 {
-        font-size: 18px;
+      .product-actions {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
-      .hero-stage__card p {
-        font-size: 12px;
-        line-height: 1.5;
+      .visual-card {
+        border-radius: 20px;
       }
 
-      .section-head {
-        margin-bottom: 22px;
-      }
-
-      .section-head h2 {
-        font-size: 30px;
-      }
-
-      .split-copy,
-      .purchase-panel,
-      .review-banner {
-        padding: 24px;
-      }
-
-      .split-visual img,
-      .signature-card,
-      .lookbook-card {
-        min-height: 380px;
+      .visual-body {
+        padding: 16px 16px 18px;
       }
 
       .smart-fab,
@@ -1419,73 +1243,49 @@ app.get('/', (c) => {
       }
 
       .sticky-buy {
-        position: fixed;
-        left: 50%;
-        bottom: 10px;
-        transform: translateX(-50%);
-        width: calc(100% - 16px);
-        z-index: 60;
-        padding: 10px;
-        border-radius: 22px;
-        background: rgba(23,19,17,0.92);
-        box-shadow: 0 18px 46px rgba(0,0,0,0.2);
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        backdrop-filter: blur(16px);
-      }
-
-      .sticky-buy .btn {
-        width: 100%;
-      }
-
-      .product-modal__title {
-        font-size: 36px;
-      }
-
-      .product-modal__body {
-        padding: 28px 22px 24px;
       }
 
       .site-footer {
-        padding-bottom: 130px;
+        padding-bottom: 100px;
       }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="#top" class="site-brand" aria-label="${SITE.brand} home">
-        <img src="${ASSETS.logo}" alt="${SITE.brand}" />
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Soumé home">
+        <img src="${ASSETS.logo}" alt="Soumé logo" />
+        <span class="brand-text">Modern Luxury Clean Beauty</span>
       </a>
 
-      <nav class="site-nav">
-        <a href="#about">About</a>
+      <nav class="nav" aria-label="primary">
         <a href="#products">Products</a>
         <a href="#reviews">Reviews</a>
         <a href="#signature">Signature</a>
         <a href="#purchase">Purchase</a>
       </nav>
 
-      <div class="site-actions">
-        <a class="btn btn-line" href="#products">제품 보기</a>
-        <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어</a>
-      </div>
+      <a class="header-cta" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">
+        스마트스토어 바로가기
+      </a>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <section class="hero">
-      <div class="container hero-shell">
-        <div class="hero-copy">
-          <div>
-            <p class="eyebrow">${SITE.heroEyebrow}</p>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">${SITE.heroEyebrow}</div>
+
             <h1>
-              ${SITE.heroTitle1}<br />
-              ${SITE.heroTitle2}<br />
-              ${SITE.heroTitle3}
+              <span>${SITE.heroTitle1}</span>
+              <span>${SITE.heroTitle2}</span>
+              <span>${SITE.heroTitle3}</span>
             </h1>
+
             <p class="hero-description">${SITE.heroDescription}</p>
 
             <div class="hero-actions">
@@ -1497,52 +1297,36 @@ app.get('/', (c) => {
             <div class="hero-proof">
               <div class="hero-proof__item">
                 <strong>2 Signatures</strong>
-                <span>지금 가장 보여주기 좋은 두 제품만 선명하게.</span>
+                <span>Ocean Breeze와 Morning Haze 두 제품만 선명하게 집중.</span>
               </div>
               <div class="hero-proof__item">
                 <strong>Easy Choice</strong>
-                <span>Ocean Breeze와 Morning Haze 중 취향대로 고르기 쉽게.</span>
+                <span>처음 방문한 고객도 바로 비교하고 고를 수 있게 구성.</span>
               </div>
               <div class="hero-proof__item">
                 <strong>Fast Checkout</strong>
-                <span>복잡한 분기 없이 스마트스토어로 바로 연결.</span>
+                <span>메인 전환은 스마트스토어 한 곳으로 단순하게 연결.</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="hero-stage">
-          ${renderHeroSlides()}
-          <div class="hero-stage__overlay">
-            <div class="hero-stage__card">
-              <p class="eyebrow" id="heroEyebrow">Main Campaign</p>
-              <h3 id="heroTitle">Quiet Luxury</h3>
-              <p id="heroDesc">과하지 않지만 오래 남는 분위기. Soumé의 첫인상을 가장 선명하게 보여주는 장면.</p>
-              <div class="hero-dots">
-                ${renderHeroDots()}
+          <div class="hero-visual">
+            <img src="${ASSETS.heroMain}" alt="Soumé hero visual" />
+            <div class="hero-visual-card">
+              <div class="hero-visual-note">
+                <small>Main Campaign</small>
+                <h2>Quiet Luxury,<br />Made Simple</h2>
+                <p>보는 순간 무드가 정리되고, 클릭하는 순간 구매까지 이어지도록 설계한 첫 화면.</p>
+              </div>
+              <div class="hero-visual-points">
+                <small>Focus</small>
+                <ul>
+                  <li>이미지가 먼저 보이는 모바일 우선 구조</li>
+                  <li>텍스트는 짧게, CTA는 분명하게</li>
+                  <li>구매 전환은 스마트스토어로 집중</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="trust-strip">
-          <div class="trust-box">
-            <strong>구매 중심 구성</strong>
-            <span>브랜드 무드를 해치지 않으면서도 바로 선택할 수 있게 정리했습니다.</span>
-          </div>
-          <div class="trust-box">
-            <strong>두 제품 집중</strong>
-            <span>Ocean Breeze와 Morning Haze만 선명하게 보여줍니다.</span>
-          </div>
-          <div class="trust-box">
-            <strong>후기 보강</strong>
-            <span>구매 직전 신뢰를 더하는 후기 섹션을 중간에 배치했습니다.</span>
-          </div>
-          <div class="trust-box">
-            <strong>모바일 최적화</strong>
-            <span>작은 화면에서는 CTA를 단순화해 사진과 정보가 덜 겹치게 했습니다.</span>
           </div>
         </div>
       </div>
@@ -1551,31 +1335,31 @@ app.get('/', (c) => {
     <section class="section" id="about">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">About Soumé</p>
-            <h2>많이 보여주기보다<br />더 또렷하게 남도록</h2>
-          </div>
+          <div class="section-kicker">About Soumé</div>
+          <h2>많이 보여주기보다<br />더 또렷하게 남도록</h2>
           <p>
-            Soumé는 제품 수를 늘리기보다, 지금 가장 인상이 선명한 두 가지 시그니처에 집중합니다.
+            Soumé는 제품 수를 늘리기보다 지금 가장 인상이 선명한 두 가지 시그니처에 집중합니다.
             빠르게 이해되고, 더 쉽게 선택되고, 바로 구매까지 이어지도록 구성했습니다.
           </p>
         </div>
 
-        <div class="split-layout">
-          <div class="glass-card split-visual reveal">
-            <img src="${ASSETS.editorialMain}" alt="Soumé editorial visual" />
-          </div>
-          <div class="split-copy reveal">
-            <p class="eyebrow">Brand Direction</p>
+        <div class="about-grid">
+          <div class="about-copy">
             <h3>Ocean Breeze와 Morning Haze,<br />서로 다른 두 가지 무드</h3>
             <p>
               하나는 맑고 산뜻하게, 다른 하나는 부드럽고 차분하게.
-              두 제품만으로도 Soumé가 어떤 브랜드인지 충분히 느껴지도록 정리했습니다.
+              두 제품만으로도 브랜드가 어떤 인상을 남기고 싶은지 충분히 느껴지도록 정리했습니다.
             </p>
-            <div class="hero-actions">
-              <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 바로가기</a>
-              <a class="btn btn-line" href="#products">제품 보기</a>
-            </div>
+
+            <ul class="about-points">
+              <li>구매 중심 구성 — 브랜드 무드를 해치지 않으면서도 바로 선택 가능</li>
+              <li>두 제품 집중 — 첫 방문자도 선택 피로 없이 이해 가능</li>
+              <li>모바일 최적화 — 작은 화면에서도 사진이 먼저 보이도록 구조 조정</li>
+            </ul>
+          </div>
+
+          <div class="image-panel">
+            <img src="${ASSETS.editorialMain}" alt="Soumé editorial visual" />
           </div>
         </div>
       </div>
@@ -1584,10 +1368,8 @@ app.get('/', (c) => {
     <section class="section" id="products">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Best Sellers</p>
-            <h2>복잡하지 않게,<br />지금 필요한 두 제품만</h2>
-          </div>
+          <div class="section-kicker">Best Sellers</div>
+          <h2>복잡하지 않게,<br />지금 필요한 두 제품만</h2>
           <p>
             처음 방문한 고객도 바로 이해할 수 있도록 Ocean Breeze와 Morning Haze만 중심에 배치했습니다.
             비교는 쉽게, 구매는 더 빠르게 이어집니다.
@@ -1595,32 +1377,23 @@ app.get('/', (c) => {
         </div>
 
         <div class="products-grid">
-          ${renderProducts()}
-        </div>
-
-        <div class="inline-cta reveal">
-          <div>
-            <strong>첫 구매 추천 동선</strong>
-            <span>먼저 두 제품의 분위기를 비교하고, 상세 확인 후 바로 스마트스토어로 이동하는 흐름이 가장 빠릅니다.</span>
-          </div>
-          <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">두 제품 구매하러 가기</a>
+          ${productCards}
         </div>
       </div>
     </section>
 
     <section class="section" id="reviews">
       <div class="container">
-        <div class="review-banner reveal">
-          <p class="eyebrow">Customer Voice</p>
-          <h2>후기 한 줄이<br />구매 결정을 더 쉽게 만듭니다</h2>
+        <div class="section-head">
+          <div class="section-kicker">Reviews</div>
+          <h2>구매 직전의 신뢰를 만드는<br />실제 후기 톤</h2>
           <p>
-            실제 운영 시에는 스마트스토어 리뷰 문구로 교체하면 더 좋고,
-            지금은 후기 섹션의 위치와 밀도 자체를 전환 중심으로 정리해둔 상태입니다.
+            브랜드 무드만 예쁜 사이트보다, 구매 전 마지막 망설임을 줄여주는 후기 구조가 전환에 더 직접적으로 작동합니다.
           </p>
         </div>
 
         <div class="reviews-grid">
-          ${renderReviews()}
+          ${reviewCards}
         </div>
       </div>
     </section>
@@ -1628,36 +1401,81 @@ app.get('/', (c) => {
     <section class="section" id="signature">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Signature Visual</p>
-            <h2>제품보다 먼저 보이는 건<br />브랜드의 태도입니다</h2>
-          </div>
+          <div class="section-kicker">Signature Visual</div>
+          <h2>제품보다 먼저 보이는 건<br />브랜드의 태도입니다</h2>
           <p>
-            메인 컷, 사용감, 디테일 컷을 나눠 보여주면 단순 감성 이미지가 아니라
-            믿을 수 있는 브랜드라는 인상으로 이어집니다.
+            메인 컷, 사용감, 디테일 컷을 나눠 보여주면 단순 감성 이미지가 아니라 믿을 수 있는 브랜드라는 인상으로 이어집니다.
           </p>
         </div>
 
         <div class="signature-grid">
-          ${renderSignatures()}
+          <article class="visual-card">
+            <img src="${ASSETS.signatureMain}" alt="Signature Main" />
+            <div class="visual-body">
+              <div class="visual-index">01</div>
+              <h3>Signature Main</h3>
+              <p>브랜드의 첫인상을 정리하는 메인 컷.</p>
+            </div>
+          </article>
+
+          <article class="visual-card">
+            <img src="${ASSETS.signatureOpen}" alt="Signature Open" />
+            <div class="visual-body">
+              <div class="visual-index">02</div>
+              <h3>Signature Open</h3>
+              <p>제품 경험과 사용 장면을 자연스럽게 연결하는 이미지.</p>
+            </div>
+          </article>
+
+          <article class="visual-card">
+            <img src="${ASSETS.signatureDetail}" alt="Signature Detail" />
+            <div class="visual-body">
+              <div class="visual-index">03</div>
+              <h3>Signature Detail</h3>
+              <p>텍스처와 디테일을 보여줘 구매 전 신뢰감을 높이는 컷.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="lookbook">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Lookbook</p>
-            <h2>브랜드 무드를 유지한 채<br />구매 흐름을 끊지 않기</h2>
-          </div>
+          <div class="section-kicker">Lookbook</div>
+          <h2>브랜드 무드를 유지한 채<br />구매 흐름을 끊지 않기</h2>
           <p>
             룩북은 감성 장식용이 아니라 홈과 상품 인상 사이를 부드럽게 잇는 브릿지 역할을 합니다.
           </p>
         </div>
 
         <div class="lookbook-grid">
-          ${renderLookbooks()}
+          <article class="visual-card">
+            <img src="${ASSETS.lookbook01}" alt="Quiet Skin, Quiet Mood" />
+            <div class="visual-body">
+              <div class="visual-index">Lookbook</div>
+              <h3>Quiet Skin, Quiet Mood</h3>
+              <p>첫 인상을 정리하는 차분한 톤의 룩북 컷.</p>
+            </div>
+          </article>
+
+          <article class="visual-card">
+            <img src="${ASSETS.lookbook02}" alt="Editorial Softness" />
+            <div class="visual-body">
+              <div class="visual-index">Lookbook</div>
+              <h3>Editorial Softness</h3>
+              <p>피부 위 질감과 조도를 부드럽게 보여주는 에디토리얼 장면.</p>
+            </div>
+          </article>
+
+          <article class="visual-card">
+            <img src="${ASSETS.lookbook03}" alt="Lasting Impression" />
+            <div class="visual-body">
+              <div class="visual-index">Lookbook</div>
+              <h3>Lasting Impression</h3>
+              <p>브랜드 홈페이지와 상세페이지를 자연스럽게 잇는 무드 컷.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1665,39 +1483,35 @@ app.get('/', (c) => {
     <section class="section" id="purchase">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Purchase Funnel</p>
-            <h2>결정은 간단하게,<br />구매는 더 빠르게</h2>
-          </div>
+          <div class="section-kicker">Purchase Funnel</div>
+          <h2>결정은 간단하게,<br />구매는 더 빠르게</h2>
           <p>
             제품 이해, 후기 확인, 브랜드 무드까지 충분히 본 뒤 마지막에는 하나의 구매 동선으로 정리합니다.
             메인 전환은 스마트스토어로 집중시키는 것이 가장 효율적입니다.
           </p>
         </div>
 
-        <div class="purchase-layout">
-          <div class="purchase-panel reveal">
-            <p class="eyebrow">Official Store CTA</p>
-            <h2>지금 가장 빠른 구매 동선</h2>
+        <div class="purchase-grid">
+          <div class="purchase-copy">
+            <h3>지금 가장 빠른 구매 동선</h3>
             <p>
               클릭 분산을 줄이기 위해 메인 구매 링크는 스마트스토어 한 곳으로 집중했습니다.
               첫 방문자도 고민 없이 바로 이동할 수 있도록 문구와 버튼을 단순하게 정리했습니다.
             </p>
 
-            <div class="purchase-actions">
-              <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 바로가기</a>
-              <a class="btn btn-dark" href="#products">제품 다시 보기</a>
-              <a class="btn btn-line" href="#reviews">후기 확인하기</a>
-            </div>
+            <ul class="purchase-points">
+              <li>상단 · 제품 카드 · 하단 CTA에 반복 배치</li>
+              <li>두 제품 비교 후 바로 구매로 이동 가능</li>
+              <li>모바일은 하단 고정 구매 바로 전환</li>
+            </ul>
 
-            <div class="purchase-checks">
-              <span>• 상단·중간·하단 CTA 반복 배치</span>
-              <span>• 상세 모달 → 스마트스토어 직행 흐름</span>
-              <span>• 모바일 하단 고정 구매 바 포함</span>
+            <div class="purchase-actions">
+              <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어에서 구매</a>
+              <a class="btn btn-line" href="#products">두 제품 다시 보기</a>
             </div>
           </div>
 
-          <div class="glass-card split-visual reveal">
+          <div class="image-panel">
             <img src="${ASSETS.campaign02}" alt="Soumé purchase visual" />
           </div>
         </div>
@@ -1707,30 +1521,25 @@ app.get('/', (c) => {
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">FAQ</p>
-            <h2>마지막 망설임을 줄이는<br />구매 전 질문</h2>
-          </div>
+          <div class="section-kicker">FAQ</div>
+          <h2>마지막 망설임을 줄이는<br />구매 전 질문</h2>
           <p>
             사용자가 결제 직전에 흔히 고민하는 질문을 먼저 정리해두면 구매 전환에 도움이 됩니다.
           </p>
         </div>
 
         <div class="faq-list">
-          ${renderFaqs()}
+          ${faqItems}
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div>
-        <strong>${SITE.brand}</strong>
-        <p>Quiet Luxury Body Ritual</p>
-      </div>
-      <div>
-        <p>© ${new Date().getFullYear()} ${SITE.brand}. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-box">
+        <div>© Soumé. Quiet Luxury Body Ritual.</div>
+        <div>Official purchase link → Smart Store</div>
       </div>
     </div>
   </footer>
@@ -1742,26 +1551,33 @@ app.get('/', (c) => {
     rel="noreferrer"
     aria-label="스마트스토어 바로가기"
   >
-    <span class="smart-fab__pulse"></span>
     <span class="smart-fab__icon">N</span>
     <span class="smart-fab__text">
-      <small>OFFICIAL STORE</small>
-      <strong>스마트스토어 가기</strong>
+      <strong>OFFICIAL STORE</strong>
+      <span>스마트스토어 가기</span>
     </span>
   </a>
 
   <div class="smart-popup" id="smartPopup" aria-hidden="true">
-    <button class="smart-popup__close" id="smartPopupClose" aria-label="닫기" type="button">✕</button>
-    <p class="smart-popup__eyebrow">Official Store</p>
-    <h3>Ocean Breeze와<br />Morning Haze를<br />바로 만나보세요</h3>
-    <p>
-      지금 Soumé의 메인 구매 동선은 스마트스토어로 연결되어 있습니다.
-      두 가지 시그니처 제품을 가장 빠르게 확인하고 구매할 수 있어요.
-    </p>
-    <div class="smart-popup__actions">
-      <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 가기</a>
-      <button class="btn btn-line" id="smartPopupDismiss" type="button">나중에 보기</button>
+    <div class="smart-popup__top">
+      <div>
+        <div class="smart-popup__eyebrow">Official Store</div>
+        <h3>지금 바로<br />구매하러 갈까요?</h3>
+      </div>
+      <button class="smart-popup__close" id="smartPopupClose" aria-label="팝업 닫기">×</button>
     </div>
+
+    <p>
+      Ocean Breeze와 Morning Haze를 가장 빠르게 구매할 수 있는 공식 동선입니다.
+      고민 없이 스마트스토어에서 바로 확인해보세요.
+    </p>
+
+    <div class="smart-popup__actions">
+      <a class="btn btn-gold" href="${LINKS.smartstore}" target="_blank" rel="noreferrer">스마트스토어 열기</a>
+      <button class="btn btn-line" id="smartPopupDismiss" type="button">오늘은 닫기</button>
+    </div>
+
+    <div class="smart-popup__meta">데스크톱에서만 표시됩니다.</div>
   </div>
 
   <div class="sticky-buy">
@@ -1769,152 +1585,53 @@ app.get('/', (c) => {
     <a class="btn btn-line" href="#products">두 제품 비교하기</a>
   </div>
 
-  <div class="modal" id="productModal" aria-hidden="true">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__panel">
-      <button class="modal__close" data-close-modal aria-label="닫기" type="button">✕</button>
-      <div class="product-modal" id="productModalContent"></div>
-    </div>
-  </div>
-
   <script>
-    const HERO_DATA = ${heroSlidesJson};
-    const PRODUCT_DATA = ${productsJson};
+    (function () {
+      var popup = document.getElementById('smartPopup');
+      var closeBtn = document.getElementById('smartPopupClose');
+      var dismissBtn = document.getElementById('smartPopupDismiss');
 
-    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
-    const heroDots = Array.from(document.querySelectorAll('.hero-dot'));
-    const heroEyebrow = document.getElementById('heroEyebrow');
-    const heroTitle = document.getElementById('heroTitle');
-    const heroDesc = document.getElementById('heroDesc');
+      if (!popup) return;
 
-    let currentSlide = 0;
-    let heroTimer = null;
+      var isMobile = window.matchMedia('(max-width: 760px)').matches;
+      if (isMobile) return;
 
-    function activateSlide(index) {
-      currentSlide = index;
+      var storageKey = 'soume-smart-popup-dismissed';
 
-      heroSlides.forEach((slide, i) => {
-        slide.classList.toggle('is-active', i === index);
-      });
+      function openPopup() {
+        if (sessionStorage.getItem(storageKey) === '1') return;
+        popup.classList.add('is-visible');
+        popup.setAttribute('aria-hidden', 'false');
+      }
 
-      heroDots.forEach((dot, i) => {
-        dot.classList.toggle('is-active', i === index);
-      });
+      function closePopup(save) {
+        popup.classList.remove('is-visible');
+        popup.setAttribute('aria-hidden', 'true');
+        if (save) {
+          sessionStorage.setItem(storageKey, '1');
+        }
+      }
 
-      const data = HERO_DATA[index];
-      if (heroEyebrow) heroEyebrow.textContent = data.eyebrow;
-      if (heroTitle) heroTitle.textContent = data.title;
-      if (heroDesc) heroDesc.textContent = data.desc;
-    }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          closePopup(false);
+        });
+      }
 
-    function startHeroAuto() {
-      if (heroTimer) clearInterval(heroTimer);
-      heroTimer = setInterval(() => {
-        const next = (currentSlide + 1) % HERO_DATA.length;
-        activateSlide(next);
-      }, 4600);
-    }
+      if (dismissBtn) {
+        dismissBtn.addEventListener('click', function () {
+          closePopup(true);
+        });
+      }
 
-    heroDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        activateSlide(index);
-        startHeroAuto();
-      });
-    });
-
-    activateSlide(0);
-    startHeroAuto();
-
-    const revealItems = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+      window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closePopup(false);
         }
       });
-    }, { threshold: 0.14 });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
-
-    const productModal = document.getElementById('productModal');
-    const productModalContent = document.getElementById('productModalContent');
-
-    function openModal(element) {
-      if (!element) return;
-      element.classList.add('is-open');
-      element.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(element) {
-      if (!element) return;
-      element.classList.remove('is-open');
-      element.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('[data-close-modal]').forEach((element) => {
-      element.addEventListener('click', () => closeModal(productModal));
-    });
-
-    function renderChips(items) {
-      return items.map((item) => '<span class="chip">' + item + '</span>').join('');
-    }
-
-    function renderProductModal(product) {
-      return \`
-        <div class="product-modal__media">
-          <img src="\${product.image}" alt="\${product.name}" />
-        </div>
-        <div class="product-modal__body">
-          <span class="product-modal__eyebrow">\${product.badge}</span>
-          <h3 class="product-modal__title">\${product.name}</h3>
-          <div class="product-modal__price">
-            <span>\${product.price}</span>
-            <span>\${product.volume}</span>
-          </div>
-          <p class="product-modal__desc">\${product.description}</p>
-
-          <p class="chip-label">Key Features</p>
-          <div class="chip-list">\${renderChips(product.features)}</div>
-
-          <p class="chip-label">Mood Notes</p>
-          <div class="chip-list">\${renderChips(product.notes)}</div>
-
-          <div class="modal-actions">
-            <a class="btn btn-gold" href="\${product.buyLink}" target="_blank" rel="noreferrer">스마트스토어 구매</a>
-            <button class="btn btn-line" type="button" data-close-inline>닫기</button>
-          </div>
-        </div>
-      \`;
-    }
-
-    document.querySelectorAll('.js-open-product').forEach((button) => {
-      button.addEventListener('click', () => {
-        const id = button.getAttribute('data-product-id');
-        const product = PRODUCT_DATA.find((item) => item.id === id);
-        if (!product || !productModalContent) return;
-
-        productModalContent.innerHTML = renderProductModal(product);
-
-        productModalContent.querySelectorAll('[data-close-inline]').forEach((element) => {
-          element.addEventListener('click', () => closeModal(productModal));
-        });
-
-        openModal(productModal);
-      });
-    });
-
-    const smartPopup = document.getElementById('smartPopup');
-    const smartPopupClose = document.getElementById('smartPopupClose');
-    const smartPopupDismiss = document.getElementById('smartPopupDismiss');
-
-    function showSmartPopup() {
-      if (!smartPopup) return;
-      if (window.innerWidth <= 760) return;
-      if (sessionStorage.getItem('soume-smart-popup-closed') === 'true') return;
-
-      setTimeout(()
+      window.setTimeout(openPopup, 1400);
+    })();
   </script>
 </body>
 </html>`)
