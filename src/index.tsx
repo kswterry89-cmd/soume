@@ -7,8 +7,7 @@ app.use('/static/*', serveStatic({ root: './public' }))
 
 /* =========================================================
    SOUMÉ OPERATING CONFIG
-   앞으로 자주 수정할 곳은 대부분 여기입니다.
-   이미지 파일만 바꾸면 되는 구조로 설계했습니다.
+   자주 수정할 곳은 대부분 여기입니다.
    ========================================================= */
 
 const SITE = {
@@ -22,8 +21,6 @@ const SITE = {
   heroTitle3: '본질',
   heroDescription:
     'Soumé는 더 많은 것을 더하지 않습니다. 불필요한 요소는 덜어내고, 피부에 필요한 경험만 남깁니다. 절제된 포뮬러와 세련된 오브제 감각으로 클린 뷰티를 한층 더 우아한 방식으로 다시 정의합니다.',
-  manifesto:
-    '클린함은 더 단순해야 하고, 럭셔리는 더 조용해야 한다.',
   aboutCopy:
     '이번 버전은 많은 요소를 한 화면에 나열하는 대신, 시선이 머무는 여백과 톤, 오브제 중심의 구성을 통해 브랜드의 태도가 먼저 보이도록 재정리했습니다. 이미지는 public 폴더에서 운영하고, 링크와 상품 데이터도 상단 설정 영역에서만 쉽게 바꿀 수 있도록 구조화했습니다.',
   philosophyTitle1: 'Less noise,',
@@ -143,8 +140,6 @@ const FILM = {
   externalLink: 'https://your-brand.com/brand-film'
 }
 
-/* ========================================================= */
-
 const escapeForScript = (value: unknown) =>
   JSON.stringify(value).replace(/</g, '\\u003c')
 
@@ -205,7 +200,6 @@ const renderLookbookCards = () =>
 
 app.get('/', (c) => {
   const productsJson = escapeForScript(PRODUCTS)
-  const filmJson = escapeForScript(FILM)
 
   return c.html(`<!DOCTYPE html>
 <html lang="ko">
@@ -236,11 +230,9 @@ app.get('/', (c) => {
       --accent: #8f7765;
       --accent-soft: #c8b7a6;
       --overlay: rgba(17,17,17,0.55);
-
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Inter', 'Noto Sans KR', sans-serif;
       --kr: 'Noto Sans KR', sans-serif;
-
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --max: 1440px;
     }
@@ -273,7 +265,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: var(--accent);
     }
-
     .eyebrow::before {
       content: '';
       width: 28px;
@@ -289,7 +280,6 @@ app.get('/', (c) => {
       font-weight: 400;
       letter-spacing: -0.04em;
     }
-
     .section-title em {
       font-style: italic;
       font-weight: 300;
@@ -319,7 +309,6 @@ app.get('/', (c) => {
       cursor: pointer;
       transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
     }
-
     .btn:hover { transform: translateY(-2px); }
 
     .btn-light {
@@ -327,7 +316,6 @@ app.get('/', (c) => {
       color: var(--ink);
       border-color: var(--line);
     }
-
     .btn-light:hover {
       background: var(--ink);
       color: var(--white);
@@ -336,15 +324,12 @@ app.get('/', (c) => {
 
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(252,249,244,0.8);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(17,17,17,0.08);
     }
-
     .nav-inner {
       width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
@@ -354,19 +339,16 @@ app.get('/', (c) => {
       justify-content: space-between;
       gap: 24px;
     }
-
     .nav-logo img {
       width: auto;
       height: 18px;
     }
-
     .nav-menu {
       display: flex;
       gap: 28px;
       list-style: none;
       align-items: center;
     }
-
     .nav-menu a {
       font-size: 11px;
       letter-spacing: 0.16em;
@@ -374,7 +356,6 @@ app.get('/', (c) => {
       color: rgba(17,17,17,0.72);
       transition: opacity 0.25s ease;
     }
-
     .nav-menu a:hover { opacity: 0.5; }
 
     .nav-actions {
@@ -382,7 +363,6 @@ app.get('/', (c) => {
       gap: 12px;
       align-items: center;
     }
-
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -407,7 +387,6 @@ app.get('/', (c) => {
       flex-direction: column;
       gap: 5px;
     }
-
     .nav-toggle span {
       width: 16px;
       height: 1.5px;
@@ -424,15 +403,12 @@ app.get('/', (c) => {
       display: none;
       padding: 100px 24px 32px;
     }
-
     .mobile-menu.open { display: block; }
-
     .mobile-menu-inner {
       display: flex;
       flex-direction: column;
       gap: 22px;
     }
-
     .mobile-menu a {
       font-family: var(--serif);
       font-size: 2rem;
@@ -445,7 +421,6 @@ app.get('/', (c) => {
       min-height: 100svh;
       background: linear-gradient(180deg, #f8f4ef 0%, #f2ece4 100%);
     }
-
     .hero-grid {
       width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
@@ -454,16 +429,13 @@ app.get('/', (c) => {
       grid-template-columns: 0.96fr 1.04fr;
       gap: 0;
     }
-
     .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: clamp(48px, 8vw, 96px) clamp(12px, 2vw, 28px) clamp(48px, 8vw, 96px) 0;
     }
-
     .hero-copy .eyebrow { margin-bottom: 22px; }
-
     .hero-title {
       font-family: var(--serif);
       font-size: clamp(3.1rem, 7vw, 7.2rem);
@@ -472,14 +444,12 @@ app.get('/', (c) => {
       letter-spacing: -0.05em;
       margin-bottom: 24px;
     }
-
     .hero-title em {
       display: block;
       font-style: italic;
       font-weight: 300;
       color: var(--accent);
     }
-
     .hero-text {
       max-width: 460px;
       font-family: var(--kr);
@@ -489,14 +459,12 @@ app.get('/', (c) => {
       color: var(--muted);
       margin-bottom: 34px;
     }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 42px;
     }
-
     .hero-meta {
       border-top: 1px solid var(--line);
       padding-top: 22px;
@@ -505,7 +473,6 @@ app.get('/', (c) => {
       gap: 18px;
       max-width: 560px;
     }
-
     .hero-meta small {
       display: block;
       margin-bottom: 8px;
@@ -514,7 +481,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: rgba(17,17,17,0.42);
     }
-
     .hero-meta span {
       display: block;
       font-size: 13px;
@@ -528,13 +494,11 @@ app.get('/', (c) => {
       background: #eadfd3;
       overflow: hidden;
     }
-
     .hero-visual > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .hero-badge {
       position: absolute;
       top: 28px;
@@ -544,7 +508,6 @@ app.get('/', (c) => {
       flex-direction: column;
       gap: 8px;
     }
-
     .hero-badge span {
       display: inline-flex;
       align-items: center;
@@ -558,7 +521,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: rgba(17,17,17,0.72);
     }
-
     .hero-badge span::before {
       content: '';
       width: 5px;
@@ -567,7 +529,6 @@ app.get('/', (c) => {
       background: var(--accent);
       flex-shrink: 0;
     }
-
     .hero-card {
       position: absolute;
       left: 32px;
@@ -579,7 +540,6 @@ app.get('/', (c) => {
       backdrop-filter: blur(12px);
       z-index: 2;
     }
-
     .hero-card small {
       display: block;
       margin-bottom: 10px;
@@ -588,7 +548,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: rgba(17,17,17,0.45);
     }
-
     .hero-card strong {
       display: block;
       font-family: var(--serif);
@@ -597,16 +556,13 @@ app.get('/', (c) => {
       margin-bottom: 8px;
       line-height: 1;
     }
-
     .hero-card p {
       font-size: 13px;
       line-height: 1.8;
       color: var(--muted);
     }
 
-    .section {
-      padding: 120px 0;
-    }
+    .section { padding: 120px 0; }
 
     .manifesto-grid,
     .signature-grid,
@@ -616,18 +572,15 @@ app.get('/', (c) => {
       gap: 36px;
       align-items: start;
     }
-
     .manifesto-grid {
       grid-template-columns: 1.1fr 0.9fr;
     }
-
     .manifesto-quote {
       font-family: var(--serif);
       font-size: clamp(2.1rem, 5vw, 4.8rem);
       line-height: 1.02;
       letter-spacing: -0.03em;
     }
-
     .manifesto-quote em {
       font-style: italic;
       font-weight: 300;
@@ -638,31 +591,25 @@ app.get('/', (c) => {
       background: var(--paper);
       padding-top: 0;
     }
-
     .signature-inner {
       border-top: 1px solid var(--line);
       padding-top: 28px;
     }
-
     .signature-grid {
       grid-template-columns: 0.72fr 1.28fr;
     }
-
     .signature-copy {
       position: sticky;
       top: 108px;
     }
-
     .signature-copy .section-title {
       margin: 16px 0 18px;
     }
-
     .signature-notes {
       display: grid;
       gap: 14px;
       margin: 26px 0 30px;
     }
-
     .signature-notes div {
       display: flex;
       justify-content: space-between;
@@ -673,7 +620,6 @@ app.get('/', (c) => {
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-
     .signature-notes div span:first-child {
       color: rgba(17,17,17,0.42);
     }
@@ -683,34 +629,27 @@ app.get('/', (c) => {
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-
     .asset-card {
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(17,17,17,0.05);
       background: #efe7dd;
     }
-
     .asset-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .asset-card.tall { aspect-ratio: 4 / 5.25; }
     .asset-card.square { aspect-ratio: 1 / 1; }
     .asset-card.wide { grid-column: 1 / -1; aspect-ratio: 16 / 8.5; }
-
     .asset-caption {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       padding: 16px 18px;
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(17,17,17,0.72) 100%);
       color: var(--white);
     }
-
     .asset-caption small {
       display: block;
       margin-bottom: 6px;
@@ -719,7 +658,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       opacity: 0.72;
     }
-
     .asset-caption strong {
       font-family: var(--serif);
       font-size: 16px;
@@ -732,7 +670,6 @@ app.get('/', (c) => {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-
     .products-head,
     .lookbook-head {
       display: grid;
@@ -740,33 +677,28 @@ app.get('/', (c) => {
       gap: 36px;
       margin-bottom: 34px;
     }
-
     .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
-
     .product-card {
       background: #f8f3ed;
       border: 1px solid rgba(17,17,17,0.06);
       display: flex;
       flex-direction: column;
     }
-
     .product-media {
       position: relative;
       aspect-ratio: 4 / 5;
       overflow: hidden;
       background: #ede3d7;
     }
-
     .product-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .product-badge {
       position: absolute;
       top: 14px;
@@ -778,7 +710,6 @@ app.get('/', (c) => {
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-
     .product-body {
       padding: 22px 20px 24px;
       display: flex;
@@ -786,21 +717,18 @@ app.get('/', (c) => {
       gap: 10px;
       flex: 1;
     }
-
     .product-body small {
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(17,17,17,0.42);
     }
-
     .product-body h3 {
       font-family: var(--serif);
       font-size: 32px;
       font-weight: 400;
       line-height: 1;
     }
-
     .product-subtitle {
       font-family: var(--kr);
       font-size: 14px;
@@ -808,7 +736,6 @@ app.get('/', (c) => {
       color: var(--muted);
       font-weight: 300;
     }
-
     .product-meta-row {
       display: flex;
       align-items: center;
@@ -817,7 +744,6 @@ app.get('/', (c) => {
       padding-top: 6px;
       font-size: 13px;
     }
-
     .product-actions {
       display: flex;
       gap: 10px;
@@ -829,35 +755,29 @@ app.get('/', (c) => {
     .lookbook {
       background: linear-gradient(180deg, #faf7f2 0%, #ffffff 100%);
     }
-
     .lookbook-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
-
     .lookbook-card {
       border: 1px solid rgba(17,17,17,0.06);
       background: #f6f0e9;
     }
-
     .lookbook-media {
       aspect-ratio: 4 / 5;
       overflow: hidden;
       background: #eadfd2;
     }
-
     .lookbook-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .lookbook-caption {
       padding: 18px 18px 20px;
       border-top: 1px solid rgba(17,17,17,0.06);
     }
-
     .lookbook-caption small {
       display: block;
       margin-bottom: 8px;
@@ -866,7 +786,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: rgba(17,17,17,0.42);
     }
-
     .lookbook-caption h3 {
       font-family: var(--serif);
       font-size: 28px;
@@ -880,20 +799,17 @@ app.get('/', (c) => {
       gap: 22px;
       align-items: stretch;
     }
-
     .philosophy-visual {
       min-height: 760px;
       overflow: hidden;
       background: #eadfd2;
       border: 1px solid rgba(17,17,17,0.05);
     }
-
     .philosophy-visual img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .philosophy-copy {
       background: var(--white);
       border: 1px solid var(--line);
@@ -903,16 +819,13 @@ app.get('/', (c) => {
       justify-content: space-between;
       gap: 34px;
     }
-
     .philosophy-copy .section-title {
       margin: 16px 0 18px;
     }
-
     .philosophy-points {
       display: grid;
       gap: 14px;
     }
-
     .philosophy-points li {
       list-style: none;
       border-top: 1px solid var(--line);
@@ -922,7 +835,6 @@ app.get('/', (c) => {
       gap: 12px;
       align-items: start;
     }
-
     .philosophy-points small {
       font-size: 10px;
       letter-spacing: 0.18em;
@@ -930,7 +842,6 @@ app.get('/', (c) => {
       color: rgba(17,17,17,0.42);
       padding-top: 3px;
     }
-
     .philosophy-points span {
       font-family: var(--kr);
       font-size: 14px;
@@ -942,12 +853,10 @@ app.get('/', (c) => {
     .film {
       background: var(--paper);
     }
-
     .film-grid {
       grid-template-columns: 1.05fr 0.95fr;
       align-items: stretch;
     }
-
     .film-player {
       position: relative;
       background: #111;
@@ -955,14 +864,12 @@ app.get('/', (c) => {
       aspect-ratio: 16 / 9;
       overflow: hidden;
     }
-
     .film-player video,
     .film-player img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .film-copy {
       border: 1px solid var(--line);
       background: var(--white);
@@ -972,11 +879,9 @@ app.get('/', (c) => {
       justify-content: space-between;
       gap: 28px;
     }
-
     .film-copy .section-title {
       margin: 16px 0 18px;
     }
-
     .film-actions {
       display: flex;
       flex-wrap: wrap;
@@ -987,22 +892,18 @@ app.get('/', (c) => {
       background: #111111;
       color: var(--white);
     }
-
     .newsletter-grid {
       grid-template-columns: 1fr auto;
       align-items: end;
       border-top: 1px solid rgba(255,255,255,0.12);
       padding-top: 26px;
     }
-
     .newsletter .eyebrow {
       color: #cab8a7;
     }
-
     .newsletter .eyebrow::before {
       background: #cab8a7;
     }
-
     .newsletter h2 {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 4.5vw, 4.7rem);
@@ -1011,7 +912,6 @@ app.get('/', (c) => {
       letter-spacing: -0.03em;
       margin: 16px 0 14px;
     }
-
     .newsletter p {
       max-width: 540px;
       font-family: var(--kr);
@@ -1020,13 +920,11 @@ app.get('/', (c) => {
       font-weight: 300;
       color: rgba(255,255,255,0.62);
     }
-
     .newsletter-form {
       display: flex;
       gap: 0;
       min-width: min(440px, 100%);
     }
-
     .newsletter-form input {
       flex: 1;
       height: 52px;
@@ -1037,11 +935,9 @@ app.get('/', (c) => {
       color: var(--white);
       outline: none;
     }
-
     .newsletter-form input::placeholder {
       color: rgba(255,255,255,0.45);
     }
-
     .newsletter-form button {
       width: 150px;
       border: 1px solid var(--white);
@@ -1058,7 +954,6 @@ app.get('/', (c) => {
       color: rgba(255,255,255,0.55);
       padding: 0 0 40px;
     }
-
     .footer-inner {
       width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
@@ -1070,14 +965,12 @@ app.get('/', (c) => {
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .footer-logo {
       width: auto;
       height: 16px;
       filter: invert(1);
       opacity: 0.95;
     }
-
     .footer-links {
       display: flex;
       gap: 18px;
@@ -1101,14 +994,12 @@ app.get('/', (c) => {
       text-align: center;
       padding: 24px;
     }
-
     .media-fallback strong {
       font-family: var(--serif);
       font-size: 28px;
       font-weight: 400;
       line-height: 1;
     }
-
     .media-fallback span {
       font-size: 11px;
       letter-spacing: 0.12em;
@@ -1121,7 +1012,6 @@ app.get('/', (c) => {
       transform: translateY(28px);
       transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
     }
-
     .reveal.in-view {
       opacity: 1;
       transform: translateY(0);
@@ -1133,18 +1023,15 @@ app.get('/', (c) => {
       z-index: 200;
       display: none;
     }
-
     .modal.open {
       display: block;
     }
-
     .modal-backdrop {
       position: absolute;
       inset: 0;
       background: rgba(17,17,17,0.52);
       backdrop-filter: blur(6px);
     }
-
     .modal-panel {
       position: relative;
       width: min(1120px, calc(100% - 32px));
@@ -1156,7 +1043,6 @@ app.get('/', (c) => {
       box-shadow: 0 30px 80px rgba(0,0,0,0.18);
       z-index: 1;
     }
-
     .modal-close {
       position: sticky;
       top: 0;
@@ -1174,43 +1060,36 @@ app.get('/', (c) => {
       cursor: pointer;
       font-size: 18px;
     }
-
     .modal-body {
       padding: 0 0 28px;
     }
-
     .modal-grid {
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
       gap: 28px;
       padding: 0 28px 0 28px;
     }
-
     .modal-gallery {
       display: grid;
       gap: 12px;
       padding-bottom: 28px;
     }
-
     .modal-main-media {
       aspect-ratio: 4 / 5;
       overflow: hidden;
       background: #eee3d7;
       border: 1px solid rgba(17,17,17,0.06);
     }
-
     .modal-main-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .modal-thumbs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
-
     .modal-thumb {
       aspect-ratio: 1 / 1;
       overflow: hidden;
@@ -1218,17 +1097,14 @@ app.get('/', (c) => {
       background: #f2e7db;
       cursor: pointer;
     }
-
     .modal-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .modal-info {
       padding: 4px 0 28px;
     }
-
     .modal-badge {
       display: inline-flex;
       margin-bottom: 14px;
@@ -1237,7 +1113,6 @@ app.get('/', (c) => {
       text-transform: uppercase;
       color: rgba(17,17,17,0.45);
     }
-
     .modal-title {
       font-family: var(--serif);
       font-size: clamp(2rem, 4vw, 3.6rem);
@@ -1245,7 +1120,6 @@ app.get('/', (c) => {
       line-height: 0.96;
       margin-bottom: 12px;
     }
-
     .modal-subtitle {
       font-family: var(--kr);
       font-size: 14px;
@@ -1254,7 +1128,6 @@ app.get('/', (c) => {
       font-weight: 300;
       margin-bottom: 20px;
     }
-
     .modal-meta {
       display: flex;
       gap: 18px;
@@ -1265,11 +1138,9 @@ app.get('/', (c) => {
       margin-bottom: 20px;
       font-size: 13px;
     }
-
     .modal-meta strong {
       font-weight: 500;
     }
-
     .modal-text {
       font-family: var(--kr);
       font-size: 14px;
@@ -1278,13 +1149,11 @@ app.get('/', (c) => {
       font-weight: 300;
       margin-bottom: 20px;
     }
-
     .modal-block {
       border-top: 1px solid var(--line);
       padding-top: 16px;
       margin-top: 16px;
     }
-
     .modal-block h4 {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -1293,20 +1162,17 @@ app.get('/', (c) => {
       margin-bottom: 12px;
       font-weight: 500;
     }
-
     .modal-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-
     .modal-tags span {
       padding: 8px 10px;
       border: 1px solid var(--line);
       font-size: 12px;
       background: #faf6f0;
     }
-
     .modal-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1326,7 +1192,6 @@ app.get('/', (c) => {
       .modal-grid {
         grid-template-columns: 1fr;
       }
-
       .signature-copy {
         position: static;
       }
@@ -1337,62 +1202,49 @@ app.get('/', (c) => {
       .nav-cta {
         display: none;
       }
-
       .nav-toggle {
         display: inline-flex;
       }
-
       .hero-grid {
         min-height: auto;
       }
-
       .hero-copy {
         padding: 46px 0 34px;
       }
-
       .hero-visual {
         min-height: 72vh;
       }
-
       .hero-meta {
         grid-template-columns: 1fr;
       }
-
       .hero-badge {
         top: 18px;
         right: 18px;
       }
-
       .signature-gallery,
       .products-grid,
       .lookbook-grid {
         grid-template-columns: 1fr;
       }
-
       .asset-card.wide {
         grid-column: auto;
         aspect-ratio: 4 / 5.25;
       }
-
       .philosophy-points li {
         grid-template-columns: 1fr;
         gap: 6px;
       }
-
       .newsletter-form {
         flex-direction: column;
       }
-
       .newsletter-form input {
         border-right: 1px solid rgba(255,255,255,0.18);
         border-bottom: none;
       }
-
       .newsletter-form button {
         width: 100%;
         height: 52px;
       }
-
       .modal-thumbs {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1405,26 +1257,22 @@ app.get('/', (c) => {
       .footer-inner {
         width: min(calc(100% - 24px), var(--max));
       }
-
       .hero-card {
         left: 18px;
         right: 18px;
         bottom: 18px;
         width: auto;
       }
-
       .hero-title,
       .section-title,
       .newsletter h2,
       .modal-title {
         line-height: 1.02;
       }
-
       .product-body h3,
       .lookbook-caption h3 {
         font-size: 26px;
       }
-
       .modal-grid {
         padding: 0 16px 0 16px;
       }
@@ -1532,7 +1380,7 @@ app.get('/', (c) => {
         <div class="reveal">
           <span class="eyebrow">Brand Manifesto</span>
           <h2 class="manifesto-quote">
-            ${SITE.manifesto.split('럭셔리는')[0]}<br />
+            클린함은 더 단순해야 하고,<br />
             럭셔리는 더 <em>조용해야 한다</em>.
           </h2>
         </div>
@@ -1634,8 +1482,8 @@ app.get('/', (c) => {
 
           <div class="reveal">
             <p class="section-copy">
-              상품 카드는 운영 편의성을 위해 데이터 배열 기반으로 렌더링됩니다.
-              상품명, 가격, 버튼 링크, 상세 모달 내용은 코드 상단 PRODUCTS 데이터만 수정하면 전체 페이지에 자동 반영됩니다.
+              상품 카드, 상세 모달, 구매 링크는 모두 PRODUCTS 데이터 기반으로 렌더링됩니다.
+              상품명, 가격, 이미지, 상세 설명, 구매 링크는 상단 PRODUCTS 배열만 수정하면 전체 페이지에 자동 반영됩니다.
             </p>
           </div>
         </div>
@@ -1656,8 +1504,8 @@ app.get('/', (c) => {
 
           <div class="reveal">
             <p class="section-copy">
-              룩북 섹션은 브랜드 캠페인, 룩북, 인물 화보 이미지를 시즌별로 교체하면서 운영하기 가장 좋은 구조입니다.
-              이미지 파일만 같은 이름으로 교체하면 코드 수정 없이 새 무드로 유지할 수 있습니다.
+              룩북 섹션은 브랜드 캠페인, 인물 화보, 무드컷을 시즌별로 교체하면서 운영하기 가장 좋은 구조입니다.
+              이미지 파일만 같은 이름으로 바꾸면 코드 수정 없이 새 비주얼을 반영할 수 있습니다.
             </p>
           </div>
         </div>
@@ -1817,7 +1665,6 @@ app.get('/', (c) => {
 
   <script>
     const PRODUCT_DATA = ${productsJson};
-    const FILM_DATA = ${filmJson};
 
     function subscribe(e) {
       e.preventDefault();
@@ -1840,7 +1687,7 @@ app.get('/', (c) => {
       if (ratio) wrapper.style.aspectRatio = ratio;
       wrapper.innerHTML =
         '<strong>' + label + '</strong>' +
-        '<span>Upload file to /public and keep path consistent</span>';
+        '<span>Check /public file path and filename</span>';
       return wrapper;
     }
 
@@ -1862,9 +1709,7 @@ app.get('/', (c) => {
 
       img.addEventListener('error', replace);
 
-      if (img.complete && !img.naturalWidth) {
-        replace();
-      }
+      if (img.complete && !img.naturalWidth) replace();
     }
 
     function setupMediaFallbacks() {
@@ -1897,10 +1742,6 @@ app.get('/', (c) => {
       }
 
       video.addEventListener('error', replaceFilm);
-
-      video.addEventListener('loadeddata', function() {
-        // 정상 로드되면 그대로 사용
-      });
 
       setTimeout(function() {
         if (video.networkState === 3 || (video.readyState === 0 && video.currentSrc === '')) {
@@ -1971,83 +1812,4 @@ app.get('/', (c) => {
       document.getElementById('modalVolume').textContent = product.volume;
       document.getElementById('modalDescription').textContent = product.description;
 
-      document.getElementById('modalBuyLink').setAttribute('href', product.buyLink);
-      document.getElementById('modalDetailLink').setAttribute('href', product.detailLink);
-      document.getElementById('modalInquiryLink').setAttribute('href', product.inquiryLink);
-
-      var notesEl = document.getElementById('modalNotes');
-      var ingredientsEl = document.getElementById('modalIngredients');
-      notesEl.innerHTML = '';
-      ingredientsEl.innerHTML = '';
-
-      product.notes.forEach(function(note) {
-        var span = document.createElement('span');
-        span.textContent = note;
-        notesEl.appendChild(span);
-      });
-
-      product.ingredients.forEach(function(item) {
-        var span = document.createElement('span');
-        span.textContent = item;
-        ingredientsEl.appendChild(span);
-      });
-
-      var gallery = Array.isArray(product.gallery) && product.gallery.length ? product.gallery : [product.image];
-      mainMedia.innerHTML = renderMainModalImage(gallery[0], product.name);
-
-      thumbs.innerHTML = '';
-      gallery.forEach(function(src, i) {
-        var btn = document.createElement('button');
-        btn.className = 'modal-thumb';
-        btn.type = 'button';
-        btn.innerHTML = '<img src="' + src + '" alt="' + product.name + ' thumb ' + (i + 1) + '" data-fallback-label="' + product.name + ' Gallery" data-ratio="1 / 1" />';
-        btn.addEventListener('click', function() {
-          mainMedia.innerHTML = renderMainModalImage(src, product.name);
-          setupMediaFallbacks();
-        });
-        thumbs.appendChild(btn);
-      });
-
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      setupMediaFallbacks();
-    }
-
-    function closeProductModal() {
-      var modal = document.getElementById('productModal');
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function setupProductModal() {
-      document.querySelectorAll('[data-open-product]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var index = Number(btn.getAttribute('data-open-product'));
-          openProductModal(index);
-        });
-      });
-
-      document.querySelectorAll('[data-close-modal]').forEach(function(el) {
-        el.addEventListener('click', closeProductModal);
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeProductModal();
-      });
-    }
-
-    setupMediaFallbacks();
-    setupFilmFallback();
-    setupReveal();
-    setupMobileMenu();
-    setupSmoothScroll();
-    setupProductModal();
-  </script>
-</body>
-</html>`)
-})
-
-export default app
+      document.getElementById('modalBuyLink').setAttribute('
