@@ -6,27 +6,28 @@ const app = new Hono()
 app.use('/static/*', serveStatic({ root: './public' }))
 
 const ASSETS = {
-  logo: '/static/soume-logo-black.png',
+  logo: '/soume-logo-black.png',
 
-  heroMain: '/static/assets/soume/hero-main.jpg',
-  editorialMain: '/static/assets/soume/editorial-main.jpg',
+  heroMain: '/assets/soume/hero-main.jpg',
+  editorialMain: '/assets/soume/editorial-main.jpg',
 
-  signatureMain: '/static/assets/soume/signature-main.jpg',
-  signatureOpen: '/static/assets/soume/signature-open.jpg',
-  signatureDetail: '/static/assets/soume/signature-detail.jpg',
+  signatureMain: '/assets/soume/signature-main.jpg',
+  signatureOpen: '/assets/soume/signature-open.jpg',
+  signatureDetail: '/assets/soume/signature-detail.jpg',
 
-  campaign01: '/static/assets/soume/campaign-01.jpg',
-  campaign02: '/static/assets/soume/campaign-02.jpg',
+  campaign01: '/assets/soume/campaign-01.jpg',
+  campaign02: '/assets/soume/campaign-02.jpg',
 
-  product01: '/static/assets/soume/product-01.jpg',
-  product02: '/static/assets/soume/product-02.jpg',
-  product03: '/static/assets/soume/product-03.jpg',
+  product01: '/assets/soume/product-01.jpg',
+  product02: '/assets/soume/product-02.jpg',
+  product03: '/assets/soume/product-03.jpg',
 
-  lookbook01: '/static/assets/soume/lookbook-01.jpg',
-  lookbook02: '/static/assets/soume/lookbook-02.jpg',
-  lookbook03: '/static/assets/soume/lookbook-03.jpg',
+  lookbook01: '/assets/soume/lookbook-01.jpg',
+  lookbook02: '/assets/soume/lookbook-02.jpg',
+  lookbook03: '/assets/soume/lookbook-03.jpg',
 
-  filmPoster: '/static/assets/soume/film-poster.jpg',
+  filmPoster: '/assets/soume/film-poster.jpg',
+  filmVideo: '/videos/soume-brand-film.mp4',
 }
 
 const HERO_SLIDES = [
