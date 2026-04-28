@@ -6,39 +6,39 @@ const app = new Hono()
 app.use('/static/*', serveStatic({ root: './public' }))
 
 const SITE = {
-  brand: 'Soumé',
   title: 'Soumé — Modern Luxury Clean Beauty House',
   description:
-    'Soumé는 조용한 럭셔리 무드와 미니멀한 뷰티 루틴을 제안하는 클린 뷰티 하우스입니다.',
+    'Soumé는 조용한 럭셔리 무드와 감각적인 클린 뷰티 루틴을 제안하는 현대적인 뷰티 하우스입니다.',
   heroEyebrow: 'Soumé / Modern Clean Beauty House',
-  heroTitleLine1: '조용하지만',
-  heroTitleLine2: '확실하게 남는',
-  heroTitleLine3: '럭셔리 뷰티',
+  heroTitle1: '조용하지만',
+  heroTitle2: '확실하게 남는',
+  heroTitle3: '럭셔리 뷰티',
   heroDescription:
-    '과장된 장식 대신, 오래 남는 감각과 세련된 사용감을 남깁니다. Soumé는 제품력과 무드를 함께 설계하는 감도 높은 뷰티 하우스입니다.',
-  heroPrimaryCta: '제품 보기',
-  heroSecondaryCta: '브랜드 무드 보기',
+    '과한 장식 대신 오래 남는 감각을 설계합니다. Soumé는 제품력과 무드를 동시에 보여주는 모던 럭셔리 뷰티 하우스입니다.',
   aboutTitle: '감각적인 루틴을 위한 클린 뷰티 하우스',
   aboutDescription:
-    'Soumé는 제품을 사용하는 순간의 분위기까지 설계합니다. 정제된 패키지, 부드러운 텍스처, 깔끔한 사용감, 그리고 오래 남는 첫인상이 하나의 브랜드 경험이 되도록 구성했습니다.',
+    'Soumé는 제품의 효능만이 아니라 사용하는 순간의 분위기까지 함께 설계합니다. 정돈된 패키지, 부드러운 텍스처, 세련된 마무리감이 하나의 경험으로 이어지도록 구성했습니다.',
   signatureTitle: 'Ocean Breeze Signature Routine',
   signatureDescription:
-    '브랜드의 대표 무드와 제품 세계관을 담은 시그니처 라인입니다. 피부 위에 가볍게 남는 사용감과 정돈된 잔향, 미니멀한 패키지로 Soumé의 핵심 인상을 구현합니다.',
+    '브랜드의 대표 무드와 제품 세계관을 담은 시그니처 구성입니다. 피부 위에 가볍게 남는 사용감과 정제된 무드가 Soumé의 핵심 인상을 만듭니다.',
   productsTitle: 'Soumé Best Product Line',
   productsDescription:
-    '운영형 이커머스 구조로 바로 붙여 넣을 수 있도록, 제품 카드·상세 모달·구매 버튼까지 포함한 구성으로 제작했습니다.',
+    '운영형 이커머스에 바로 적용할 수 있도록, 상품 카드·상세 모달·구매 버튼까지 포함한 구조로 정리했습니다.',
+  campaignTitle: 'Product & Presence',
+  campaignDescription:
+    '제품, 인물, 스타일링, 무드가 하나의 프레임 안에서 자연스럽게 연결되도록 설계한 브랜드 캠페인 섹션입니다.',
   lookbookTitle: 'Lookbook / Editorial Mood',
   lookbookDescription:
-    '업로드된 이미지를 중심으로 브랜드 무드와 에디토리얼 분위기를 자연스럽게 보여주는 룩북형 섹션입니다.',
-  campaignTitle: 'Campaign / Product & Presence',
-  campaignDescription:
-    '제품과 인물, 스타일링, 질감이 한 프레임 안에서 조화롭게 보이도록 설계한 브랜드 캠페인 섹션입니다.',
+    '브랜드 무드와 에디토리얼 감도를 동시에 보여주는 룩북형 섹션입니다.',
+  philosophyTitle: '양산형이어도 더 고급스럽게',
+  philosophyDescription:
+    '이번 버전은 단순 시안이 아니라 실제 운영을 전제로 다시 구성했습니다. 브랜드 무드와 전환 흐름을 동시에 잡는 구조입니다.',
   filmTitle: 'Brand Film',
   filmDescription:
-    '영상 파일이 있으면 브랜드 필름으로 재생되고, 없으면 포스터 이미지를 그대로 보여주는 안전한 구조입니다.',
-  contactTitle: '회원 전환 / 빠른 시작',
-  contactDescription:
-    '카카오로 시작하기, 이메일 시작, 뉴스레터 구독 UI를 함께 넣어 양산형 커머스 구조처럼 바로 운영할 수 있게 정리했습니다.',
+    '영상이 있으면 브랜드 필름으로 재생되고, 없으면 포스터 이미지가 안전하게 표시됩니다.',
+  joinTitle: '회원 전환 / 빠른 시작',
+  joinDescription:
+    '카카오 시작, 이메일 시작, 뉴스레터 UI를 함께 넣어 양산형 커머스 구조처럼 바로 운영할 수 있게 정리했습니다.',
   footerText: '© Soumé. All rights reserved.',
 }
 
@@ -47,6 +47,10 @@ const ASSETS = {
 
   heroMain: '/static/assets/soume/hero-main.jpg',
   editorialMain: '/static/assets/soume/editorial-main.jpg',
+
+  signatureMain: '/static/assets/soume/signature-main.jpg',
+  signatureOpen: '/static/assets/soume/signature-open.jpg',
+  signatureDetail: '/static/assets/soume/signature-detail.jpg',
 
   campaign01: '/static/assets/soume/campaign-01.jpg',
   campaign02: '/static/assets/soume/campaign-02.jpg',
@@ -85,8 +89,8 @@ const HERO_SLIDES = [
   {
     image: ASSETS.campaign02,
     eyebrow: 'Hero Visual 04',
-    title: 'Clean Styling',
-    desc: '양산형 커머스에서 쓰기 좋은 안정적인 브랜드 컷',
+    title: 'Commerce Ready',
+    desc: '양산형 커머스에 바로 쓰기 좋은 안정적인 비주얼 구조',
   },
 ]
 
@@ -99,11 +103,11 @@ const PRODUCTS = [
     price: '₩48,000',
     volume: '250ml',
     description:
-      '미세하게 분사되는 텍스처가 피부 위에 가볍고 균일하게 밀착됩니다. 과하지 않은 보습감과 정돈된 마무리로 샤워 후, 외출 전, 리프레시가 필요한 순간에 사용하기 좋습니다.',
+      '미세하게 분사되는 텍스처가 피부 위에 가볍고 고르게 밀착됩니다. 과하지 않은 보습감과 정돈된 마무리로 샤워 후, 외출 전, 리프레시가 필요한 순간에 사용하기 좋습니다.',
     notes: ['Fresh Air', 'Soft Musk', 'Clean Finish'],
     ingredients: ['Panthenol', 'Glycerin', 'Botanical Moisture Complex'],
     image: ASSETS.product01,
-    gallery: [ASSETS.product01, ASSETS.product02, ASSETS.product03],
+    gallery: [ASSETS.product01, ASSETS.signatureOpen, ASSETS.signatureDetail],
     buyLink: 'https://example.com/products/ocean-breeze',
   },
   {
@@ -118,7 +122,7 @@ const PRODUCTS = [
     notes: ['Transparent Citrus', 'Airy Floral', 'Skin Veil'],
     ingredients: ['Niacinamide', 'Betaine', 'Hyaluronic Acid'],
     image: ASSETS.product02,
-    gallery: [ASSETS.product02, ASSETS.editorialMain, ASSETS.campaign01],
+    gallery: [ASSETS.product02, ASSETS.signatureMain, ASSETS.editorialMain],
     buyLink: 'https://example.com/products/veil-recovery',
   },
   {
@@ -133,7 +137,7 @@ const PRODUCTS = [
     notes: ['Skin Musk', 'Powder Clean', 'Calm Woody'],
     ingredients: ['Ceramide', 'Squalane', 'Soothing Complex'],
     image: ASSETS.product03,
-    gallery: [ASSETS.product03, ASSETS.campaign02, ASSETS.product01],
+    gallery: [ASSETS.product03, ASSETS.campaign01, ASSETS.campaign02],
     buyLink: 'https://example.com/products/bare-reset',
   },
 ]
@@ -155,7 +159,7 @@ const LOOKBOOK = [
     title: 'Lasting Impression',
     category: 'Lookbook 03',
     image: ASSETS.lookbook03,
-    desc: '양산형 상세페이지와 브랜드 홈페이지 사이를 잇는 안정적 비주얼 무드',
+    desc: '상세페이지와 브랜드 홈페이지 사이를 자연스럽게 잇는 비주얼 무드',
   },
 ]
 
@@ -164,10 +168,69 @@ const LOGIN = {
   emailLoginUrl: '#',
 }
 
-const json = (value: unknown) =>
+const safeJson = (value: unknown) =>
   JSON.stringify(value).replace(/</g, '\\u003c')
 
-const renderHead = () => `
+const renderProductCards = () =>
+  PRODUCTS.map(
+    (product) => `
+      <article class="product-card reveal">
+        <div class="product-thumb">
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy"
+            data-fallback="${ASSETS.product01}"
+          />
+        </div>
+        <div class="product-body">
+          <span class="badge">${product.badge}</span>
+          <h3>${product.name}</h3>
+          <p>${product.subtitle}</p>
+          <div class="product-meta">
+            <span>${product.price}</span>
+            <span>${product.volume}</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn btn-dark" type="button" data-product-id="${product.id}">
+              상세 보기
+            </button>
+            <a class="btn btn-line" href="${product.buyLink}" target="_blank" rel="noreferrer">
+              구매하기
+            </a>
+          </div>
+        </div>
+      </article>
+    `
+  ).join('')
+
+const renderLookbookCards = () =>
+  LOOKBOOK.map(
+    (item) => `
+      <article class="lookbook-card reveal">
+        <div class="lookbook-thumb">
+          <img
+            src="${item.image}"
+            alt="${item.title}"
+            loading="lazy"
+            data-fallback="${ASSETS.editorialMain}"
+          />
+        </div>
+        <div class="lookbook-body">
+          <span class="eyebrow eyebrow--plain">${item.category}</span>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </div>
+      </article>
+    `
+  ).join('')
+
+app.get('/', (c) => {
+  const productsJson = safeJson(PRODUCTS)
+  const slidesJson = safeJson(HERO_SLIDES)
+
+  return c.html(`<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -192,12 +255,10 @@ const renderHead = () => `
       --line-strong: rgba(24, 22, 20, 0.16);
       --dark: #111111;
       --gold: #c8b08d;
-      --gold-deep: #aa8c5f;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
-      --radius-sm: 14px;
       --container: 1280px;
       --nav-height: 88px;
       --transition: 220ms ease;
@@ -353,6 +414,8 @@ const renderHead = () => `
       padding: 0 0 18px;
     }
 
+    .mobile-panel.is-open { display: block; }
+
     .mobile-panel__inner {
       display: grid;
       gap: 8px;
@@ -424,6 +487,8 @@ const renderHead = () => `
       height: 1px;
       background: var(--line-strong);
     }
+
+    .eyebrow--plain::before { display: none; }
 
     .hero-title {
       margin: 0;
@@ -509,7 +574,7 @@ const renderHead = () => `
       justify-content: space-between;
       gap: 16px;
       align-items: end;
-      padding: 18px 18px 18px 18px;
+      padding: 18px;
       border-radius: 24px;
       background: rgba(255,255,255,0.72);
       backdrop-filter: blur(16px);
@@ -781,8 +846,7 @@ const renderHead = () => `
       margin-top: 2px;
     }
 
-    .campaign-grid,
-    .lookbook-grid {
+    .campaign-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
@@ -836,6 +900,12 @@ const renderHead = () => `
       max-width: 420px;
     }
 
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
     .lookbook-card {
       overflow: hidden;
       border-radius: 28px;
@@ -881,472 +951,55 @@ const renderHead = () => `
       font-size: 14px;
       line-height: 1.8;
     }
-  </style>
-</head>
-`
 
-const renderHeader = () => `
-<header class="site-header" id="site-header">
-  <div class="container nav">
-    <a class="brand" href="#top" aria-label="Soumé 홈">
-      <img src="${ASSETS.logo}" alt="Soumé logo" data-fallback="${ASSETS.filmPoster}" />
-      <small>Clean Beauty House</small>
-    </a>
+    .join-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
 
-    <nav class="nav-links" aria-label="주요 메뉴">
-      <a href="#about">About</a>
-      <a href="#signature">Signature</a>
-      <a href="#products">Products</a>
-      <a href="#lookbook">Lookbook</a>
-      <a href="#film">Brand Film</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    .newsletter-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
 
-    <div class="nav-actions">
-      <button class="btn btn-line" type="button" data-open-login>Login</button>
-      <a class="btn btn-dark" href="#products">Shop</a>
-      <button class="menu-btn" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false">
-        <span></span>
-      </button>
-    </div>
-  </div>
+    .newsletter-input {
+      height: 52px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(24,22,20,0.12);
+      background: rgba(255,255,255,0.82);
+      outline: none;
+    }
 
-  <div class="mobile-panel container" id="mobile-panel">
-    <div class="mobile-panel__inner">
-      <a href="#about">About</a>
-      <a href="#signature">Signature</a>
-      <a href="#products">Products</a>
-      <a href="#lookbook">Lookbook</a>
-      <a href="#film">Brand Film</a>
-      <a href="#contact">Contact</a>
-      <button type="button" data-open-login>카카오로 시작하기</button>
-    </div>
-  </div>
-</header>
-`
+    .newsletter-input:focus {
+      border-color: rgba(24,22,20,0.26);
+      box-shadow: 0 0 0 4px rgba(200,176,141,0.1);
+    }
 
-const renderHero = () => `
-<section class="hero" id="top">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <div class="hero-copy-top">
-        <span class="eyebrow">${SITE.heroEyebrow}</span>
+    .footer {
+      padding: 0 0 40px;
+    }
 
-        <h1 class="hero-title">
-          <span>${SITE.heroTitleLine1}</span>
-          <span>${SITE.heroTitleLine2}</span>
-          <span>${SITE.heroTitleLine3}</span>
-        </h1>
+    .footer-box {
+      padding-top: 24px;
+      border-top: 1px solid rgba(24,22,20,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
 
-        <p class="hero-description">${SITE.heroDescription}</p>
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-        <div class="hero-actions">
-          <a class="btn btn-dark" href="#products">${SITE.heroPrimaryCta}</a>
-          <a class="btn btn-soft" href="#lookbook">${SITE.heroSecondaryCta}</a>
-          <button class="btn btn-kakao" type="button" data-open-login>카카오 시작</button>
-        </div>
-      </div>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span>Brand Mood</span>
-          <strong>Modern luxury / Clean beauty / Quiet impact</strong>
-        </div>
-        <div class="hero-meta-item">
-          <span>Use Case</span>
-          <strong>브랜드 홈페이지 · 제품 상세 · 캠페인 페이지</strong>
-        </div>
-        <div class="hero-meta-item">
-          <span>Conversion</span>
-          <strong>상품 모달 · 구매 버튼 · 로그인 팝업 포함</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-media" id="hero-media">
-      ${HERO_SLIDES.map((slide, index) => `
-        <div class="hero-slide${index === 0 ? ' is-active' : ''}" data-hero-slide="${index}">
-          <img
-            src="${slide.image}"
-            alt="${slide.title}"
-            data-fallback="${ASSETS.filmPoster}"
-          />
-        </div>
-      `).join('')}
-
-      <div class="hero-slide-overlay">
-        <div class="hero-slide-copy">
-          <small id="hero-slide-eyebrow">${HERO_SLIDES[0].eyebrow}</small>
-          <strong id="hero-slide-title">${HERO_SLIDES[0].title}</strong>
-          <p id="hero-slide-desc">${HERO_SLIDES[0].desc}</p>
-        </div>
-
-        <div class="hero-dots" id="hero-dots">
-          ${HERO_SLIDES.map((_, index) => `
-            <button
-              class="hero-dot${index === 0 ? ' is-active' : ''}"
-              type="button"
-              aria-label="슬라이드 ${index + 1}"
-              data-hero-dot="${index}"
-            ></button>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-`
-
-const renderAbout = () => `
-<section class="section" id="about">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">About Soumé</span>
-      <h2>${SITE.aboutTitle}</h2>
-      <p>${SITE.aboutDescription}</p>
-    </div>
-
-    <div class="split-2">
-      <article class="card reveal">
-        <div class="card-body">
-          <span class="eyebrow">Brand Principle</span>
-          <h3>More refined, less noisy</h3>
-          <p>
-            과한 요소를 늘리기보다 첫 인상이 오래 남는 구조를 지향합니다.
-            제품이 주인공이 되되, 전체 홈페이지는 더 양산형 커머스처럼 안정적으로 작동하도록
-            정보 구조와 비주얼 리듬을 정돈했습니다.
-          </p>
-
-          <div class="trust-list">
-            <div class="trust-item">
-              <span>Visual</span>
-              <strong>Luxury minimal</strong>
-            </div>
-            <div class="trust-item">
-              <span>Commerce</span>
-              <strong>Modal + CTA ready</strong>
-            </div>
-            <div class="trust-item">
-              <span>Operation</span>
-              <strong>이미지 교체형 구조</strong>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <div class="frame reveal">
-        <img src="${ASSETS.editorialMain}" alt="Soumé editorial" data-fallback="${ASSETS.heroMain}" />
-      </div>
-    </div>
-  </div>
-</section>
-`
-
-const renderSignature = () => `
-<section class="section" id="signature">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Signature</span>
-      <h2>${SITE.signatureTitle}</h2>
-      <p>${SITE.signatureDescription}</p>
-    </div>
-
-    <div class="split-2">
-      <article class="card reveal">
-        <div class="card-body">
-          <span class="eyebrow">Signature Product Story</span>
-          <h3>브랜드의 첫 인상을 만드는 시그니처 구성</h3>
-          <p>
-            현재 업로드된 제품 이미지만 사용해서 안전하게 구성한 시그니처 섹션입니다.
-            별도의 signature-main, signature-open 같은 파일이 없어도 깨지지 않도록
-            product-01 ~ 03 중심으로 콜라주를 재구성했습니다.
-          </p>
-
-          <div class="signature-collage">
-            <div class="signature-main">
-              <img src="${ASSETS.product01}" alt="Signature main product" data-fallback="${ASSETS.editorialMain}" />
-            </div>
-            <div class="signature-side">
-              <div class="signature-side-item">
-                <img src="${ASSETS.product02}" alt="Signature detail product 01" data-fallback="${ASSETS.product01}" />
-              </div>
-              <div class="signature-side-item">
-                <img src="${ASSETS.product03}" alt="Signature detail product 02" data-fallback="${ASSETS.product02}" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <div class="frame reveal">
-        <img src="${ASSETS.heroMain}" alt="Signature hero visual" data-fallback="${ASSETS.editorialMain}" />
-      </div>
-    </div>
-  </div>
-</section>
-`
-const renderProducts = () => `
-<section class="section" id="products">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Products</span>
-      <h2>${SITE.productsTitle}</h2>
-      <p>${SITE.productsDescription}</p>
-    </div>
-
-    <div class="product-grid">
-      ${PRODUCTS.map((product) => `
-        <article class="product-card reveal">
-          <div class="product-thumb">
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-              loading="lazy"
-              data-fallback="${ASSETS.product01}"
-            />
-          </div>
-
-          <div class="product-body">
-            <span class="badge">${product.badge}</span>
-            <h3>${product.name}</h3>
-            <p>${product.subtitle}</p>
-
-            <div class="product-meta">
-              <span>${product.price}</span>
-              <span>${product.volume}</span>
-            </div>
-
-            <div class="product-actions">
-              <button class="btn btn-dark" type="button" data-product-id="${product.id}">
-                상세 보기
-              </button>
-              <a class="btn btn-line" href="${product.buyLink}" target="_blank" rel="noreferrer">
-                구매하기
-              </a>
-            </div>
-          </div>
-        </article>
-      `).join('')}
-    </div>
-  </div>
-</section>
-`
-
-const renderCampaign = () => `
-<section class="section" id="campaign">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Campaign</span>
-      <h2>${SITE.campaignTitle}</h2>
-      <p>${SITE.campaignDescription}</p>
-    </div>
-
-    <div class="campaign-grid">
-      <article class="campaign-card reveal">
-        <img src="${ASSETS.campaign01}" alt="Campaign 01" data-fallback="${ASSETS.heroMain}" />
-        <div class="campaign-overlay">
-          <small>Campaign 01</small>
-          <strong>Quiet but recognisable</strong>
-          <p>
-            제품과 얼굴, 배경 톤이 과하지 않게 균형을 이루도록 설계한 메인 캠페인 프레임입니다.
-          </p>
-        </div>
-      </article>
-
-      <article class="campaign-card reveal">
-        <img src="${ASSETS.campaign02}" alt="Campaign 02" data-fallback="${ASSETS.editorialMain}" />
-        <div class="campaign-overlay">
-          <small>Campaign 02</small>
-          <strong>Styled for commerce</strong>
-          <p>
-            브랜드 사이트·상세페이지·프로모션 랜딩 어디에 넣어도 안정적으로 보이는 양산형 프레임입니다.
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-`
-
-const renderLookbook = () => `
-<section class="section" id="lookbook">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Lookbook</span>
-      <h2>${SITE.lookbookTitle}</h2>
-      <p>${SITE.lookbookDescription}</p>
-    </div>
-
-    <div class="lookbook-grid">
-      ${LOOKBOOK.map((item) => `
-        <article class="lookbook-card reveal">
-          <div class="lookbook-thumb">
-            <img
-              src="${item.image}"
-              alt="${item.title}"
-              loading="lazy"
-              data-fallback="${ASSETS.editorialMain}"
-            />
-          </div>
-
-          <div class="lookbook-body">
-            <span class="eyebrow">${item.category}</span>
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-          </div>
-        </article>
-      `).join('')}
-    </div>
-  </div>
-</section>
-`
-
-const renderPhilosophy = () => `
-<section class="section" id="philosophy">
-  <div class="container split-2">
-    <div class="frame reveal">
-      <img src="${ASSETS.lookbook01}" alt="Soumé philosophy visual" data-fallback="${ASSETS.heroMain}" />
-    </div>
-
-    <article class="card reveal">
-      <div class="card-body">
-        <span class="eyebrow">Philosophy</span>
-        <h3>양산형이어도 고급스럽게</h3>
-        <p>
-          이번 버전은 “디자인 시안”이 아니라 실제 운영을 전제로 다시 정리한 구조입니다.
-          그래서 과하게 실험적인 브랜드 페이지보다, 상품 전환과 브랜드 무드 전달을 동시에 잡는
-          이커머스형 레이아웃으로 재구성했습니다.
-        </p>
-      </div>
-    </article>
-  </div>
-</section>
-`
-
-const renderFilm = () => `
-<section class="section" id="film">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Brand Film</span>
-      <h2>${SITE.filmTitle}</h2>
-      <p>${SITE.filmDescription}</p>
-    </div>
-
-    <div class="split-2">
-      <article class="card reveal">
-        <div class="card-body">
-          <span class="eyebrow">Moving Mood</span>
-          <h3>포스터만 있어도 깨지지 않는 필름 섹션</h3>
-          <p>
-            video 파일이 없으면 자동으로 포스터 이미지가 노출됩니다.
-            나중에 <strong>public/videos/soume-brand-film.mp4</strong> 파일만 넣으면
-            동일한 UI에서 바로 브랜드 필름 섹션으로 전환됩니다.
-          </p>
-
-          <div class="hero-actions" style="margin-top: 22px;">
-            <button class="btn btn-kakao" type="button" data-open-login>카카오로 시작하기</button>
-            <a class="btn btn-line" href="#products">제품 보기</a>
-          </div>
-        </div>
-      </article>
-
-      <div class="frame reveal" id="film-frame">
-        <video
-          id="brand-film-video"
-          playsinline
-          muted
-          controls
-          preload="metadata"
-          poster="${ASSETS.filmPoster}"
-        >
-          <source src="${ASSETS.filmVideo}" type="video/mp4" />
-        </video>
-
-        <img
-          id="brand-film-fallback"
-          src="${ASSETS.filmPoster}"
-          alt="Brand film poster"
-          class="is-film-fallback"
-          data-fallback="${ASSETS.heroMain}"
-          style="display:none;"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-`
-
-const renderContact = () => `
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Contact / Join</span>
-      <h2>${SITE.contactTitle}</h2>
-      <p>${SITE.contactDescription}</p>
-    </div>
-
-    <div class="split-2">
-      <article class="card reveal">
-        <div class="card-body">
-          <span class="eyebrow">Quick Start</span>
-          <h3>카카오 로그인 팝업형 진입</h3>
-          <p>
-            실제 카카오 OAuth를 붙이려면 앱 키와 리다이렉트 URL이 필요하지만,
-            우선은 팝업 UI와 버튼 동작 포인트를 넣어두었습니다.
-            지금은 양산형 사이트처럼 “로그인 시작 흐름”이 보이도록 구성한 상태입니다.
-          </p>
-
-          <div class="hero-actions" style="margin-top: 22px;">
-            <button class="btn btn-kakao" type="button" data-open-login>카카오로 시작하기</button>
-            <button class="btn btn-soft" type="button" data-open-login>이메일로 계속</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-body">
-          <span class="eyebrow">Newsletter</span>
-          <h3>업데이트 알림 받기</h3>
-          <p>
-            실제 API 연동 전이라도 프론트 UI는 먼저 운영할 수 있게 만들어두었습니다.
-            이메일 저장 로직만 연결하면 뉴스레터/사전 알림 폼으로 바로 전환 가능합니다.
-          </p>
-
-          <form id="newsletter-form" style="display:grid; gap:12px; margin-top:22px;">
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="이메일 주소를 입력하세요"
-              autocomplete="email"
-              required
-              style="height:52px; padding:0 18px; border-radius:999px; border:1px solid rgba(24,22,20,0.12); background:rgba(255,255,255,0.82); outline:none;"
-            />
-            <div class="hero-actions">
-              <button class="btn btn-dark" type="submit">구독하기</button>
-              <button class="btn btn-line" type="button" data-open-login>회원 시작</button>
-            </div>
-          </form>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-`
-
-const renderFooter = () => `
-<footer style="padding:0 0 40px;">
-  <div class="container" style="padding-top:24px; border-top:1px solid rgba(24,22,20,0.08); display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:13px;">
-    <div>${SITE.footerText}</div>
-    <div style="display:flex; gap:16px; flex-wrap:wrap;">
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#lookbook">Lookbook</a>
-      <a href="#film">Brand Film</a>
-    </div>
-  </div>
-</footer>
-`
-      .modal {
+    .modal {
       position: fixed;
       inset: 0;
       z-index: 120;
@@ -1584,6 +1237,7 @@ const renderFooter = () => `
     @media (max-width: 1100px) {
       .hero-grid,
       .split-2,
+      .join-grid,
       .product-modal-layout,
       .login-modal-layout {
         grid-template-columns: 1fr;
@@ -1593,9 +1247,12 @@ const renderFooter = () => `
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .campaign-grid,
-      .lookbook-grid {
+      .campaign-grid {
         grid-template-columns: 1fr;
+      }
+
+      .lookbook-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .hero-copy,
@@ -1623,10 +1280,6 @@ const renderFooter = () => `
         display: inline-flex;
       }
 
-      .mobile-panel.is-open {
-        display: block;
-      }
-
       .hero-meta,
       .trust-list {
         grid-template-columns: 1fr;
@@ -1641,7 +1294,8 @@ const renderFooter = () => `
         grid-template-rows: none;
       }
 
-      .product-grid {
+      .product-grid,
+      .lookbook-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1694,124 +1348,487 @@ const renderFooter = () => `
       .product-modal-thumbs {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
+      .footer-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-`
-
-const renderProductModal = () => `
-<div class="modal" id="product-modal" aria-hidden="true">
-  <div class="modal-backdrop" data-close-product-modal></div>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" id="product-modal-close" aria-label="상품 상세 닫기">×</button>
-
-    <div class="product-modal-layout">
-      <div class="product-modal-gallery">
-        <div class="product-modal-main">
-          <img id="product-modal-main-image" src="" alt="" />
-        </div>
-        <div class="product-modal-thumbs" id="product-modal-thumbs"></div>
-      </div>
-
-      <div class="product-modal-body">
-        <span class="badge" id="product-modal-badge"></span>
-        <h3 class="product-modal-title" id="product-modal-title"></h3>
-        <p class="product-modal-subtitle" id="product-modal-subtitle"></p>
-
-        <div class="product-modal-meta">
-          <strong id="product-modal-price"></strong>
-          <span id="product-modal-volume"></span>
-        </div>
-
-        <p class="product-modal-desc" id="product-modal-desc"></p>
-
-        <div class="detail-block">
-          <h4>Notes</h4>
-          <div class="chip-wrap" id="product-modal-notes"></div>
-        </div>
-
-        <div class="detail-block">
-          <h4>Ingredients</h4>
-          <div class="chip-wrap" id="product-modal-ingredients"></div>
-        </div>
-
-        <div class="product-modal-actions">
-          <a class="btn btn-dark" id="product-modal-buy" href="#" target="_blank" rel="noreferrer">구매하기</a>
-          <button class="btn btn-line" type="button" data-close-product-modal>닫기</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`
-
-const renderLoginModal = () => `
-<div class="modal" id="login-modal" aria-hidden="true">
-  <div class="modal-backdrop" data-close-login-modal></div>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" id="login-modal-close" aria-label="로그인 닫기">×</button>
-
-    <div class="login-modal-layout">
-      <div class="login-visual">
-        <img src="${ASSETS.campaign01}" alt="Soumé login visual" data-fallback="${ASSETS.heroMain}" />
-      </div>
-
-      <div class="login-body">
-        <span class="eyebrow">Quick Join</span>
-        <h3>Soumé 시작하기</h3>
-        <p>
-          실제 카카오 OAuth 연동 전 단계용 팝업 UI입니다.
-          지금은 양산형 커머스처럼 로그인/회원진입 흐름이 보이도록 설계했고,
-          나중에 카카오 개발자 설정만 연결하면 실서비스형으로 바꿀 수 있습니다.
-        </p>
-
-        <div class="login-stack">
-          <a class="btn btn-kakao" href="${LOGIN.kakaoAuthUrl}" target="_blank" rel="noreferrer">
-            카카오로 시작하기
-          </a>
-          <a class="btn btn-dark" href="${LOGIN.emailLoginUrl}">
-            이메일로 계속하기
-          </a>
-          <button class="btn btn-line" type="button" data-close-login-modal>
-            나중에 할게요
-          </button>
-        </div>
-
-        <p class="login-note">
-          실제 운영 시에는 카카오 JavaScript SDK 또는 OAuth Redirect URL을 연결하세요.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-`
-
-app.get('/', (c) => {
-  const productsJson = json(PRODUCTS)
-  const slidesJson = json(HERO_SLIDES)
-
-  return c.html(`
-<!DOCTYPE html>
-<html lang="ko">
-${renderHead()}
 <body>
-  ${renderHeader()}
+  <header class="site-header" id="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Soumé 홈">
+        <img src="${ASSETS.logo}" alt="Soumé logo" data-fallback="${ASSETS.filmPoster}" />
+        <small>Clean Beauty House</small>
+      </a>
 
-  <main>
-    ${renderHero()}
-    ${renderAbout()}
-    ${renderSignature()}
-    ${renderProducts()}
-    ${renderCampaign()}
-    ${renderLookbook()}
-    ${renderPhilosophy()}
-    ${renderFilm()}
-    ${renderContact()}
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#about">About</a>
+        <a href="#signature">Signature</a>
+        <a href="#products">Products</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#film">Brand Film</a>
+        <a href="#join">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-line" type="button" data-open-login>Login</button>
+        <a class="btn btn-dark" href="#products">Shop</a>
+        <button class="menu-btn" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel container" id="mobile-panel">
+      <div class="mobile-panel__inner">
+        <a href="#about">About</a>
+        <a href="#signature">Signature</a>
+        <a href="#products">Products</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#film">Brand Film</a>
+        <a href="#join">Contact</a>
+        <button type="button" data-open-login>카카오로 시작하기</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-copy-top">
+            <span class="eyebrow">${SITE.heroEyebrow}</span>
+
+            <h1 class="hero-title">
+              <span>${SITE.heroTitle1}</span>
+              <span>${SITE.heroTitle2}</span>
+              <span>${SITE.heroTitle3}</span>
+            </h1>
+
+            <p class="hero-description">${SITE.heroDescription}</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#products">제품 보기</a>
+              <a class="btn btn-soft" href="#lookbook">브랜드 무드 보기</a>
+              <button class="btn btn-kakao" type="button" data-open-login>카카오 시작</button>
+            </div>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span>Brand Mood</span>
+              <strong>Modern luxury / Clean beauty / Quiet impact</strong>
+            </div>
+            <div class="hero-meta-item">
+              <span>Use Case</span>
+              <strong>브랜드 메인 · 제품 상세 · 캠페인 랜딩</strong>
+            </div>
+            <div class="hero-meta-item">
+              <span>Conversion</span>
+              <strong>상품 모달 · 구매 버튼 · 로그인 팝업 포함</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media" id="hero-media">
+          ${HERO_SLIDES.map(
+            (slide, index) => `
+            <div class="hero-slide${index === 0 ? ' is-active' : ''}" data-hero-slide="${index}">
+              <img src="${slide.image}" alt="${slide.title}" data-fallback="${ASSETS.filmPoster}" />
+            </div>
+          `
+          ).join('')}
+
+          <div class="hero-slide-overlay">
+            <div class="hero-slide-copy">
+              <small id="hero-slide-eyebrow">${HERO_SLIDES[0].eyebrow}</small>
+              <strong id="hero-slide-title">${HERO_SLIDES[0].title}</strong>
+              <p id="hero-slide-desc">${HERO_SLIDES[0].desc}</p>
+            </div>
+
+            <div class="hero-dots" id="hero-dots">
+              ${HERO_SLIDES.map(
+                (_, index) => `
+                <button
+                  class="hero-dot${index === 0 ? ' is-active' : ''}"
+                  type="button"
+                  aria-label="슬라이드 ${index + 1}"
+                  data-hero-dot="${index}"
+                ></button>
+              `
+              ).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">About Soumé</span>
+          <h2>${SITE.aboutTitle}</h2>
+          <p>${SITE.aboutDescription}</p>
+        </div>
+
+        <div class="split-2">
+          <article class="card reveal">
+            <div class="card-body">
+              <span class="eyebrow">Brand Principle</span>
+              <h3>More refined, less noisy</h3>
+              <p>
+                과한 요소를 늘리기보다 첫 인상이 오래 남는 구조를 지향합니다.
+                제품이 주인공이 되되, 전체 홈페이지는 더 양산형 커머스처럼 안정적으로 작동하도록
+                정보 구조와 비주얼 리듬을 정돈했습니다.
+              </p>
+
+              <div class="trust-list">
+                <div class="trust-item">
+                  <span>Visual</span>
+                  <strong>Luxury minimal</strong>
+                </div>
+                <div class="trust-item">
+                  <span>Commerce</span>
+                  <strong>Modal + CTA ready</strong>
+                </div>
+                <div class="trust-item">
+                  <span>Operation</span>
+                  <strong>이미지 교체형 구조</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="frame reveal">
+            <img src="${ASSETS.editorialMain}" alt="Soumé editorial" data-fallback="${ASSETS.heroMain}" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signature">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Signature</span>
+          <h2>${SITE.signatureTitle}</h2>
+          <p>${SITE.signatureDescription}</p>
+        </div>
+
+        <div class="split-2">
+          <article class="card reveal">
+            <div class="card-body">
+              <span class="eyebrow">Signature Story</span>
+              <h3>브랜드의 첫 인상을 만드는 시그니처 구성</h3>
+              <p>
+                이번 버전은 실제로 업로드된 시그니처 이미지 파일을 기준으로 재구성했습니다.
+                시그니처 무드, 제품 사용 장면, 디테일 컷이 함께 연결되도록 설계해
+                브랜드의 대표 장면처럼 보이게 구성했습니다.
+              </p>
+
+              <div class="signature-collage">
+                <div class="signature-main">
+                  <img src="${ASSETS.signatureMain}" alt="Signature main" data-fallback="${ASSETS.product01}" />
+                </div>
+                <div class="signature-side">
+                  <div class="signature-side-item">
+                    <img src="${ASSETS.signatureOpen}" alt="Signature open" data-fallback="${ASSETS.product02}" />
+                  </div>
+                  <div class="signature-side-item">
+                    <img src="${ASSETS.signatureDetail}" alt="Signature detail" data-fallback="${ASSETS.product03}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="frame reveal">
+            <img src="${ASSETS.heroMain}" alt="Signature visual" data-fallback="${ASSETS.editorialMain}" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Products</span>
+          <h2>${SITE.productsTitle}</h2>
+          <p>${SITE.productsDescription}</p>
+        </div>
+
+        <div class="product-grid">
+          ${renderProductCards()}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="campaign">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Campaign</span>
+          <h2>${SITE.campaignTitle}</h2>
+          <p>${SITE.campaignDescription}</p>
+        </div>
+
+        <div class="campaign-grid">
+          <article class="campaign-card reveal">
+            <img src="${ASSETS.campaign01}" alt="Campaign 01" data-fallback="${ASSETS.heroMain}" />
+            <div class="campaign-overlay">
+              <small>Campaign 01</small>
+              <strong>Quiet but recognisable</strong>
+              <p>
+                제품과 얼굴, 배경 톤이 과하지 않게 균형을 이루도록 설계한 메인 캠페인 프레임입니다.
+              </p>
+            </div>
+          </article>
+
+          <article class="campaign-card reveal">
+            <img src="${ASSETS.campaign02}" alt="Campaign 02" data-fallback="${ASSETS.editorialMain}" />
+            <div class="campaign-overlay">
+              <small>Campaign 02</small>
+              <strong>Styled for commerce</strong>
+              <p>
+                브랜드 사이트, 상세페이지, 프로모션 랜딩 어디에 넣어도 안정적으로 보이는 양산형 프레임입니다.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lookbook">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Lookbook</span>
+          <h2>${SITE.lookbookTitle}</h2>
+          <p>${SITE.lookbookDescription}</p>
+        </div>
+
+        <div class="lookbook-grid">
+          ${renderLookbookCards()}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="philosophy">
+      <div class="container split-2">
+        <div class="frame reveal">
+          <img src="${ASSETS.lookbook01}" alt="Soumé philosophy visual" data-fallback="${ASSETS.heroMain}" />
+        </div>
+
+        <article class="card reveal">
+          <div class="card-body">
+            <span class="eyebrow">Philosophy</span>
+            <h3>${SITE.philosophyTitle}</h3>
+            <p>${SITE.philosophyDescription}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="film">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Brand Film</span>
+          <h2>${SITE.filmTitle}</h2>
+          <p>${SITE.filmDescription}</p>
+        </div>
+
+        <div class="split-2">
+          <article class="card reveal">
+            <div class="card-body">
+              <span class="eyebrow">Moving Mood</span>
+              <h3>포스터만 있어도 깨지지 않는 필름 섹션</h3>
+              <p>
+                video 파일이 없으면 자동으로 포스터 이미지가 노출됩니다.
+                나중에 <strong>public/videos/soume-brand-film.mp4</strong> 파일만 넣으면
+                동일한 UI에서 바로 브랜드 필름 섹션으로 전환됩니다.
+              </p>
+
+              <div class="hero-actions" style="margin-top:22px;">
+                <button class="btn btn-kakao" type="button" data-open-login>카카오로 시작하기</button>
+                <a class="btn btn-line" href="#products">제품 보기</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="frame reveal" id="film-frame">
+            <video
+              id="brand-film-video"
+              playsinline
+              muted
+              controls
+              preload="metadata"
+              poster="${ASSETS.filmPoster}"
+            >
+              <source src="${ASSETS.filmVideo}" type="video/mp4" />
+            </video>
+
+            <img
+              id="brand-film-fallback"
+              src="${ASSETS.filmPoster}"
+              alt="Brand film poster"
+              class="hidden"
+              data-fallback="${ASSETS.heroMain}"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="join">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Join / Contact</span>
+          <h2>${SITE.joinTitle}</h2>
+          <p>${SITE.joinDescription}</p>
+        </div>
+
+        <div class="join-grid">
+          <article class="card reveal">
+            <div class="card-body">
+              <span class="eyebrow">Quick Start</span>
+              <h3>카카오 로그인 팝업형 진입</h3>
+              <p>
+                실제 카카오 OAuth를 붙이려면 앱 키와 리다이렉트 URL이 필요하지만,
+                우선은 팝업 UI와 버튼 동작 포인트를 넣어두었습니다.
+                지금은 양산형 사이트처럼 로그인 시작 흐름이 보이도록 구성한 상태입니다.
+              </p>
+
+              <div class="hero-actions" style="margin-top:22px;">
+                <button class="btn btn-kakao" type="button" data-open-login>카카오로 시작하기</button>
+                <button class="btn btn-soft" type="button" data-open-login>이메일로 계속</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-body">
+              <span class="eyebrow">Newsletter</span>
+              <h3>업데이트 알림 받기</h3>
+              <p>
+                실제 API 연동 전이라도 프론트 UI는 먼저 운영할 수 있게 만들어두었습니다.
+                이메일 저장 로직만 연결하면 뉴스레터/사전 알림 폼으로 바로 전환 가능합니다.
+              </p>
+
+              <form id="newsletter-form" class="newsletter-form">
+                <input
+                  id="newsletter-email"
+                  class="newsletter-input"
+                  type="email"
+                  placeholder="이메일 주소를 입력하세요"
+                  autocomplete="email"
+                  required
+                />
+                <div class="hero-actions">
+                  <button class="btn btn-dark" type="submit">구독하기</button>
+                  <button class="btn btn-line" type="button" data-open-login>회원 시작</button>
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-  ${renderFooter()}
-  ${renderProductModal()}
-  ${renderLoginModal()}
+  <footer class="footer">
+    <div class="container footer-box">
+      <div>${SITE.footerText}</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#film">Brand Film</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="product-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-product-modal></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" id="product-modal-close" aria-label="상품 상세 닫기">×</button>
+
+      <div class="product-modal-layout">
+        <div class="product-modal-gallery">
+          <div class="product-modal-main">
+            <img id="product-modal-main-image" src="" alt="" />
+          </div>
+          <div class="product-modal-thumbs" id="product-modal-thumbs"></div>
+        </div>
+
+        <div class="product-modal-body">
+          <span class="badge" id="product-modal-badge"></span>
+          <h3 class="product-modal-title" id="product-modal-title"></h3>
+          <p class="product-modal-subtitle" id="product-modal-subtitle"></p>
+
+          <div class="product-modal-meta">
+            <strong id="product-modal-price"></strong>
+            <span id="product-modal-volume"></span>
+          </div>
+
+          <p class="product-modal-desc" id="product-modal-desc"></p>
+
+          <div class="detail-block">
+            <h4>Notes</h4>
+            <div class="chip-wrap" id="product-modal-notes"></div>
+          </div>
+
+          <div class="detail-block">
+            <h4>Ingredients</h4>
+            <div class="chip-wrap" id="product-modal-ingredients"></div>
+          </div>
+
+          <div class="product-modal-actions">
+            <a class="btn btn-dark" id="product-modal-buy" href="#" target="_blank" rel="noreferrer">구매하기</a>
+            <button class="btn btn-line" type="button" data-close-product-modal>닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="login-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-login-modal></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" id="login-modal-close" aria-label="로그인 닫기">×</button>
+
+      <div class="login-modal-layout">
+        <div class="login-visual">
+          <img src="${ASSETS.campaign01}" alt="Soumé login visual" data-fallback="${ASSETS.heroMain}" />
+        </div>
+
+        <div class="login-body">
+          <span class="eyebrow">Quick Join</span>
+          <h3>Soumé 시작하기</h3>
+          <p>
+            실제 카카오 OAuth 연동 전 단계용 팝업 UI입니다.
+            지금은 양산형 커머스처럼 로그인/회원진입 흐름이 보이도록 설계했고,
+            나중에 카카오 개발자 설정만 연결하면 실서비스형으로 바꿀 수 있습니다.
+          </p>
+
+          <div class="login-stack">
+            <a class="btn btn-kakao" href="${LOGIN.kakaoAuthUrl}" target="_blank" rel="noreferrer">
+              카카오로 시작하기
+            </a>
+            <a class="btn btn-dark" href="${LOGIN.emailLoginUrl}">
+              이메일로 계속하기
+            </a>
+            <button class="btn btn-line" type="button" data-close-login-modal>
+              나중에 할게요
+            </button>
+          </div>
+
+          <p class="login-note">
+            실제 운영 시에는 카카오 JavaScript SDK 또는 OAuth Redirect URL을 연결하세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const PRODUCTS = ${productsJson};
@@ -1856,7 +1873,6 @@ ${renderHead()}
 
     function setupMobileMenu() {
       if (!menuBtn || !mobilePanel) return;
-
       menuBtn.addEventListener('click', function () {
         const isOpen = mobilePanel.classList.toggle('is-open');
         menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
@@ -1885,7 +1901,9 @@ ${renderHead()}
     function setupReveal() {
       const items = Array.from(document.querySelectorAll('.reveal'));
       if (!('IntersectionObserver' in window)) {
-        items.forEach(function (item) { item.classList.add('is-visible'); });
+        items.forEach(function (item) {
+          item.classList.add('is-visible');
+        });
         return;
       }
 
@@ -1898,7 +1916,9 @@ ${renderHead()}
         });
       }, { threshold: 0.12 });
 
-      items.forEach(function (item) { observer.observe(item); });
+      items.forEach(function (item) {
+        observer.observe(item);
+      });
     }
 
     function applyImageFallback(img) {
@@ -1913,18 +1933,19 @@ ${renderHead()}
 
     function setupAllImageFallbacks() {
       const imgs = Array.from(document.querySelectorAll('img[data-fallback]'));
-      imgs.forEach(function (img) { applyImageFallback(img); });
+      imgs.forEach(function (img) {
+        applyImageFallback(img);
+      });
     }
 
     function setupFilmFallback() {
       const video = document.getElementById('brand-film-video');
       const fallback = document.getElementById('brand-film-fallback');
-
       if (!video || !fallback) return;
 
       function showFallback() {
         video.classList.add('hidden');
-        fallback.style.display = 'block';
+        fallback.classList.remove('hidden');
       }
 
       video.addEventListener('error', showFallback);
@@ -1940,201 +1961,8 @@ ${renderHead()}
       container.innerHTML = '';
       (items || []).forEach(function (item) {
         const span = document.createElement('span');
-        span.className = 'chip';
-        span.textContent = item;
-        container.appendChild(span);
-      });
-    }
-
-    function renderProductThumbs(images, title) {
-      if (!productThumbs || !productMainImage) return;
-      productThumbs.innerHTML = '';
-
-      (images || []).forEach(function (src, index) {
-        const btn = document.createElement('button');
-        btn.className = 'product-modal-thumb';
-        btn.type = 'button';
-        btn.setAttribute('aria-label', title + ' 썸네일 ' + (index + 1));
-
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = title + ' gallery ' + (index + 1);
-        img.setAttribute('data-fallback', '${ASSETS.product01}');
-        applyImageFallback(img);
-
-        btn.appendChild(img);
-        btn.addEventListener('click', function () {
-          productMainImage.src = src;
-          productMainImage.alt = title;
-        });
-
-        productThumbs.appendChild(btn);
-      });
-    }
-
-    function openProductModal(productId) {
-      const product = PRODUCTS.find(function (item) { return item.id === productId; });
-      if (!product || !productModal) return;
-
-      if (productBadge) productBadge.textContent = product.badge;
-      if (productTitle) productTitle.textContent = product.name;
-      if (productSubtitle) productSubtitle.textContent = product.subtitle;
-      if (productPrice) productPrice.textContent = product.price;
-      if (productVolume) productVolume.textContent = product.volume;
-      if (productDesc) productDesc.textContent = product.description;
-      if (productBuy) productBuy.setAttribute('href', product.buyLink || '#');
-
-      if (productMainImage) {
-        productMainImage.src = product.image;
-        productMainImage.alt = product.name;
-        productMainImage.setAttribute('data-fallback', '${ASSETS.product01}');
-        applyImageFallback(productMainImage);
-      }
-
-      renderChips(productNotes, product.notes || []);
-      renderChips(productIngredients, product.ingredients || []);
-      renderProductThumbs(product.gallery || [product.image], product.name);
-
-      productModal.classList.add('is-open');
-      productModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeProductModal() {
-      if (!productModal) return;
-      productModal.classList.remove('is-open');
-      productModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function openLoginModal() {
-      if (!loginModal) return;
-      loginModal.classList.add('is-open');
-      loginModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLoginModal() {
-      if (!loginModal) return;
-      loginModal.classList.remove('is-open');
-      loginModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function setupProductModal() {
-      const triggers = Array.from(document.querySelectorAll('[data-product-id]'));
-      triggers.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          const id = btn.getAttribute('data-product-id');
-          if (id) openProductModal(id);
-        });
-      });
-
-      if (productModalClose) {
-        productModalClose.addEventListener('click', closeProductModal);
-      }
-
-      Array.from(document.querySelectorAll('[data-close-product-modal]')).forEach(function (el) {
-        el.addEventListener('click', closeProductModal);
-      });
-    }
-
-    function setupLoginModal() {
-      Array.from(document.querySelectorAll('[data-open-login]')).forEach(function (el) {
-        el.addEventListener('click', openLoginModal);
-      });
-
-      if (loginModalClose) {
-        loginModalClose.addEventListener('click', closeLoginModal);
-      }
-
-      Array.from(document.querySelectorAll('[data-close-login-modal]')).forEach(function (el) {
-        el.addEventListener('click', closeLoginModal);
-      });
-    }
-
-    function updateHeroSlide(index) {
-      currentSlide = index;
-
-      slideEls.forEach(function (slide, i) {
-        if (i === index) slide.classList.add('is-active');
-        else slide.classList.remove('is-active');
-      });
-
-      dotEls.forEach(function (dot, i) {
-        if (i === index) dot.classList.add('is-active');
-        else dot.classList.remove('is-active');
-      });
-
-      const data = HERO_SLIDES[index];
-      if (slideEyebrow) slideEyebrow.textContent = data.eyebrow;
-      if (slideTitle) slideTitle.textContent = data.title;
-      if (slideDesc) slideDesc.textContent = data.desc;
-    }
-
-    function startHeroSlider() {
-      if (!slideEls.length) return;
-
-      dotEls.forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          const index = Number(dot.getAttribute('data-hero-dot'));
-          if (!Number.isNaN(index)) {
-            updateHeroSlide(index);
-            restartHeroSlider();
-          }
-        });
-      });
-
-      heroTimer = window.setInterval(function () {
-        const next = (currentSlide + 1) % HERO_SLIDES.length;
-        updateHeroSlide(next);
-      }, 4200);
-    }
-
-    function restartHeroSlider() {
-      if (heroTimer) window.clearInterval(heroTimer);
-      startHeroSlider();
-    }
-
-    function setupNewsletter() {
-      const form = document.getElementById('newsletter-form');
-      const input = document.getElementById('newsletter-email');
-
-      if (!form || !input) return;
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const value = input.value.trim();
-        if (!value) return;
-        window.alert('뉴스레터 UI 연결 완료. 실제 저장 API만 붙이면 운영 가능합니다.\\n입력값: ' + value);
-        form.reset();
-      });
-    }
-
-    function setupEscClose() {
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-          closeProductModal();
-          closeLoginModal();
-        }
-      });
-    }
-
-    setHeaderState();
-    window.addEventListener('scroll', setHeaderState);
-
-    setupMobileMenu();
-    setupSmoothScroll();
-    setupReveal();
-    setupAllImageFallbacks();
-    setupFilmFallback();
-    setupProductModal();
-    setupLoginModal();
-    setupNewsletter();
-    setupEscClose();
-    updateHeroSlide(0);
-    startHeroSlider();
-  </script>
+        span.className =
+          </script>
 </body>
 </html>
   `)
