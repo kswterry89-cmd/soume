@@ -211,8 +211,10 @@ const productCardsHtml = PRODUCTS.map(p => `
   </article>
 `).join('')
 
-const fragranceCardsHtml = FRAGRANCE_NOTES.map(f => `
-  <div class="fragrance-card">
+const fragranceCardsHtml = FRAGRANCE_NOTES.map((f, idx) => {
+  const type = idx === 0 ? 'ocean' : 'forest';
+  return `
+  <div class="fragrance-card" data-type="${type}">
     <h3>${f.product}</h3>
     <p class="fragrance-subtitle">${f.subtitle}</p>
     <div class="fragrance-layers">
@@ -233,7 +235,9 @@ const fragranceCardsHtml = FRAGRANCE_NOTES.map(f => `
       </div>
     </div>
   </div>
-`).join('')
+  `;
+}).join('')
+
 
 const ingredientCardsHtml = KEY_INGREDIENTS.map(i => `
   <div class="ingredient-card">
@@ -381,31 +385,36 @@ app.get('/', (c) => {
     padding: 0 0 12vh 0;
   }
   .hero-content-inner {
-    max-width: 1400px; width: 100%;
-    margin: 0 auto; padding: 0 48px;
-    max-width: 580px;
-    margin-left: max(48px, calc((100vw - 1400px) / 2 + 48px));
-    color: #fff;
-  }
-  .hero-label {
-    display: inline-block;
-    font-size: 11px; letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 24px; color: rgba(255,255,255,0.85);
-  }
-  .hero-title {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: clamp(32px, 4.5vw, 52px);
-    font-weight: 700; line-height: 1.25;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  }
-  .hero-text {
-    font-size: 14px; line-height: 1.7;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 32px;
-    max-width: 480px;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 720px;
+  margin-left: max(48px, calc((100vw - 1400px) / 2 + 48px));
+  margin-right: auto;
+  color: #fff;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 11px; letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 24px; color: rgba(255,255,255,0.85);
+}
+.hero-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700; line-height: 1.3;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  word-break: keep-all;
+  max-width: 640px;
+}
+.hero-text {
+  font-size: 14px; line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 32px;
+  max-width: 560px;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  word-break: keep-all;
+}
+
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -547,38 +556,112 @@ app.get('/', (c) => {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
   }
   .fragrance-card {
-    background: #fff; padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 2px 30px rgba(0,0,0,0.04);
-  }
-  .fragrance-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400; margin-bottom: 8px;
-  }
-  .fragrance-subtitle {
-    font-size: 13px; color: #888; margin-bottom: 32px;
-  }
-  .fragrance-layers { display: flex; flex-direction: column; gap: 20px; }
+  position: relative;
+  background: #fff;
+  padding: 48px 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 30px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+.fragrance-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #b89968 0%, #d4b885 50%, #ebe4d7 100%);
+}
+.fragrance-card[data-type="ocean"]::before {
+  background: linear-gradient(90deg, #7aa8b8 0%, #a8c8d4 50%, #d4e4ea 100%);
+}
+.fragrance-card[data-type="forest"]::before {
+  background: linear-gradient(90deg, #8a7a5c 0%, #b89968 50%, #d4c4a8 100%);
+}
+.fragrance-card::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,153,104,0.08) 0%, transparent 70%);
+}
+.fragrance-card[data-type="ocean"]::after {
+  background: radial-gradient(circle, rgba(122,168,184,0.1) 0%, transparent 70%);
+}
+.fragrance-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 400;
+  margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.fragrance-subtitle {
+  font-size: 13px; color: #888;
+  margin-bottom: 36px;
+  position: relative; z-index: 1;
+  letter-spacing: 0.02em;
+}
+.fragrance-layers {
+  display: flex; flex-direction: column;
+  gap: 0;
+  position: relative; z-index: 1;
+}
+.fragrance-layer {
+  display: grid;
+  grid-template-columns: 90px 1fr 1.5fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+.fragrance-layer:last-child::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px; background: #eee;
+}
+.fragrance-stage {
+  display: inline-flex;
+  align-items: center; gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #b89968;
+  font-weight: 500;
+}
+.fragrance-stage::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #b89968;
+}
+.fragrance-card[data-type="ocean"] .fragrance-stage { color: #5a8a9a; }
+.fragrance-card[data-type="ocean"] .fragrance-stage::before { background: #5a8a9a; }
+.fragrance-card[data-type="forest"] .fragrance-stage { color: #8a7a5c; }
+.fragrance-card[data-type="forest"] .fragrance-stage::before { background: #8a7a5c; }
+.fragrance-layer strong {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.01em;
+}
+.fragrance-layer span:last-child {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .fragrance-grid { grid-template-columns: 1fr; gap: 24px; }
+  .fragrance-card { padding: 36px 28px; }
   .fragrance-layer {
-    display: grid; grid-template-columns: 80px 1fr 1.5fr;
-    align-items: baseline; gap: 16px;
-    padding: 16px 0; border-top: 1px solid #eee;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px 16px;
   }
-  .fragrance-stage {
-    font-size: 11px; letter-spacing: 0.2em;
-    color: #b89968; font-weight: 500;
-  }
-  .fragrance-layer strong { font-size: 15px; font-weight: 500; }
   .fragrance-layer span:last-child {
-    font-size: 13px; color: #777;
+    grid-column: 2; grid-row: 2;
   }
-  @media (max-width: 768px) {
-    .fragrance-grid { grid-template-columns: 1fr; }
-    .fragrance-layer {
-      grid-template-columns: 60px 1fr;
-      grid-template-rows: auto auto;
-    }
-    .fragrance-layer span:last-child { grid-column: 2; }
+}
+
   }
 
   /* Ingredients */
@@ -630,9 +713,24 @@ app.get('/', (c) => {
   .brand-point p {
     font-size: 13px; color: #666; line-height: 1.7;
   }
-  .brand-image img { border-radius: 4px; }
-  @media (max-width: 900px) {
-    .brand-grid { grid-template-columns: 1fr; gap: 40px; }
+  .brand-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #eee;
+}
+.brand-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  .brand-grid { grid-template-columns: 1fr; gap: 40px; }
+  .brand-image { aspect-ratio: 16/10; }
+}
+
   }
 
   /* How to use */
