@@ -4,13 +4,13 @@ const app = new Hono()
 
 const SITE = {
   brand: 'Soumé',
-  title: 'Soumé — Quiet Luxury Body Ritual',
+  title: 'Soumé — Perfumed Body Lotion Spray',
   description:
-    'Soumé는 감도 높은 비주얼과 간결한 구매 동선을 결합한 모던 럭셔리 바디 리추얼 브랜드입니다.',
+    'Soumé는 5중 세라마이드와 복합 히알루론산을 담은 퍼퓸 바디 로션 스프레이 브랜드입니다. 미백·주름개선 2중 기능성과 두 가지 시그니처 향으로 매일의 바디 리추얼을 완성합니다.',
 }
 
 const LINKS = {
-  smartstore: 'https://smartstore.naver.com/neography/',
+  smartstore: 'https://smartstore.naver.com/neography',
 }
 
 const ASSETS = {
@@ -42,75 +42,139 @@ const HERO_MEDIA = [
     video: '/videos/soume/hero-01.mp4',
     poster: ASSETS.heroMain,
     alt: 'Soumé hero video 01',
-    label: 'Quiet Luxury',
-    title: '두 가지 시그니처,\n하루의 무드를 더 선명하게',
-    text: 'Ocean Breeze와 Morning Haze. 취향은 달라도 첫 선택은 간단하게.',
+    label: 'Perfumed Body Lotion Spray',
+    title: '향과 케어를 한 번에,\n매일의 바디 리추얼',
+    text: '5중 세라마이드와 복합 히알루론산, 두 가지 시그니처 향. 미백·주름개선 2중 기능성 퍼퓸 바디 스프레이.',
   },
   {
     video: '/videos/soume/hero-02.mp4',
     poster: ASSETS.campaign01,
     alt: 'Soumé hero video 02',
     label: 'Ocean Breeze',
-    title: '맑고 산뜻하게,\n첫인상을 정리하는 무드',
-    text: '브랜드의 첫 선택이 가장 쉽게 이해되도록 설계한 대표 시그니처.',
+    title: '산뜻한 시트러스 아쿠아,\n상쾌한 하루의 시작',
+    text: 'Citrus · Acqua · Marine. 맑고 깨끗한 인상을 남기는 첫 번째 시그니처.',
   },
   {
     video: '/videos/soume/hero-03.mp4',
     poster: ASSETS.campaign02,
     alt: 'Soumé hero video 03',
-    label: 'Morning Haze',
-    title: '부드럽고 차분하게,\n오래 남는 데일리 리추얼',
-    text: '과하지 않지만 고급스럽게 남는 분위기를 위한 두 번째 선택.',
+    label: 'Forest Whisper',
+    title: '포근한 우디 머스크,\n부드럽게 감싸는 마무리',
+    text: 'Sandalwood · Jasmine · Musk. 차분하고 고급스러운 두 번째 시그니처.',
   },
   {
     video: '/videos/soume/hero-04.mp4',
     poster: ASSETS.lookbook01,
     alt: 'Soumé hero video 04',
-    label: 'Brand Mood',
-    title: '감도 높은 비주얼과\n직관적인 구매 흐름',
-    text: '무드는 깊게, 구매 동선은 짧고 분명하게.',
+    label: 'Dual Functional Care',
+    title: '미백·주름개선\n2중 기능성 화장품',
+    text: '나이아신아마이드와 아데노신이 향과 케어를 동시에 완성합니다.',
   },
 ]
 
 const PRODUCTS = [
   {
     id: 'ocean-breeze',
-    badge: 'BEST SELLER',
+    badge: 'FRESH SIGNATURE',
     name: 'Ocean Breeze',
-    price: '₩48,000',
+    nameKo: '수메 오션 브리즈 스프레이',
+    notes: 'Citrus · Acqua · Marine',
+    price: '₩000,000',
     volume: '250ml',
     image: ASSETS.product01,
-    subtitle: '맑고 산뜻한 인상을 남기는 시그니처 리추얼',
+    subtitle: '산뜻한 시트러스 아쿠아 향',
     description:
-      '가볍고 깨끗한 분위기를 선호하는 고객에게 가장 먼저 추천하기 좋은 시그니처.',
-    features: ['Fresh Mood', 'Clean Finish', 'Daily Use'],
+      '5중 세라마이드와 복합 히알루론산이 피부를 상쾌하게 채우고, 맑고 산뜻한 시트러스 아쿠아 향이 하루의 첫인상을 정리하는 퍼퓸 바디 스프레이.',
+    features: ['미백·주름개선 2중', '5중 세라마이드', '복합 히알루론산'],
   },
   {
-    id: 'morning-haze',
-    badge: 'SOFT SIGNATURE',
-    name: 'Morning Haze',
-    price: '₩52,000',
+    id: 'forest-whisper',
+    badge: 'WARM SIGNATURE',
+    name: 'Forest Whisper',
+    nameKo: '수메 포레스트 위스퍼 스프레이',
+    notes: 'Sandalwood · Jasmine · Musk',
+    price: '₩000,000',
     volume: '250ml',
     image: ASSETS.product02,
-    subtitle: '부드럽고 차분한 분위기를 완성하는 데일리 리추얼',
+    subtitle: '포근한 우디 머스크 향',
     description:
-      '조용하고 고급스러운 무드를 선호하는 고객에게 어울리는 소프트 시그니처.',
-    features: ['Soft Mood', 'Calm Finish', 'Gift Ready'],
+      '미백·주름개선 2중 기능성과 풍부한 보습·진정 케어. 포근한 우디 머스크 향으로 피부를 부드럽게 감싸는 퍼퓸 바디 스프레이.',
+    features: ['미백·주름개선 2중', '보습·진정 케어', '우디 머스크'],
+  },
+]
+
+const FRAGRANCE_NOTES = [
+  {
+    product: 'Ocean Breeze',
+    theme: '낮의 바다 — 산뜻하고 청량한 시트러스 아쿠아',
+    top: { note: 'Citrus', desc: '헤스페리딕, 프레시 시트러스' },
+    middle: { note: 'Acqua', desc: '아쿠아, 프루티, 우디' },
+    base: { note: 'Marine', desc: '마린, 플로럴, 프루트' },
+    accent: '#a8c8d8',
+  },
+  {
+    product: 'Forest Whisper',
+    theme: '저녁의 숲 — 포근하고 깊이 있는 우디 머스크',
+    top: { note: 'Sandalwood', desc: '샌달우드, 시더우드' },
+    middle: { note: 'Jasmine', desc: '자스민' },
+    base: { note: 'Musk', desc: '머스크, 앰버' },
+    accent: '#c9b59a',
+  },
+]
+
+const KEY_INGREDIENTS = [
+  {
+    label: '01',
+    name: '5중 세라마이드',
+    text: '세라마이드 NP·AP·AS·NS·EOP 다섯 종류가 피부 장벽을 촘촘하게 채워 매끄럽고 단단한 피부 결을 완성합니다.',
+  },
+  {
+    label: '02',
+    name: '복합 히알루론산',
+    text: '하이알루로닉애씨드, 하이드롤라이즈드 하이알루로닉애씨드, 소듐하이알루로네이트 크로스폴리머의 다층 보습 시스템.',
+  },
+  {
+    label: '03',
+    name: '나이아신아마이드',
+    text: '식약처 인증 미백 기능성 성분. 맑고 고른 피부 톤을 위한 데일리 케어.',
+  },
+  {
+    label: '04',
+    name: '아데노신',
+    text: '식약처 인증 주름개선 기능성 성분. 매끈하고 탄탄한 피부 결을 위한 케어.',
   },
 ]
 
 const BRAND_POINTS = [
   {
-    title: '선택 피로를 줄이는 구조',
-    text: '제품을 많이 나열하기보다 가장 인상이 선명한 두 가지 시그니처에 집중해 빠르게 이해되고 쉽게 선택되도록 정리했습니다.',
+    title: '향과 케어를 동시에',
+    text: '단순한 향수가 아닌, 5중 세라마이드와 복합 히알루론산을 담은 퍼퓸 바디 로션 스프레이. 향을 즐기는 동시에 피부 보습까지 챙깁니다.',
   },
   {
-    title: '이미지 우선 랜딩 구조',
-    text: '첫 화면에서는 설명을 덜고 비주얼을 앞세워, 모바일에서도 브랜드 인상이 흐려지지 않도록 설계했습니다.',
+    title: '식약처 2중 기능성 인증',
+    text: '미백과 주름개선, 두 가지 기능성을 동시에 인증받은 화장품. 나이아신아마이드와 아데노신이 매일의 케어를 더 단단하게 만듭니다.',
   },
   {
-    title: '브랜드와 구매 흐름의 연결',
-    text: '감도 높은 이미지와 직관적인 CTA를 함께 배치해 예쁜 화면에서 실제 구매 진입까지 자연스럽게 이어집니다.',
+    title: '유니섹스 시그니처 두 가지',
+    text: '낮의 바다 같은 Ocean Breeze, 저녁의 숲 같은 Forest Whisper. 성별·연령 구분 없이 자신의 무드를 선택할 수 있도록 설계했습니다.',
+  },
+]
+
+const HOW_TO_USE = [
+  {
+    step: '01',
+    title: '충분히 흔들기',
+    text: '사용 전 제품을 충분히 흔들어 내용물을 고르게 섞어줍니다.',
+  },
+  {
+    step: '02',
+    title: '20cm 거리에서 분사',
+    text: '피부 또는 의류에서 20cm 정도 떨어진 거리에서 적당량을 분사합니다.',
+  },
+  {
+    step: '03',
+    title: '가볍게 흡수',
+    text: '문지르지 말고 가볍게 흡수시키듯 사용하면 향이 더 오래 머뭅니다.',
   },
 ]
 
@@ -118,21 +182,21 @@ const SIGNATURES = [
   {
     index: '01',
     title: 'Signature Main',
-    text: '브랜드의 첫인상을 정리하는 메인 컷.',
+    text: 'Soumé의 첫인상을 정리하는 메인 비주얼. 조용한 럭셔리 톤을 담아냈습니다.',
     image: ASSETS.signatureMain,
     pos: 'center center',
   },
   {
     index: '02',
     title: 'Signature Open',
-    text: '제품 경험과 사용 장면을 자연스럽게 연결하는 이미지.',
+    text: '제품 사용 장면을 자연스럽게 연결한 컷. 일상 속 리추얼을 보여줍니다.',
     image: ASSETS.signatureOpen,
     pos: 'center center',
   },
   {
     index: '03',
     title: 'Signature Detail',
-    text: '텍스처와 디테일을 보여줘 구매 전 신뢰감을 높이는 컷.',
+    text: '미스트의 질감과 디테일을 가까이 담아 구매 전 신뢰감을 더합니다.',
     image: ASSETS.signatureDetail,
     pos: 'center center',
   },
@@ -141,56 +205,56 @@ const SIGNATURES = [
 const VISUAL_ARCHIVE = [
   {
     title: 'Editorial Main',
-    text: '브랜드 소개에 깊이를 더하는 에디토리얼 메인 이미지.',
+    text: 'Soumé 브랜드 무드를 가장 깊이 있게 보여주는 에디토리얼 메인.',
     image: ASSETS.editorialMain,
     size: 'wide',
     pos: 'center 22%',
   },
   {
     title: 'Lookbook 01',
-    text: '첫 인상을 정리하는 차분한 무드 컷.',
+    text: '차분한 일상 속 바디 리추얼의 한 장면.',
     image: ASSETS.lookbook01,
     size: 'normal',
     pos: 'center center',
   },
   {
     title: 'Lookbook 02',
-    text: '피부 위 질감과 조도를 보여주는 에디토리얼 장면.',
+    text: '피부 위 미스트의 질감과 빛을 담은 컷.',
     image: ASSETS.lookbook02,
     size: 'tall',
     pos: 'center center',
   },
   {
     title: 'Lookbook 03',
-    text: '홈페이지와 상세페이지를 잇는 무드 컷.',
+    text: '제품과 사용자가 어우러지는 자연스러운 무드.',
     image: ASSETS.lookbook03,
     size: 'normal',
     pos: 'center center',
   },
   {
-    title: 'Campaign 01',
-    text: '브랜드 무드를 가장 선명하게 보여주는 대표 컷.',
+    title: 'Ocean Breeze Campaign',
+    text: '맑고 산뜻한 시트러스 아쿠아의 인상을 담은 캠페인.',
     image: ASSETS.campaign01,
     size: 'normal',
     pos: 'center center',
   },
   {
-    title: 'Campaign 02',
-    text: '조용한 럭셔리 톤을 보강하는 두 번째 메인 비주얼.',
+    title: 'Forest Whisper Campaign',
+    text: '포근하고 깊이 있는 우디 머스크의 캠페인 컷.',
     image: ASSETS.campaign02,
     size: 'normal',
     pos: 'center center',
   },
   {
     title: 'Product Detail',
-    text: '상세 페이지 전환 전에 제품 인상을 강화하는 컷.',
+    text: '패키지의 디테일과 텍스처를 담은 제품 컷.',
     image: ASSETS.product03,
     size: 'normal',
     pos: 'center center',
   },
   {
     title: 'Brand Film Poster',
-    text: '브랜드 필름 무드를 정리하는 포스터 비주얼.',
+    text: 'Soumé 브랜드 필름의 무드를 정리한 포스터 비주얼.',
     image: ASSETS.filmPoster,
     size: 'wide',
     pos: 'center center',
@@ -240,12 +304,14 @@ const productCardsHtml = PRODUCTS.map(
         <span class="product-badge">${product.badge}</span>
       </div>
       <div class="product-body">
+        <div class="product-notes">${product.notes}</div>
+        <h3>${product.name}</h3>
+        <div class="product-name-ko">${product.nameKo}</div>
+        <p class="product-subtitle">${product.subtitle}</p>
         <div class="product-meta">
           <span>${product.volume}</span>
           <span>${product.price}</span>
         </div>
-        <h3>${product.name}</h3>
-        <p class="product-subtitle">${product.subtitle}</p>
         <p class="product-description">${product.description}</p>
         <div class="feature-tags">
           ${product.features.map((feature) => `<span>${feature}</span>`).join('')}
@@ -259,11 +325,65 @@ const productCardsHtml = PRODUCTS.map(
   `,
 ).join('')
 
+const fragranceCardsHtml = FRAGRANCE_NOTES.map(
+  (item) => `
+    <article class="fragrance-card" style="--accent:${item.accent};">
+      <div class="fragrance-head">
+        <h3>${item.product}</h3>
+        <p>${item.theme}</p>
+      </div>
+      <div class="fragrance-pyramid">
+        <div class="fragrance-level">
+          <div class="fragrance-level-label">TOP</div>
+          <div class="fragrance-level-body">
+            <strong>${item.top.note}</strong>
+            <span>${item.top.desc}</span>
+          </div>
+        </div>
+        <div class="fragrance-level">
+          <div class="fragrance-level-label">MIDDLE</div>
+          <div class="fragrance-level-body">
+            <strong>${item.middle.note}</strong>
+            <span>${item.middle.desc}</span>
+          </div>
+        </div>
+        <div class="fragrance-level">
+          <div class="fragrance-level-label">BASE</div>
+          <div class="fragrance-level-body">
+            <strong>${item.base.note}</strong>
+            <span>${item.base.desc}</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  `,
+).join('')
+
+const ingredientCardsHtml = KEY_INGREDIENTS.map(
+  (item) => `
+    <div class="ingredient-card">
+      <div class="ingredient-label">${item.label}</div>
+      <strong>${item.name}</strong>
+      <p>${item.text}</p>
+    </div>
+  `,
+).join('')
+
 const brandPointsHtml = BRAND_POINTS.map(
   (point) => `
     <div class="brand-point">
       <strong>${point.title}</strong>
       <span>${point.text}</span>
+    </div>
+  `,
+).join('')
+
+const howToUseHtml = HOW_TO_USE.map(
+  (item) => `
+    <div class="howto-card">
+      <div class="howto-step">${item.step}</div>
+      <strong>${item.title}</strong>
+      <p>${item.text}</p>
     </div>
   `,
 ).join('')
@@ -387,7 +507,7 @@ app.get('/', (c) => {
     .nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
     }
 
     .nav a {
@@ -677,10 +797,39 @@ app.get('/', (c) => {
     }
 
     .product-body {
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       flex: 1;
+    }
+
+    .product-notes {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .product-body h3 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .product-name-ko {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .product-subtitle {
+      margin: 14px 0 0;
+      font-size: 15px;
+      color: #453f38;
+      font-weight: 500;
     }
 
     .product-meta {
@@ -690,20 +839,9 @@ app.get('/', (c) => {
       gap: 12px;
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .product-body h3 {
-      margin: 0;
-      font-size: 30px;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .product-subtitle {
-      margin: 10px 0 0;
-      font-size: 15px;
-      color: #453f38;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(25,23,20,0.08);
     }
 
     .product-description {
@@ -740,6 +878,128 @@ app.get('/', (c) => {
       flex-wrap: wrap;
     }
 
+    /* Fragrance Section */
+    .fragrance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .fragrance-card {
+      padding: 32px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(25,23,20,0.06);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fragrance-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .fragrance-head h3 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .fragrance-head p {
+      margin: 8px 0 24px;
+      font-size: 14px;
+      color: #564f47;
+      line-height: 1.6;
+    }
+
+    .fragrance-pyramid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fragrance-level {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(25,23,20,0.05);
+    }
+
+    .fragrance-level-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .fragrance-level-body strong {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: #221f1b;
+    }
+
+    .fragrance-level-body span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #6b6259;
+    }
+
+    /* Ingredients Section */
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .ingredient-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(25,23,20,0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .ingredient-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .ingredient-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .ingredient-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #5d564d;
+    }
+
+    /* Brand Section */
     .brand-grid {
       display: grid;
       grid-template-columns: 1.02fr 1fr;
@@ -810,6 +1070,46 @@ app.get('/', (c) => {
       object-position: center 26%;
     }
 
+    /* How To Use */
+    .howto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .howto-card {
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(25,23,20,0.06);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .howto-step {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .howto-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .howto-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #5d564d;
+    }
+
+    /* Signature */
     .signature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -854,6 +1154,7 @@ app.get('/', (c) => {
       line-height: 1.7;
     }
 
+    /* Archive */
     .archive-grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -928,6 +1229,7 @@ app.get('/', (c) => {
       max-width: 420px;
     }
 
+    /* CTA */
     .cta-panel {
       padding: 38px;
       border-radius: 32px;
@@ -1185,6 +1487,10 @@ app.get('/', (c) => {
         min-height: 520px;
       }
 
+      .ingredients-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .archive-card,
       .archive-card--wide,
       .archive-card--tall {
@@ -1311,24 +1617,40 @@ app.get('/', (c) => {
       }
 
       .products-grid,
-      .signature-grid {
+      .signature-grid,
+      .fragrance-grid,
+      .howto-grid {
         grid-template-columns: 1fr;
         gap: 14px;
+      }
+
+      .ingredients-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
       .product-card,
       .brand-copy,
       .signature-card,
-      .cta-panel {
+      .cta-panel,
+      .fragrance-card,
+      .ingredient-card,
+      .howto-card {
         border-radius: 22px;
       }
 
       .product-body,
-      .brand-copy {
-        padding: 18px;
+      .brand-copy,
+      .fragrance-card,
+      .howto-card {
+        padding: 20px;
       }
 
       .product-body h3 {
+        font-size: 26px;
+      }
+
+      .fragrance-head h3 {
         font-size: 24px;
       }
 
@@ -1403,13 +1725,14 @@ app.get('/', (c) => {
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Soumé home">
         <img src="${ASSETS.logo}" alt="Soumé logo" />
-        <span class="brand-text">Modern Luxury Clean Beauty</span>
+        <span class="brand-text">Perfumed Body Lotion Spray</span>
       </a>
 
       <nav class="nav" aria-label="primary">
         <a href="#products">Products</a>
+        <a href="#fragrance">Fragrance</a>
+        <a href="#ingredients">Ingredients</a>
         <a href="#brand-story">Brand</a>
-        <a href="#signature">Signature</a>
         <a href="#archive">Archive</a>
         <a href="#purchase">Purchase</a>
       </nav>
@@ -1431,28 +1754,28 @@ app.get('/', (c) => {
           </div>
 
           <div class="hero-panel">
-            <small>Video Hero Concept</small>
-            <h2>영상 중심으로 바꾸되,<br />이미지 자산도 모두 살리는 구조</h2>
-            <p>히어로는 4개의 동영상 슬라이드, 아래 섹션은 캠페인·에디토리얼·시그니처·룩북 이미지를 풍부하게 이어 붙여 랜딩의 밀도를 높였습니다.</p>
+            <small>Perfumed Body Lotion Spray</small>
+            <h2>향과 케어를 한 번에<br />매일의 바디 리추얼</h2>
+            <p>5중 세라마이드와 복합 히알루론산, 두 가지 시그니처 향. 미백·주름개선 2중 기능성으로 완성하는 데일리 바디 케어.</p>
           </div>
         </div>
 
         <div class="quick-strip">
           <div class="quick-card">
-            <strong>4 Video Slides · 5s</strong>
-            <span>히어로는 5초마다 자동 전환되고, 영상이 없으면 poster 이미지가 먼저 보입니다.</span>
+            <strong>2중 기능성 인증</strong>
+            <span>식약처 인증 미백·주름개선 2중 기능성 화장품. 나이아신아마이드와 아데노신 함유.</span>
           </div>
           <div class="quick-card">
-            <strong>2 Core Products</strong>
-            <span>Ocean Breeze와 Morning Haze를 메인 선택지로 집중.</span>
+            <strong>5중 세라마이드</strong>
+            <span>세라마이드 NP·AP·AS·NS·EOP 5종이 피부 장벽을 채웁니다.</span>
           </div>
           <div class="quick-card">
-            <strong>Visual Archive</strong>
-            <span>현재 가지고 있는 모든 이미지 자산을 아래에서 다시 활용.</span>
+            <strong>복합 히알루론산</strong>
+            <span>다층 보습 시스템으로 매일의 수분을 단단하게.</span>
           </div>
           <div class="quick-card">
-            <strong>Fast Purchase Flow</strong>
-            <span>메인 CTA는 스마트스토어 한 곳으로 단순하게 연결.</span>
+            <strong>두 가지 시그니처 향</strong>
+            <span>산뜻한 시트러스 아쿠아 · 포근한 우디 머스크.</span>
           </div>
         </div>
       </div>
@@ -1462,10 +1785,10 @@ app.get('/', (c) => {
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Core Products</div>
-          <h2>처음 방문해도 바로 이해되는<br />두 가지 핵심 제품</h2>
+          <h2>두 가지 시그니처,<br />매일의 무드를 선명하게</h2>
           <p>
-            메인에서는 Ocean Breeze와 Morning Haze 두 제품만 선명하게 보여주고,
-            비교와 구매가 자연스럽게 이어지도록 정리했습니다.
+            Ocean Breeze와 Forest Whisper. 낮의 바다와 저녁의 숲, 서로 다른 두 가지 향으로
+            성별·연령 구분 없이 누구나 자신의 무드를 선택할 수 있도록 설계했습니다.
           </p>
         </div>
 
@@ -1475,23 +1798,58 @@ app.get('/', (c) => {
       </div>
     </section>
 
+    <section class="section" id="fragrance">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Fragrance Notes</div>
+          <h2>향의 흐름을 따라가는<br />Top · Middle · Base</h2>
+          <p>
+            각 시그니처는 탑·미들·베이스의 세 층으로 설계되어, 시간이 지날수록
+            향이 부드럽게 변화하며 피부 위에 자연스럽게 머뭅니다.
+          </p>
+        </div>
+
+        <div class="fragrance-grid">
+          ${fragranceCardsHtml}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ingredients">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Key Ingredients</div>
+          <h2>향만큼 중요한,<br />피부를 위한 핵심 성분</h2>
+          <p>
+            Soumé는 향수가 아닌 퍼퓸 바디 로션 스프레이입니다. 향을 즐기는 동시에
+            5중 세라마이드와 복합 히알루론산, 식약처 인증 기능성 성분으로 피부를 함께 케어합니다.
+          </p>
+        </div>
+
+        <div class="ingredients-grid">
+          ${ingredientCardsHtml}
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="brand-story">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Brand Story</div>
-          <h2>회사 소개보다 먼저,<br />브랜드 인상이 기억되도록</h2>
+          <h2>향과 케어가 만나는 자리,<br />Soumé의 바디 리추얼</h2>
           <p>
-            Soumé는 제품 수를 늘리기보다 지금 가장 인상이 선명한 두 가지 시그니처에 집중합니다.
-            많이 설명하기보다 더 빠르게 이해되고, 더 쉽게 선택되고, 바로 구매까지 이어지도록 설계했습니다.
+            Soumé는 단순한 향수가 아닌, 매일의 피부 케어와 향을 함께 담은 바디 리추얼 브랜드입니다.
+            많이 설명하기보다 더 빠르게 이해되고, 더 쉽게 선택되도록 두 가지 시그니처에 집중했습니다.
           </p>
         </div>
 
         <div class="brand-grid">
           <div class="brand-copy">
-            <h3>Ocean Breeze와 Morning Haze,<br />서로 다른 두 가지 무드</h3>
+            <h3>Ocean Breeze와 Forest Whisper,<br />서로 다른 두 가지 무드</h3>
             <p>
-              하나는 맑고 산뜻하게, 다른 하나는 부드럽고 차분하게.
-              두 제품만으로도 Soumé가 어떤 인상을 남기고 싶은 브랜드인지 충분히 느껴지도록 정리했습니다.
+              하나는 산뜻한 시트러스 아쿠아, 다른 하나는 포근한 우디 머스크.
+              두 제품 모두 동일한 5중 세라마이드와 복합 히알루론산을 담아,
+              향만 다르고 케어는 같은 완성도로 설계했습니다.
             </p>
 
             <div class="brand-points">
@@ -1506,14 +1864,31 @@ app.get('/', (c) => {
       </div>
     </section>
 
+    <section class="section" id="howto">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">How to Use</div>
+          <h2>가장 자연스럽게,<br />가장 오래 머무는 사용법</h2>
+          <p>
+            세 단계만 기억하면 향이 더 오래 머물고 보습도 균일하게 퍼집니다.
+            샤워 후 또는 외출 전 매일의 리추얼로 사용해보세요.
+          </p>
+        </div>
+
+        <div class="howto-grid">
+          ${howToUseHtml}
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="signature">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Signature Visual</div>
-          <h2>메인 컷, 오픈 컷, 디테일 컷으로<br />브랜드의 톤을 더 깊게</h2>
+          <h2>제품을 넘어,<br />브랜드의 톤을 기억하도록</h2>
           <p>
-            제품만 나열하지 않고, 어떻게 보이고 어떤 감도로 기억되는지까지 함께 설계해야
-            랜딩페이지가 덜 심심하고 더 설득력 있게 느껴집니다.
+            메인 컷, 오픈 컷, 디테일 컷으로 Soumé의 무드를 더 깊이 보여줍니다.
+            제품만 나열하지 않고, 어떻게 보이고 어떤 감도로 기억되는지까지 함께 설계했습니다.
           </p>
         </div>
 
@@ -1527,10 +1902,10 @@ app.get('/', (c) => {
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Visual Archive</div>
-          <h2>지금 가진 이미지 자산을<br />홈페이지 안에서 더 풍부하게 활용</h2>
+          <h2>브랜드의 모든 장면,<br />하나의 흐름으로</h2>
           <p>
-            캠페인, 에디토리얼, 룩북, 디테일, 필름 포스터까지 전부 분산시키지 않고
-            하나의 흐름 안에 다시 묶어 브랜드 밀도를 높였습니다.
+            캠페인, 에디토리얼, 룩북, 디테일, 필름 포스터까지
+            분산시키지 않고 하나의 흐름 안에 묶어 브랜드 밀도를 높였습니다.
           </p>
         </div>
 
@@ -1544,11 +1919,11 @@ app.get('/', (c) => {
       <div class="container">
         <div class="cta-panel">
           <div class="cta-copy">
-            <small>Official Store CTA</small>
+            <small>Official Store</small>
             <h2>지금 가장 빠른 구매 동선</h2>
             <p>
-              클릭 분산을 줄이기 위해 메인 구매 링크는 스마트스토어 한 곳으로 집중했습니다.
-              히어로에서 무드를 보고, 제품을 비교하고, 브랜드 인상을 확인한 뒤 바로 이동할 수 있게 설계했습니다.
+              메인 구매 링크는 스마트스토어 한 곳으로 집중했습니다.
+              두 시그니처를 비교하고, 브랜드 인상을 확인한 뒤 바로 이동할 수 있도록 설계했습니다.
             </p>
           </div>
 
@@ -1564,7 +1939,7 @@ app.get('/', (c) => {
   <footer class="site-footer">
     <div class="container">
       <div class="footer-box">
-        <div>© Soumé. Quiet Luxury Body Ritual.</div>
+        <div>© Soumé. Perfumed Body Lotion Spray.</div>
         <div>Official purchase link → Smart Store</div>
       </div>
     </div>
@@ -1594,7 +1969,7 @@ app.get('/', (c) => {
     </div>
 
     <p>
-      Ocean Breeze와 Morning Haze를 가장 빠르게 구매할 수 있는 공식 동선입니다.
+      Ocean Breeze와 Forest Whisper를 가장 빠르게 만날 수 있는 공식 동선입니다.
       스마트스토어에서 바로 확인해보세요.
     </p>
 
