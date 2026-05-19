@@ -12,6 +12,20 @@ const SITE = {
 const LINKS = {
   smartstore: 'https://smartstore.naver.com/neography',
 }
+const COMPANY = {
+  name: '네오그라피 주식회사',
+  ceo: '김성우',
+  address: '경기도 용인시 기흥구 강남서로 9, 아카데미프라자 7층 703-제이159호',
+  bizNumber: '651-81-03309',
+  mailOrderNumber: '제 2025-용인기흥-02814 호',
+  tel: '031-340-4345',
+  email: 'office@neography.co.kr',
+  hours: {
+    weekday: '평일 AM 10:00 – PM 17:00',
+    lunch: '점심 PM 12:00 – PM 13:00',
+    holiday: '주말·공휴일 휴무'
+  }
+};
 
 const ASSETS = {
   logo: '/soume-logo-black.png',
@@ -1717,6 +1731,88 @@ app.get('/', (c) => {
       .site-footer {
         padding-bottom: 100px;
       }
+      .site-footer {
+  background: #1a1a1a;
+  color: #999;
+  padding: 80px 24px 40px;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-brand {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 40px;
+}
+.footer-logo {
+  height: 28px;
+  filter: invert(1) brightness(0.9);
+  margin-bottom: 12px;
+}
+.footer-tagline {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #666;
+}
+.footer-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-col p {
+  margin: 4px 0;
+  color: #888;
+}
+.footer-col a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col a:hover {
+  color: #fff;
+}
+.footer-tel {
+  font-size: 18px;
+  color: #fff !important;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px !important;
+}
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid #2a2a2a;
+  text-align: center;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 60px 20px 32px;
+  }
+  .footer-info {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-tel {
+    font-size: 16px;
+  }
+}
+
     }
   </style>
 </head>
