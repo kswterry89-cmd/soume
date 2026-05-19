@@ -2020,11 +2020,17 @@ app.get('/', (c) => {
           </p>
         </div>
 
-        <div class="archive-grid">
+                <div class="archive-grid">
           ${archiveCardsHtml}
         </div>
+
+        <p class="ai-notice">
+          ※ 본 페이지에 사용된 일부 비주얼 이미지는 브랜드 무드 표현을 위해 AI로 생성된 이미지입니다.
+          실제 제품 패키지 및 성분 정보는 제품 상세 페이지 또는 스마트스토어를 참고해 주세요.
+        </p>
       </div>
     </section>
+
 
     <section class="section" id="purchase">
       <div class="container">
