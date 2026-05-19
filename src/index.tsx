@@ -1739,61 +1739,71 @@ app.get('/', (c) => {
   line-height: 1.8;
   letter-spacing: 0.02em;
 }
-.footer-inner {
+.site-footer .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
 }
-.footer-brand {
-  padding-bottom: 40px;
+.site-footer .footer-brand {
+  padding-bottom: 32px;
   border-bottom: 1px solid #2a2a2a;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
-.footer-logo {
-  height: 28px;
-  filter: invert(1) brightness(0.9);
-  margin-bottom: 12px;
+.site-footer .footer-logo-text {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin: 0;
 }
-.footer-tagline {
-  font-size: 12px;
-  letter-spacing: 0.15em;
+.site-footer .footer-tagline {
+  font-size: 11px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #666;
+  color: #777;
+  margin: 0;
 }
-.footer-info {
+.site-footer .footer-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
   margin-bottom: 48px;
 }
-.footer-col h4 {
+.site-footer .footer-col h4 {
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
 }
-.footer-col p {
+.site-footer .footer-col p {
   margin: 4px 0;
   color: #888;
+  font-size: 13px;
 }
-.footer-col a {
+.site-footer .footer-col a {
   color: #aaa;
   text-decoration: none;
   transition: color 0.2s;
 }
-.footer-col a:hover {
+.site-footer .footer-col a:hover {
   color: #fff;
 }
-.footer-tel {
-  font-size: 18px;
+.site-footer .footer-tel {
+  font-size: 17px;
   color: #fff !important;
   font-weight: 300;
   letter-spacing: 0.05em;
-  margin-bottom: 8px !important;
+  margin-bottom: 10px !important;
 }
-.footer-bottom {
-  padding-top: 32px;
+.site-footer .footer-bottom {
+  padding-top: 28px;
   border-top: 1px solid #2a2a2a;
   text-align: center;
   font-size: 11px;
@@ -1802,15 +1812,20 @@ app.get('/', (c) => {
 }
 @media (max-width: 768px) {
   .site-footer {
-    padding: 60px 20px 32px;
+    padding: 56px 20px 32px;
   }
-  .footer-info {
+  .site-footer .footer-info {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .footer-tel {
-    font-size: 16px;
+  .site-footer .footer-logo-text {
+    font-size: 24px;
   }
+  .site-footer .footer-tel {
+    font-size: 15px;
+  }
+}
+
 }
 
     }
@@ -2032,10 +2047,10 @@ app.get('/', (c) => {
     </section>
   </main>
 
-    <footer class="site-footer">
+      <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="${ASSETS.logo}" alt="Soumé" class="footer-logo" />
+        <p class="footer-logo-text">Soumé</p>
         <p class="footer-tagline">Perfumed Body Lotion Spray</p>
       </div>
 
@@ -2070,6 +2085,7 @@ app.get('/', (c) => {
       </div>
     </div>
   </footer>
+
 
   <a
     class="smart-fab"
