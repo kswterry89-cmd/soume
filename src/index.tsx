@@ -1827,6 +1827,35 @@ app.get('/', (c) => {
 }
 
 }
+.ai-notice {
+  max-width: 800px;
+  margin: 48px auto 0;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #888;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.site-footer .footer-ai-notice {
+  margin: 0 auto 12px;
+  max-width: 720px;
+  font-size: 11px;
+  color: #777;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 768px) {
+  .ai-notice {
+    margin-top: 32px;
+    font-size: 11px;
+    padding: 14px 16px;
+  }
+  .site-footer .footer-ai-notice {
+    font-size: 10px;
+  }
+}
 
     }
   </style>
@@ -2086,9 +2115,13 @@ app.get('/', (c) => {
         </div>
       </div>
 
-      <div class="footer-bottom">
+           <div class="footer-bottom">
+        <p class="footer-ai-notice">
+          ※ 본 사이트의 일부 비주얼 이미지는 브랜드 무드 표현을 위해 AI로 생성된 이미지이며, 실제 제품 사진이 아닙니다.
+        </p>
         <p>© 2026 ${COMPANY.name}. All rights reserved.</p>
       </div>
+
     </div>
   </footer>
 
