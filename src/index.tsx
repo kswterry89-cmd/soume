@@ -1936,11 +1936,41 @@ app.get('/', (c) => {
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-box">
-        <div>© Soumé. Perfumed Body Lotion Spray.</div>
-        <div>Official purchase link → Smart Store</div>
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="${ASSETS.logo}" alt="Soumé" class="footer-logo" />
+        <p class="footer-tagline">Perfumed Body Lotion Spray</p>
+      </div>
+
+      <div class="footer-info">
+        <div class="footer-col">
+          <h4>고객센터</h4>
+          <p class="footer-tel">${COMPANY.tel}</p>
+          <p>${COMPANY.hours.weekday}</p>
+          <p>${COMPANY.hours.lunch}</p>
+          <p>${COMPANY.hours.holiday}</p>
+          <p><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4>회사 정보</h4>
+          <p>상호: ${COMPANY.name}</p>
+          <p>대표: ${COMPANY.ceo}</p>
+          <p>주소: ${COMPANY.address}</p>
+          <p>사업자등록번호: ${COMPANY.bizNumber}</p>
+          <p>통신판매업신고: ${COMPANY.mailOrderNumber}</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>구매 및 채널</h4>
+          <p><a href="${LINKS.smartstore}" target="_blank" rel="noopener">네이버 스마트스토어</a></p>
+          <p><a href="mailto:${COMPANY.email}">제휴 · 문의</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 ${COMPANY.name}. All rights reserved.</p>
       </div>
     </div>
   </footer>
