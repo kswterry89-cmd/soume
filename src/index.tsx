@@ -71,7 +71,7 @@ const HERO_MEDIA = [
   {
     // 4번 슬라이드: '미백·주름개선 2중 기능성'에 어울리는 시그니처 디테일(미스트 클로즈업) 사용
     video: '/videos/soume/hero-04.mp4',
-    poster: ASSETS.lookbook-01,
+    poster: ASSETS.lookbook01,
     label: 'Dual Functional Care',
     title: '미백·주름개선\n2중 기능성 화장품',
     text: '나이아신아마이드와 아데노신이 향과 케어를 동시에 완성합니다.'
