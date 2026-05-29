@@ -150,15 +150,16 @@ const SIGNATURE_VISUALS = [
 ]
 
 const ARCHIVE = [
-  { image: ASSETS.editorial, title: 'Editorial Main', text: 'Soumé 브랜드 무드를 가장 깊이 있게 보여주는 에디토리얼 메인.' },
-  { image: ASSETS.lookbook01, title: 'Lookbook 01', text: '차분한 일상 속 바디 리추얼의 한 장면.' },
-  { image: ASSETS.lookbook02, title: 'Lookbook 02', text: '피부 위 미스트의 질감과 빛을 담은 컷.' },
-  { image: ASSETS.lookbook03, title: 'Lookbook 03', text: '제품과 사용자가 어우러지는 자연스러운 무드.' },
-  { image: ASSETS.campaign01, title: 'Ocean Breeze Campaign', text: '맑고 산뜻한 시트러스 아쿠아의 인상을 담은 캠페인.' },
-  { image: ASSETS.campaign02, title: 'Forest Whisper Campaign', text: '포근하고 깊이 있는 우디 머스크의 캠페인 컷.' },
-  { image: ASSETS.productDetail, title: 'Product Detail', text: '패키지의 디테일과 텍스처를 담은 제품 컷.' },
-  { image: ASSETS.brandPoster, title: 'Brand Film Poster', text: 'Soumé 브랜드 필름의 무드를 정리한 포스터 비주얼.' }
+  { image: ASSETS.signatureMain,   title: 'Editorial Main',          text: 'Soumé 브랜드 무드를 가장 깊이 있게 보여주는 에디토리얼 메인.' },
+  { image: ASSETS.lookbook01,      title: 'Lookbook 01',             text: '차분한 일상 속 바디 리추얼의 한 장면.' },
+  { image: ASSETS.lookbook02,      title: 'Lookbook 02',             text: '피부 위 미스트의 질감과 빛을 담은 컷.' },
+  { image: ASSETS.lookbook03,      title: 'Lookbook 03',             text: '제품과 사용자가 어우러지는 자연스러운 무드.' },
+  { image: ASSETS.campaign01,      title: 'Ocean Breeze Campaign',   text: '맑고 산뜻한 시트러스 아쿠아의 인상을 담은 캠페인.' },
+  { image: ASSETS.campaign02,      title: 'Forest Whisper Campaign', text: '포근하고 깊이 있는 우디 머스크의 캠페인 컷.' },
+  { image: ASSETS.signatureDetail, title: 'Product Detail',          text: '패키지의 디테일과 텍스처를 담은 제품 컷.' },
+  { image: ASSETS.signatureOpen,   title: 'Brand Film Poster',       text: 'Soumé 브랜드 필름의 무드를 정리한 포스터 비주얼.' }
 ]
+
 
 // ============ HTML 빌더 ============
 const heroSlidesHtml = HERO_MEDIA.map((slide, i) => `
