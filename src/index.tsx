@@ -69,8 +69,9 @@ const HERO_MEDIA = [
     text: 'Sandalwood · Jasmine · Musk. 차분하고 고급스러운 두 번째 시그니처.'
   },
   {
+    // 4번 슬라이드: '미백·주름개선 2중 기능성'에 어울리는 시그니처 디테일(미스트 클로즈업) 사용
     video: '/videos/soume/hero-04.mp4',
-    poster: ASSETS.signatureMain,
+    poster: ASSETS.signatureDetail,
     label: 'Dual Functional Care',
     title: '미백·주름개선\n2중 기능성 화장품',
     text: '나이아신아마이드와 아데노신이 향과 케어를 동시에 완성합니다.'
@@ -190,7 +191,7 @@ const heroProgressHtml = HERO_MEDIA.map((_, i) => `
 const productCardsHtml = PRODUCTS.map(p => `
   <article class="product-card">
     <div class="product-image">
-      <img src="${p.image}" alt="${p.name}" />
+      <img src="${p.image}" alt="${p.name}" loading="lazy" />
       <span class="product-badge">${p.badge}</span>
     </div>
     <div class="product-body">
@@ -212,7 +213,7 @@ const productCardsHtml = PRODUCTS.map(p => `
 `).join('')
 
 const fragranceCardsHtml = FRAGRANCE_NOTES.map((f, idx) => {
-  const type = idx === 0 ? 'ocean' : 'forest';
+  const type = idx === 0 ? 'ocean' : 'forest'
   return `
   <div class="fragrance-card" data-type="${type}">
     <h3>${f.product}</h3>
@@ -234,10 +235,8 @@ const fragranceCardsHtml = FRAGRANCE_NOTES.map((f, idx) => {
         <span>${f.base.desc}</span>
       </div>
     </div>
-  </div>
-  `;
+  </div>`
 }).join('')
-
 
 const ingredientCardsHtml = KEY_INGREDIENTS.map(i => `
   <div class="ingredient-card">
@@ -264,7 +263,7 @@ const howToUseHtml = HOW_TO_USE.map(h => `
 
 const signatureCardsHtml = SIGNATURE_VISUALS.map(s => `
   <div class="signature-card">
-    <div class="signature-image"><img src="${s.image}" alt="${s.title}" /></div>
+    <div class="signature-image"><img src="${s.image}" alt="${s.title}" loading="lazy" /></div>
     <span class="signature-step">${s.step}</span>
     <h3>${s.title}</h3>
     <p>${s.text}</p>
@@ -273,7 +272,7 @@ const signatureCardsHtml = SIGNATURE_VISUALS.map(s => `
 
 const archiveCardsHtml = ARCHIVE.map(a => `
   <div class="archive-card">
-    <div class="archive-image"><img src="${a.image}" alt="${a.title}" /></div>
+    <div class="archive-image"><img src="${a.image}" alt="${a.title}" loading="lazy" /></div>
     <span class="archive-tag">Archive</span>
     <h3>${a.title}</h3>
     <p>${a.text}</p>
@@ -385,36 +384,34 @@ app.get('/', (c) => {
     padding: 0 0 12vh 0;
   }
   .hero-content-inner {
-  width: 100%;
-  max-width: 720px;
-  margin-left: max(48px, calc((100vw - 1400px) / 2 + 48px));
-  margin-right: auto;
-  color: #fff;
-}
-.hero-label {
-  display: inline-block;
-  font-size: 11px; letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 24px; color: rgba(255,255,255,0.85);
-}
-.hero-title {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700; line-height: 1.3;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  word-break: keep-all;
-  max-width: 640px;
-}
-.hero-text {
-  font-size: 14px; line-height: 1.7;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 32px;
-  max-width: 560px;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
-  word-break: keep-all;
-}
-
+    width: 100%;
+    max-width: 720px;
+    margin-left: max(48px, calc((100vw - 1400px) / 2 + 48px));
+    margin-right: auto;
+    color: #fff;
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 24px; color: rgba(255,255,255,0.85);
+  }
+  .hero-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700; line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    word-break: keep-all;
+    max-width: 640px;
+  }
+  .hero-text {
+    font-size: 14px; line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 32px;
+    max-width: 560px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    word-break: keep-all;
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -470,9 +467,7 @@ app.get('/', (c) => {
     border-radius: 999px; cursor: pointer;
     transition: all 0.2s; border: 1px solid transparent;
   }
-  .btn-gold {
-    background: #b89968; color: #fff;
-  }
+  .btn-gold { background: #b89968; color: #fff; }
   .btn-gold:hover { background: #a68652; }
   .btn-line {
     background: transparent; color: #1a1a1a;
@@ -556,112 +551,109 @@ app.get('/', (c) => {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
   }
   .fragrance-card {
-  position: relative;
-  background: #fff;
-  padding: 48px 40px;
-  border-radius: 4px;
-  box-shadow: 0 2px 30px rgba(0,0,0,0.04);
-  overflow: hidden;
-}
-.fragrance-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #b89968 0%, #d4b885 50%, #ebe4d7 100%);
-}
-.fragrance-card[data-type="ocean"]::before {
-  background: linear-gradient(90deg, #7aa8b8 0%, #a8c8d4 50%, #d4e4ea 100%);
-}
-.fragrance-card[data-type="forest"]::before {
-  background: linear-gradient(90deg, #8a7a5c 0%, #b89968 50%, #d4c4a8 100%);
-}
-.fragrance-card::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; right: -60px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(184,153,104,0.08) 0%, transparent 70%);
-}
-.fragrance-card[data-type="ocean"]::after {
-  background: radial-gradient(circle, rgba(122,168,184,0.1) 0%, transparent 70%);
-}
-.fragrance-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px; font-weight: 400;
-  margin-bottom: 8px;
-  position: relative; z-index: 1;
-}
-.fragrance-subtitle {
-  font-size: 13px; color: #888;
-  margin-bottom: 36px;
-  position: relative; z-index: 1;
-  letter-spacing: 0.02em;
-}
-.fragrance-layers {
-  display: flex; flex-direction: column;
-  gap: 0;
-  position: relative; z-index: 1;
-}
-.fragrance-layer {
-  display: grid;
-  grid-template-columns: 90px 1fr 1.5fr;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0;
-  border-top: 1px solid #eee;
-  position: relative;
-}
-.fragrance-layer:last-child::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 0; right: 0;
-  height: 1px; background: #eee;
-}
-.fragrance-stage {
-  display: inline-flex;
-  align-items: center; gap: 8px;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: #b89968;
-  font-weight: 500;
-}
-.fragrance-stage::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #b89968;
-}
-.fragrance-card[data-type="ocean"] .fragrance-stage { color: #5a8a9a; }
-.fragrance-card[data-type="ocean"] .fragrance-stage::before { background: #5a8a9a; }
-.fragrance-card[data-type="forest"] .fragrance-stage { color: #8a7a5c; }
-.fragrance-card[data-type="forest"] .fragrance-stage::before { background: #8a7a5c; }
-.fragrance-layer strong {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.01em;
-}
-.fragrance-layer span:last-child {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.6;
-}
-@media (max-width: 768px) {
-  .fragrance-grid { grid-template-columns: 1fr; gap: 24px; }
-  .fragrance-card { padding: 36px 28px; }
+    position: relative;
+    background: #fff;
+    padding: 48px 40px;
+    border-radius: 4px;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .fragrance-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #b89968 0%, #d4b885 50%, #ebe4d7 100%);
+  }
+  .fragrance-card[data-type="ocean"]::before {
+    background: linear-gradient(90deg, #7aa8b8 0%, #a8c8d4 50%, #d4e4ea 100%);
+  }
+  .fragrance-card[data-type="forest"]::before {
+    background: linear-gradient(90deg, #8a7a5c 0%, #b89968 50%, #d4c4a8 100%);
+  }
+  .fragrance-card::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,153,104,0.08) 0%, transparent 70%);
+  }
+  .fragrance-card[data-type="ocean"]::after {
+    background: radial-gradient(circle, rgba(122,168,184,0.1) 0%, transparent 70%);
+  }
+  .fragrance-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 400;
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+  .fragrance-subtitle {
+    font-size: 13px; color: #888;
+    margin-bottom: 36px;
+    position: relative; z-index: 1;
+    letter-spacing: 0.02em;
+  }
+  .fragrance-layers {
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; z-index: 1;
+  }
   .fragrance-layer {
-    grid-template-columns: 70px 1fr;
-    grid-template-rows: auto auto;
-    gap: 8px 16px;
+    display: grid;
+    grid-template-columns: 90px 1fr 1.5fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    position: relative;
+  }
+  .fragrance-layer:last-child::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px; background: #eee;
+  }
+  .fragrance-stage {
+    display: inline-flex;
+    align-items: center; gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #b89968;
+    font-weight: 500;
+  }
+  .fragrance-stage::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #b89968;
+  }
+  .fragrance-card[data-type="ocean"] .fragrance-stage { color: #5a8a9a; }
+  .fragrance-card[data-type="ocean"] .fragrance-stage::before { background: #5a8a9a; }
+  .fragrance-card[data-type="forest"] .fragrance-stage { color: #8a7a5c; }
+  .fragrance-card[data-type="forest"] .fragrance-stage::before { background: #8a7a5c; }
+  .fragrance-layer strong {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.01em;
   }
   .fragrance-layer span:last-child {
-    grid-column: 2; grid-row: 2;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
   }
-}
-
+  @media (max-width: 768px) {
+    .fragrance-grid { grid-template-columns: 1fr; gap: 24px; }
+    .fragrance-card { padding: 36px 28px; }
+    .fragrance-layer {
+      grid-template-columns: 70px 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px 16px;
+    }
+    .fragrance-layer span:last-child {
+      grid-column: 2; grid-row: 2;
+    }
   }
 
   /* Ingredients */
@@ -714,23 +706,21 @@ app.get('/', (c) => {
     font-size: 13px; color: #666; line-height: 1.7;
   }
   .brand-image {
-  width: 100%;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  border-radius: 4px;
-  background: #eee;
-}
-.brand-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-@media (max-width: 900px) {
-  .brand-grid { grid-template-columns: 1fr; gap: 40px; }
-  .brand-image { aspect-ratio: 16/10; }
-}
-
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #eee;
+  }
+  .brand-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .brand-grid { grid-template-columns: 1fr; gap: 40px; }
+    .brand-image { aspect-ratio: 16/10; }
   }
 
   /* How to use */
@@ -762,14 +752,13 @@ app.get('/', (c) => {
   .signature-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
-  .signature-card { background: #fff; border-radius: 4px; overflow: hidden; }
+  .signature-card { background: #fff; border-radius: 4px; overflow: hidden; padding-bottom: 24px; }
   .signature-image {
     aspect-ratio: 3/4; overflow: hidden; background: #eee;
   }
   .signature-image img {
     width: 100%; height: 100%; object-fit: cover;
   }
-  .signature-card { padding-bottom: 24px; }
   .signature-step {
     display: inline-block;
     font-size: 11px; letter-spacing: 0.2em;
@@ -859,110 +848,79 @@ app.get('/', (c) => {
 
   /* Footer */
   footer.site-footer {
-    background: #1a1a1a !important;
-    color: #999 !important;
-    padding: 80px 0 40px !important;
-    font-size: 13px !important;
-    line-height: 1.8 !important;
-    letter-spacing: 0.02em !important;
-    margin-top: 80px !important;
-    width: 100% !important;
+    background: #1a1a1a; color: #999;
+    padding: 80px 0 40px;
+    font-size: 13px; line-height: 1.8;
+    letter-spacing: 0.02em;
+    margin-top: 80px; width: 100%;
   }
   footer.site-footer .footer-container {
-    max-width: 1200px !important; width: 100% !important;
-    margin: 0 auto !important; padding: 0 40px !important;
-    box-sizing: border-box !important;
+    max-width: 1200px; width: 100%;
+    margin: 0 auto; padding: 0 40px;
   }
   footer.site-footer .footer-brand {
-    padding-bottom: 32px !important;
-    border-bottom: 1px solid #2a2a2a !important;
-    margin-bottom: 40px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 40px;
+    display: flex; flex-direction: column;
+    align-items: flex-start; gap: 8px;
   }
   footer.site-footer .footer-logo-text {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: 28px !important;
-    font-weight: 400 !important;
-    color: #fff !important;
-    letter-spacing: 0.02em !important;
-    line-height: 1 !important;
-    margin: 0 !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400;
+    color: #fff; letter-spacing: 0.02em;
+    line-height: 1; margin: 0;
   }
   footer.site-footer .footer-tagline {
-    font-size: 11px !important;
-    letter-spacing: 0.2em !important;
-    text-transform: uppercase !important;
-    color: #777 !important;
-    margin: 0 !important;
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #777; margin: 0;
   }
   footer.site-footer .footer-info {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 48px !important;
-    margin-bottom: 48px !important;
-    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px; margin-bottom: 48px; width: 100%;
   }
-  footer.site-footer .footer-col { min-width: 0 !important; }
+  footer.site-footer .footer-col { min-width: 0; }
   footer.site-footer .footer-col h4 {
-    color: #fff !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.15em !important;
-    text-transform: uppercase !important;
-    margin: 0 0 16px 0 !important;
-    padding: 0 !important;
+    color: #fff; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin: 0 0 16px 0;
   }
   footer.site-footer .footer-col p {
-    margin: 4px 0 !important;
-    padding: 0 !important;
-    color: #888 !important;
-    font-size: 13px !important;
-    line-height: 1.8 !important;
+    margin: 4px 0; color: #888;
+    font-size: 13px; line-height: 1.8;
   }
   footer.site-footer .footer-col a {
-    color: #aaa !important;
-    text-decoration: none !important;
-    transition: color 0.2s !important;
+    color: #aaa; transition: color 0.2s;
   }
-  footer.site-footer .footer-col a:hover { color: #fff !important; }
+  footer.site-footer .footer-col a:hover { color: #fff; }
   footer.site-footer .footer-tel {
-    font-size: 17px !important;
-    color: #fff !important;
-    font-weight: 300 !important;
-    letter-spacing: 0.05em !important;
-    margin-bottom: 10px !important;
+    font-size: 17px; color: #fff;
+    font-weight: 300; letter-spacing: 0.05em;
+    margin-bottom: 10px;
   }
   footer.site-footer .footer-bottom {
-    padding-top: 28px !important;
-    border-top: 1px solid #2a2a2a !important;
-    text-align: center !important;
+    padding-top: 28px;
+    border-top: 1px solid #2a2a2a;
+    text-align: center;
   }
   footer.site-footer .footer-ai-notice {
-    font-size: 11px !important;
-    color: #777 !important;
-    line-height: 1.6 !important;
-    letter-spacing: 0.03em !important;
-    margin: 0 auto 12px !important;
-    max-width: 720px !important;
+    font-size: 11px; color: #777;
+    line-height: 1.6; letter-spacing: 0.03em;
+    margin: 0 auto 12px; max-width: 720px;
   }
   footer.site-footer .footer-copyright {
-    font-size: 11px !important;
-    color: #555 !important;
-    letter-spacing: 0.1em !important;
-    margin: 0 !important;
+    font-size: 11px; color: #555;
+    letter-spacing: 0.1em; margin: 0;
   }
   @media (max-width: 768px) {
-    footer.site-footer { padding: 56px 0 32px !important; }
-    footer.site-footer .footer-container { padding: 0 20px !important; }
+    footer.site-footer { padding: 56px 0 32px; }
+    footer.site-footer .footer-container { padding: 0 20px; }
     footer.site-footer .footer-info {
-      grid-template-columns: 1fr !important;
-      gap: 32px !important;
+      grid-template-columns: 1fr; gap: 32px;
     }
-    footer.site-footer .footer-logo-text { font-size: 24px !important; }
-    footer.site-footer .footer-tel { font-size: 15px !important; }
+    footer.site-footer .footer-logo-text { font-size: 24px; }
+    footer.site-footer .footer-tel { font-size: 15px; }
   }
 
   /* Smart FAB */
@@ -983,12 +941,8 @@ app.get('/', (c) => {
     font-weight: 700; font-size: 16px;
   }
   .smart-fab__text { display: flex; flex-direction: column; }
-  .smart-fab__text strong {
-    font-size: 10px; letter-spacing: 0.1em;
-  }
-  .smart-fab__text span {
-    font-size: 13px; font-weight: 500;
-  }
+  .smart-fab__text strong { font-size: 10px; letter-spacing: 0.1em; }
+  .smart-fab__text span { font-size: 13px; font-weight: 500; }
 </style>
 </head>
 <body>
@@ -1064,7 +1018,7 @@ app.get('/', (c) => {
             <div class="brand-points">${brandPointsHtml}</div>
           </div>
           <div class="brand-image">
-            <img src="${ASSETS.campaign01}" alt="Soumé brand visual" />
+            <img src="${ASSETS.campaign01}" alt="Soumé brand visual" loading="lazy" />
           </div>
         </div>
       </div>
@@ -1195,11 +1149,9 @@ app.get('/', (c) => {
         slides.forEach(function (s, i) {
           s.classList.toggle('is-active', i === index);
         });
-        progressItems.forEach(function (p, i) {
-          // 애니메이션 재시작을 위해 클래스 제거 후 다시 추가
+        progressItems.forEach(function (p) {
           p.classList.remove('is-active');
         });
-        // 강제 reflow
         void document.body.offsetWidth;
         progressItems.forEach(function (p, i) {
           if (i === index) p.classList.add('is-active');
