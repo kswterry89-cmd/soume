@@ -461,10 +461,31 @@ app.get('/', (c) => {
     object-position: center 25%; /* 인물의 얼굴이 상단에 보이도록 */
   }
   /* 슬라이드별 인물 위치 미세 조정 (필요 시 값만 바꾸면 됨) */
-  .hero-slide[data-index="0"] .hero-video { object-position: 90% 35%; } 
-  .hero-slide[data-index="1"] .hero-video { object-position: center 25%; }
-  .hero-slide[data-index="2"] .hero-video { object-position: center 25%; }
-  .hero-slide[data-index="3"] .hero-video { object-position: center 30%; }
+  /* 모든 슬라이드에 배경색 (줌아웃 시 빈 공간 채움) */
+.hero-slide { background: #1a1a1a; }
+
+/* 슬라이드별 위치 + 줌 비율 */
+.hero-slide[data-index="0"] .hero-video {
+  object-position: 90% 35%;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+.hero-slide[data-index="1"] .hero-video {
+  object-position: 75% 25%;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+.hero-slide[data-index="2"] .hero-video {
+  object-position: center 25%;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+.hero-slide[data-index="3"] .hero-video {
+  object-position: center 30%;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
 
   /* 가로 그라데이션 → 세로 그라데이션으로 변경 (하단을 어둡게) */
   .hero-overlay {
