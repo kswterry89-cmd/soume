@@ -457,10 +457,11 @@ app.get('/', (c) => {
   }
 @media (max-width: 768px) {
   /* ⬇️ 여기 새로 추가 (4줄) */
-  .hero {
-    height: 85vh;
-    min-height: 540px;
-  }
+ .hero {
+  height: 100vh;
+  min-height: 600px;
+}
+
 
   /* 모바일에서는 인물이 위, 텍스트가 아래로 분리되도록 */
   .hero-video {
@@ -468,10 +469,11 @@ app.get('/', (c) => {
   }
   /* 슬라이드별 인물 위치 미세 조정 (필요 시 값만 바꾸면 됨) */
   /* 모든 슬라이드에 배경색 (줌아웃 시 빈 공간 채움) */
-  .hero-slide[data-index="0"] .hero-video { object-position: 85% 35%; }
-  .hero-slide[data-index="1"] .hero-video { object-position: 50% 25%; }
-  .hero-slide[data-index="2"] .hero-video { object-position: 50% 25%; }
-  .hero-slide[data-index="3"] .hero-video { object-position: 50% 30%; }
+ .hero-slide[data-index="0"] .hero-video { object-position: 85% 20%; }
+.hero-slide[data-index="1"] .hero-video { object-position: 50% 15%; }
+.hero-slide[data-index="2"] .hero-video { object-position: 50% 15%; }
+.hero-slide[data-index="3"] .hero-video { object-position: 50% 20%; }
+
 
 
 
@@ -487,10 +489,11 @@ app.get('/', (c) => {
   }
 
   /* 텍스트 영역을 하단으로 고정, 좌우 여백 정리 */
-  .hero-content {
-    align-items: flex-end;
-    padding: 0 0 16vh 0;
-  }
+ .hero-content {
+  align-items: flex-end;
+  padding: 0 0 10vh 0;   /* 16vh → 10vh: 텍스트를 더 아래로 */
+}
+
   .hero-content-inner {
     margin-left: 0;
     padding: 0 24px;
