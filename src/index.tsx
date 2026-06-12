@@ -478,15 +478,16 @@ app.get('/', (c) => {
 
 
   /* 가로 그라데이션 → 세로 그라데이션으로 변경 (하단을 어둡게) */
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0) 40%,
-      rgba(0,0,0,0.55) 70%,
-      rgba(0,0,0,0.8) 100%
-    );
-  }
+ .hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.1) 0%,
+    rgba(0,0,0,0.1) 35%,
+    rgba(0,0,0,0.7) 65%,
+    rgba(0,0,0,0.9) 100%
+  );
+}
+
 
   /* 텍스트 영역을 하단으로 고정, 좌우 여백 정리 */
  .hero-content {
