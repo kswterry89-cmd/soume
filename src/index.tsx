@@ -461,7 +461,7 @@ app.get('/', (c) => {
     object-position: center 25%; /* 인물의 얼굴이 상단에 보이도록 */
   }
   /* 슬라이드별 인물 위치 미세 조정 (필요 시 값만 바꾸면 됨) */
-  .hero-slide[data-index="0"] .hero-video { object-position: right 40%; }
+  .hero-slide[data-index="0"] .hero-video { object-position: 0% 30%; } 
   .hero-slide[data-index="1"] .hero-video { object-position: center 25%; }
   .hero-slide[data-index="2"] .hero-video { object-position: center 25%; }
   .hero-slide[data-index="3"] .hero-video { object-position: center 30%; }
