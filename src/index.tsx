@@ -455,11 +455,82 @@ app.get('/', (c) => {
   .hero-progress-item.is-active .hero-progress-num {
     color: #fff;
   }
-  @media (max-width: 768px) {
-    .hero-content { padding-bottom: 18vh; }
-    .hero-content-inner { padding: 0 24px; margin-left: 24px; }
-    .hero-progress { bottom: 30px; }
+ @media (max-width: 768px) {
+  /* 모바일에서는 인물이 위, 텍스트가 아래로 분리되도록 */
+  .hero-video {
+    object-position: center 25%; /* 인물의 얼굴이 상단에 보이도록 */
   }
+  /* 슬라이드별 인물 위치 미세 조정 (필요 시 값만 바꾸면 됨) */
+  .hero-slide[data-index="0"] .hero-video { object-position: center 20%; }
+  .hero-slide[data-index="1"] .hero-video { object-position: center 25%; }
+  .hero-slide[data-index="2"] .hero-video { object-position: center 25%; }
+  .hero-slide[data-index="3"] .hero-video { object-position: center 30%; }
+
+  /* 가로 그라데이션 → 세로 그라데이션으로 변경 (하단을 어둡게) */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 40%,
+      rgba(0,0,0,0.55) 70%,
+      rgba(0,0,0,0.8) 100%
+    );
+  }
+
+  /* 텍스트 영역을 하단으로 고정, 좌우 여백 정리 */
+  .hero-content {
+    align-items: flex-end;
+    padding: 0 0 16vh 0;
+  }
+  .hero-content-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  /* 폰트 크기 모바일에 맞춰 축소 */
+  .hero-label {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-size: clamp(22px, 6vw, 30px);
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+  .hero-text {
+    font-size: 13px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+  .hero-actions { gap: 8px; }
+  .btn {
+    padding: 12px 22px;
+    font-size: 12px;
+  }
+
+  /* 프로그레스바 위치 */
+  .hero-progress {
+    bottom: 24px;
+    width: calc(100% - 48px);
+  }
+
+  /* 우측 하단 FAB이 버튼을 가리지 않도록 살짝 더 여유 */
+  .smart-fab { bottom: 16px; right: 16px; }
+}
+
+/* 아주 작은 화면(360px 이하)용 보조 */
+@media (max-width: 380px) {
+  .hero-content { padding-bottom: 18vh; }
+  .hero-title { font-size: 22px; }
+  .hero-text { font-size: 12px; }
+  .smart-fab {
+    padding: 10px 14px 10px 12px;
+  }
+  .smart-fab__text strong { font-size: 9px; }
+  .smart-fab__text span { font-size: 11px; }
+}
+
 
   /* Buttons */
   .btn {
