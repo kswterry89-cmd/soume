@@ -469,7 +469,7 @@ app.get('/', (c) => {
   /* 슬라이드별 인물 위치 미세 조정 (필요 시 값만 바꾸면 됨) */
   /* 모든 슬라이드에 배경색 (줌아웃 시 빈 공간 채움) */
   .hero-slide[data-index="0"] .hero-video { object-position: 85% 35%; }
-  .hero-slide[data-index="1"] .hero-video { object-position: 80% 25%; }
+  .hero-slide[data-index="1"] .hero-video { object-position: 50% 25%; }
   .hero-slide[data-index="2"] .hero-video { object-position: 50% 25%; }
   .hero-slide[data-index="3"] .hero-video { object-position: 50% 30%; }
 
