@@ -466,12 +466,12 @@ app.get('/', (c) => {
 
 /* 슬라이드별 위치 + 줌 비율 */
 .hero-slide[data-index="0"] .hero-video {
-  object-position: 90% 35%;
+  object-position: 80% 35%;
   transform: scale(0.9);
   transform-origin: center;
 }
 .hero-slide[data-index="1"] .hero-video {
-  object-position: 75% 25%;
+  object-position: 80% 25%;
   transform: scale(0.9);
   transform-origin: center;
 }
